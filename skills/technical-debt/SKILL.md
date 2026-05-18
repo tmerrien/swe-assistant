@@ -209,3 +209,10 @@ Before they submit, make sure they've defined how they'll know the work worked. 
 - The user is reviewing a *current* PR — route to [`code-review`](../code-review/SKILL.md).
 - The user is asking about balancing maintenance vs new work *in general* — that's [`owner-playbook`](../owner-playbook/SKILL.md) territory; this skill is for specific named debt.
 - The user is asking how to refactor *while in the middle of doing it* — that's a tactical question, not a debt decision. Help them refactor.
+
+## Further reading
+
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../READING-LIST.md) for full entries.
+
+- *Refactoring: Improving the Design of Existing Code* — Martin Fowler. The "code smells" vocabulary in this book sharpens the discipline of *recognizing* debt — distinguishing real structural problems from code you just don't like. The skill's diagnostic ("can you name the interest being paid?") gets much sharper with code-smell language.
+- *The Mythical Man-Month* — Frederick P. Brooks Jr. Two relevant ideas: **Brooks's law** for thinking about why "throw more people at the debt" rarely works, and the general framing of essential vs accidental complexity that informs which debt is worth paying down at all.

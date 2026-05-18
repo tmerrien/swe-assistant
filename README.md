@@ -3,7 +3,7 @@
 A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Skills: 16](https://img.shields.io/badge/skills-16-blue.svg)](#skills)
+[![Skills: 18](https://img.shields.io/badge/skills-18-blue.svg)](#skills)
 [![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
 ---
@@ -63,6 +63,8 @@ Each `SKILL.md` includes a description (which determines when the skill triggers
 | [`technical-debt`](./skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
 | [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
 | [`commit-and-pr-hygiene`](./skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
+| [`change-discipline`](./skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
+| [`choose-boring-technology`](./skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
 
 ## How to Use
 
@@ -140,6 +142,8 @@ This work is informed by, and gratefully acknowledges, the following primary sou
 - Fowler, M. *Technical Debt Quadrant*. https://martinfowler.com/bliki/TechnicalDebtQuadrant.html — Used in `technical-debt`.
 - Beams, C. *How to Write a Git Commit Message*. https://chris.beams.io/posts/git-commit/ — Source of the seven commit-message rules used in `commit-and-pr-hygiene`.
 - Broadwell, M. M. (1969). *Teaching for Learning*. — Source of the Four Stages of Competence framework underlying Chapter 2 skills.
+- Horowitz, B. (2014). *The Hard Thing About Hard Things*. Harper Business. — Source of the "10× better" decision rule used across `change-discipline` and `choose-boring-technology`.
+- McKinley, D. *Choose Boring Technology*. http://boringtechnology.club/ — Source of the innovation-tokens framework and the boring-technology discipline used in `choose-boring-technology`.
 
 Additional sources are tracked in [`READING-LIST.md`](./READING-LIST.md), with status indicators showing which have been read and folded into the skills.
 

@@ -49,6 +49,22 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The foundational text for many modern engineering practices — pair programming, TDD, continuous integration, small releases, refactoring as discipline. Touches several skills. Probably the most cross-cutting book on this list.
 
+### The Legacy Code Programmer's Toolbox
+
+- **Author:** Jonathan Boccara (2021)
+- **Source:** *The Missing Readme*, Ch. 3 Level Up
+- **Relates to:** [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** A modern, pragmatic companion to Feathers' *Working Effectively with Legacy Code*. Covers practical techniques for understanding, navigating, and changing unfamiliar codebases — including material on reading code, refactoring under uncertainty, and the psychological side of legacy-code work that Feathers does not directly address. Likely to broaden `changing-legacy-code` with techniques beyond the original five-step algorithm.
+
+### The Mythical Man-Month: Essays on Software Engineering
+
+- **Author:** Frederick P. Brooks Jr. (Addison-Wesley, 1975; Anniversary Edition 1995)
+- **Source:** *The Missing Readme*, Ch. 3 Level Up
+- **Relates to:** [`change-discipline`](./skills/change-discipline/SKILL.md) (second-system effect, rewrites), [`owner-playbook`](./skills/owner-playbook/SKILL.md) (project planning, Brooks's law), [`technical-debt`](./skills/technical-debt/SKILL.md) (managing complexity)
+- **Status:** To read
+- **Why this matters here:** Foundational collection of essays on software engineering management. Two concepts in particular are directly applicable to existing-code work: **Brooks's law** (*"adding manpower to a late software project makes it later"*) and the **second-system effect** (the tendency to over-engineer the second version of a system once the first one's constraints are removed). The second-system effect is exactly the trap `change-discipline` warns about in its rewrite section. The Anniversary Edition adds the retrospective essay *"No Silver Bullet"* and its 1995 update, both worth reading.
+
 ### Presence: Bringing Your Boldest Self to Your Biggest Challenges
 
 - **Author:** Amy Cuddy (Little, Brown Spark, 2015)
@@ -57,10 +73,26 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The embodied side of impostor syndrome — how posture, physical state, and small pre-game rituals can shift how you show up. *Note:* some of the power-pose research has had replication issues; the broader thesis about embodied self-trust still has supporting evidence and the book is worth reading critically.
 
+### The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers
+
+- **Author:** Ben Horowitz (Harper Business, 2014)
+- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`change-discipline`](./skills/change-discipline/SKILL.md) (not Level Up; cited within the chapter's main content)
+- **Relates to:** [`change-discipline`](./skills/change-discipline/SKILL.md), [`choose-boring-technology`](./skills/choose-boring-technology/SKILL.md), [`owner-playbook`](./skills/owner-playbook/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Source of the "10× better" rule used as the decision criterion across the change-discipline skills. The book is primarily about startup leadership but contains substantial material on engineering judgment, hard decisions, and the cost of switching — much of it directly applicable to technical decisions about rewrites, new technology adoption, and organizational change.
+
+### Refactoring: Improving the Design of Existing Code
+
+- **Author:** Martin Fowler (Addison-Wesley, 2nd ed. 2018)
+- **Source:** *The Missing Readme*, Ch. 3 Level Up
+- **Relates to:** [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) (refactoring catalog), [`technical-debt`](./skills/technical-debt/SKILL.md) (code-smells vocabulary), [`software-entropy`](./skills/software-entropy/SKILL.md) (recognizing patterns of decay)
+- **Status:** To read
+- **Why this matters here:** The canonical catalog of refactoring techniques. The second edition (2018) is updated to use JavaScript and modern tooling. Source of the "code smells" vocabulary — long method, duplicated code, feature envy, primitive obsession, and so on — that engineers use to recognize and discuss problems in existing code. Pairs naturally with Feathers' *Working Effectively with Legacy Code*: Fowler tells you *what* to refactor; Feathers tells you *how to do it safely when there are no tests*.
+
 ### Working Effectively with Legacy Code
 
 - **Author:** Michael C. Feathers (Prentice Hall, 2004)
-- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) (not Level Up; cited within the chapter's main content)
+- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) (cited within the chapter's main content) AND in the Ch. 3 Level Up reading list
 - **Relates to:** [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md), [`technical-debt`](./skills/technical-debt/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The canonical text on safely changing existing code. The five-step algorithm and dependency-breaking techniques captured in `changing-legacy-code` come from this book, but the book itself goes far deeper — many seam-introducing techniques the skill doesn't yet capture, plus extended worked examples. Worth reading cover-to-cover.
@@ -68,6 +100,15 @@ Each entry shows:
 ---
 
 ## Articles
+
+### Choose Boring Technology
+
+- **Author:** Dan McKinley
+- **URL:** http://boringtechnology.club/
+- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`choose-boring-technology`](./skills/choose-boring-technology/SKILL.md) (not Level Up; cited within the chapter's main content)
+- **Relates to:** [`choose-boring-technology`](./skills/choose-boring-technology/SKILL.md), [`change-discipline`](./skills/change-discipline/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Foundational essay/talk on technology adoption discipline in engineering teams. Source of the "innovation tokens" vocabulary used in `choose-boring-technology`. Short read; the essay form crystallizes the argument in a way the skill body doesn't fully capture. The talk version (linked from the site) covers additional ground.
 
 ### How to Write a Git Commit Message
 

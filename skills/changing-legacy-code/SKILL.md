@@ -186,6 +186,8 @@ Confirm the plan. Remind them to run tests after every IDE refactor, and to come
 
 ## Further reading
 
-Surfaced as a primary reference but not yet folded in — see [`READING-LIST.md`](../../READING-LIST.md) for the full entry.
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../READING-LIST.md) for full entries.
 
-- *Working Effectively with Legacy Code* — Michael C. Feathers. The original source for the algorithm and the dependency-breaking techniques. Worth reading cover-to-cover; the depth far exceeds what this skill captures.
+- *Working Effectively with Legacy Code* — Michael C. Feathers. The original source for the algorithm and dependency-breaking techniques. Worth reading cover-to-cover; the depth far exceeds what this skill captures.
+- *Refactoring: Improving the Design of Existing Code* — Martin Fowler. The canonical refactoring catalog and the "code smells" vocabulary. Pairs with Feathers: Fowler tells you *what* to refactor, Feathers tells you *how to do it safely without tests*.
+- *The Legacy Code Programmer's Toolbox* — Jonathan Boccara. A modern, pragmatic companion that covers reading unfamiliar code, navigating large codebases, and the psychological side of legacy work.
