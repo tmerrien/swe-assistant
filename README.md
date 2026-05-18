@@ -16,6 +16,11 @@ This repository provides a working set of AI **skills** — situation-triggered 
 
 **Scope.** This is a *coaching framework*, not a code-generation toolkit. The skills aim to make practitioners better at the underlying engineering work, not to perform that work for them. They will not write code, design systems, or compose documents on the user's behalf; they will prompt the user through frameworks for doing those things deliberately.
 
+**Positioning.** The project offers two separable artifacts:
+
+1. **A methodology** for packaging engineering wisdom as situation-triggered AI-coaching skills (documented in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)). The methodology is the primary intended contribution and is meant to be applied by other educators, researchers, and practitioners building their own skill sets from their own sources.
+2. **A reference implementation** — the 18 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
+
 **Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
 ## Background
@@ -28,6 +33,8 @@ The design rests on three theoretical anchors, drawn from the engineering litera
 
 Further theoretical references — including Fowler's Technical Debt Quadrant, Feathers' *Working Effectively with Legacy Code*, Beams' commit-message conventions, and others — are cited inline in the relevant skill bodies and tracked in [`READING-LIST.md`](./READING-LIST.md).
 
+The broader theoretical grounding (deliberate practice, scaffolding theory, situated cognition, cognitive load theory, and the AI-augmented learning literature) is documented in [`docs/THEORETICAL-FOUNDATIONS.md`](./docs/THEORETICAL-FOUNDATIONS.md).
+
 ## Repository Contents
 
 ```
@@ -38,6 +45,13 @@ swe-assistant/
 ├── JOURNEY.md                      Five-stage career-progression map
 ├── READING-LIST.md                 Source-material tracker (status: to read / read / folded)
 ├── LICENSE                         Creative Commons Attribution 4.0
+├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
+├── CONTRIBUTING.md                 Contribution process and skill style conventions
+├── docs/                           Academic and pedagogical documentation
+│   ├── THEORETICAL-FOUNDATIONS.md  Educational and cognitive literature the methodology draws on
+│   ├── METHODOLOGY.md              The skill-construction method, intended to be applied by others
+│   ├── LIMITATIONS.md              Honest catalog of what this is, isn't, and doesn't yet establish
+│   └── FOR-EDUCATORS.md            Practical guidance for course adoption, assignments, discussion
 └── skills/                         One subdirectory per skill, each containing SKILL.md
 ```
 
@@ -91,6 +105,17 @@ https://github.com/tmerrien/swe-assistant
 ```
 
 Once installed, no further action is required from the user. Skills activate based on the descriptions in their YAML frontmatter; users describe their situation in natural language and the appropriate skill (if any) is loaded automatically. A single skill may also be invoked manually with `/<skill-name>`.
+
+## For Researchers and Educators
+
+Faculty members evaluating this project for course adoption, research use, or as a worked example of AI-mediated pedagogy should start with four documents in [`docs/`](./docs/):
+
+- **[`docs/THEORETICAL-FOUNDATIONS.md`](./docs/THEORETICAL-FOUNDATIONS.md)** — situates the methodology in the educational and cognitive literature: Broadwell's stages of competence, deliberate practice, scaffolding theory, situated cognition, cognitive load theory, and the emerging AI-augmented learning literature.
+- **[`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)** — specifies the skill-construction method explicitly enough that others can apply it. This is the project's primary intended contribution.
+- **[`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)** — honest catalog of what the project claims, what it does not claim, and what would be required to establish empirical support. Important reading before evaluation.
+- **[`docs/FOR-EDUCATORS.md`](./docs/FOR-EDUCATORS.md)** — concrete pedagogical use: course-integration suggestions, sample assignments, discussion prompts, and paths for adapting the project to other contexts.
+
+The current 18 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
 
 ## Design Principles
 
