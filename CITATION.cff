@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: >-
+  If you use, adapt, or reference this work, please cite it as
+  shown below.
+type: dataset
+title: >-
+  SWE Assistant: A Curated Collection of Claude AI Skills for
+  Software Engineers
+authors:
+  - family-names: Merrien
+    given-names: Tanguy
+    email: tmerrien@outlook.com
+abstract: >-
+  A curated collection of Claude AI skills for software engineers,
+  organized by recurring engineering situations and informed by
+  established engineering literature. Each skill is a Markdown
+  document with YAML frontmatter (Anthropic skills format) that
+  surfaces coaching prompts — checklists, frames, and questions —
+  drawn from sources such as The Missing Readme (Riccomini &
+  Ryaboy), Working Effectively with Legacy Code (Feathers), and
+  Fowler's Technical Debt Quadrant. The skills are designed to
+  prompt practitioner thinking rather than replace it, supporting
+  the climb through Broadwell's stages of competence in early- and
+  mid-career software engineering. Intended for students, junior
+  engineers, educators, and curriculum designers.
+keywords:
+  - software-engineering
+  - engineering-education
+  - junior-engineer
+  - claude-ai
+  - claude-skills
+  - coaching
+  - pedagogy
+  - open-educational-resources
+  - mentoring
+  - professional-development
+version: 0.1.0
+date-released: "2026-05-18"
+license: CC-BY-4.0
+url: "https://github.com/tmerrien/swe-assistant"
+repository-code: "https://github.com/tmerrien/swe-assistant"

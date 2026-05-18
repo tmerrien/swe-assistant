@@ -1,111 +1,150 @@
 # SWE Assistant
 
-Tanguy's growing software engineering assistant — a coherent set of Claude skills that surface at the moment they're needed, distilled from everything I'm reading, doing, and learning along the way.
+A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
-## Why this exists
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Skills: 16](https://img.shields.io/badge/skills-16-blue.svg)](#skills)
+[![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
-You read the book. You highlight the good parts. You agree with everything. Then you go back to work and you write the same code review you would have written before reading it. The lessons live in your highlights, not in your hands.
+---
 
-The other half of the problem: AI is getting good enough to do the work for you. That makes you faster, but it can also let you skip the struggle that produces understanding — you ship the code without building the model. So the question isn't *should I use AI*, it's *how do I use AI in a way that prompts the thinking instead of replacing it?*
+## Overview
 
-## The idea
+This repository provides a working set of AI **skills** — situation-triggered coaching prompts — for software engineers in early and mid-career. Each skill activates when the user is in (or about to enter) a specific engineering situation, and surfaces a checklist, frame, or question drawn from established engineering practice rather than producing the work for the user.
 
-A single coherent assistant, organized by **situation**, not by source. When the situation arises — opening a PR, getting paged, prepping for a 1:1, debugging, joining a new team — the relevant skill fires and surfaces a coaching prompt: a frame, a checklist, a question.
+**Intended audience:** computer science students, junior and mid-level software engineers, engineering educators, and curriculum designers.
 
-Each skill is a living distillation. When I read something new and it changes how I think about a situation, the corresponding skill gets updated; the new source goes into that skill's `Sources` section. Over time each skill becomes the synthesis of many inputs rather than the echo of one — the way a senior engineer's instincts actually work.
+**Scope.** This is a *coaching framework*, not a code-generation toolkit. The skills aim to make practitioners better at the underlying engineering work, not to perform that work for them. They will not write code, design systems, or compose documents on the user's behalf; they will prompt the user through frameworks for doing those things deliberately.
 
-Skills here are designed to **coach, not replace your thinking**. A skill should give you a frame, a checklist, or a question — never do the work for you. Over enough reps, the skill becomes unnecessary because you've internalized the practice. That's the whole point.
+**Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
-## What's in here
+## Background
+
+The design rests on three theoretical anchors, drawn from the engineering literature:
+
+1. **A four-pillar model of engineering competence** — Technical Knowledge, Execution, Communication, Leadership — adapted from Riccomini and Ryaboy (*The Missing Readme*, 2021, Ch. 1). Every skill in this repository declares which pillar(s) it strengthens.
+2. **A five-stage career progression** — Newcomer → Ramp-Up → Contributor → Operator → Owner — also adapted from Riccomini and Ryaboy. Skills are tagged with the stage(s) they most apply to.
+3. **Broadwell's Four Stages of Competence** (unconscious incompetence → conscious incompetence → conscious competence → unconscious competence). The skills are designed to accelerate the climb from Stage 1 to Stage 3, where deliberate practice is teachable; Stage 4 (automaticity) is left to time on task.
+
+Further theoretical references — including Fowler's Technical Debt Quadrant, Feathers' *Working Effectively with Legacy Code*, Beams' commit-message conventions, and others — are cited inline in the relevant skill bodies and tracked in [`READING-LIST.md`](./READING-LIST.md).
+
+## Repository Contents
 
 ```
 swe-assistant/
-├── .claude-plugin/
-│   └── plugin.json             # Plugin manifest
-├── OBJECTIVES.md               # The four pillars — the rubric for "strong player"
-├── JOURNEY.md                  # The stage map — Newcomer → strong player
-├── READING-LIST.md             # Books/articles/talks to read; what they'd shape
-├── README.md
-└── skills/                     # one folder per skill
-    ├── asking-for-help/
-    ├── changing-legacy-code/
-    ├── code-review/
-    ├── commit-and-pr-hygiene/
-    ├── contributor-playbook/
-    ├── design-doc/
-    ├── growth-obstacles/
-    ├── growth-self-check/
-    ├── incident-response/
-    ├── learning-toolkit/
-    ├── new-team-onboarding/
-    ├── operator-playbook/
-    ├── owner-playbook/
-    ├── ramp-up-playbook/
-    ├── software-entropy/
-    └── technical-debt/
+├── .claude-plugin/plugin.json      Plugin manifest (Anthropic plugin format)
+├── README.md                       This file
+├── OBJECTIVES.md                   Four-pillar competence rubric
+├── JOURNEY.md                      Five-stage career-progression map
+├── READING-LIST.md                 Source-material tracker (status: to read / read / folded)
+├── LICENSE                         Creative Commons Attribution 4.0
+└── skills/                         One subdirectory per skill, each containing SKILL.md
 ```
 
-`OBJECTIVES.md` defines *what* good looks like (the four pillars). `JOURNEY.md` defines *the path* you walk to get there (stages from Newcomer onward). Together they're the design rubric every skill is built against.
-
-`READING-LIST.md` tracks books, articles, and talks surfaced (mostly from each chapter's "Level Up" section) that should eventually inform the skills. Entries stay honest about status — *to read* / *reading* / *read* / *folded* — so the skill bodies only ever cite material that's actually shaped them.
+Each `SKILL.md` includes a description (which determines when the skill triggers in conversation), the source materials that inform it, the engineering pillar(s) it strengthens, and a structured coaching protocol.
 
 ## Skills
 
-| Skill | Stage(s) | Pillar(s) strengthened | Fires when… |
+| Skill | Stage(s) | Pillar(s) strengthened | Triggering situation |
 |---|---|---|---|
-| [`growth-self-check`](./skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta — touches all four) | You're reflecting on your own growth: prepping for a 1:1 or review, asking "how am I doing", planning what to learn, doing a retro |
-| [`new-team-onboarding`](./skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication (also Technical Knowledge) | You're in (or about to enter) the first weeks at a new company, team, or role |
-| [`ramp-up-playbook`](./skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution (also Technical Knowledge) | You're past first weeks but not yet productive — learning the codebase, putting up first PRs, building the manager relationship, figuring out status updates |
-| [`contributor-playbook`](./skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication (also Technical Knowledge, emerging Leadership) | You're trusted with bigger work — owning a feature end-to-end, helping teammates, scoping, OKRs/quarterly goals |
-| [`code-review`](./skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution (also Technical Knowledge) | You're about to leave (or are reacting to) feedback on a pull request |
-| [`operator-playbook`](./skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution (also Communication, building Leadership) | You're taking responsibility for what happens after merge — delivery pipeline, observability, on-call prep, defending software |
-| [`incident-response`](./skills/incident-response/SKILL.md) | Operator (any-stage if on-call) | Execution, Communication (also Technical Knowledge) | The pager fired, prod is on fire, or you're prepping for first on-call shift |
-| [`owner-playbook`](./skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership (also Technical Knowledge) | You're driving a small project, designing software, balancing maintenance vs new work, thinking about team process or longer-term career |
-| [`design-doc`](./skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution (also Technical Knowledge) | You're writing or reviewing a technical design document, RFC, or ADR |
-| [`learning-toolkit`](./skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta — builds all four over time) | You're trying to learn something deliberately — a codebase, a system, a tool, a domain — rather than just shipping a specific thing |
-| [`asking-for-help`](./skills/asking-for-help/SKILL.md) | Any | Communication, Execution (builds Leadership) | You're about to ask a colleague for help, hesitating to ask, drafting a question, stuck and wondering whether to ask, or reflecting on whether you ask too much or too little |
-| [`growth-obstacles`](./skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta — improves accuracy of self-assessment across all four) | You feel like a fraud or like everyone knows more than you (impostor) — or you're moving fast and confident on something you might not fully understand (Dunning-Kruger) |
-| [`software-entropy`](./skills/software-entropy/SKILL.md) | Any | Communication, Leadership (also Technical Knowledge) | You're frustrated with a messy codebase and starting to blame "whoever wrote this" — needs the reframe before blame culture sets in |
-| [`technical-debt`](./skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership (also Execution, Technical Knowledge) | You're identifying, prioritizing, or proposing the payoff of specific tech debt — and need to communicate about it with your team or manager |
-| [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge (also Communication) | You're about to modify existing code — especially code that's unfamiliar, untested, or scary — and want to do it safely |
-| [`commit-and-pr-hygiene`](./skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | You're writing a commit message, preparing a PR, or cleaning up your commit history before review |
+| [`growth-self-check`](./skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth: prepping for a 1:1 or review, asking how one is doing, doing a retrospective |
+| [`new-team-onboarding`](./skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
+| [`ramp-up-playbook`](./skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
+| [`contributor-playbook`](./skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
+| [`code-review`](./skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
+| [`operator-playbook`](./skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution, Communication | Taking responsibility post-merge: delivery pipeline, observability, on-call preparation |
+| [`incident-response`](./skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
+| [`owner-playbook`](./skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
+| [`design-doc`](./skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
+| [`learning-toolkit`](./skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
+| [`asking-for-help`](./skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
+| [`growth-obstacles`](./skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
+| [`software-entropy`](./skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
+| [`technical-debt`](./skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
+| [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
+| [`commit-and-pr-hygiene`](./skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
 
-## Install
+## How to Use
 
-Clone or add this repo as a Claude plugin source.
+### Direct reading
+
+The skills can be read as standalone reference material — each `SKILL.md` is a self-contained Markdown document. Educators may use individual skills as discussion prompts, reading-group material, or supplementary content. No AI tool is required for this mode of use.
+
+### As a Claude plugin
+
+The intended primary mode of use is as an installed Claude plugin. Once installed, the skills auto-trigger when a user describes a matching situation in conversation with Claude.
+
+**Installation (Claude Code CLI):**
 
 ```
-/plugin install tmerrien/swe-assistant
+claude plugin add tmerrien/swe-assistant
 ```
 
-Or in Cowork, paste the GitHub URL into Settings → Plugins → Add Plugin:
+**Installation (Claude Cowork desktop):**
+
+Settings → Plugins → Add Plugin → paste the repository URL:
 
 ```
 https://github.com/tmerrien/swe-assistant
 ```
 
-## Design principles
+Once installed, no further action is required from the user. Skills activate based on the descriptions in their YAML frontmatter; users describe their situation in natural language and the appropriate skill (if any) is loaded automatically. A single skill may also be invoked manually with `/<skill-name>`.
 
-1. **Prompt the thinking, don't replace it.** Skills give checklists and questions, not finished answers.
-2. **Trigger on situations, not topics.** A skill fires when you're *about to do something*, not when a topic is mentioned.
-3. **Synthesize sources, don't enshrine them.** Each skill carries a `Sources` section that grows as new inputs arrive — books, articles, talks, lessons learned.
-4. **Cite what informed you.** Every source that shaped a skill gets named, so the trail back to the original is preserved.
-5. **Paraphrase, don't copy.** Skill bodies are operational ("do X, then Y"), not literary excerpts.
+## Design Principles
 
-## Sources informing the current skills
+The skills in this repository follow five principles. New contributions are expected to follow them as well.
 
-- *The Missing Readme: A Guide for the New Software Engineer* — Chris Riccomini & Dmitriy Ryaboy (No Starch Press, 2021). [Buy it.](https://nostarch.com/missing-readme)
+1. **Prompt the thinking, do not replace it.** Skills surface checklists and questions, not finished answers. The user performs the engineering work; the skill provides scaffolding.
+2. **Trigger on situations, not on topics.** A skill activates when the user is about to take a specific action, not when a topic is mentioned in passing.
+3. **Synthesize sources, do not enshrine them.** Each skill's `Sources` section accumulates references over time as new materials inform the practice. No single source is treated as authoritative.
+4. **Cite the literature that shaped the skill.** Every source that informed a skill is named inline, preserving the path back to the original work.
+5. **Paraphrase, do not reproduce.** Skill bodies are operational ("do X, then Y"), not literary excerpts. Underlying source materials retain their own copyrights and are credited but not reproduced.
 
-(More sources will appear here as the assistant grows.)
+## How to Cite
 
-## Status
+If you reference, adapt, or build on this work, please cite it as follows:
 
-Chapter 1 fully mapped: nine skills covering all five stages of the journey (Newcomer → Ramp-Up → Contributor → Operator → Owner). Chapter 2 ("Getting to Conscious Competence") produced three meta-skills on the practice of learning itself — `learning-toolkit`, `asking-for-help`, `growth-obstacles`. Chapter 3 ("Working with Existing Code") in progress — four skills so far: `software-entropy` (reframe for natural mess), `technical-debt` (discipline for named debt), `changing-legacy-code` (Feathers' algorithm for safely modifying existing code), `commit-and-pr-hygiene` (the communication artifacts around changes). 16 skills total.
+> Merrien, T. (2026). *SWE Assistant: A curated collection of Claude AI skills for software engineers* (Version 0.1.0) [Software]. https://github.com/tmerrien/swe-assistant
 
-## License & attribution
+A machine-readable citation is also available in [`CITATION.cff`](./CITATION.cff), which GitHub renders as a *Cite this repository* button at the top of the project page.
 
-This work is licensed under [**Creative Commons Attribution 4.0 International (CC BY 4.0)**](./LICENSE).
+For inline attribution in derived works, the suggested string is:
 
-You're free to share, adapt, and build on it — for academic use, professional learning, or anything else — as long as you give appropriate credit and link to the license.
+> *Based on the SWE Assistant by T. Merrien (CC BY 4.0). https://github.com/tmerrien/swe-assistant*
 
-The underlying ideas in the skills come from books, articles, and other sources that retain their original copyrights — credited inline in each skill's `## Source` section and tracked in [`READING-LIST.md`](./READING-LIST.md). When you fork or adapt this work, **please preserve those inline attributions as well as the top-level license.** And if a skill helps you, please support the original authors by buying the source books.
+## Contributing
+
+Contributions are welcome. Areas of particular interest include:
+
+- **New skills** for situations not yet covered, following the five design principles above.
+- **Source integration** — folding wisdom from books on the [`READING-LIST.md`](./READING-LIST.md) into the relevant skills, updating Sources sections, and marking entries as **Folded**.
+- **Trigger-description refinements** based on real-world use — cases where a skill should have activated and did not, or activated when it should not have.
+- **Translation** of skills into other languages.
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for details on the contribution process, skill style conventions, and review expectations.
+
+## License
+
+This work is licensed under the **Creative Commons Attribution 4.0 International License** (CC BY 4.0). See [`LICENSE`](./LICENSE) for the full text.
+
+You are free to share and adapt the material for any purpose, including academic and commercial use, provided that appropriate credit is given, a link to the license is provided, and changes are indicated.
+
+The underlying ideas paraphrased in the skills (from *The Missing Readme*, *Working Effectively with Legacy Code*, Fowler's writing, Beams' article, and other cited works) remain the intellectual property of their respective authors and are not relicensed by this work. Forks and adaptations must preserve both this license and the inline source attributions within each skill body.
+
+## Acknowledgements & Source Materials
+
+This work is informed by, and gratefully acknowledges, the following primary sources:
+
+- Riccomini, C., & Ryaboy, D. (2021). *The Missing Readme: A Guide for the New Software Engineer*. No Starch Press. — Source of the four-pillar competence model, the five-stage journey, and several individual skill frameworks.
+- Feathers, M. C. (2004). *Working Effectively with Legacy Code*. Prentice Hall. — Source of the Legacy Code Change Algorithm and dependency-breaking techniques used in `changing-legacy-code`.
+- Fowler, M. *Technical Debt Quadrant*. https://martinfowler.com/bliki/TechnicalDebtQuadrant.html — Used in `technical-debt`.
+- Beams, C. *How to Write a Git Commit Message*. https://chris.beams.io/posts/git-commit/ — Source of the seven commit-message rules used in `commit-and-pr-hygiene`.
+- Broadwell, M. M. (1969). *Teaching for Learning*. — Source of the Four Stages of Competence framework underlying Chapter 2 skills.
+
+Additional sources are tracked in [`READING-LIST.md`](./READING-LIST.md), with status indicators showing which have been read and folded into the skills.
+
+## Maintainer
+
+Tanguy Merrien — `tmerrien@outlook.com`
+
+Issues and pull requests are welcome through the GitHub repository at https://github.com/tmerrien/swe-assistant.
