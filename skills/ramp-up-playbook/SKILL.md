@@ -37,15 +37,17 @@ If the user expresses anxiety about being slow or unproductive, surface the mind
 
 Two or three sentences. Welcome them to the next stage. Name the mindset (above). Tell them you'll tailor the rest to where they are.
 
-### Step 2 — Ask where they are
+### Step 2 — If their first message doesn't already tell you, ask ONE short question
 
-Useful framings:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), this is one question, not a list. Skip the step entirely if the user already told you.
 
-- About 1 month in?
-- 2–3 months in?
-- Stuck on a specific situation (first big PR, first 1:1, first solo task, status update)?
+Otherwise, ask something like: *"What's the situation — early in the ramp, a few months in, or stuck on something specific?"* — phrased as one question.
 
-Wait for the answer. Use it to prioritize the sections in Step 3.
+The categories below are how *you* read the situation in your reasoning, not options to recite back to the user:
+
+- About 1 month in.
+- 2–3 months in.
+- Stuck on a specific situation (first big PR, first 1:1, first solo task, status update).
 
 ### Step 3 — Surface the relevant moves
 

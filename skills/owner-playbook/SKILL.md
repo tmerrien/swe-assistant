@@ -35,16 +35,20 @@ This skill fires when the user is in (or asked about) that mode. It coaches the 
 
 Two or three sentences. Name the shift (shipping → thinking about the system). Tell them you'll tailor.
 
-### Step 2 — Ask where they are
+### Step 2 — If their first message doesn't already tell you, ask ONE short question
 
-Useful framings:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), this is one question, not a list. Skip the step entirely if the user already gave you the context.
 
-- About to take on a project to drive end-to-end?
-- In the design phase of something — wondering how to think through it?
-- Looking at the codebase or pipeline and seeing real problems, but unsure when/whether to push for fixes?
-- Trying to figure out the maintenance vs new-feature balance?
-- Have ideas about team process you want to bring to a 1:1?
-- Performance review prep or career conversation with manager?
+Otherwise, ask something like: *"What's the situation — driving a project, designing something, balancing maintenance, team-process thinking, or career prep?"* — phrased as one question.
+
+The categories below are how *you* read the situation, not options to recite back:
+
+- About to take on a project to drive end-to-end.
+- In the design phase of something — wondering how to think through it.
+- Looking at the codebase or pipeline and seeing real problems, unsure when/whether to push for fixes.
+- Trying to figure out the maintenance vs new-feature balance.
+- Has ideas about team process to bring to a 1:1.
+- Performance review prep or career conversation with manager.
 
 ### Step 3 — Surface the relevant moves
 

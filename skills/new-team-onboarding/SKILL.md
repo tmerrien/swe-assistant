@@ -35,17 +35,21 @@ If the user seems anxious about being impressive, performing, or "proving themse
 
 Two or three sentences. Welcome them. Name the mindset (above). Tell them you'll tailor the rest to where they are in the timeline.
 
-### Step 2 — Ask where they are
+### Step 2 — If their first message doesn't already tell you, ask ONE short question
 
-One question, options:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), this is one question, not a list. Skip the step entirely if the user already told you (most do — "starting Monday", "first week", "month 2").
 
-- Haven't started yet (next week, next month)?
-- First few days?
-- Week 2–4?
-- Month 2–3?
-- Transferring to a new team within the same company?
+Otherwise, ask something like: *"Where are you in the timeline — haven't started yet, first days, week 2–4, or further in?"* — phrased as one question, not multiple.
 
-Wait for the answer. Use it to prioritize which sections of the playbook to surface in Step 3.
+The categories below are how *you* read the situation in your own reasoning; they are not options to list back to the user.
+
+Possible cases to read for:
+
+- Haven't started yet (next week, next month).
+- First few days.
+- Week 2–4.
+- Month 2–3.
+- Transferring to a new team within the same company.
 
 ### Step 3 — Surface the relevant moves
 

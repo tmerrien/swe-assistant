@@ -33,30 +33,62 @@ This skill exists because it accelerates the climb from Stage 2 (conscious incom
 
 ## How to run
 
-### Step 1 — Frame
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol) at every step: **one question per turn, accept brief responses as complete, work on the draft if there is one, don't lead toward unrequested solutions.**
 
-A sentence or two. Surface the mindset (drain vs martyr) if they sound stuck on either failure mode.
+### Step 1 — Read what they brought, then act
 
-### Step 2 — Ask where they are
+Most asks arrive with enough context to skip the diagnostic. Look at the user's first message and choose the shortest path:
 
-Useful framings:
+- **They have a draft of the question already** → skip to Step 4 and work on the draft directly. Don't restart.
+- **They have a specific blocker** (e.g., *"I've been stuck for two hours, should I ask?"*) → go to Step 3, surface only the relevant piece (usually Timebox).
+- **They're hesitating** (e.g., *"I don't want to bother Alice"*) → surface the mindset (drain vs martyr) in one or two sentences, then ask one question if needed.
+- **They're reflecting abstractly** (e.g., *"I feel like I ask too much"*) → surface the mindset, then let them lead.
 
-- **About to ask** someone — drafting a question, picking who to ask?
-- **Hesitating** to ask — worried about being annoying, looking dumb, interrupting?
-- **Stuck for a while** — unsure if they've passed the point where asking would have been right?
-- **Reflecting** — wondering if they ask too much or too little overall?
+If one of the above fits, go directly to the matching step. **Do not run a diagnostic just because the body lists one.**
 
-### Step 3 — Surface the relevant sections
+### Step 2 — If (and only if) you still need more, ask ONE question
 
-For each case, the most useful pieces of the framework are different. Don't dump everything — pick 2–4 sections.
+Only when Step 1 doesn't give you enough to proceed. One short question, picked from these examples (pick *one*, not all of them):
 
-### Step 4 — If they're drafting a question, apply the template
+- *"What's the question you want to ask?"* (if they haven't shown it yet)
+- *"What's blocking you right now?"* (if the situation is unclear)
+- *"What have you tried so far?"* (only if they explicitly said they've been at it a while)
 
-Use the template under "Show Your Work" below. Walk them through it section by section. Often the act of writing the question well solves the question (that's rubber ducking — see callout).
+Then wait for the answer before continuing. **Never list options for them to choose from in a single message.**
 
-### Step 5 — Close
+### Step 3 — Surface only what fits
 
-One or two sentences. Confirm the move, offer to look at the question draft if they want a second pair of eyes.
+Pull one or two pieces from the framework (Sections A–F below). Pick what matches their actual situation, not the whole list. Examples:
+
+- Stuck and unsure whether to ask → Timebox (B).
+- Worried about interrupting → Don't Interrupt (D).
+- Always asking the same person → Multicast (E) or Batching (F).
+
+### Step 4 — Work on the draft if there is one
+
+If they shared a question, work on the text directly. Don't drag them through the template section by section.
+
+Check the draft against three things:
+
+1. **Is the *what* clear?** What's broken / what they're trying to do / what isn't working.
+2. **Is the ask explicit?** What kind of response would help — a pointer, a fix, a sanity check.
+3. **Is the urgency obvious if it matters?** *"No rush"* or *"blocked, need to ship today"* — without this the responder guesses.
+
+If something is genuinely missing, name *one* specific addition and suggest the wording. If the draft is fine, say so and tell them to post it.
+
+**Critical:** brief is fine. A short, clear question with a hunch is a complete ask, not an incomplete one. **Do not demand hypothesis.** **Do not demand all template sections.** Senior askers (and many junior ones) show up with exactly the question they want refined — help them refine; don't restart.
+
+### Step 5 — One concrete next move
+
+Almost always one of:
+
+- *"Post it."* (if the draft is fine)
+- *"Revise [the one thing] and post it."* (if there's a specific small fix)
+- *"Wait the timebox out, then ask if you're still stuck."* (if they were leaning toward asking too soon)
+
+### Step 6 — Close
+
+One sentence. Offer to take a second look after they get a reply, then stop talking.
 
 ---
 
@@ -113,7 +145,18 @@ Alice has nothing to go on. She has to ask you four follow-up questions before s
 
 Alice can engage immediately. She has context, the work you've already done, your hypothesis, the urgency level, and supporting data.
 
-**The template that produces this kind of question:**
+**The elements of a useful question** — pick what serves the specific ask. Not all questions need all of these.
+
+- **The what.** What's broken / what you're trying to do / what isn't working.
+- **The ask.** What kind of response would help — a pointer, a fix, a sanity check.
+- *(Often helpful)* **What you tried**, briefly. Short bullets of things you've already ruled out.
+- *(Often helpful)* **Urgency.** *"No rush"* or *"blocked on this"* — without it the responder guesses.
+- *(Optional)* **A hunch.** *"I think it might be X — do you have to publish to the marketplace first?"* gives the responder a path to confirm or push back on. Some askers prefer to leave the hunch out so the responder isn't led down a wrong path; that choice is theirs, not yours.
+- *(When relevant)* **Attached:** logs, screenshots, env details, links to relevant code or PR.
+
+**Short questions are fine if they're clear.** A two-line question with the *what* and the *ask* is often better than a wall of context. Length isn't the goal; signal is.
+
+If you want a structured scaffold for a complex ask, here's a fuller form — treat it as reference, not as a checklist to complete:
 
 ```
 1. Context (1–2 sentences):
@@ -124,7 +167,7 @@ Alice can engage immediately. She has context, the work you've already done, you
    - [thing I tried] → [what happened]
    - [where I looked] → [what I found / didn't find]
 
-3. My current hypothesis (even if uncertain):
+3. (Optional) My current hypothesis:
    "It seems like X, but I'm not sure because Y."
 
 4. What I need from you:
@@ -137,7 +180,7 @@ Alice can engage immediately. She has context, the work you've already done, you
    code or PR.
 ```
 
-Length isn't the goal — *signal* is. A four-line question with all five elements beats a four-paragraph wall of text that buries the ask.
+**Worth saying explicitly:** hypothesis is optional, not required. If the asker prefers not to lead the responder, leaving the hypothesis out is a valid choice. Don't pressure them to add one.
 
 ### D. Don't interrupt
 
@@ -204,10 +247,16 @@ Two practical ways to rubber duck:
 
 ## Output style
 
-- Conversational. Surface only the relevant sections — don't dump the whole framework.
-- If they're hesitating, lead with the mindset (drain vs martyr). Most hesitation is irrational fear of being a drain; almost everyone errs toward martyr.
-- If they're drafting a question, **work through their actual draft with them.** Apply the template to their text. Be specific about what to add or trim.
-- If they sound like they're interrupting too often, frame it gently — name the multicast/async and batching options rather than scolding.
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol). Specifically for this skill:
+
+- **One question per turn.** If multiple things need clarifying, ask the most important first. Wait for the answer.
+- **If they have a draft, work on the draft.** Don't restart the diagnostic. Don't ask them to fill in template sections.
+- **Brief asks are complete asks.** A short, clear question with a hunch is a finished ask — help them refine and post.
+- **Hypothesis is optional, never required.** Many askers (especially senior ones) deliberately leave hypothesis out to avoid leading the responder. That's a valid choice; don't push.
+- **Don't assume the asker is junior.** Senior practitioners ask as often as juniors. They've usually done the research; they may have a proposed solution attached. Help them refine, don't audit their preparation.
+- **Surface only the framework section that fits.** Don't list multiple sections for them to pick from in a single message.
+- **If they're hesitating, lead with the mindset (drain vs martyr).** Most hesitation is unjustified fear of being a drain; most people err toward martyr. Naming the failure mode on the *other* side gives them permission to ask.
+- **Match the user's register.** If they're casual, be casual. If they're stressed (incident territory), be brief.
 
 ## When NOT to use this skill
 

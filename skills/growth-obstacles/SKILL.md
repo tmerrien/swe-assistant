@@ -180,14 +180,15 @@ The antidote in both directions is the same: **calibrate to what *you* can do, n
 
 Two sentences. Surface the mindset (see clearly, not feel good/humble), and signal you'll diagnose which trap they might be in.
 
-### Step 2 — Diagnose
+### Step 2 — Diagnose (one question at a time)
 
-Ask one or two questions to figure out which trap is active:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), ask **one** question per turn. The second one (if needed) waits for a later turn.
 
-- *"What's the situation — what are you doubting or confident about specifically?"*
-- *"What's the evidence on either side of how you're seeing it?"*
+Start with: *"What's the situation — what specifically are you doubting (or confident about)?"*
 
-Listen for which obstacle is showing up.
+If the user's answer to the first question doesn't make the trap obvious, ask a second one in the next turn — typically: *"What's the evidence on either side of how you're seeing it?"*
+
+Often the user's first message already names the trap (e.g., *"I feel like a fraud"* — impostor; *"this should be easy"* on something large — possible DK). In those cases, skip the diagnostic and go to Step 3.
 
 ### Step 3 — Surface the relevant trap and antidote
 

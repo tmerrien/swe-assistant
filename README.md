@@ -39,7 +39,9 @@ The broader theoretical grounding (deliberate practice, scaffolding theory, situ
 
 ```
 swe-assistant/
-├── .claude-plugin/plugin.json      Plugin manifest (Anthropic plugin format)
+├── .claude-plugin/
+│   ├── marketplace.json            Marketplace manifest (so the repo is installable via /plugin marketplace add)
+│   └── plugin.json                 Plugin manifest (Anthropic plugin format)
 ├── README.md                       This file
 ├── OBJECTIVES.md                   Four-pillar competence rubric
 ├── JOURNEY.md                      Five-stage career-progression map
@@ -88,21 +90,47 @@ The skills can be read as standalone reference material — each `SKILL.md` is a
 
 ### As a Claude plugin
 
-The intended primary mode of use is as an installed Claude plugin. Once installed, the skills auto-trigger when a user describes a matching situation in conversation with Claude.
+The intended primary mode of use is as an installed Claude plugin. Once installed, skills activate automatically when a user describes a matching situation in conversation with Claude.
 
-**Installation (Claude Code CLI):**
+This repository is structured as a Claude *marketplace* containing a single *plugin* (also called `swe-assistant`). Installation follows the standard marketplace-then-plugin pattern.
 
-```
-claude plugin add tmerrien/swe-assistant
-```
+**Installation in Claude Code (CLI):**
 
-**Installation (Claude Cowork desktop):**
-
-Settings → Plugins → Add Plugin → paste the repository URL:
+Inside an active Claude Code session, run the following slash commands:
 
 ```
-https://github.com/tmerrien/swe-assistant
+/plugin marketplace add tmerrien/swe-assistant
+/plugin install swe-assistant@swe-assistant
 ```
+
+Verify with `/plugins`, which opens an interactive list of installed plugins and the skills each provides.
+
+**Installation in Claude desktop (Cowork):**
+
+Open Organization settings → Plugins → **Add plugins** → choose **Add marketplace from GitHub**, then enter:
+
+```
+tmerrien/swe-assistant
+```
+
+Once the marketplace is added, install the `swe-assistant` plugin from it. The plugin-management UI path is currently gated to organization administrators in Cowork; if you do not see the relevant settings, the manual fallback below works on any account.
+
+**Manual fallback (any platform):**
+
+If the marketplace/plugin install path does not work for your version or environment, the `skills/` directory can be copied directly into your local Claude skills folder:
+
+- **macOS / Linux:** copy `skills/*` into `~/.claude/skills/` (each skill is its own subdirectory containing `SKILL.md`).
+- **Windows:** copy `skills/*` into `%USERPROFILE%\.claude\skills\`.
+
+After copying, fully quit and relaunch Claude (closing the window is insufficient on macOS — use Cmd-Q).
+
+**Verifying installation:**
+
+In Claude Code, run `/plugins` to list installed plugins and their skills. In Cowork, the installed plugins appear in Organization settings → Plugins.
+
+**A note on accuracy:**
+
+Anthropic's plugin system has evolved rapidly during 2025–2026. The commands above reflect the documented install paths at the time of writing; if you find them inaccurate for your current Claude version, please open an issue on the repository so they can be updated. The manual fallback is the most version-independent path.
 
 Once installed, no further action is required from the user. Skills activate based on the descriptions in their YAML frontmatter; users describe their situation in natural language and the appropriate skill (if any) is loaded automatically. A single skill may also be invoked manually with `/<skill-name>`.
 

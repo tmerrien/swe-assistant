@@ -48,10 +48,16 @@ The chapter's argument: **Stage 1 → 3 is teachable. Stage 3 → 4 is just time
 
 Two or three sentences. Surface the mindset, mention the four stages if relevant, and tell the user you'll tailor what you suggest based on what they're actually trying to learn.
 
-### Step 2 — Ask two questions
+### Step 2 — If their first message isn't already specific enough, ask ONE question
 
-1. **What are you trying to learn?** Be specific. *"Our payments codebase"* > *"backend stuff"*. *"How async/await actually works in Python"* > *"Python better"*.
-2. **What have you already tried, if anything?** This is the crucial second question — it tells you which stage they're at. If they've tried nothing, they may still be in unconscious incompetence (don't yet know what to look for). If they've tried things and feel stuck, they're in conscious incompetence and need a different push.
+Often the user's first message tells you what they want to learn, and you can skip straight to Step 3. If it does not, ask **one** of the following — not both, not a list. Pick the most useful one for the situation:
+
+- *"What specifically are you trying to learn?"* — when the goal is vague (*"I want to be better at engineering"* needs sharpening).
+- *"What have you tried already, if anything?"* — when the goal is clear but you need to know which stage they're at.
+
+Ask one. Wait for the answer. The second question, if needed, comes in a later turn — never in the same message.
+
+Many users will include both pieces of context in their first message unprompted. When they do, **do not re-ask.**
 
 ### Step 3 — Surface 2–4 relevant techniques
 
@@ -218,10 +224,14 @@ The test: in six months, can you do what the AI helped you with today, *without*
 
 ## Output style
 
-- Conversational. Surface 2–4 techniques based on what they're trying to learn — don't dump the whole toolkit.
-- If they've tried things already, lean into techniques they *haven't* tried.
-- For specific learning targets (e.g., "learn the codebase"), pull the most relevant subset of "Read" and "Experiment" and "Pair" — and skip side projects unless they bring it up.
-- The four stages callout fires when the user is unsure where they are in their learning, or when "I don't know what I don't know" is the actual problem.
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol). Specifically for this skill:
+
+- **One question per turn.** Never ask the *what-are-you-learning* and *what-have-you-tried* questions in the same message.
+- **Skip the diagnostic if the first message already answers it.** Many users give you the context unprompted; don't re-ask.
+- **Surface 2–4 techniques** based on what they're trying to learn — don't dump the whole toolkit.
+- **If they've tried things already, lean into techniques they haven't tried** rather than re-suggesting what they tried.
+- For specific learning targets (e.g., "learn the codebase"), pull the most relevant subset of *Read*, *Experiment*, and *Pair* — skip side projects unless they bring it up.
+- The four-stages callout fires when the user is genuinely unsure where they are in their learning, or when *"I don't know what I don't know"* is the actual problem.
 
 ## When NOT to use this skill
 

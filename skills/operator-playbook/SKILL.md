@@ -38,15 +38,21 @@ If the user is anxious about going on-call or about something they shipped break
 
 Two or three sentences. Name the shift (shipping → operating). Tell them you'll tailor the rest.
 
-### Step 2 — Ask where they are
+### Step 2 — If their first message doesn't already tell you, ask ONE short question
 
-Useful framings:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), this is one question, not a list. Skip the step if the user already gave you the context.
 
-- About to join the on-call rotation for the first time?
-- Trying to understand how the team's deploy pipeline works?
-- Investigating a production issue right now? *(if yes, route to* [`incident-response`](../incident-response/SKILL.md) *and come back later)*
-- Designing a feature and wondering how to ship it safely?
-- Wanting an overview because this whole area feels foreign?
+Otherwise, ask something like: *"What's the situation — joining on-call, learning the deploy pipeline, designing for safe rollout, or wanting an overview?"* — phrased as one question.
+
+If they mention an active production issue at any point, drop everything and route to [`incident-response`](../incident-response/SKILL.md).
+
+The categories below are how *you* read the situation, not options to recite back:
+
+- About to join the on-call rotation for the first time.
+- Trying to understand how the team's deploy pipeline works.
+- Investigating a production issue right now (→ route to [`incident-response`](../incident-response/SKILL.md)).
+- Designing a feature and wondering how to ship it safely.
+- Wanting an overview because this whole area feels foreign.
 
 ### Step 3 — Surface the relevant moves
 

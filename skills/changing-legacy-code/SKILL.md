@@ -138,14 +138,18 @@ But know their limits:
 
 ## How to run
 
-### Step 1 — Diagnose
+### Step 1 — Diagnose (one question at a time)
 
-Ask two questions:
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol): ask **one** question per turn.
 
-- *"What are you trying to change, and what tests cover it today?"*
-- *"How scared are you to touch it, on a scale of 'mild caution' to 'this could take down production'?"*
+You need two pieces of information to choose the right level of rigor: *what's being changed and what tests exist*, and *how risky the change is*. Often the user gives you the first in their initial message; ask only what they haven't already told you.
 
-The answers tell you which steps of the algorithm to walk through and how much rigor to bring.
+Start with whichever is missing. Examples:
+
+- *"What are you trying to change, and what tests cover that area today?"* (if the change target is unclear)
+- *"How risky is this change — mild caution, or could-take-down-production?"* (if you have the change target but not the risk)
+
+Ask one, wait for the answer, ask the next in a later turn if you still need it. **Never ask both in one message.**
 
 ### Step 2 — Pick the right level
 

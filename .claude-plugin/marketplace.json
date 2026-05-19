@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "swe-assistant",
+  "version": "0.1.0",
+  "description": "A marketplace containing the swe-assistant plugin: a curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.",
+  "owner": {
+    "name": "Tanguy Merrien",
+    "email": "tmerrien@outlook.com"
+  },
+  "plugins": [
+    {
+      "name": "swe-assistant",
+      "source": ".",
+      "description": "Situation-triggered coaching skills for software engineers — code reviews, incidents, onboarding, design docs, debt proposals, and more. Each skill surfaces a frame, a checklist, or the right question rather than producing the work for the user.",
+      "category": "knowledge",
+      "keywords": ["software-engineering", "career", "junior-engineer", "onboarding", "code-review", "incidents", "communication", "leadership"]
+    }
+  ]
+}

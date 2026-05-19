@@ -193,7 +193,51 @@ The methodology is content-agnostic. It is a way of packaging engineering wisdom
 
 ---
 
-## 10. Applying the methodology
+## 10. Output protocol
+
+Skills run as multi-turn conversations, not single-shot responses. Each step in a skill body's *How to run* section is intended as a separate conversational turn. The following protocol applies to every skill activation. It addresses a failure mode observed in early use: skill bodies that list multiple diagnostic framings can be misread as "ask all of these at once," producing an interrogation rather than a conversation.
+
+### 10.1 One question per turn
+
+When a skill needs information to proceed (typically in its diagnostic step), it asks **one question per response**, not several. If multiple things need clarifying, the skill prioritizes the most important and asks that one first; subsequent turns ask the next, if still needed.
+
+Bullet lists of diagnostic framings in skill bodies are reference material for the skill's logic, not a script of consecutive questions to deliver in a single turn.
+
+### 10.2 Accept brief responses as complete
+
+Users describe their situations in the language they have. A short message (*"I'm stuck on X"*, *"How do I phrase this question?"*) is a valid starting point. The skill responds to the input given; it does not demand template-completeness before responding.
+
+Templates and frameworks that the skill body provides are *reference material the skill may surface* — they are not preconditions the user must satisfy before receiving help.
+
+### 10.3 Calibrate to the user, not the template
+
+The skill body is written assuming a typical case. Real users vary. A senior practitioner asking a question has often already done the research and may already have a hypothesis; a junior may not. The skill responds to what the user shows, not to what the typical-case template assumes.
+
+In particular: **the skill should not assume the asker is junior, hasn't tried things, or needs the diagnostic step at all.** Senior askers may show up with a fully-formed question that just needs a sanity check.
+
+### 10.4 Diagnose with the minimum questions, not the maximum
+
+Every question asked is a tax on the user's time and patience. The skill diagnoses with as few questions as it can to give useful help. If the user's first message provides enough context to skip the diagnostic step, the diagnostic step is skipped.
+
+### 10.5 Work on the draft when there is one
+
+When a user shows up with a draft (a question to ask, a design doc, a commit message, a debt proposal), the skill works on the draft directly. It does not restart its diagnostic protocol from the top. The structure of the skill body assumes the user is starting from scratch; when they are not, the skill fast-forwards to the relevant step.
+
+### 10.6 Do not lead toward solutions the user did not propose
+
+When helping a user formulate a question (or any artifact), the skill surfaces frameworks that support the user's own thinking. It does not propose solutions to the underlying problem unless asked. Proposing a solution too early can lead the user — or the eventual responder — down a path that may be wrong.
+
+This rule is a corollary of Design Principle 1 (*prompt the thinking; do not replace it*), made explicit at the turn-by-turn level.
+
+### 10.7 The principle in one sentence
+
+**Help with what the user brought, with as few questions as possible, one at a time.**
+
+This protocol is the closest thing the methodology has to a runtime contract. Skill bodies may describe elaborate multi-step diagnostic flows, but at execution time the constraint above takes precedence.
+
+---
+
+## 11. Applying the methodology
 
 An educator or researcher who wishes to build their own skill set should expect to:
 

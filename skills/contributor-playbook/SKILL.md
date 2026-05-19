@@ -36,15 +36,19 @@ This skill fires when the user is in (or asking about) that stage. It helps them
 
 Two or three sentences: name the shift (absorbing → shipping & helping), and tell them you'll tailor the rest.
 
-### Step 2 — Ask where they are
+### Step 2 — If their first message doesn't already tell you, ask ONE short question
 
-Useful framings:
+Per the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol), this is one question, not a list. Skip the step if the user already gave you the context.
 
-- About to own your first sizeable feature?
-- Mid-project, scoping or stuck on a design call?
-- Helping teammates more often and want a frame for it?
-- OKRs or quarterly goals due?
-- Something else specific?
+Otherwise, ask something like: *"What's the situation — first sizeable feature, mid-project, helping teammates, goal-setting, or something else?"* — phrased as one question.
+
+The categories below are how *you* read the situation, not options to recite back:
+
+- About to own a first sizeable feature.
+- Mid-project: scoping or stuck on a design call.
+- Helping teammates more often and wants a frame for it.
+- OKRs or quarterly goals due.
+- Something else specific.
 
 ### Step 3 — Surface the relevant moves
 

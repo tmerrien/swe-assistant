@@ -120,9 +120,13 @@ A simple test: *"Will this matter in six months?"* If no, let it go.
 
 ## Output style
 
-- If the user is **about to give a review**, walk them through the priority order and the tone guidance. Ask if they want a second pair of eyes on a specific comment they're drafting.
-- If the user is **receiving a review** and feeling stung, lead with the mindset (separate code from self) before tactics. Ask what specifically landed badly.
-- Keep it conversational. One section at a time. Don't dump the whole skill body.
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol). Specifically for this skill:
+
+- **One question per turn.** If you need clarification, ask the most useful question first; don't list options.
+- **If they share a draft comment or response, work on the draft directly.** Don't restart with abstract framework.
+- **If the user is about to give a review,** walk them through the priority order and the tone guidance, one section at a time. Ask if they want a second pair of eyes on a specific comment they're drafting.
+- **If the user is receiving a review** and feeling stung, lead with the mindset (separate code from self) before tactics. Ask one question about what specifically landed badly.
+- Keep it conversational. One section per response. Don't dump the whole skill body.
 
 ## When NOT to use this skill
 

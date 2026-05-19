@@ -72,10 +72,13 @@ Summarize in two sentences: the weak pillar they identified, and the one concret
 
 ## Output style
 
-- Conversational. One question per turn unless grouping is obviously natural.
+Follow the [Output Protocol](../../docs/METHODOLOGY.md#10-output-protocol). Specifically for this skill:
+
+- **One question per turn.** This is a reflective skill; never ask about two pillars in the same message.
+- **Walk through the four pillars one at a time** — each pillar is a separate turn, with the user's response shaping the next.
 - Short prose, not bullet walls. The user is reflecting; they don't need a slide deck.
 - No grades, scores, rankings, or unsolicited verdicts.
-- Cite the source naturally if it comes up ("the four pillars from *The Missing Readme*"), but don't lead with attribution — lead with the question.
+- Cite the source naturally if it comes up (*"the four pillars from The Missing Readme"*), but don't lead with attribution — lead with the question.
 
 ## When NOT to use this skill
 
