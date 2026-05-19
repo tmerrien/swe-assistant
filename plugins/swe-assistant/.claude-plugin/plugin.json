@@ -8,10 +8,7 @@
   },
   "license": "CC-BY-4.0",
   "homepage": "https://github.com/tmerrien/swe-assistant",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tmerrien/swe-assistant.git"
-  },
+  "repository": "https://github.com/tmerrien/swe-assistant.git",
   "keywords": [
     "software-engineering",
     "career",
