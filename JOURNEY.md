@@ -29,7 +29,7 @@ The first weeks at a new company, team, or role.
 
 **Skills for this stage:**
 
-- [`new-team-onboarding`](./skills/new-team-onboarding/SKILL.md) — fires when you're in or about to enter the first weeks somewhere new.
+- [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) — fires when you're in or about to enter the first weeks somewhere new.
 
 ---
 
@@ -51,7 +51,7 @@ The next few months after the first weeks. You've finished the setup; now you're
 
 **Skills for this stage:**
 
-- [`ramp-up-playbook`](./skills/ramp-up-playbook/SKILL.md) — fires when you're in the Ramp-Up phase: past first weeks, contributing in small ways, building context and the manager relationship.
+- [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) — fires when you're in the Ramp-Up phase: past first weeks, contributing in small ways, building context and the manager relationship.
 
 ---
 
@@ -73,8 +73,8 @@ The team trusts you with bigger work, and you're starting to give as well as rec
 
 **Skills for this stage:**
 
-- [`contributor-playbook`](./skills/contributor-playbook/SKILL.md) — fires when you're in the Contributor stage: trusted with bigger work, helping teammates, planning quarterly goals.
-- [`code-review`](./skills/code-review/SKILL.md) — fires whenever you're giving or receiving a code review. Useful from Ramp-Up onward; especially central at this stage.
+- [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) — fires when you're in the Contributor stage: trusted with bigger work, helping teammates, planning quarterly goals.
+- [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — fires whenever you're giving or receiving a code review. Useful from Ramp-Up onward; especially central at this stage.
 
 ---
 
@@ -95,8 +95,8 @@ You start taking responsibility for what happens *after* code is merged. Deliver
 
 **Skills for this stage:**
 
-- [`operator-playbook`](./skills/operator-playbook/SKILL.md) — fires when you're in (or asked about) the Operator stage: delivery pipeline, observability, on-call prep, defending software in production.
-- [`incident-response`](./skills/incident-response/SKILL.md) — fires when prod is on fire (or you've just been paged). Useful at any stage where you're on-call; central here.
+- [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) — fires when you're in (or asked about) the Operator stage: delivery pipeline, observability, on-call prep, defending software in production.
+- [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) — fires when prod is on fire (or you've just been paged). Useful at any stage where you're on-call; central here.
 
 ---
 
@@ -118,8 +118,8 @@ The team trusts you to drive small projects end-to-end. You design, you decide, 
 
 **Skills for this stage:**
 
-- [`owner-playbook`](./skills/owner-playbook/SKILL.md) — fires when you're in (or asked about) the Owner stage: driving small projects, design thinking, balancing maintenance, team process, career conversations.
-- [`design-doc`](./skills/design-doc/SKILL.md) — fires whenever you're writing or reviewing a technical design document (also known as RFC or ADR depending on the team). Useful any time you need to think before building.
+- [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) — fires when you're in (or asked about) the Owner stage: driving small projects, design thinking, balancing maintenance, team process, career conversations.
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — fires whenever you're writing or reviewing a technical design document (also known as RFC or ADR depending on the team). Useful any time you need to think before building.
 
 ---
 

@@ -63,11 +63,11 @@ These are starting points, not prescriptions. Adapt to your students, your cours
 A first-year or second-year SE course addressing the basic professional practices of working as a software engineer.
 
 **Suggested skill cluster:**
-- [`new-team-onboarding`](../skills/new-team-onboarding/SKILL.md) — joining a team
-- [`ramp-up-playbook`](../skills/ramp-up-playbook/SKILL.md) — building productive context
-- [`code-review`](../skills/code-review/SKILL.md) — the most frequent professional communication
-- [`commit-and-pr-hygiene`](../skills/commit-and-pr-hygiene/SKILL.md) — basic communication artifacts around code
-- [`asking-for-help`](../skills/asking-for-help/SKILL.md) — a skill students at this level explicitly need
+- [`new-team-onboarding`](../plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) — joining a team
+- [`ramp-up-playbook`](../plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) — building productive context
+- [`code-review`](../plugins/swe-assistant/skills/code-review/SKILL.md) — the most frequent professional communication
+- [`commit-and-pr-hygiene`](../plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — basic communication artifacts around code
+- [`asking-for-help`](../plugins/swe-assistant/skills/asking-for-help/SKILL.md) — a skill students at this level explicitly need
 
 **Suggested anchor reading:** *The Missing Readme* (Riccomini & Ryaboy, 2021), Chapters 1–3.
 
@@ -76,12 +76,12 @@ A first-year or second-year SE course addressing the basic professional practice
 Typically a junior- or senior-year course in which students work in teams on a substantive project.
 
 **Suggested skill cluster:**
-- [`contributor-playbook`](../skills/contributor-playbook/SKILL.md) — owning a piece of work end-to-end
-- [`design-doc`](../skills/design-doc/SKILL.md) — the design artifact for project work
-- [`technical-debt`](../skills/technical-debt/SKILL.md) — recognizing and proposing payoff
-- [`change-discipline`](../skills/change-discipline/SKILL.md) — judgment about when to change things
-- [`choose-boring-technology`](../skills/choose-boring-technology/SKILL.md) — stack-selection discipline
-- [`changing-legacy-code`](../skills/changing-legacy-code/SKILL.md) — working with code they didn't write
+- [`contributor-playbook`](../plugins/swe-assistant/skills/contributor-playbook/SKILL.md) — owning a piece of work end-to-end
+- [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) — the design artifact for project work
+- [`technical-debt`](../plugins/swe-assistant/skills/technical-debt/SKILL.md) — recognizing and proposing payoff
+- [`change-discipline`](../plugins/swe-assistant/skills/change-discipline/SKILL.md) — judgment about when to change things
+- [`choose-boring-technology`](../plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — stack-selection discipline
+- [`changing-legacy-code`](../plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) — working with code they didn't write
 
 **Suggested anchor reading:** Feathers, *Working Effectively with Legacy Code* (2004); Fowler, *Refactoring* (2018).
 
@@ -90,22 +90,22 @@ Typically a junior- or senior-year course in which students work in teams on a s
 Senior project, industry partnership, or open-source contribution course.
 
 **Suggested skill cluster:**
-- [`operator-playbook`](../skills/operator-playbook/SKILL.md) — production responsibility
-- [`incident-response`](../skills/incident-response/SKILL.md) — handling things that break
-- [`owner-playbook`](../skills/owner-playbook/SKILL.md) — driving a project at the level expected of seniors
-- [`learning-toolkit`](../skills/learning-toolkit/SKILL.md) — building sustainable learning habits
-- [`growth-self-check`](../skills/growth-self-check/SKILL.md) — reflective self-assessment
-- [`growth-obstacles`](../skills/growth-obstacles/SKILL.md) — impostor syndrome and Dunning-Kruger calibration
+- [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md) — production responsibility
+- [`incident-response`](../plugins/swe-assistant/skills/incident-response/SKILL.md) — handling things that break
+- [`owner-playbook`](../plugins/swe-assistant/skills/owner-playbook/SKILL.md) — driving a project at the level expected of seniors
+- [`learning-toolkit`](../plugins/swe-assistant/skills/learning-toolkit/SKILL.md) — building sustainable learning habits
+- [`growth-self-check`](../plugins/swe-assistant/skills/growth-self-check/SKILL.md) — reflective self-assessment
+- [`growth-obstacles`](../plugins/swe-assistant/skills/growth-obstacles/SKILL.md) — impostor syndrome and Dunning-Kruger calibration
 
 ### 3.4 Professional development / career-focused course
 
 For programs that include explicit career-development modules.
 
 **Suggested skill cluster:**
-- [`growth-self-check`](../skills/growth-self-check/SKILL.md)
-- [`growth-obstacles`](../skills/growth-obstacles/SKILL.md)
-- [`learning-toolkit`](../skills/learning-toolkit/SKILL.md)
-- [`asking-for-help`](../skills/asking-for-help/SKILL.md)
+- [`growth-self-check`](../plugins/swe-assistant/skills/growth-self-check/SKILL.md)
+- [`growth-obstacles`](../plugins/swe-assistant/skills/growth-obstacles/SKILL.md)
+- [`learning-toolkit`](../plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- [`asking-for-help`](../plugins/swe-assistant/skills/asking-for-help/SKILL.md)
 
 **Suggested anchor reading:** Hoover & Oshineye, *Apprenticeship Patterns* (2009).
 
@@ -115,7 +115,7 @@ For programs that include explicit career-development modules.
 
 ### 4.1 Apply a skill to current project work
 
-> "Using the [`design-doc`](../skills/design-doc/SKILL.md) skill as a structural guide, write a 2-page design document for the current state of your project. Submit both the document and a 1-page reflection on which sections were hardest to write and why."
+> "Using the [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) skill as a structural guide, write a 2-page design document for the current state of your project. Submit both the document and a 1-page reflection on which sections were hardest to write and why."
 
 ### 4.2 Critique a skill
 
@@ -123,11 +123,11 @@ For programs that include explicit career-development modules.
 
 ### 4.3 Apply the legacy-code algorithm
 
-> "Identify a section of an open-source codebase (or our course codebase) that is unfamiliar to you and that lacks tests. Working through the [`changing-legacy-code`](../skills/changing-legacy-code/SKILL.md) skill's five-step algorithm, make a small documented change to that code. Submit a PR plus a 500-word reflection on the experience of working through the algorithm."
+> "Identify a section of an open-source codebase (or our course codebase) that is unfamiliar to you and that lacks tests. Working through the [`changing-legacy-code`](../plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) skill's five-step algorithm, make a small documented change to that code. Submit a PR plus a 500-word reflection on the experience of working through the algorithm."
 
 ### 4.4 Reflective self-assessment
 
-> "Using the four-pillar rubric in [`OBJECTIVES.md`](../OBJECTIVES.md) and the [`growth-self-check`](../skills/growth-self-check/SKILL.md) skill as a frame, write a 1,500-word self-assessment of where you currently sit across the four pillars, with specific examples from the past semester's work. Identify one concrete move you will make this semester to strengthen your weakest pillar."
+> "Using the four-pillar rubric in [`OBJECTIVES.md`](../OBJECTIVES.md) and the [`growth-self-check`](../plugins/swe-assistant/skills/growth-self-check/SKILL.md) skill as a frame, write a 1,500-word self-assessment of where you currently sit across the four pillars, with specific examples from the past semester's work. Identify one concrete move you will make this semester to strengthen your weakest pillar."
 
 ### 4.5 Build a new skill
 
@@ -135,7 +135,7 @@ For programs that include explicit career-development modules.
 
 ### 4.6 Compare with the source
 
-> "Read Chapter 1 of *The Missing Readme* (Riccomini & Ryaboy, 2021). Then read the skills in this repository that derive from that chapter ([`growth-self-check`](../skills/growth-self-check/SKILL.md), [`new-team-onboarding`](../skills/new-team-onboarding/SKILL.md), [`ramp-up-playbook`](../skills/ramp-up-playbook/SKILL.md), [`contributor-playbook`](../skills/contributor-playbook/SKILL.md), [`operator-playbook`](../skills/operator-playbook/SKILL.md), [`owner-playbook`](../skills/owner-playbook/SKILL.md)). Write a 1,000-word analysis of what was preserved, what was reframed, and what was lost in translation from the source to the skills."
+> "Read Chapter 1 of *The Missing Readme* (Riccomini & Ryaboy, 2021). Then read the skills in this repository that derive from that chapter ([`growth-self-check`](../plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`new-team-onboarding`](../plugins/swe-assistant/skills/new-team-onboarding/SKILL.md), [`ramp-up-playbook`](../plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md), [`contributor-playbook`](../plugins/swe-assistant/skills/contributor-playbook/SKILL.md), [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`owner-playbook`](../plugins/swe-assistant/skills/owner-playbook/SKILL.md)). Write a 1,000-word analysis of what was preserved, what was reframed, and what was lost in translation from the source to the skills."
 
 ---
 

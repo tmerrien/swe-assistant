@@ -40,8 +40,7 @@ The broader theoretical grounding (deliberate practice, scaffolding theory, situ
 ```
 swe-assistant/
 ├── .claude-plugin/
-│   ├── marketplace.json            Marketplace manifest (so the repo is installable via /plugin marketplace add)
-│   └── plugin.json                 Plugin manifest (Anthropic plugin format)
+│   └── marketplace.json            Marketplace manifest (lists the swe-assistant plugin)
 ├── README.md                       This file
 ├── OBJECTIVES.md                   Four-pillar competence rubric
 ├── JOURNEY.md                      Five-stage career-progression map
@@ -54,8 +53,14 @@ swe-assistant/
 │   ├── METHODOLOGY.md              The skill-construction method, intended to be applied by others
 │   ├── LIMITATIONS.md              Honest catalog of what this is, isn't, and doesn't yet establish
 │   └── FOR-EDUCATORS.md            Practical guidance for course adoption, assignments, discussion
-└── skills/                         One subdirectory per skill, each containing SKILL.md
+└── plugins/
+    └── swe-assistant/              The plugin itself (one of many a marketplace could host)
+        ├── .claude-plugin/
+        │   └── plugin.json         Plugin manifest (Anthropic plugin format)
+        └── skills/                 One subdirectory per skill, each containing SKILL.md
 ```
+
+The repository is structured as a Claude **marketplace** that currently hosts a single **plugin** (also called `swe-assistant`). The marketplace lives at the repository root; the plugin lives under `plugins/swe-assistant/`. This is the canonical plugin layout used by Anthropic's [official plugin marketplace](https://github.com/anthropics/claude-plugins-official) and is supported by all current Claude Code versions. Top-level documentation (README, OBJECTIVES, JOURNEY, READING-LIST, docs/) is marketplace-level material that describes and contextualizes the plugin.
 
 Each `SKILL.md` includes a description (which determines when the skill triggers in conversation), the source materials that inform it, the engineering pillar(s) it strengthens, and a structured coaching protocol.
 
@@ -63,24 +68,24 @@ Each `SKILL.md` includes a description (which determines when the skill triggers
 
 | Skill | Stage(s) | Pillar(s) strengthened | Triggering situation |
 |---|---|---|---|
-| [`growth-self-check`](./skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth: prepping for a 1:1 or review, asking how one is doing, doing a retrospective |
-| [`new-team-onboarding`](./skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
-| [`ramp-up-playbook`](./skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
-| [`contributor-playbook`](./skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
-| [`code-review`](./skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
-| [`operator-playbook`](./skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution, Communication | Taking responsibility post-merge: delivery pipeline, observability, on-call preparation |
-| [`incident-response`](./skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
-| [`owner-playbook`](./skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
-| [`design-doc`](./skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
-| [`learning-toolkit`](./skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
-| [`asking-for-help`](./skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
-| [`growth-obstacles`](./skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
-| [`software-entropy`](./skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
-| [`technical-debt`](./skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
-| [`changing-legacy-code`](./skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
-| [`commit-and-pr-hygiene`](./skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
-| [`change-discipline`](./skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
-| [`choose-boring-technology`](./skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
+| [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth: prepping for a 1:1 or review, asking how one is doing, doing a retrospective |
+| [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
+| [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
+| [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
+| [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
+| [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution, Communication | Taking responsibility post-merge: delivery pipeline, observability, on-call preparation |
+| [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
+| [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
+| [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
+| [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
+| [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
+| [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
+| [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
+| [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
+| [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
+| [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
+| [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
+| [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
 
 ## How to Use
 
@@ -195,13 +200,4 @@ This work is informed by, and gratefully acknowledges, the following primary sou
 - Fowler, M. *Technical Debt Quadrant*. https://martinfowler.com/bliki/TechnicalDebtQuadrant.html — Used in `technical-debt`.
 - Beams, C. *How to Write a Git Commit Message*. https://chris.beams.io/posts/git-commit/ — Source of the seven commit-message rules used in `commit-and-pr-hygiene`.
 - Broadwell, M. M. (1969). *Teaching for Learning*. — Source of the Four Stages of Competence framework underlying Chapter 2 skills.
-- Horowitz, B. (2014). *The Hard Thing About Hard Things*. Harper Business. — Source of the "10× better" decision rule used across `change-discipline` and `choose-boring-technology`.
-- McKinley, D. *Choose Boring Technology*. http://boringtechnology.club/ — Source of the innovation-tokens framework and the boring-technology discipline used in `choose-boring-technology`.
-
-Additional sources are tracked in [`READING-LIST.md`](./READING-LIST.md), with status indicators showing which have been read and folded into the skills.
-
-## Maintainer
-
-Tanguy Merrien — `tmerrien@outlook.com`
-
-Issues and pull requests are welcome through the GitHub repository at https://github.com/tmerrien/swe-assistant.
+- Horo

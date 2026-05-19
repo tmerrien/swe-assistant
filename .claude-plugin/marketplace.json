@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "swe-assistant",
-      "source": ".",
+      "source": "./plugins/swe-assistant",
       "description": "Situation-triggered coaching skills for software engineers — code reviews, incidents, onboarding, design docs, debt proposals, and more. Each skill surfaces a frame, a checklist, or the right question rather than producing the work for the user.",
       "category": "knowledge",
       "keywords": ["software-engineering", "career", "junior-engineer", "onboarding", "code-review", "incidents", "communication", "leadership"]
