@@ -122,10 +122,10 @@ Once the marketplace is added, install the `swe-assistant` plugin from it. The p
 
 **Manual fallback (any platform):**
 
-If the marketplace/plugin install path does not work for your version or environment, the `skills/` directory can be copied directly into your local Claude skills folder:
+If the marketplace/plugin install path does not work for your version or environment, the plugin's `skills/` directory can be copied directly into your local Claude skills folder:
 
-- **macOS / Linux:** copy `skills/*` into `~/.claude/skills/` (each skill is its own subdirectory containing `SKILL.md`).
-- **Windows:** copy `skills/*` into `%USERPROFILE%\.claude\skills\`.
+- **macOS / Linux:** copy `plugins/swe-assistant/skills/*` into `~/.claude/skills/` (each skill is its own subdirectory containing `SKILL.md`).
+- **Windows:** copy `plugins/swe-assistant/skills/*` into `%USERPROFILE%\.claude\skills\`.
 
 After copying, fully quit and relaunch Claude (closing the window is insufficient on macOS — use Cmd-Q).
 

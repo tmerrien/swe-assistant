@@ -32,7 +32,7 @@ A skill that does not follow these principles will not be merged.
 
 ## Skill File Format
 
-Each skill lives in `skills/<skill-name>/SKILL.md`. The required structure:
+Each skill lives in `plugins/swe-assistant/skills/<skill-name>/SKILL.md`. The required structure:
 
 ```markdown
 ---
