@@ -3,7 +3,7 @@
 A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Skills: 18](https://img.shields.io/badge/skills-18-blue.svg)](#skills)
+[![Skills: 22](https://img.shields.io/badge/skills-22-blue.svg)](#skills)
 [![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
 ---
@@ -19,7 +19,7 @@ This repository provides a working set of AI **skills** — situation-triggered 
 **Positioning.** The project offers two separable artifacts:
 
 1. **A methodology** for packaging engineering wisdom as situation-triggered AI-coaching skills (documented in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)). The methodology is the primary intended contribution and is meant to be applied by other educators, researchers, and practitioners building their own skill sets from their own sources.
-2. **A reference implementation** — the 18 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
+2. **A reference implementation** — the 22 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
 
 **Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
@@ -86,6 +86,10 @@ Each `SKILL.md` includes a description (which determines when the skill triggers
 | [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
 | [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
 | [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
+| [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md) | Any | Technical Knowledge, Execution | Writing or hardening code with safety and resilience in mind — null safety, immutability, types, exception design, resource cleanup |
+| [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) | Any | Technical Knowledge, Execution | Handling external/user/network input — validating format/range/whitespace, escaping for downstream context, applying OWASP-anchored security thinking |
+| [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) | Any | Technical Knowledge, Execution | Writing retry logic for remote calls — exponential backoff with jitter, thundering-herd avoidance, fail-fast-and-loudly |
+| [`idempotency`](./plugins/swe-assistant/skills/idempotency/SKILL.md) | Any | Technical Knowledge, Execution | Designing an operation (API endpoint, handler, RPC) that can be safely retried — state-based checks, idempotency keys, dedup patterns |
 
 ## How to Use
 
@@ -148,7 +152,7 @@ Faculty members evaluating this project for course adoption, research use, or as
 - **[`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)** — honest catalog of what the project claims, what it does not claim, and what would be required to establish empirical support. Important reading before evaluation.
 - **[`docs/FOR-EDUCATORS.md`](./docs/FOR-EDUCATORS.md)** — concrete pedagogical use: course-integration suggestions, sample assignments, discussion prompts, and paths for adapting the project to other contexts.
 
-The current 18 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
+The current 22 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
 
 ## Design Principles
 

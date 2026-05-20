@@ -1,6 +1,6 @@
 # Theoretical Foundations
 
-This document situates *SWE Assistant* within the educational, cognitive, and software-engineering literature it draws on. It grounds the **methodology** the project proposes — situation-triggered AI-coaching skills with strong source attribution — rather than the specific content of any individual skill in this repository. The 18 skills shipped here are one author's implementation; the methodology is intended to be applied by others, with different sources, different framings, and different content.
+This document situates *SWE Assistant* within the educational, cognitive, and software-engineering literature it draws on. It grounds the **methodology** the project proposes — situation-triggered AI-coaching skills with strong source attribution — rather than the specific content of any individual skill in this repository. The 22 skills shipped here are one author's implementation; the methodology is intended to be applied by others, with different sources, different framings, and different content.
 
 ---
 
