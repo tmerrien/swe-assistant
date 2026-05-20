@@ -1,6 +1,6 @@
 # Limitations
 
-This document catalogs the limitations of *SWE Assistant* honestly. It distinguishes limitations of the **methodology** (see [`METHODOLOGY.md`](./METHODOLOGY.md)) from limitations of *this specific implementation* (the 22 skills currently in this repository). Both are presented openly because a project that does not name its limitations cannot be evaluated, and a project that overclaims cannot be trusted.
+This document catalogs the limitations of *SWE Assistant* honestly. It distinguishes limitations of the **methodology** (see [`METHODOLOGY.md`](./METHODOLOGY.md)) from limitations of *this specific implementation* (the 23 skills currently in this repository). Both are presented openly because a project that does not name its limitations cannot be evaluated, and a project that overclaims cannot be trusted.
 
 This document is intended to be revised as the project evolves, and as users — particularly faculty and researchers — identify limitations not yet captured here.
 
@@ -8,7 +8,7 @@ This document is intended to be revised as the project evolves, and as users —
 
 ## 1. The specific skills are one author's interpretation
 
-The 22 skills in this repository reflect one author's reading of one set of source materials. They are presented as an **existence proof** of the methodology — what the method produces in practice — not as authoritative content.
+The 23 skills in this repository reflect one author's reading of one set of source materials. They are presented as an **existence proof** of the methodology — what the method produces in practice — not as authoritative content.
 
 **Specific implications:**
 
@@ -87,7 +87,7 @@ The methodology describes the refinement loop (see [`METHODOLOGY.md`](./METHODOL
 
 ## 7. Coverage gaps within the chosen scope
 
-Even within the project's chosen scope — early- to mid-career software engineering practice — the current 22 skills do not cover every recurring situation a learner may face. Known gaps include:
+Even within the project's chosen scope — early- to mid-career software engineering practice — the current 23 skills do not cover every recurring situation a learner may face. Known gaps include:
 
 - Technical interviewing and job search.
 - Salary negotiation and compensation discussions.
