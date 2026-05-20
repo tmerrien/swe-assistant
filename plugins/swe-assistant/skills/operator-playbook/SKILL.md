@@ -155,3 +155,11 @@ Two sentences: confirm the action, offer to come back when they have questions o
 - The user is in Newcomer, Ramp-Up, or Contributor stage and not yet operating. Route to the appropriate playbook.
 - The user is doing general growth reflection. Route to [`growth-self-check`](../growth-self-check/SKILL.md).
 - Tactical engineering question with no operations framing. Skip.
+
+## Further reading
+
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Amazon Builder's Library* (https://aws.amazon.com/builders-library) — curated essays by Amazon principal engineers on building and operating production systems at scale. Probably the best web resource for learning how large-scale operations actually work.
+- *Building Secure & Reliable Systems* — Adkins, Beyer, et al. (Google, O'Reilly 2020). Free online at https://sre.google/books/building-secure-reliable-systems/. Operations and security at scale, from the team that wrote the canonical SRE book.
+

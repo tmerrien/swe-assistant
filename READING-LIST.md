@@ -41,6 +41,31 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** A pattern language for the long climb to mastery — concrete practices like "expose your ignorance," "kindred spirits," "find mentors," "expand your bandwidth." Should sharpen the `learning-toolkit` framing and may surface new patterns worth packaging as their own skills.
 
+### Building Secure & Reliable Systems
+
+- **Authors:** Heather Adkins, Betsy Beyer, Paul Blankinship, Piotr Lewandowski, Ana Oprea, Adam Stubblefield (Google, O'Reilly Media, 2020)
+- **URL:** https://sre.google/books/building-secure-reliable-systems/ (free online)
+- **Source:** *The Missing Readme*, Ch. 4 Level Up
+- **Relates to:** [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) (security throughout), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The sequel to Google's *Site Reliability Engineering* book, focused specifically on the intersection of security and reliability — design principles, change management, incident response for security incidents, recovery, monitoring for both performance and attack signals. Available free online. Foundational reference for engineers building services that need to be both reliable and secure (which is most production services).
+
+### Clean Code: A Handbook of Agile Software Craftsmanship
+
+- **Author:** Robert C. Martin (Prentice Hall, 2008)
+- **Source:** *The Missing Readme*, Ch. 4 Level Up
+- **Relates to:** [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md), [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) (Boy Scout rule already attributed to Martin), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Canonical practitioner book on writing readable, maintainable code at the function and class level — naming, function size, comments, formatting, error handling. The Boy Scout Rule (*"leave the code cleaner than you found it"*) attributed to Martin is widely cited in this repository's skills. The full book covers much more than that one principle. Some of Martin's broader prescriptions are debated in the community; read critically.
+
+### Code Complete (2nd edition)
+
+- **Author:** Steve McConnell (Microsoft Press, 2004)
+- **Source:** *The Missing Readme*, Ch. 4 Level Up
+- **Relates to:** [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md) (extensive coverage), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Among the most comprehensive practitioner books on software construction. Covers defensive programming, naming, error handling, integration, testing, refactoring, debugging, code review, and project-management aspects of construction. 900+ pages; not a quick read, but referenced across an enormous range of working engineering contexts. Probably the single best book to read if you only get to read one foundational SWE text.
+
 ### Extreme Programming Explained: Embrace Change
 
 - **Authors:** Kent Beck, Cynthia Andres (Addison-Wesley, 2nd ed. 2004)
@@ -100,6 +125,15 @@ Each entry shows:
 ---
 
 ## Articles
+
+### Amazon Builder's Library
+
+- **Publisher:** Amazon Web Services (ongoing collection)
+- **URL:** https://aws.amazon.com/builders-library
+- **Source:** *The Missing Readme*, Ch. 4 Level Up
+- **Relates to:** [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** A curated collection of essays by Amazon principal engineers on how AWS actually builds and operates production systems at scale. Notable essays include *"Timeouts, retries, and backoff with jitter"* (foundational for the `retry-and-backoff` skill — likely already informed industry practice that skill cites), *"Avoiding fallback in distributed systems,"* *"Avoiding insurmountable queue backlogs,"* *"Caching challenges and strategies,"* *"Making retries safe with idempotent APIs."* Free, frequently updated. Probably the best single web resource for learning how large-scale services are built and operated by people who do it for a living.
 
 ### Choose Boring Technology
 

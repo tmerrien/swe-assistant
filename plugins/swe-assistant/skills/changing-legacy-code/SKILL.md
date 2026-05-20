@@ -195,3 +195,4 @@ Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../.
 - *Working Effectively with Legacy Code* — Michael C. Feathers. The original source for the algorithm and dependency-breaking techniques. Worth reading cover-to-cover; the depth far exceeds what this skill captures.
 - *Refactoring: Improving the Design of Existing Code* — Martin Fowler. The canonical refactoring catalog and the "code smells" vocabulary. Pairs with Feathers: Fowler tells you *what* to refactor, Feathers tells you *how to do it safely without tests*.
 - *The Legacy Code Programmer's Toolbox* — Jonathan Boccara. A modern, pragmatic companion that covers reading unfamiliar code, navigating large codebases, and the psychological side of legacy work.
+- *Clean Code* — Robert C. Martin. Source of the Boy Scout Rule already used in this skill; the full book provides function- and class-level criteria that pair naturally with the Feathers algorithm's structural refactors.

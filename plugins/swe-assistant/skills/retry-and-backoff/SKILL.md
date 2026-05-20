@@ -180,4 +180,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 
 ## Further reading
 
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
 - AWS Architecture Blog: *Exponential Backoff and Jitter* (canonical write-up on the algorithm; widely cited).
+- *Amazon Builder's Library* (https://aws.amazon.com/builders-library) — includes the foundational essay *"Timeouts, retries, and backoff with jitter"* which informs much of industry practice (and this skill). Also *"Making retries safe with idempotent APIs"* — pairs with [`idempotency`](../idempotency/SKILL.md).

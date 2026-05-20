@@ -133,3 +133,11 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - The user is asking how to *write* code, not how to review it. Skip.
 - The user is debugging, not reviewing. Skip.
 - The user is asking general questions about engineering practice not tied to a specific review situation. Route to [`growth-self-check`](../growth-self-check/SKILL.md) or [`contributor-playbook`](../contributor-playbook/SKILL.md) as appropriate.
+
+## Further reading
+
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Clean Code* — Robert C. Martin. Function- and class-level criteria for what *good* code looks like, which translates directly into what to look for during review.
+- *Code Complete* (2nd ed.) — Steve McConnell. The chapter on collaborative construction (including code reviews and pair programming) is one of the more thorough treatments in the practitioner literature.
+

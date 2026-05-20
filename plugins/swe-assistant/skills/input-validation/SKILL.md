@@ -175,3 +175,4 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 Surfaced as a primary reference but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for the full entry.
 
 - **OWASP Top 10** (https://owasp.org/www-project-top-ten/) — the canonical practitioner reference for application security failure categories.
+- *Building Secure & Reliable Systems* — Adkins, Beyer, et al. (Google, O'Reilly 2020). Free online at https://sre.google/books/building-secure-reliable-systems/. The intersection of security and reliability at scale, including design-time security thinking that complements OWASP's catalog of failure modes.

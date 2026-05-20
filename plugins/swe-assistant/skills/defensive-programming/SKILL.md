@@ -159,3 +159,11 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - The user is reviewing a PR — route to [`code-review`](../code-review/SKILL.md).
 - The user is in an active incident — route to [`incident-response`](../incident-response/SKILL.md). Defensive-programming conversations are for the calm-afternoon work that prevents incidents, not the firefighting that responds to them.
 - The user has a specific syntax/API question. Help directly.
+
+## Further reading
+
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Code Complete* (2nd ed.) — Steve McConnell. The most comprehensive single book on defensive programming and software construction more broadly. Covers nearly everything in this skill in much greater depth, plus integration, testing, debugging, and more.
+- *Clean Code* — Robert C. Martin. Function- and class-level guidance on writing maintainable code; pairs well with the defensive practices here.
+
