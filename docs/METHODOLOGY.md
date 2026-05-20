@@ -2,7 +2,7 @@
 
 This document specifies the method by which the skills in this repository were designed. It is intended as a generalizable framework, applicable by other educators, researchers, or practitioners who wish to construct their own situation-triggered AI-coaching skill sets from their own sources, for their own student populations, or in domains beyond early-career software engineering.
 
-The methodology is the **primary intended contribution** of this project. The 23 skills currently in this repository are *one instance* of the methodology — one author's implementation, drawn from one author's reading. The methodology generalizes; the specific implementation does not.
+The methodology is the **primary intended contribution** of this project. The 26 skills currently in this repository are *one instance* of the methodology — one author's implementation, drawn from one author's reading. The methodology generalizes; the specific implementation does not.
 
 ---
 
@@ -250,7 +250,7 @@ An educator or researcher who wishes to build their own skill set should expect 
 7. License the work openly (this repository uses CC BY 4.0) and preserve inline source attribution.
 8. Maintain the set as a living artifact, adding sources, refining triggers, and tracking gaps over time.
 
-The 23 skills in this repository can be read as a worked example of this process applied to early-career software engineering, with *The Missing Readme* (Riccomini & Ryaboy, 2021) as the primary anchor. They are not the right skills for every context. The methodology generalizes; the implementation is one author's interpretation.
+The 26 skills in this repository can be read as a worked example of this process applied to early-career software engineering, with *The Missing Readme* (Riccomini & Ryaboy, 2021) as the primary anchor. They are not the right skills for every context. The methodology generalizes; the implementation is one author's interpretation.
 
 ---
 
