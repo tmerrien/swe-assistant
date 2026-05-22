@@ -124,7 +124,7 @@ Each entry shows:
 
 ---
 
-## Articles
+## Articles, Specs, and Talks
 
 ### Amazon Builder's Library
 
@@ -162,49 +162,23 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** A focused, practical guide to doing pair programming well — much more depth than `learning-toolkit` currently has on this technique. Likely candidate for upgrading the pairing section of that skill, or for spinning out a focused `pair-programming` skill if it earns the volume.
 
----
+### Semantic Versioning (SemVer) — the spec
 
-## How references flow into skills
-
-The intended pipeline:
-
-1. **Surfaced** (here, with status "To read") — the reference is known and tagged to the relevant skill(s).
-2. **Read** — status updated; Takeaways section added here with the 3–7 things that changed my thinking.
-3. **Folded** — the relevant skill body is updated with the new material; the skill's `## Source` section adds this book to its citation list; status here is set to **Folded**.
-
-The reason for keeping this separate from the skills (rather than padding skill bodies with unread references) is **honesty**: skills should reflect material that's actually shaped them, not material that *should* shape them eventually. Aspirational citations are a slow poison for trust in the skills — when the user goes back to a skill expecting depth and finds only what's been actually internalized, the skill stays trustworthy.
-- **URL:** https://aws.amazon.com/builders-library
-- **Source:** *The Missing Readme*, Ch. 4 Level Up
-- **Relates to:** [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md)
+- **Authors:** Tom Preston-Werner et al. (specification, currently at 2.0.0)
+- **URL:** https://semver.org
+- **Source:** *The Missing Readme*, Ch. 5 Level Up — and the primary citation in [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md)
+- **Relates to:** [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md), [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) (breaking changes are versioning events), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) (some teams tie commit conventions to SemVer bumps)
 - **Status:** To read
-- **Why this matters here:** A curated collection of essays by Amazon principal engineers on how AWS actually builds and operates production systems at scale. Notable essays include *"Timeouts, retries, and backoff with jitter"* (foundational for the `retry-and-backoff` skill — likely already informed industry practice that skill cites), *"Avoiding fallback in distributed systems,"* *"Avoiding insurmountable queue backlogs,"* *"Caching challenges and strategies,"* *"Making retries safe with idempotent APIs."* Free, frequently updated. Probably the best single web resource for learning how large-scale services are built and operated by people who do it for a living.
+- **Why this matters here:** The shared vocabulary the rest of the industry uses for versioning libraries: `MAJOR.MINOR.PATCH`, with strict rules about what each segment promises. Short, well-written, worth knowing by heart. Most package-manager conflict-resolution behavior assumes consumers understand SemVer; not knowing the spec is a quiet source of dependency-hell bugs.
 
-### Choose Boring Technology
+### PEP 440 — Version Identification and Dependency Specification (Python)
 
-- **Author:** Dan McKinley
-- **URL:** http://boringtechnology.club/
-- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) (not Level Up; cited within the chapter's main content)
-- **Relates to:** [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md)
+- **Author:** Nick Coghlan, Donald Stufft (Python Software Foundation)
+- **URL:** https://www.python.org/dev/peps/pep-0440/
+- **Source:** *The Missing Readme*, Ch. 5 Level Up
+- **Relates to:** [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md) (Python ecosystem specifically)
 - **Status:** To read
-- **Why this matters here:** Foundational essay/talk on technology adoption discipline in engineering teams. Source of the "innovation tokens" vocabulary used in `choose-boring-technology`. Short read; the essay form crystallizes the argument in a way the skill body doesn't fully capture. The talk version (linked from the site) covers additional ground.
-
-### How to Write a Git Commit Message
-
-- **Author:** Chris Beams
-- **URL:** https://chris.beams.io/posts/git-commit/
-- **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) (not Level Up; cited within the chapter's main content)
-- **Relates to:** [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md)
-- **Status:** To read
-- **Why this matters here:** The canonical short essay on writing good commit messages. The seven rules embedded in `commit-and-pr-hygiene` come from this article. Beams' full argument has more nuance than the rules alone convey; worth reading in full at least once. Short — ~10 minutes.
-
-### On Pair Programming
-
-- **Authors:** Birgitta Böckeler, Nina Siessegger
-- **URL:** https://www.martinfowler.com/articles/on-pair-programming.html
-- **Source:** *The Missing Readme*, Ch. 2 Level Up
-- **Relates to:** [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) (pair programming technique)
-- **Status:** To read
-- **Why this matters here:** A focused, practical guide to doing pair programming well — much more depth than `learning-toolkit` currently has on this technique. Likely candidate for upgrading the pairing section of that skill, or for spinning out a focused `pair-programming` skill if it earns the volume.
+- **Why this matters here:** Python's authoritative versioning standard. Shares SemVer's basic shape (`MAJOR.MINOR.MICRO`) but adds Python-specific concepts: epochs (`1!2.0`), pre-releases (`1.0a1`, `1.0b1`, `1.0rc1`), post-releases (`1.0.post1`), and developmental releases (`1.0.dev1`). Required reading for anyone publishing to PyPI or pinning Python dependencies seriously.
 
 ---
 
