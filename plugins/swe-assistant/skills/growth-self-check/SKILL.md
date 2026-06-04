@@ -1,6 +1,6 @@
 ---
 name: growth-self-check
-description: Use when the user is reflecting on their own growth as a software engineer — for example, prepping for a 1:1 or performance review, asking how they're doing or what to focus on next, doing an end-of-week or end-of-quarter retrospective, considering readiness for promotion, deciding what to learn or what project to take on for development reasons, or expressing uncertainty about whether they're getting better. Walks the user through the four pillars from The Missing Readme (Chapter 1) — Technical Knowledge, Execution, Communication, Leadership — as a self-check and helps them identify one concrete move to make in their weakest area. Do not trigger for tactical engineering questions or general help requests.
+description: Use when the user is reflecting on their own growth as a software engineer — for example, prepping for a 1:1 with their manager, performance or promotion review, considering readiness for the next level, deciding what to learn or what project to take on for development reasons, end-of-quarter personal development planning, or expressing uncertainty about whether they're getting better. Walks the user through the four pillars from The Missing Readme (Chapter 1) — Technical Knowledge, Execution, Communication, Leadership — as a self-check, offers one observation per pillar (not just questions), and routes the user to the specific skill(s) in this plugin that help with their weakest pillar. Do not trigger for **team retrospectives** (those are for team process, not individual growth — route there to a retro skill if one exists, otherwise skip). Do not trigger for tactical engineering questions or general help requests.
 ---
 
 # growth-self-check
@@ -45,7 +45,8 @@ For each pillar, in order (Technical Knowledge → Execution → Communication �
 2. Ask: *"Where do you feel solid here, and where do you feel thin? Be specific — name examples from the last few weeks if you can."*
 3. Listen. Reflect back what you heard in one sentence so they know you heard it.
 4. Push gently if their answer is vague: *"solid"* → *"what specifically? give me an example"*; *"I'm not great at it"* → *"what's a recent moment that made you think that?"*
-5. Do **not** grade them. Do **not** say "that sounds like a 7/10." You are a mirror with good questions, not a judge.
+5. **Offer one genuine observation** if you noticed something worth surfacing — a pattern across what they said, a tension between two of their examples, or a connection back to something earlier. Frame as *"one thing I'm noticing is..."*, not as a verdict. This step is mandatory; reflective listening without any contribution is the *"cool stuff bro"* failure mode the skill exists to avoid. (Grounded in the [ICF Core Competency on Evokes Awareness](https://coachingfederation.org/credentials-and-standards/core-competencies) — coaches share observations, not just ask questions.)
+6. Do **not** grade them. Do **not** say "that sounds like a 7/10." Observations are not scores. You are a thinking partner with eyes, not a judge with a clipboard.
 
 ### Step 3 — Identify the weakest pillar
 
@@ -66,9 +67,22 @@ Examples of concrete moves by pillar (use only if the user is stuck):
 - **Communication** — Write a short design doc for the next non-trivial change you make, even if no one asked for it. Share it and invite feedback.
 - **Leadership** — Offer to onboard the next new teammate, or write down one piece of feedback for your manager and bring it to your next 1:1.
 
-### Step 5 — Close
+### Step 5 — Route to the skills that match the weakest pillar
 
-Summarize in two sentences: the weak pillar they identified, and the one concrete move they committed to. Offer to help them follow through if/when they come back. End there — do **not** lecture, do **not** add bonus advice.
+After they've named their weakest pillar and committed to one concrete move, **explicitly point them to the skills in this plugin that strengthen that pillar.** This is the highest-leverage move per the adaptive-learning literature (Vygotsky's Zone of Proximal Development; VanLehn 2011's meta-analysis on Intelligent Tutoring Systems showing effect sizes ~0.76 for adaptive routing). A self-check that identifies a weakness and doesn't route to remediation leaves that move on the table.
+
+Route by the pillar they named:
+
+- **Technical Knowledge** → [`learning-toolkit`](../learning-toolkit/SKILL.md) for the meta-skill of learning; the operational set ([`defensive-programming`](../defensive-programming/SKILL.md), [`logging`](../logging/SKILL.md), [`metrics`](../metrics/SKILL.md), [`tracing`](../tracing/SKILL.md), [`configuration`](../configuration/SKILL.md), [`dependency-management`](../dependency-management/SKILL.md), [`writing-tests`](../writing-tests/SKILL.md)) for production-grade engineering; [`operator-playbook`](../operator-playbook/SKILL.md) for the production mindset.
+- **Execution** → [`changing-legacy-code`](../changing-legacy-code/SKILL.md) for working on existing systems; [`contributor-playbook`](../contributor-playbook/SKILL.md) for scoping and shipping; [`incident-response`](../incident-response/SKILL.md) for handling things that break; the stage playbooks ([`new-team-onboarding`](../new-team-onboarding/SKILL.md), [`ramp-up-playbook`](../ramp-up-playbook/SKILL.md), [`owner-playbook`](../owner-playbook/SKILL.md)) depending on stage.
+- **Communication** → [`asking-for-help`](../asking-for-help/SKILL.md) for question-crafting; [`design-doc`](../design-doc/SKILL.md) for written technical communication; [`code-review`](../code-review/SKILL.md) for giving and receiving feedback; [`commit-and-pr-hygiene`](../commit-and-pr-hygiene/SKILL.md) for everyday written communication around code; [`technical-debt`](../technical-debt/SKILL.md) and [`software-entropy`](../software-entropy/SKILL.md) for talking about code mess constructively.
+- **Leadership** → [`change-discipline`](../change-discipline/SKILL.md) for judgment about when to change things; [`choose-boring-technology`](../choose-boring-technology/SKILL.md) for technology decisions; [`growth-obstacles`](../growth-obstacles/SKILL.md) for impostor syndrome / Dunning-Kruger calibration; [`owner-playbook`](../owner-playbook/SKILL.md) for the broader leadership mindset.
+
+Pick the 2–3 most relevant for *their* concrete move and surface those. Don't dump the whole list. The phrasing is: *"When you're ready to work on this — when you sit down to actually do the thing you committed to — here are the skills that'll meet you there: [...]"*
+
+### Step 6 — Close
+
+Summarize in two sentences: the weak pillar they identified, the one concrete move they committed to, and the skill(s) you pointed them at. Offer to help them follow through if/when they come back. End there — do **not** lecture, do **not** add bonus advice.
 
 ## Output style
 
@@ -82,6 +96,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 
 ## When NOT to use this skill
 
+- The user is preparing for a **team retrospective** (sprint retro, project retro, post-incident process retro). Retros are bounded to *team process* improvement — *"how does our team work together"* — not individual growth. Mixing the two undermines both (psychological safety in the retro, focus in the growth conversation). This is well-established in the agile literature: Derby & Larsen's *Agile Retrospectives* (2006) and the Scrum Guide both scope retros to team process; individual growth belongs in 1:1s (Fournier, *The Manager's Path*; Grove, *High Output Management*). If no team-retro skill exists in this plugin, decline rather than substitute.
 - The user has a tactical question (*"how do I write a unit test"*, *"what's wrong with this code"*). Skip — those need real help, not a self-assessment.
 - The user is venting or distressed about their job. Acknowledge what they're feeling first; don't immediately go into rubric mode. The skill can come later in the conversation if it's the right move.
 - The user is asking about someone else's growth (a teammate, a report). The four pillars are still useful but this skill is designed for self-reflection, not evaluating others.

@@ -21,6 +21,16 @@ The Contributor stage is the shift from "I'm absorbing" to "I'm shipping real th
 
 This skill fires when the user is in (or asking about) that stage. It helps them step into ownership without losing the humility that got them here.
 
+## Where this comes from
+
+This playbook synthesizes:
+
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 1, "The Journey Ahead"** — the *Contributor* stage (the book calls it *"Cape Contributor"*). The "you're a giver now" mindset, the production-grade code framing (operator-friendly / dependencies managed / clean tests), and the helping-teammates guidance all come from here.
+- **OKR callout:** standard practitioner content on Objectives and Key Results, as popularized by John Doerr's *Measure What Matters* (2018) and originally articulated by Andy Grove at Intel. The "outcomes not activities" failure mode is well-attested in the OKR literature.
+- **Author additions:** the *"come to planning prepared with a sense of what you'd pick up next"* discipline and the *"ask your manager what calibration the team uses"* OKR question are from the author's own experience.
+
+If asked where a specific piece of advice comes from, point to the relevant source above. For code reviews specifically, route to [`code-review`](../code-review/SKILL.md), which has its own source attribution.
+
 ## The core mindset (lead with this)
 
 **You're a giver now, not just a receiver.**

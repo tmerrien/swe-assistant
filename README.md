@@ -66,39 +66,58 @@ Each `SKILL.md` includes a description (which determines when the skill triggers
 
 ## Skills
 
-| Skill | Stage(s) | Pillar(s) strengthened | Triggering situation |
+Skills are grouped below by the **primary pillar of competence** they strengthen, then sorted alphabetically within each group. Skills that strengthen multiple pillars are listed under the primary one; secondary pillars are noted in the *Pillar(s)* column. The grouping is offered for human navigation of this document only — at runtime the plugin auto-triggers skills based on user situation, not pillar.
+
+### Technical Knowledge
+
+| Skill | Stage(s) | Pillar(s) | Triggering situation |
 |---|---|---|---|
-| [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth: prepping for a 1:1 or review, asking how one is doing, doing a retrospective |
-| [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
-| [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
-| [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
-| [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
-| [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution, Communication | Taking responsibility post-merge: delivery pipeline, observability, on-call preparation |
-| [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
-| [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
-| [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
-| [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
-| [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
-| [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
-| [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
-| [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
-| [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
-| [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
-| [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
-| [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
+| [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md) | Any | Technical Knowledge, Execution | Designing or modifying application config — choosing format, setting defaults, validating at startup, config-as-code discipline |
 | [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md) | Any | Technical Knowledge, Execution | Writing or hardening code with safety and resilience in mind — null safety, immutability, types, exception design, resource cleanup |
-| [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) | Any | Technical Knowledge, Execution | Handling external/user/network input — validating format/range/whitespace, escaping for downstream context, applying OWASP-anchored security thinking |
-| [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) | Any | Technical Knowledge, Execution | Writing retry logic for remote calls — exponential backoff with jitter, thundering-herd avoidance, fail-fast-and-loudly |
+| [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md) | Any | Technical Knowledge, Execution | Adding, pinning, scoping, or debugging third-party dependencies — SemVer, transitive conflicts, vendoring vs. shading, license hygiene, circular-dependency protection |
 | [`idempotency`](./plugins/swe-assistant/skills/idempotency/SKILL.md) | Any | Technical Knowledge, Execution | Designing an operation (API endpoint, handler, RPC) that can be safely retried — state-based checks, idempotency keys, dedup patterns |
+| [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) | Any | Technical Knowledge, Execution | Handling external/user/network input — validating format/range/whitespace, escaping for downstream context, applying OWASP-anchored security thinking |
+| [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
 | [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md) | Any | Technical Knowledge, Execution, Communication | Adding, structuring, or auditing logs — level choice, atomic messages, fast logging, redacting sensitive data |
 | [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md) | Any | Technical Knowledge, Execution | Choosing counter / gauge / histogram, picking what to measure, integrating a metrics library, watching for cardinality and sampling traps |
-| [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md) | Any | Technical Knowledge, Execution | Adding distributed tracing, propagating context across service calls, setting up OpenTelemetry, debugging multi-service latency |
-| [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md) | Any | Technical Knowledge, Execution | Designing or modifying application config — choosing format, setting defaults, validating at startup, config-as-code discipline |
-| [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) | Any | Technical Knowledge, Execution, Communication | Designing or building operator-facing tools — CLIs, admin commands, recovery scripts, debug utilities — for SREs and on-call engineers |
-| [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md) | Any | Technical Knowledge, Execution | Adding, pinning, scoping, or debugging third-party dependencies — SemVer, transitive conflicts, vendoring vs. shading, license hygiene, circular-dependency protection |
-| [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) | Any | Technical Knowledge, Execution | Writing tests for code you own — choosing test type, treating tests as code, using a risk matrix instead of chasing coverage, working with QA |
 | [`mocking`](./plugins/swe-assistant/skills/mocking/SKILL.md) | Any | Technical Knowledge, Execution | Deciding whether and how to mock a dependency — alternatives to mocking, inline before shared, mocks as a coupling smell, keeping mocks honest |
+| [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) | Any | Technical Knowledge, Execution, Communication | Designing or building operator-facing tools — CLIs, admin commands, recovery scripts, debug utilities — for SREs and on-call engineers |
+| [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) | Operator | Technical Knowledge, Execution, Communication | Taking responsibility post-merge: delivery pipeline, observability, on-call preparation |
+| [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) | Any | Technical Knowledge, Execution | Writing retry logic for remote calls — exponential backoff with jitter, thundering-herd avoidance, fail-fast-and-loudly |
 | [`test-determinism`](./plugins/swe-assistant/skills/test-determinism/SKILL.md) | Any | Technical Knowledge, Execution | Diagnosing or preventing flaky tests — inject the clock, bind to port zero, isolate state, avoid sleeps, clean up no matter what |
+| [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md) | Any | Technical Knowledge, Execution | Adding distributed tracing, propagating context across service calls, setting up OpenTelemetry, debugging multi-service latency |
+| [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) | Any | Technical Knowledge, Execution | Writing tests for code you own — choosing test type, treating tests as code, using a risk matrix instead of chasing coverage, working with QA |
+
+### Execution
+
+| Skill | Stage(s) | Pillar(s) | Triggering situation |
+|---|---|---|---|
+| [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
+| [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
+| [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
+| [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
+| [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
+
+### Communication
+
+| Skill | Stage(s) | Pillar(s) | Triggering situation |
+|---|---|---|---|
+| [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
+| [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
+| [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
+| [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
+| [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
+| [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
+| [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
+
+### Leadership
+
+| Skill | Stage(s) | Pillar(s) | Triggering situation |
+|---|---|---|---|
+| [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) | Any | Leadership, Communication | Considering a rewrite, bypassing a standard, forking a library, or otherwise making a meaningful change to existing code, conventions, or stack |
+| [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) | Any (Contributor+ most common) | Leadership, Technical Knowledge | Evaluating or proposing the adoption of a new technology — language, framework, database, library, tool |
+| [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
+| [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth as an individual — prepping for a 1:1, performance review, promotion conversation, or development planning |
 
 ## How to Use
 

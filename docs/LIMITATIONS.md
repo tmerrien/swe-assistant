@@ -144,7 +144,23 @@ Adopters in other cultural contexts may need to substantially modify both conten
 
 ---
 
-## 12. Living document
+## 12. Skill count and the depth-vs-breadth question
+
+User feedback has at times suggested the plugin contains *too many skills* — that a smaller, more thoroughly developed set would be more useful than the current breadth. The most explicit version: *"I would narrow the list either by collapsing multiple skills into a single skill, or parking a multiple of these for an extended period of time. I think 10 would be a large plugin."*
+
+This critique was taken seriously but the project has not, at the time of writing, acted on the count-reduction prescription. The reasoning:
+
+- The classical evidence for choice-overload (Iyengar & Lepper, 2000) and decision-latency cost (Hick's Law) applies primarily to **user-facing menus** where the user must scan and choose. Auto-triggered skills like the ones in this plugin bypass this mechanism — the system selects the skill for the user based on situational match, not the user from a list. The "too many to choose from" cost largely does not apply.
+- However, the **depth** concern *within* the feedback is well-founded: thin or under-developed skills hurt perceived quality and provide little value when they fire. Per-skill thoroughness — substantive content, visible source attribution, multiple use-case considerations, mode-branching where novices and experts need different treatment — is the better-supported response than reducing count.
+- A focused **depth audit** of the current skills (which ones genuinely earn their keep, which have become redundant with later additions, which need substantially more content) is a credible piece of future work and is welcomed as a contribution from any user or fork.
+
+The choice not to consolidate is consistent with the project's worked-example positioning (Section 1 above): the skill set is offered as one author's implementation, not as a curated curriculum. Forks that prefer a different breadth/depth balance are exactly the kind of derivative the methodology supports.
+
+This limitation is documented honestly because the count is non-trivial and the critique is reasonable; users should know what design decision they're consuming.
+
+---
+
+## 13. Living document
 
 This limitations document is itself incomplete. Users who identify additional limitations — particularly faculty evaluating the project for academic use, or researchers comparing it to alternative approaches — are invited to open an issue on the GitHub repository or contact the maintainer directly.
 

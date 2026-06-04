@@ -18,6 +18,15 @@ description: Use when the user is in or about to enter the early days at a new c
 
 Onboarding well in the first weeks at a new company, team, or role. The skill fires when the user is in (or about to enter) that situation. It helps them get the right setup, the right relationships, and — most importantly — the right mindset.
 
+## Where this comes from
+
+This playbook synthesizes:
+
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 1, "The Journey Ahead"** — the *Newcomer* stage (the book calls it *"Peak Newb"*). The setup checklist, meeting-rhythms guidance, and the "understand the system and the people, not impress" mindset all come from here.
+- **Author additions** layered on top of the source: the explicit *write down every step as you go (gift for the next new hire)* framing, the *"What do you wish you'd known when you started?"* intro-1:1 question, and the *small docs PRs as a low-risk way to start contributing* tactic are from the author's own onboarding experience.
+
+If asked where a specific piece of advice comes from, point to the relevant source above. The skill does not paraphrase the book at length — it operationalizes the chapter's framing into a turn-by-turn coaching protocol.
+
 ## The core mindset (lead with this)
 
 **In the first weeks, the goal is to understand the system and the people, not to impress.**

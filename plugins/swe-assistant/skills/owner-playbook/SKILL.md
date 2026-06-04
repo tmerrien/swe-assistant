@@ -20,6 +20,17 @@ The Owner stage is the shift from "I ship features that work" to "I think about 
 
 This skill fires when the user is in (or asked about) that mode. It coaches the breadth — but routes aggressively to focused skills (design docs, code reviews, growth reflection) when those situations are the real ask.
 
+## Where this comes from
+
+This playbook synthesizes:
+
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 1, "The Journey Ahead"** — the *Owner* stage (the book calls it *"Competence Cove"*). The shift from "shipping code" to "thinking about the system," the design-before-building discipline, the maintenance-vs-new-work balance, and the team-process improvement framing all come from here.
+- **Maintenance allocation (20–30%):** practitioner convention reflected across many engineering organizations; not from the source book. The team-allocation-to-maintenance norm is widely discussed but not empirically established.
+- **Career conversation framing (*"come with a hypothesis, not a question"*):** echoes Camille Fournier's *The Manager's Path* on owning your own career development.
+- The skill intentionally **routes aggressively** to focused skills — [`design-doc`](../design-doc/SKILL.md), [`growth-self-check`](../growth-self-check/SKILL.md), [`code-review`](../code-review/SKILL.md), [`technical-debt`](../technical-debt/SKILL.md), [`software-entropy`](../software-entropy/SKILL.md). Each of those carries its own source attribution.
+
+If asked where a specific piece of advice comes from, point to the relevant source above.
+
 ## The core mindset (lead with this)
 
 **Think about the system, not just your code in it.**

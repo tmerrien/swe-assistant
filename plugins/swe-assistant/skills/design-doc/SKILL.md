@@ -29,6 +29,39 @@ This skill fires whenever a user is in (or thinking about being in) that situati
 - A good design doc is **shorter than you think and more honest than feels comfortable.** Name the trade-offs, name the things you're unsure about, name the option you didn't pick and why.
 - The audience is your team and your future self. Both of them are smart but busy. Optimize for *easy to skim*, not *exhaustive.*
 
+## How to run — diagnose the mode first
+
+This skill serves two very different users and *must distinguish between them* before doing anything else. The fix for *"this skill was underwhelming for a real ADR"* is in this section.
+
+The expertise-reversal effect (Kalyuga, 2007) is robust empirical research showing that instructional scaffolding which helps novices actively *hurts* experts. The senior engineer writing an ADR for a decision they've largely made does not need to be walked through "what's a design doc?" — they need a sparring partner on the specific trade-offs. The junior writing their first design doc does need the scaffold. Diagnose which one you have before you respond.
+
+### Step 1 — Diagnose with one question
+
+If the user's first message doesn't make it obvious, ask **one** question:
+
+- *"Is this an ADR / spec to **align reviewers on a decision you've already made**, or are you using the doc to **think through a decision you haven't made yet**?"*
+
+Two modes, very different responses:
+
+**Mode A: Alignment doc (decision largely made).** Typical user: a senior or mid-level engineer who's done the thinking, often facing an ADR template they have to populate. They want a sparring partner on the trade-offs, not a tutorial.
+
+- Skip the template walkthrough. Don't lecture about structure.
+- Ask: *"What's the decision, what are you considering, and what's the part you're least sure about?"* — get to the substance.
+- Engage with the **trade-offs** they name. Push on: *"What breaks if you're wrong about X?"*, *"What's the smallest reversible version of this?"*, *"What's the unstated assumption?"*
+- Offer your read on what's strong and weak in their reasoning. Be willing to disagree — a sparring partner that only nods is useless.
+- Use the structure, template, and pitfalls sections below as *reference material* you draw on selectively, not as a script.
+
+**Mode B: Thinking doc (decision not yet made, or first design doc).** Typical user: a junior engineer being asked to write one for the first time, or anyone working through a genuinely open design question.
+
+- Walk through the structure. The template below is the scaffold.
+- Lead with the *Problem* section (most stuck-on-design-doc moments are people who jumped to *Solution* before they understood the *Problem*).
+- Push for at least two alternatives (Step 4 of the template). Single-option docs come from incomplete thinking.
+- Take your time on the diagnostic — multiple turns, one question at a time.
+
+If you can't tell from one question, default to **Mode A** for anyone who shows comfort with technical decisions in their first message, **Mode B** for anyone who asks *"what should I write?"* or *"what goes in a design doc?"*.
+
+---
+
 ## When to write a design doc (and when not to)
 
 **Write one when:**
@@ -148,7 +181,9 @@ If your team has a template, use it. The structure above is a sensible default i
 
 ## Output style
 
-- If the user is **about to write one**, walk them through the structure and ask which section they want to start with. Often they're stuck on the *Problem* section because they jumped to *Solution* — gently push them back.
+- **Always diagnose the mode first** (see *How to run — diagnose the mode first* above). Skipping the diagnosis is the failure mode this skill exists to avoid.
+- **In Mode A (alignment doc, decision made):** engage on substance, not structure. Be a sparring partner, not a tutor. Be willing to push back on the user's reasoning. Don't lecture about the template.
+- **In Mode B (thinking doc):** walk the structure. Often they're stuck on the *Problem* section because they jumped to *Solution* — gently push them back.
 - If the user is **stuck mid-draft**, ask which section they're on and what's blocking them. Don't lecture about the whole structure.
 - If the user is **reviewing someone else's**, route the response style toward [`code-review`](../code-review/SKILL.md) tone (questions, not commands; suggest don't dictate; label severity).
 - If the user got **feedback they don't understand**, ask them to share the specific comment. Help them parse it before deciding how to respond.

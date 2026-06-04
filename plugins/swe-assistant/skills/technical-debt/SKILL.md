@@ -66,6 +66,33 @@ The quadrant guides what to *do* about a piece of debt:
 
 ---
 
+---
+
+## Callout — The unjustified-rewrite trap
+
+This is the single most-cited debt failure mode in the software-engineering literature, spanning fifty years from Brooks (1975) to McKinley (2015). It's also the most common failure mode in early- and mid-career engineers specifically: *the conviction that the existing code is so bad it should be rewritten, and the persistence to keep pushing for that even when the business case isn't there.*
+
+The pattern: you encounter messy code, decide it's "technical debt," and conclude the answer is to rewrite the module / service / whole system. The conclusion is wrong more often than it's right.
+
+**Why rewrites are usually a mistake** (the canon):
+
+- **Joel Spolsky, *"Things You Should Never Do, Part I"* (2000)** — *"It's important to remember that when you start from scratch there is absolutely no reason to believe that you are going to do a better job than you did the first time."* (https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/) The existing code looks bad partly because it has absorbed years of bug fixes and edge-case handling that the rewrite will rediscover the hard way.
+- **Fred Brooks, *The Mythical Man-Month* (1975), Ch. 5** — the **second-system effect.** The replacement system over-designs around the v1 frustrations, picking up complexity the v1 was disciplined enough to avoid. Brooks calls this *"the most dangerous system a man ever designs."*
+- **Martin Fowler, *Strangler Fig Application* (2004)** (https://martinfowler.com/bliki/StranglerFigApplication.html) — the alternative pattern. Replace the system incrementally, behind a façade, so each piece is small enough to be reversible. Real production replacements almost always look like Strangler Figs, not big-bang rewrites.
+- **Dan McKinley, *"Choose Boring Technology"* (2015)** — the **innovation tokens** framing. Every team has a finite budget for novelty / disruption. A rewrite burns most of it for a benefit that's hard to defend.
+
+**Diagnostic questions to surface before agreeing this is debt that justifies a rewrite:**
+
+1. *"What's the specific cost of interest the team is paying right now?"* — if you can't name it, this isn't debt; it's aesthetics. (See Step 1 below.)
+2. *"What's the revenue or risk case for fixing it?"* — engineering work needs an economic case, especially at scale.
+3. *"What's the incremental path?"* — can you fix this piece-by-piece with the Strangler Fig pattern? If yes, the big-bang rewrite is almost certainly the wrong move.
+4. *"Have you walked through how the same problem might recur in the new system?"* — second-system risk.
+5. *"Whose buy-in do you need, and what would you tell them?"* — if you can't write the proposal, you haven't thought it through. (See the 5-step framework below.)
+
+**When you find yourself being persistent about a rewrite** — pushing the team or your manager, returning to the topic across multiple conversations — that persistence is itself a signal worth examining. The persistence might be right; it also might be a Dunning-Kruger pattern (the certainty that comes from not yet seeing the rewrite's costs). Route to [`change-discipline`](../change-discipline/SKILL.md) to apply Horowitz's "10× better" test to the rewrite proposal before pushing further. If the rewrite can't clear *"10× better than the existing thing, accounting for switching costs,"* the answer is incremental improvement, not replacement.
+
+---
+
 ## Some debt is unavoidable
 
 You can't prevent every inadvertent mistake. The goal isn't *zero debt* — that's both impossible and (often) the wrong economic choice. The goal is **manageable, named, prioritized debt.**
@@ -167,13 +194,16 @@ The engineers who pay down debt *and* show the receipts get to pay down more deb
 
 ## How to run
 
-### Step 1 — Diagnose: is this actually debt?
+### Step 1 — Diagnose: is this actually debt, and is the proposed fix proportionate?
 
-Ask the user: *"What's the specific cost the team is paying right now? And what's the risk if it stays?"*
+Ask the user **one** diagnostic question (per the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)). The right one to lead with depends on what they brought:
 
-If they can answer concretely, it's debt — proceed.
+- *"What's the specific cost the team is paying right now? And what's the risk if it stays?"* — for "this is tech debt" claims generally.
+- *"Are you proposing a fix in place, or a rewrite?"* — when the user has already jumped to "we should rewrite X." If a rewrite is in their head, surface the rewrite-trap callout above and the [`change-discipline`](../change-discipline/SKILL.md) skill *before* working through the rest of the framework. Rewrites are the highest-cost class of debt-payoff and they're the most commonly mis-proposed; the proportionality check is upstream of the proposal-writing.
 
-If they can't (it's just "ugly code" or "I don't like the style"), surface the [`software-entropy`](../software-entropy/SKILL.md) framing and the don't-dilute-the-term principle. Most "tech debt" isn't actually debt.
+If they can answer the cost-of-interest question concretely, it's debt — proceed. If they can't (it's just "ugly code" or "I don't like the style"), surface the [`software-entropy`](../software-entropy/SKILL.md) framing and the don't-dilute-the-term principle. Most "tech debt" isn't actually debt.
+
+If the proposed fix is a rewrite, hold there: the callout above is the conversation, not Step 2.
 
 ### Step 2 — Place it on the quadrant (briefly)
 

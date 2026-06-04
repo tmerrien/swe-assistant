@@ -23,6 +23,19 @@ The pager fired. Something is broken. The user is probably stressed, possibly ti
 
 It also fires for non-active prep — preparing for a first on-call shift, asking how to handle incidents in general — and walks through the same flow more reflectively.
 
+## Where this comes from
+
+This is a **starter skill** that synthesizes:
+
+- ***Site Reliability Engineering*** (Beyer et al., Google/O'Reilly 2016), free online at https://sre.google/sre-book/table-of-contents/ — the universal incident flow (acknowledge → triage → communicate → mitigate → resolve → postmortem) and the "mitigate before you understand" discipline.
+- ***The Site Reliability Workbook*** (Beyer et al., Google/O'Reilly 2018) — practical guidance on running incidents and writing postmortems.
+- **Blameless postmortem culture** — anchored in John Allspaw's foundational *"Blameless PostMortems and a Just Culture"* (Etsy, 2012) at https://www.etsy.com/codeascraft/blameless-postmortems/. The *"humans will make mistakes; systems can be designed to absorb them"* framing is the canonical statement of the principle.
+- ***The Missing Readme*** (Riccomini & Ryaboy, 2021) gestures at incidents in Chapter 1 (Operator stage) and will inform deeper folding as later chapters land.
+
+The skill is explicitly a living draft — when Chapter 7+ of *The Missing Readme* (or other dedicated incident material) is folded in, the *Source* and this section will be updated.
+
+If asked where a specific piece of advice comes from, point to the relevant source above.
+
 ## The core mindset (lead with this, every time)
 
 **Stop the bleeding before you fix the wound.**

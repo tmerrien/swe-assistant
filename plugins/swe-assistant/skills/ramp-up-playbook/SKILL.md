@@ -20,6 +20,16 @@ The Ramp-Up stage is the few months after your first weeks — past the Newcomer
 
 This skill fires when the user is in (or asking about) that stage. It helps them ramp up *actively* — by engaging, contributing, and asking — rather than passively reading docs and hoping things click.
 
+## Where this comes from
+
+This playbook synthesizes:
+
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 1, "The Journey Ahead"** — the *Ramp-Up* stage (the book calls it *"Ramp-Up River"*). The active-not-passive mindset, the *"read other people's PRs and code reviews"* tactic, and the manager-relationship framing all come from here.
+- **Status-communication callout:** the *"agree on a status communication rhythm in your first 1:1"* discipline and the *default weekly template* are widely-attested practitioner conventions (cf. Camille Fournier's *The Manager's Path* on the manager–IC information contract; Will Larson's writing on operational rigor at https://lethain.com/). Not in the source book.
+- **Author additions:** the explicit script (*"What's the best way for me to keep you in the loop..."*) and the *consistency-matters-more-than-depth* principle are from the author's own experience.
+
+If asked where a specific piece of advice comes from, point to the relevant source above.
+
 ## The core mindset (lead with this)
 
 **Ramping up is active, not passive.**

@@ -21,6 +21,17 @@ The Operator stage is when you start taking responsibility for what happens *aft
 
 This skill fires when the user is moving into that mindset. It helps them build the operational instincts: knowing the pipeline, knowing the observability tools, knowing how to defend software from itself and its users.
 
+## Where this comes from
+
+This playbook synthesizes:
+
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 1, "The Journey Ahead"** — the *Operator* stage (the book calls it *"Operations Ocean"*). The shipping → operating shift, the delivery pipeline framing, and the defending-the-software practices (feature flags, canaries, monitoring, alerting) all come from here.
+- **Three pillars of observability callout** (metrics / logs / traces): widely-attested industry practice, anchored in the *Site Reliability Engineering* (Beyer et al., Google/O'Reilly 2016) book — free online at https://sre.google/sre-book/table-of-contents/. The decision tree for picking the right tool is the author's distillation.
+- **On-call basics:** standard practitioner content; the framing of *"acknowledge the page fast, even just to say I see it"* is widely cited across SRE postmortem culture.
+- For deeper Chapter 4 material (logging, metrics, tracing, configuration, defensive programming, operational tools), this playbook routes to those dedicated skills — each carries its own source attribution.
+
+If asked where a specific piece of advice comes from, point to the relevant source above.
+
 ## The core mindset (lead with this)
 
 **Code only matters when it's running and not breaking.**
