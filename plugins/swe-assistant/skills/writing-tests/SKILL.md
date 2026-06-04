@@ -131,6 +131,11 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 
 ## Further reading
 
-- *Test-Driven Development: By Example* — Kent Beck (Addison-Wesley, 2002). The canonical TDD text.
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Test-Driven Development: By Example* — Kent Beck (Addison-Wesley, 2002). The canonical TDD text; intended to be worked through, not just read.
+- *Unit Testing: Principles, Practices, and Patterns* — Vladimir Khorikov (Manning, 2020). Modern, opinionated; rigorous on the difference between testing behavior and testing implementation, and on the *"mock everything"* anti-pattern.
+- *The Pragmatic Programmer* — Andrew Hunt & David Thomas (20th Anniversary Edition, Addison-Wesley 2019). Cross-cutting practitioner classic; source of *"DRY,"* *"broken windows,"* *"tracer bullets,"* and a substantial modern testing chapter.
+- *Explore It!* — Elisabeth Hendrickson (Pragmatic Bookshelf, 2013). The complement to automated testing: structured exploratory testing for finding what your test suite missed.
 - *Working Effectively with Unit Tests* — Jay Fields (Leanpub, 2014). Pragmatic, modern, opinionated.
 - *xUnit Test Patterns: Refactoring Test Code* — Gerard Meszaros (Addison-Wesley, 2007). The pattern-language reference for test design and the bad-smells that wreck test suites.

@@ -147,5 +147,8 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 
 ## Further reading
 
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Unit Testing: Principles, Practices, and Patterns* — Vladimir Khorikov (Manning, 2020). Includes substantial material on test isolation, what makes a "good" unit test, and how integration tests should differ.
 - *xUnit Test Patterns: Refactoring Test Code* — Gerard Meszaros (Addison-Wesley, 2007). The patterns ("Inject the Dependency," "Test Resource," "Lonely Test") that this skill applies. Also the canonical naming for the anti-patterns flakies usually are.
 - *Working Effectively with Unit Tests* — Jay Fields (Leanpub, 2014). Pragmatic modern guidance, including substantial coverage of test isolation and cleanup discipline.

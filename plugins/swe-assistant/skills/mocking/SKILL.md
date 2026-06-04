@@ -109,5 +109,8 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 
 ## Further reading
 
+Surfaced as references but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md) for full entries.
+
+- *Unit Testing: Principles, Practices, and Patterns* — Vladimir Khorikov (Manning, 2020). One of the most rigorous treatments of test doubles in the field; argues hard for sociable tests over heavily-mocked solitary tests.
 - *Growing Object-Oriented Software, Guided by Tests* — Steve Freeman & Nat Pryce (Addison-Wesley, 2009). The book that popularized *"mocking is design feedback."*
 - *xUnit Test Patterns: Refactoring Test Code* — Gerard Meszaros (Addison-Wesley, 2007). The "Test Double" terminology (stub, mock, fake, spy, dummy) and the patterns and anti-patterns around each.
