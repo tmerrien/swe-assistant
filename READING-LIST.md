@@ -138,6 +138,14 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The canonical text for test-driven development. Beck walks through TDD on two extended worked examples (a multi-currency money library, then the xUnit framework itself), demonstrating the red-green-refactor loop in enough detail to actually learn from. The book is short and focused; it is intended to be worked through, not just read. The `writing-tests` skill surfaces TDD as a useful default; this is the book to read to actually adopt the discipline.
 
+### Thanks for the Feedback: The Science and Art of Receiving Feedback Well
+
+- **Authors:** Douglas Stone, Sheila Heen (Penguin, 2014)
+- **Source:** *The Missing Readme*, Ch. 7 Level Up
+- **Relates to:** [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) (receive-side specifically), [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) (the identity-trigger framing maps onto impostor-syndrome distortion), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) (using feedback as data in self-assessment), [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) (the related skill of asking for and metabolizing feedback)
+- **Status:** To read
+- **Why this matters here:** The companion volume to Stone & Heen's earlier *Difficult Conversations*, focused entirely on the receive side of feedback. The framework — three triggers that make feedback hard to hear (*truth* triggers: it's wrong; *relationship* triggers: from this person?; *identity* triggers: I'm not the kind of person who...) and concrete moves for hearing it well anyway — transfers directly to code review and to any growth-feedback context. The single most useful book on receiving feedback. The framing is well-known and frequently cited in performance-review and leadership-development contexts; less commonly cited in engineering-specific writing despite being directly applicable. Worth folding into the receive-side section of `code-review` once read.
+
 ### Unit Testing: Principles, Practices, and Patterns
 
 - **Author:** Vladimir Khorikov (Manning, 2020)
@@ -175,6 +183,15 @@ Each entry shows:
 - **Relates to:** [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** Foundational essay/talk on technology adoption discipline in engineering teams. Source of the "innovation tokens" vocabulary used in `choose-boring-technology`. Short read; the essay form crystallizes the argument in a way the skill body doesn't fully capture. The talk version (linked from the site) covers additional ground.
+
+### Google's Code Review Developer Guide
+
+- **Publisher:** Google (open-sourced, ongoing)
+- **URL:** https://google.github.io/eng-practices/review/
+- **Source:** *The Missing Readme*, Ch. 7 Level Up — also a primary citation in [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Relates to:** [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) (the standards section maps onto design-review thinking)
+- **Status:** To read
+- **Why this matters here:** The most comprehensive public practitioner reference on running code reviews at scale, written from Google's experience reviewing hundreds of thousands of CLs per week. Split into two halves — *The Code Reviewer's Guide* and *The Change Author's Guide* — that map almost exactly onto Mode A / Mode B in `code-review`. The framing *"approve once the change improves code health, even if it isn't perfect"* (from https://google.github.io/eng-practices/review/reviewer/standard.html) is the single most useful disposition for resolving the chronic *"is this good enough to approve?"* tension. Free and short by book standards.
 
 ### How to Write a Git Commit Message
 
