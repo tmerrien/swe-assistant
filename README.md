@@ -3,7 +3,7 @@
 A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Skills: 33](https://img.shields.io/badge/skills-33-blue.svg)](#skills)
+[![Skills: 34](https://img.shields.io/badge/skills-34-blue.svg)](#skills)
 [![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
 ---
@@ -19,7 +19,7 @@ This repository provides a working set of AI **skills** — situation-triggered 
 **Positioning.** The project offers two separable artifacts:
 
 1. **A methodology** for packaging engineering wisdom as situation-triggered AI-coaching skills (documented in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)). The methodology is the primary intended contribution and is meant to be applied by other educators, researchers, and practitioners building their own skill sets from their own sources.
-2. **A reference implementation** — the 33 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
+2. **A reference implementation** — the 34 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
 
 **Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
@@ -95,6 +95,7 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 |---|---|---|---|
 | [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) | Any | Execution, Technical Knowledge | About to modify unfamiliar, untested, or complex existing code |
 | [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) | Contributor | Execution, Communication, Technical Knowledge | Trusted with larger work; owning a feature end-to-end; OKR / quarterly goals |
+| [`deployment-discipline`](./plugins/swe-assistant/skills/deployment-discipline/SKILL.md) | Any (Contributor+ most common) | Execution, Technical Knowledge | Automating deploys, making them atomic (install-and-flip), and designing applications to deploy independently with backward/forward compatibility |
 | [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) | Operator (any if on-call) | Execution, Communication, Technical Knowledge | An active production incident, or preparing for first on-call shift |
 | [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) | Newcomer | Execution, Communication, Technical Knowledge | First weeks at a new company, team, or role |
 | [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) | Owner | Execution, Communication, Leadership | Driving a small project; balancing maintenance and new work; longer-term career planning |
@@ -182,7 +183,7 @@ Faculty members evaluating this project for course adoption, research use, or as
 - **[`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)** — honest catalog of what the project claims, what it does not claim, and what would be required to establish empirical support. Important reading before evaluation.
 - **[`docs/FOR-EDUCATORS.md`](./docs/FOR-EDUCATORS.md)** — concrete pedagogical use: course-integration suggestions, sample assignments, discussion prompts, and paths for adapting the project to other contexts.
 
-The current 33 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
+The current 34 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
 
 ## Design Principles
 
