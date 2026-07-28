@@ -91,6 +91,8 @@ These are the cheap habits that prevent most of the bad days:
 - **Alerting that's actionable.** An alert should tell you *what's wrong, who cares, and what to try.* If an alert fires regularly and nobody acts on it, either fix it or delete it.
 - **Designed for rollback.** Database migrations are reversible (or have a documented forward-only rollback plan). Config changes can be reverted. New endpoints don't break old clients.
 
+For depth on flags, canaries, blue/green, circuit breakers, dark launches, and flag hygiene, see [`progressive-rollout`](../progressive-rollout/SKILL.md). For the automation, atomicity, and independence of the deploy step itself, see [`deployment-discipline`](../deployment-discipline/SKILL.md). For publishing and immutability of releases upstream, see [`release-hygiene`](../release-hygiene/SKILL.md). For the build step, see [`build-and-package`](../build-and-package/SKILL.md).
+
 #### On-call basics
 
 If you're about to join the rotation:
