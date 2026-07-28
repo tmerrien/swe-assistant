@@ -54,9 +54,9 @@ Each entry shows:
 
 - **Authors:** Jez Humble, David Farley (Addison-Wesley, 2010)
 - **Source:** *The Missing Readme*, Ch. 8 Level Up
-- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (build pipelines, CI hygiene, releasing on every commit), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) (delivery pipeline framing), and the not-yet-written release/deploy skills
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (build pipelines, CI hygiene, releasing on every commit), [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) (release cadence, publication automation), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) (delivery pipeline framing), and the not-yet-written deploy/rollout skills
 - **Status:** To read
-- **Why this matters here:** The canonical practitioner text on modern delivery pipelines — the discipline of getting from a commit to a running production change quickly, safely, and reliably. Sources of much of the industry vocabulary around build pipelines, deployment pipelines, and the "release on every commit" ideal. Directly foundational for the CI hygiene material in `build-and-package` and will inform the release/deploy skills as they're written.
+- **Why this matters here:** The canonical practitioner text on modern delivery pipelines — the discipline of getting from a commit to a running production change quickly, safely, and reliably. Sources of much of the industry vocabulary around build pipelines, deployment pipelines, and the "release on every commit" ideal. Directly foundational for the CI hygiene material in `build-and-package` and the cadence material in `release-hygiene`; will further inform the deploy/rollout skills as they're written.
 
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
@@ -86,7 +86,7 @@ Each entry shows:
 
 - **Author:** Emma Jane Hogbin Westby (O'Reilly, 2015)
 - **Source:** *The Missing Readme*, Ch. 8 Level Up
-- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (team workflows shape what a good build looks like), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (team workflows shape what a good build looks like), [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) (release-branch discipline, tagging conventions), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** Team-level version-control discipline — branching models, review workflows, release branches — that determines what CI is even asked to build. A team's Git conventions are effectively the contract the build pipeline enforces. Useful complement to `commit-and-pr-hygiene` (which is about individual-author discipline) at the team-workflow layer.
 
@@ -126,7 +126,7 @@ Each entry shows:
 
 - **Author:** Michael T. Nygard (Pragmatic Bookshelf, 2nd ed. 2018)
 - **Source:** *The Missing Readme*, Ch. 8 Level Up
-- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (packaging for production; capacity and stability patterns start at the build), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) (stability patterns), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md)
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (packaging for production; capacity and stability patterns start at the build), [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) (release-repository choices and immutability), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) (stability patterns), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The practitioner canon on making software survive contact with production — capacity patterns, stability patterns (circuit breaker, bulkhead, timeout, steady state), and the packaging/deployment/operations decisions that shape whether the software can be operated at all. The circuit-breaker pattern used in rollout skills traces to this book. The second edition (2018) is substantially updated for cloud-native and microservice architectures.
 
@@ -143,7 +143,7 @@ Each entry shows:
 - **Editors:** Betsy Beyer, Chris Jones, Jennifer Petoff, Niall Richard Murphy (Google, O'Reilly 2016)
 - **URL:** https://sre.google/sre-book/table-of-contents/ (free online)
 - **Source:** *The Missing Readme*, Ch. 8 Level Up — also referenced from [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md)
-- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (release engineering), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md), [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md)
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (release engineering), [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) (release-engineering discipline as a formal role), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md), [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The canonical text on running large-scale production systems. Chapter 8 (*"Release Engineering"*) formalizes release engineering as a discipline — reproducible builds, hermetic tooling, packaging and configuration policies, deployment. Also foundational for the three-pillars-of-observability framing used in `operator-playbook` and the dedicated observability skills. Free online; often the first book people recommend to engineers moving into operations.
 
