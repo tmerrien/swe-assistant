@@ -50,6 +50,14 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The sequel to Google's *Site Reliability Engineering* book, focused specifically on the intersection of security and reliability — design principles, change management, incident response for security incidents, recovery, monitoring for both performance and attack signals. Available free online. Foundational reference for engineers building services that need to be both reliable and secure (which is most production services).
 
+### Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation
+
+- **Authors:** Jez Humble, David Farley (Addison-Wesley, 2010)
+- **Source:** *The Missing Readme*, Ch. 8 Level Up
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (build pipelines, CI hygiene, releasing on every commit), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) (delivery pipeline framing), and the not-yet-written release/deploy skills
+- **Status:** To read
+- **Why this matters here:** The canonical practitioner text on modern delivery pipelines — the discipline of getting from a commit to a running production change quickly, safely, and reliably. Sources of much of the industry vocabulary around build pipelines, deployment pipelines, and the "release on every commit" ideal. Directly foundational for the CI hygiene material in `build-and-package` and will inform the release/deploy skills as they're written.
+
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
 - **Author:** Robert C. Martin (Prentice Hall, 2008)
@@ -73,6 +81,14 @@ Each entry shows:
 - **Relates to:** [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) (pair programming), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) (collective code ownership, taste-building), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) (continuous integration, small releases)
 - **Status:** To read
 - **Why this matters here:** The foundational text for many modern engineering practices — pair programming, TDD, continuous integration, small releases, refactoring as discipline. Touches several skills. Probably the most cross-cutting book on this list.
+
+### Git for Teams: A User-Centered Approach to Creating Efficient Workflows in Git
+
+- **Author:** Emma Jane Hogbin Westby (O'Reilly, 2015)
+- **Source:** *The Missing Readme*, Ch. 8 Level Up
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (team workflows shape what a good build looks like), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Team-level version-control discipline — branching models, review workflows, release branches — that determines what CI is even asked to build. A team's Git conventions are effectively the contract the build pipeline enforces. Useful complement to `commit-and-pr-hygiene` (which is about individual-author discipline) at the team-workflow layer.
 
 ### The Legacy Code Programmer's Toolbox
 
@@ -106,6 +122,14 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** Source of the "10× better" rule used as the decision criterion across the change-discipline skills. The book is primarily about startup leadership but contains substantial material on engineering judgment, hard decisions, and the cost of switching — much of it directly applicable to technical decisions about rewrites, new technology adoption, and organizational change.
 
+### Release It! Design and Deploy Production-Ready Software
+
+- **Author:** Michael T. Nygard (Pragmatic Bookshelf, 2nd ed. 2018)
+- **Source:** *The Missing Readme*, Ch. 8 Level Up
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (packaging for production; capacity and stability patterns start at the build), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) (stability patterns), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The practitioner canon on making software survive contact with production — capacity patterns, stability patterns (circuit breaker, bulkhead, timeout, steady state), and the packaging/deployment/operations decisions that shape whether the software can be operated at all. The circuit-breaker pattern used in rollout skills traces to this book. The second edition (2018) is substantially updated for cloud-native and microservice architectures.
+
 ### Refactoring: Improving the Design of Existing Code
 
 - **Author:** Martin Fowler (Addison-Wesley, 2nd ed. 2018)
@@ -113,6 +137,15 @@ Each entry shows:
 - **Relates to:** [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) (refactoring catalog), [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) (code-smells vocabulary), [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) (recognizing patterns of decay)
 - **Status:** To read
 - **Why this matters here:** The canonical catalog of refactoring techniques. The second edition (2018) is updated to use JavaScript and modern tooling. Source of the "code smells" vocabulary — long method, duplicated code, feature envy, primitive obsession, and so on — that engineers use to recognize and discuss problems in existing code. Pairs naturally with Feathers' *Working Effectively with Legacy Code*: Fowler tells you *what* to refactor; Feathers tells you *how to do it safely when there are no tests*.
+
+### Site Reliability Engineering: How Google Runs Production Systems
+
+- **Editors:** Betsy Beyer, Chris Jones, Jennifer Petoff, Niall Richard Murphy (Google, O'Reilly 2016)
+- **URL:** https://sre.google/sre-book/table-of-contents/ (free online)
+- **Source:** *The Missing Readme*, Ch. 8 Level Up — also referenced from [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md)
+- **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (release engineering), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md), [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The canonical text on running large-scale production systems. Chapter 8 (*"Release Engineering"*) formalizes release engineering as a discipline — reproducible builds, hermetic tooling, packaging and configuration policies, deployment. Also foundational for the three-pillars-of-observability framing used in `operator-playbook` and the dedicated observability skills. Free online; often the first book people recommend to engineers moving into operations.
 
 ### Explore It! Reduce Risk and Increase Confidence with Exploratory Testing
 
@@ -170,8 +203,8 @@ Each entry shows:
 
 - **Publisher:** Amazon Web Services (ongoing collection)
 - **URL:** https://aws.amazon.com/builders-library
-- **Source:** *The Missing Readme*, Ch. 4 Level Up
-- **Relates to:** [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md)
+- **Source:** *The Missing Readme*, Ch. 4 Level Up and Ch. 8 Level Up
+- **Relates to:** [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md), [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md), [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** A curated collection of essays by Amazon principal engineers on how AWS actually builds and operates production systems at scale. Notable essays include *"Timeouts, retries, and backoff with jitter"* (foundational for the `retry-and-backoff` skill — likely already informed industry practice that skill cites), *"Avoiding fallback in distributed systems,"* *"Avoiding insurmountable queue backlogs,"* *"Caching challenges and strategies,"* *"Making retries safe with idempotent APIs."* Free, frequently updated. Probably the best single web resource for learning how large-scale services are built and operated by people who do it for a living.
 
