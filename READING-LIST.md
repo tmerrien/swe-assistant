@@ -58,6 +58,14 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The canonical practitioner text on modern delivery pipelines — the discipline of getting from a commit to a running production change quickly, safely, and reliably. Sources of much of the industry vocabulary around build pipelines, deployment pipelines, and the "release on every commit" ideal. Foundational for the CI hygiene material in `build-and-package`, the cadence material in `release-hygiene`, the automation-first framing in `deployment-discipline`, and the canary/blue-green patterns in `progressive-rollout`.
 
+### A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives
+
+- **Editors:** Lorin W. Anderson, David R. Krathwohl (Eds.) (Longman, 2001)
+- **Source:** Referenced in the [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) skill for the revised-taxonomy levels (evaluate, create) that Socratic dialogue exercises
+- **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The canonical revision of Bloom's 1956 taxonomy. Distinguishes the *knowledge* dimension from the *cognitive process* dimension, and names the highest-order thinking levels (analyze, evaluate, create) that active-defense practices like Socratic dialogue exercise. Provides a defensible vocabulary for talking about *what kind of understanding* a skill is targeting.
+
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
 - **Author:** Robert C. Martin (Prentice Hall, 2008)
@@ -261,6 +269,42 @@ Each entry shows:
 - **Relates to:** [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md) (Python ecosystem specifically)
 - **Status:** To read
 - **Why this matters here:** Python's authoritative versioning standard. Shares SemVer's basic shape (`MAJOR.MINOR.MICRO`) but adds Python-specific concepts: epochs (`1!2.0`), pre-releases (`1.0a1`, `1.0b1`, `1.0rc1`), post-releases (`1.0.post1`), and developmental releases (`1.0.dev1`). Required reading for anyone publishing to PyPI or pinning Python dependencies seriously.
+
+### Self-Explanations: How Students Study and Use Examples in Learning to Solve Problems (Chi et al., 1989)
+
+- **Authors:** Michelene T. H. Chi, Miriam Bassok, Matthew W. Lewis, Peter Reimann, Robert Glaser
+- **Publication:** *Cognitive Science* 13(2), 145–182 (1989)
+- **Source:** Cited in the [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) skill as the empirical grounding for the self-explanation effect
+- **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- **Status:** Folded
+- **Why this matters here:** The foundational empirical treatment of the **self-explanation effect** — the finding that learners who articulate *to themselves* why an example works learn substantially more than those who read the same example passively. Directly grounds why the `stress-test-understanding` skill works: forcing the user to explain their own model is itself the pedagogical mechanism, not just a diagnostic. Widely cited across the learning-science literature.
+
+### Metacognition and Cognitive Monitoring: A New Area of Cognitive-Developmental Inquiry (Flavell, 1979)
+
+- **Author:** John H. Flavell
+- **Publication:** *American Psychologist* 34(10), 906–911 (1979)
+- **Source:** Cited in the [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) skill as the grounding for the "know what you know" calibration close
+- **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md)
+- **Status:** Folded
+- **Why this matters here:** The canonical article that named and framed **metacognition** — the knowledge and monitoring of one's own cognitive processes. Grounds the *"what you can now defend vs. what's still fuzzy"* close in the `stress-test-understanding` skill: calibrating self-knowledge is a distinct skill from producing knowledge, and it's what a well-run stress-test session actually produces. Short, foundational, cited across the entire self-regulated-learning literature.
+
+### Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention (Roediger & Karpicke, 2006)
+
+- **Authors:** Henry L. Roediger III, Jeffrey D. Karpicke
+- **Publication:** *Psychological Science* 17(3), 249–255 (2006)
+- **Source:** Referenced in the [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) skill as an adjacent empirically-supported active-learning technique
+- **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** A landmark demonstration of the **testing effect** (also called retrieval practice): being tested on material produces better long-term retention than an equivalent time spent re-studying it. Adjacent to the mechanism `stress-test-understanding` exercises — retrieval under adversarial questioning is a stronger form of retrieval practice than reading with a highlighter. Worth folding into `learning-toolkit` and `stress-test-understanding` more deeply on a second pass.
+
+### Elaborative Interrogation and Facilitation of Fact Learning (Pressley et al., 1988)
+
+- **Authors:** Michael Pressley, Mark A. McDaniel, James E. Turnure, Eileen Wood, Maheen Ahmad
+- **Publication:** *Journal of Educational Psychology* 80(3), 268–278 (1988)
+- **Source:** Referenced in the [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) skill as adjacent empirical grounding for the "why questions during learning" mechanism
+- **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The foundational study on **elaborative interrogation** — the practice of asking *"why is this true?"* / *"why does this fact make sense given what I already know?"* during study, and the empirical demonstration that this substantially improves learning of factual material. Closely related to the self-explanation effect (Chi et al., 1989) and directly relevant to why the Socratic probing in `stress-test-understanding` produces retention, not just performance-in-the-moment.
 
 ---
 
