@@ -106,6 +106,30 @@ Unattributed paraphrasing of book content is unacceptable. If you read something
 4. **Review:** the maintainer (or designated reviewers) will check that the contribution adheres to the design principles, that sources are properly attributed, and that the trigger description is sound. Expect at least one round of revision on substantive contributions.
 5. **License:** by submitting a contribution, you agree that it will be licensed under CC BY 4.0, in line with the rest of the repository.
 
+## Local Development
+
+Skills are normally installed from GitHub, which means an edit to a `SKILL.md` in your working copy has no effect on your running Claude until it is committed, pushed, and the marketplace is updated. That round-trip is fine for occasional changes and is the more faithful test — what loads is what users actually get.
+
+When iterating on a skill's content or trigger description, that round-trip gets in the way. Two supported options:
+
+**Claude Code CLI** — the documented approach. Loads live from the filesystem and shadows the installed plugin for that session:
+
+```bash
+claude --plugin-dir /path/to/swe-assistant/plugins/swe-assistant
+```
+
+Then `/reload-plugins` inside the session picks up further edits without restarting.
+
+**Claude desktop** — the `--plugin-dir` flag is not available. Use the sync script instead, which copies the local plugin into Claude's plugin cache:
+
+```bash
+./scripts/sync-to-claude.sh
+```
+
+Then run `/reload-plugins` in Claude. The script mirrors `skills/` exactly (including deletions), warns if the repository has uncommitted or unpushed changes — so you know when the loaded skills differ from the published ones — and writes a real directory rather than a symlink, so a later `/plugin marketplace update` simply restores the published version instead of breaking in a way that is hard to diagnose.
+
+Re-run the script after every edit; it is not a live mount.
+
 ## Style Conventions
 
 - Skill file and folder names: kebab-case, lowercase, hyphens only.
