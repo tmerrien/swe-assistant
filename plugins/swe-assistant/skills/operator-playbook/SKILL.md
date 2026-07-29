@@ -101,7 +101,9 @@ If you're about to join the rotation:
 - **Know who to escalate to.** Pull in a senior on-call partner. Going solo on your first incident is bravado, not skill.
 - **Acknowledge the page fast.** Even just "I see it, looking" calms everyone.
 - **It's okay to not know.** "I don't know what's happening yet, investigating" is a real status update.
-- For the actual incident flow when a page fires, see [`incident-response`](../incident-response/SKILL.md).
+- **Most of on-call isn't incidents.** It's ad hoc support requests. Fast *response* is the bar, not fast *resolution*.
+
+For depth: [`on-call-shift`](../on-call-shift/SKILL.md) covers running a shift (support queue, the P0–P4 priority ladder, SLI/SLO/SLA, handoffs, resource kit, avoiding burnout); [`incident-response`](../incident-response/SKILL.md) covers the flow when a page actually fires.
 
 ---
 

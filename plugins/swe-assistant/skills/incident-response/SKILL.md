@@ -1,15 +1,17 @@
 ---
 name: incident-response
-description: Use when the user is in the middle of (or just been paged for) a production incident — something is broken, customers may be affected, and they need to act. Triggers include phrases like "the pager just went off", "prod is down", "we have an outage", "users are reporting", "I just got paged", "something broke after my deploy", "the dashboard is red", "I'm in the middle of an incident", "what do I do, this is on fire", or asking how to handle an incident in general (preparing for first on-call shift, asking what to do when paged, asking how to write a postmortem after an incident). Walks through the universal incident flow — acknowledge, triage, communicate, mitigate, resolve, postmortem — and the mindset that goes with it (stop the bleeding before you fix the wound; over-communicate; pull people in; blameless postmortem). Keep responses short and directive when an incident is active. Do not trigger for non-urgent debugging, code questions, or general operational planning — those go to operator-playbook or other skills.
+description: Use when the user is in the middle of (or just been paged for) a production incident — something is broken, customers may be affected, and they need to act. Triggers include phrases like "the pager just went off", "prod is down", "we have an outage", "users are reporting", "I just got paged", "something broke after my deploy", "the dashboard is red", "what do I do, this is on fire", "how do I write this postmortem", or asking what to do when paged. Walks the incident flow from The Missing Readme (Ch. 9) — triage, coordination, mitigation, resolution, follow-up — plus the mindset (stop the bleeding first; over-communicate; pull people in; blameless postmortems; not done until follow-ups are). Keep responses short and directive when an incident is active. For the day-to-day of holding the pager when nothing is on fire — support queues, prioritization, handoffs — route to on-call-shift. Do not trigger for non-urgent debugging or code questions.
 ---
 
 # incident-response
 
 ## Source
 
-**Starter skill** — built from common SRE practice (Google SRE Book conventions, widely-shared incident response playbooks). The Missing Readme Chapter 1 only gestures at incidents at this stage; deeper chapter material on operations and incidents will fold in when we get to it. Treat this skill as a living draft.
+*The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 9, "Going On-Call"** — the incident-handling section. The five-phase structure this skill follows (**triage → coordination → mitigation → resolution → follow-up**) comes from that chapter, as does the rule that **an incident is not done until every follow-up task is complete.**
 
-See [`JOURNEY.md`](../../../../JOURNEY.md) for the full stage map and [`operator-playbook`](../operator-playbook/SKILL.md) for the broader Operator-stage context.
+The flow is reinforced by, and largely agrees with, common SRE practice — see the *Where this comes from* section below for the full citation list.
+
+For the day-to-day of holding the pager when nothing is broken — support queues, priority ladders, handoffs, sustainability — see [`on-call-shift`](../on-call-shift/SKILL.md), which folds the rest of the same chapter. See [`JOURNEY.md`](../../../../JOURNEY.md) for the stage map and [`operator-playbook`](../operator-playbook/SKILL.md) for the broader Operator-stage context.
 
 ## Pillars this skill strengthens
 
@@ -25,14 +27,13 @@ It also fires for non-active prep — preparing for a first on-call shift, askin
 
 ## Where this comes from
 
-This is a **starter skill** that synthesizes:
+This skill synthesizes:
 
-- ***Site Reliability Engineering*** (Beyer et al., Google/O'Reilly 2016), free online at https://sre.google/sre-book/table-of-contents/ — the universal incident flow (acknowledge → triage → communicate → mitigate → resolve → postmortem) and the "mitigate before you understand" discipline.
+- ***The Missing Readme*** (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 9, "Going On-Call"** — the primary anchor. The five-phase incident structure (triage, coordination, mitigation, resolution, follow-up), the *stop the bleeding* mitigation list (roll back, fail over, disable the feature, add resources), and the *not-done-until-follow-up-is-done* rule.
+- ***Site Reliability Engineering*** (Beyer, Jones, Petoff, & Murphy, Google/O'Reilly 2016), free online at https://sre.google/sre-book/table-of-contents/ — the *mitigate before you understand* discipline and the formal incident-command structure. Chapter 9's own Level Up section points at **Ch. 13** (Emergency Response), **Ch. 14** (Managing Incidents), and **Ch. 15** (Postmortem Culture) specifically.
 - ***The Site Reliability Workbook*** (Beyer et al., Google/O'Reilly 2018) — practical guidance on running incidents and writing postmortems.
 - **Blameless postmortem culture** — anchored in John Allspaw's foundational *"Blameless PostMortems and a Just Culture"* (Etsy, 2012) at https://www.etsy.com/codeascraft/blameless-postmortems/. The *"humans will make mistakes; systems can be designed to absorb them"* framing is the canonical statement of the principle.
-- ***The Missing Readme*** (Riccomini & Ryaboy, 2021) gestures at incidents in Chapter 1 (Operator stage) and will inform deeper folding as later chapters land.
-
-The skill is explicitly a living draft — when Chapter 7+ of *The Missing Readme* (or other dedicated incident material) is folded in, the *Source* and this section will be updated.
+- **"*What Happens When the Pager Goes Off?*"** — *Increment* magazine, on-call issue: https://increment.com/on-call/when-the-pager-goes-off/. Practitioner accounts of what being paged actually feels like across several companies. Surfaced from Chapter 9's Level Up section.
 
 If asked where a specific piece of advice comes from, point to the relevant source above.
 
@@ -45,10 +46,13 @@ If asked where a specific piece of advice comes from, point to the relevant sour
 - **Pull people in.** It is not bravery to handle a production incident alone. It is a mistake. The senior on-call partner exists for this.
 - **The pager is not personal.** Even if it was your code, the system allowed it through review, deploy, and rollout. The incident is the system's, not yours.
 - **Postmortems are about the system, not the human.** Always blameless.
+- **The incident is not over when service is restored.** It's over when the follow-up tasks that stop it recurring are actually done.
 
 ## The flow (when an incident is active)
 
 If the user just told you something is on fire, **do not lecture**. Walk them through these steps one at a time, ask short questions, and let them act between turns.
+
+The five phases from *The Missing Readme* Ch. 9 are **triage → coordination → mitigation → resolution → follow-up**. The steps below expand that, splitting out acknowledgment (the thing to do in the first thirty seconds) and treating coordination as two distinct jobs: *escalating to whoever can fix it* and *keeping everyone else informed*.
 
 ### 1. Acknowledge
 
@@ -56,49 +60,69 @@ If the user just told you something is on fire, **do not lecture**. Walk them th
 - Open the incident channel (or create one — usually `#inc-<short-name>`).
 - Post one line: *"Investigating page about X."* Even if you don't know what's happening yet.
 
-### 2. Triage — what's the impact?
+### 2. Triage — what's broken, how bad, and who can fix it
 
-Quick questions to answer in under two minutes:
+Three questions. Answer them in under two minutes:
 
-- **What's broken?** Which service, endpoint, feature?
-- **Who's affected?** All users? A region? Logged-in users? A specific cohort?
+**What's the problem?**
+
+- Which service, endpoint, or feature is broken?
+- Is it getting worse, stable, or improving?
+
+**How severe is it?**
+
+- **Who's affected?** All users? A region? Logged-in users? One cohort?
 - **Customer-facing?** If yes, severity goes up.
 - **Data integrity at risk?** If yes, severity goes way up. Pull people in immediately.
-- **Is it getting worse, stable, or improving?**
 
-Set a severity level if your team uses them (SEV1/2/3 or P1/P2/P3 etc.). When in doubt, go higher — easier to downgrade than upgrade.
+Set a severity level using your team's ladder (P0–P4, SEV1–3, whatever they use — the [`on-call-shift`](../on-call-shift/SKILL.md) skill has the P0–P4 ladder in full). **When in doubt, go higher** — downgrading is cheap.
 
-### 3. Communicate
+**Who can fix it?** This is the third leg of triage and the one people forget. If it isn't you, your job shifts from *fixing* to *coordinating* — go to step 3 immediately rather than burning twenty minutes proving you can't fix it yourself.
+
+### 3. Coordinate — escalate, then keep everyone informed
+
+Two distinct jobs here. Both matter.
+
+**Escalate to whoever can actually fix it.** If the problem is in a system you don't own or can't safely change, your most valuable action is getting the right person online — not continuing to investigate alone. Page the owning team. Pull in your senior on-call partner. This is the single highest-leverage move an on-call makes, and hesitating on it is the most common way incidents get long.
+
+**Keep everyone else informed.**
 
 - **Post in the incident channel** with the triage answers.
 - **If customer-facing, update the status page** (or ask whoever owns it).
-- **Tag the right people** based on severity. If SEV1/SEV2 (or unsure), pull in your on-call partner immediately.
-- **Set a comms cadence** — "I'll post an update every 10 minutes even if nothing has changed." Then stick to it.
+- **Set a comms cadence** — *"I'll post an update every 10 minutes even if nothing has changed."* Then stick to it. Silence reads as either "it's fine" or "nobody's on it."
+- **Say when you don't know.** *"Still investigating, no root cause yet"* is a real and useful update.
 
 ### 4. Mitigate (not fix)
 
-The goal at this stage is to **restore service**, not to understand what's wrong. Common mitigations:
+The goal at this stage is to **get things stable as quickly as possible** — not to understand what's wrong. Common mitigations:
 
 - **Roll back** the recent deploy. (If a recent deploy might be the cause and rollback is safe — usually yes.)
-- **Disable the feature flag** for the new behavior.
-- **Scale up** if it's load-related (more capacity, more replicas).
-- **Route traffic away** from the affected region/instance/version.
-- **Failover** to a backup if your system has one.
+- **Disable the misbehaving feature**, usually via feature flag. See [`progressive-rollout`](../progressive-rollout/SKILL.md).
+- **Fail over** to another environment, region, or replica.
+- **Add resources** if it's capacity-related — more instances, more replicas, a bigger pool.
+- **Route traffic away** from the affected region, instance, or version.
 
-If mitigation works, you're now in **stable but unrooted-cause** state. That's fine. Take a breath. Communicate it.
+If mitigation works, you're now in **stable but unrooted-cause** state. That's fine — it's the intended destination of this phase. Take a breath. Communicate it.
 
-### 5. Resolve (the actual fix)
+### 5. Resolve — address the underlying issue
 
-Once stable, you can:
+Once stable, the pressure is off and you can do real engineering:
 
-- Investigate the root cause without the pressure of active impact.
-- Build the real fix (often a separate PR with proper review).
-- Re-enable the feature flag, redeploy, etc., once the fix lands.
-- Close the incident only when you're confident it won't recur immediately.
+- Investigate the root cause without active impact bearing down on you.
+- Build the real fix (usually a separate PR with proper review — see [`code-review`](../code-review/SKILL.md)).
+- Re-enable the feature flag, redeploy, restore the failed-over traffic once the fix is live.
+- Stand down the incident only when you're confident it won't immediately recur.
 
-### 6. Postmortem
+### 6. Follow up — and don't call it done early
 
-After the dust settles, write a postmortem. See callout below.
+**The incident is not finished when service is restored. It is finished when the follow-up tasks are complete.**
+
+- **Investigate the root cause properly** — why did this happen, and why did the system permit it?
+- **Run a postmortem** if the incident was severe. Blameless, always. Template in the callout below.
+- **File follow-up tasks** for the changes that prevent recurrence — each with a named owner and a due date.
+- **Track them to completion.** This is the step that actually separates teams that get more reliable over time from teams that keep having the same outage. An action-item list nobody closes is a list of wishes.
+
+If the follow-up work keeps getting deprioritized against feature work, that's a case to make deliberately — see [`technical-debt`](../technical-debt/SKILL.md) for framing the argument.
 
 ---
 
@@ -150,7 +174,9 @@ The single most important word in postmortem culture is **blameless.** Not becau
 
 - **Names without blame.** Use names for who did what (because that's accurate), but never frame their actions as the cause.
 - **Action items have owners and deadlines.** Otherwise they're wishes, not changes.
+- **Timestamps throughout.** The timeline is the most-reread part of any postmortem; without timestamps it can't be correlated against logs or dashboards.
 - **Share the postmortem broadly.** Other teams learn from your incident — that's how the org gets safer.
+- **The incident closes when the action items close.** Not when the postmortem is published.
 
 ---
 
@@ -160,12 +186,15 @@ The single most important word in postmortem culture is **blameless.** Not becau
 - **One step at a time.** Ask: *"What do you see right now?"* then *"What's the impact?"* then *"What can you mitigate?"* — don't dump the whole flow.
 - **Validate the stress.** *"That sounds intense — let's take it step by step."* costs nothing and helps.
 - **Default to pulling people in.** If the user is solo on something serious, suggest paging the on-call partner before going further.
+- **Push timestamped notes.** Remind them to note what they did and when, as they go. It's nearly free during the incident and invaluable in the postmortem.
 
-For non-active situations (preparing for first on-call, learning the flow), be more discursive — walk through the structure and the mindset, give examples, take the time to teach.
+For non-active situations (learning the flow, writing a postmortem after the fact), be more discursive — walk through the structure and the mindset, give examples, take the time to teach.
 
 ## When NOT to use this skill
 
-- The user is asking general questions about operations or observability with no active incident or on-call framing. Route to [`operator-playbook`](../operator-playbook/SKILL.md).
-- The user is asking how to *write* code for reliability (defensive programming, retries). That's operator-playbook territory.
+- Nothing is on fire and the user is asking about the *day-to-day* of being on call — the support queue, prioritizing requests, shift handoffs, on-call burnout, preparing for a first shift. Route to [`on-call-shift`](../on-call-shift/SKILL.md).
+- The user is asking general questions about operations or observability with no active incident. Route to [`operator-playbook`](../operator-playbook/SKILL.md).
+- The user is asking how to *write* code for reliability (defensive programming, retries). Route to [`defensive-programming`](../defensive-programming/SKILL.md) or [`retry-and-backoff`](../retry-and-backoff/SKILL.md).
 - The user is debugging a non-production issue (test failure, local bug). Skip.
+- The user wants to make the case for fixing the reliability problem behind repeated incidents. Route to [`technical-debt`](../technical-debt/SKILL.md).
 - The incident is fully resolved and the user is doing reflection only on the postmortem — okay to fire, but lean on the postmortem callout.
