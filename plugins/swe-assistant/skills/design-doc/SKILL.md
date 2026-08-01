@@ -1,13 +1,17 @@
 ---
 name: design-doc
-description: Use when the user is about to write, currently writing, or reviewing a technical design document — also called an RFC (Request for Comments), ADR (Architecture Decision Record), tech spec, or one-pager depending on the team. Triggers include phrases like "I need to write a design doc", "drafting an RFC", "asked to write up the design before building", "reviewing this design doc", "got design feedback I don't know what to do with", "what should go in a design doc", "should I write a design doc for this", or asking how to structure their thinking before building something non-trivial. Walks through what a design doc is and isn't, when to write one, the standard structure (context, problem, goals, options considered, recommendation, trade-offs, plan), how to invite useful feedback, and the common pitfalls (writing the solution before the problem, single-option docs, no clear ask, burying trade-offs). Useful at any stage from Contributor onward; central to the Owner stage. Do not trigger for general writing help, code documentation, or non-technical documents.
+description: Use when the user is about to write, currently writing, or reviewing a technical design document — also called an RFC (Request for Comments), ADR (Architecture Decision Record), tech spec, or one-pager depending on the team. Triggers include phrases like "I need to write a design doc", "drafting an RFC", "asked to write up the design before building", "reviewing this design doc", "what should go in a design doc", "should I write a design doc for this", "our design docs go stale", or "how do I keep this doc up to date". Covers when a change is consequential enough to warrant a doc, the standard structure (context, problem, goals, alternatives, trade-offs, plan), writing for your audience, inviting feedback, and keeping the document alive after implementation starts. For working out WHAT to build — defining the problem, research, prototyping, finding thinking time — route to technical-design-process. Do not trigger for general writing help, code documentation, or non-technical documents.
 ---
 
 # design-doc
 
 ## Source
 
-Informed by *The Missing Readme*, Chapter 1, "The Journey Ahead" (Owner stage), plus widely-shared industry practice (Google design doc culture, Amazon 6-pagers, ADR conventions). The book mentions writing design docs as part of the Owner stage; this skill expands on it because design docs are one of the highest-leverage written artifacts in engineering and the format is genuinely teachable.
+*The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 10, "Technical Design Process"** — the *Writing Design Documents* section. The threshold for when a change warrants a design document, the write-for-your-audience discipline, and the keep-it-current material (including the two abandonment pitfalls and version-controlling the document alongside the code) come from there. Chapter 1, "The Journey Ahead" also frames design docs as Owner-stage work.
+
+Supplemented by widely-shared industry practice (Google design doc culture, Amazon 6-pagers, ADR conventions) for the template and review mechanics, which the book does not prescribe in detail.
+
+For the *process* that produces the document — defining the problem, research, prototyping, protecting thinking time — see [`technical-design-process`](../technical-design-process/SKILL.md), which folds the rest of Chapter 10.
 
 ## Pillars this skill strengthens
 
@@ -64,19 +68,39 @@ If you can't tell from one question, default to **Mode A** for anyone who shows 
 
 ## When to write a design doc (and when not to)
 
-**Write one when:**
+**Document consequential changes.** *The Missing Readme* (Ch. 10) gives three tests — any one of them means a design document is warranted:
+
+- The project will require **at least a month** of engineering work.
+- The change will have **long-lasting implications** for extending and maintaining the software.
+- The change will **significantly impact other teams**.
+
+Those thresholds describe a *formal* design document — the kind that gets circulated to security, operations, and architects. Common industry practice sets a lower bar for a *lightweight* one, and both are useful. A pragmatic reading:
+
+**Write a full design doc when** any of the book's three tests fires.
+
+**Write a one-pager or ADR when:**
 - The work touches more than one component or service.
 - There are reasonable alternative approaches and the choice isn't obvious.
 - The change affects other people's code, on-call life, or downstream systems.
-- You'll spend more than ~3 days building it.
 - Reviewers would benefit from seeing the *why* before the *what*.
 
 **Skip it (or just write a paragraph in the PR description) when:**
 - The change is local, small, and reversible.
 - The design is a tiny variation on an established pattern in the codebase.
-- A spike / prototype would teach you more than a doc would (in which case: spike first, *then* write the doc).
+- A spike / prototype would teach you more than a doc would (in which case: spike first, *then* write the doc — see [`technical-design-process`](../technical-design-process/SKILL.md)).
 
-When in doubt, write it. Even a one-pager pays for itself.
+The distinction that matters is **consequence, not calendar time.** A three-day change that locks in a data model for five years deserves a document; a month of mechanical migration work following an established pattern may not.
+
+When in doubt, write something. Even a one-pager pays for itself.
+
+## Know why you're writing
+
+Before drafting, be explicit about two things:
+
+- **The goal.** Are you seeking a decision, gathering feedback on an open question, recording a decision already made, or informing people who'll be affected? Each produces a different document.
+- **The audience.** Your team already knows the codebase. Security and adjacent teams don't. Architects want the trade-offs, not the implementation detail. Write for whoever actually has to act on it.
+
+**On learning to write:** write clearly, then **reread from your target audience's perspective**. It does not matter whether *you* find it clear — it matters whether *they* do. Be concise. And read what others have written, deliberately: ask how you would edit it, what's extra, what's missing. Editing other people's documents is the fastest way to improve your own.
 
 ## The standard structure
 
@@ -158,6 +182,21 @@ related docs.]
 - **Be explicit about timeline.** *"Hoping for feedback by Wednesday so I can start building Thursday."* Otherwise it sits.
 - **Reply to every comment.** Same rule as code review — every comment deserves a reply, even if it's *"good catch, updated."* Unresolved comments make reviewers think you're ignoring them.
 
+## Keeping the document alive
+
+A design document's job doesn't end when implementation starts — implementation is exactly when the design meets reality and changes. Two failure modes (both from Ch. 10):
+
+- **The document is abandoned.** It's circulated, approved, and never touched again. Six months later it describes a system that doesn't exist, and the next engineer trusts it and is misled. An out-of-date design doc is worse than none, because it carries false authority.
+- **The document is updated but the history is lost.** Someone edits in place, and the record of *what was originally proposed and why it changed* disappears. That history is often the most valuable part — it's what stops the team relitigating a settled decision next year.
+
+The practices that prevent both:
+
+- **Update as you go**, not in a cleanup pass at the end. The moment the design changes, the document changes.
+- **Version-control the document.** This solves the lost-history problem directly: every change is a diff with an author, a date, and a message. It is the single highest-leverage habit here.
+- **Keep it in the same repository as the code it describes.** Then it travels with the code, shows up in the same searches, and — critically — can be updated in the same pull request as the change it documents.
+- **Enforce it in code review.** When reviewing a PR that changes behavior the design doc describes, ask whether the doc was updated. This is how the habit becomes a team norm rather than one person's discipline. See [`code-review`](../code-review/SKILL.md).
+- **Keep the status field current** (Draft / In Review / Approved / Implemented) so readers know what they're looking at.
+
 ## Common pitfalls
 
 - **Writing the solution before the problem.** The doc reads like a sales pitch and reviewers can't engage with it.
@@ -167,6 +206,7 @@ related docs.]
 - **Over-length.** A 12-page design doc that nobody reads is worse than a 2-page one that everyone reads.
 - **Writing it after the fact.** Then it's documentation, not a design doc. Useful, but it doesn't get you the thinking-out-loud benefit.
 - **Not updating the status.** A doc that says "Draft" but is being implemented confuses everyone. Promote it to "Approved" when alignment is there.
+- **Abandoning it once coding starts.** See *Keeping the document alive* above — this is the most common failure of all, and it quietly poisons the doc for every future reader.
 
 ## A note on team variants
 
@@ -190,7 +230,9 @@ If your team has a template, use it. The structure above is a sensible default i
 
 ## When NOT to use this skill
 
+- The user is still working out **what to build** — pinning down the problem, researching prior art, deciding whether to prototype, or struggling to find uninterrupted thinking time. Route to [`technical-design-process`](../technical-design-process/SKILL.md).
 - The user is asking how to write *general* documentation (READMEs, user guides, API docs). Skip — different shape entirely.
 - The user is asking about *code* documentation (docstrings, inline comments). Skip.
 - The user wants help writing prose for a non-technical document (email, blog post, status update). Skip.
 - The user is reviewing a *PR* (code change, not design). Route to [`code-review`](../code-review/SKILL.md).
+- The decision is specifically about adopting a new technology. Route to [`choose-boring-technology`](../choose-boring-technology/SKILL.md).

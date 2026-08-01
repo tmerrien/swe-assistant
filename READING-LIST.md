@@ -252,6 +252,15 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The canonical short essay on writing good commit messages. The seven rules embedded in `commit-and-pr-hygiene` come from this article. Beams' full argument has more nuance than the rules alone convey; worth reading in full at least once. Short — ~10 minutes.
 
+### Maker's Schedule, Manager's Schedule
+
+- **Author:** Paul Graham (2009)
+- **URL:** http://www.paulgraham.com/makersschedule.html
+- **Source:** *The Missing Readme*, Ch. 10 — cited within the chapter's *Give it Time* section, and a primary citation in [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md)
+- **Relates to:** [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Short, widely-cited essay distinguishing two incompatible ways of using a calendar: the *manager's schedule* (hour-long slots, context-switching is cheap) and the *maker's schedule* (half-day units, where a single meeting dropped in the middle can destroy the entire afternoon). Source of the vocabulary engineers use to explain — to managers, and to themselves — why design and deep work need protected blocks rather than gaps between meetings. Ten-minute read; unusually high ratio of usefulness to length.
+
 ### On Pair Programming
 
 - **Authors:** Birgitta Böckeler, Nina Siessegger
