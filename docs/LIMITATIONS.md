@@ -85,6 +85,21 @@ The methodology describes the refinement loop (see [`METHODOLOGY.md`](./METHODOL
 
 ---
 
+## 6a. Proactive prompting is theoretically motivated but empirically untested
+
+Section 10.7 of [`METHODOLOGY.md`](./METHODOLOGY.md) requires skills to surface adjacent concerns the user has not asked about. The rationale is principled — a learner in unconscious incompetence cannot request help with a gap they cannot perceive, so a purely reactive system cannot serve the transition the methodology treats as most valuable — and it is grounded in an established scaffolding function (*marking critical features*; Wood, Bruner, & Ross, 1976).
+
+Neither the rationale nor the grounding establishes that the practice works as implemented here. Specific open questions:
+
+- **The volume limit is a judgment, not a finding.** "One or two items, ranked by consequence" is a plausible reading of what keeps marking selective; it is not derived from evidence about how many unsolicited prompts a learner can absorb before disregarding all of them.
+- **Expertise calibration is unmeasured.** The methodology instructs skills to attenuate proactive prompting for demonstrated expertise, per the expertise-reversal effect (Kalyuga, 2007). Whether an LLM reliably infers expertise from conversational signals — and whether it attenuates correctly when it does — has not been tested.
+- **Reactance is not accounted for.** Unsolicited advice can produce resistance rather than reflection, and the conditions under which proactive prompting helps versus irritates are not established for this format.
+- **It may worsen a documented risk.** A system that volunteers considerations the user had not reached could deepen the cognitive-offloading concern described in Section 1 of [`THEORETICAL-FOUNDATIONS.md`](./THEORETICAL-FOUNDATIONS.md) — outsourcing not only answers but the noticing that should precede them. The methodology's response is to surface considerations rather than conclusions, but whether that distinction survives contact with real use is unknown.
+
+This limitation is recorded because the change is recent, affects every skill in the repository simultaneously, and is more speculative than most of the methodology it sits inside.
+
+---
+
 ## 7. Coverage gaps within the chosen scope
 
 Even within the project's chosen scope — early- to mid-career software engineering practice — the current 43 skills do not cover every recurring situation a learner may face. Known gaps include:

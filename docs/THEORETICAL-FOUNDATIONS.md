@@ -47,6 +47,21 @@ The project's first design principle — *prompt the thinking, do not replace it
 
 This design choice distinguishes the methodology from alternatives that aim for permanent AI assistance with the underlying work.
 
+### 4.1 Marking critical features — the warrant for proactive prompting
+
+Wood, Bruner, and Ross decompose scaffolding into six tutoring functions. One of them, **marking critical features**, is the tutor's act of drawing the learner's attention to aspects of a task that are relevant but that the learner has not noticed. It is not a supplement to scaffolding; it is constitutive of it.
+
+This function supplies the theoretical warrant for a property the methodology requires of every skill at runtime (see [`METHODOLOGY.md`](./METHODOLOGY.md), Section 10.7): skills surface adjacent concerns the situation implies **even when the user has not asked about them**.
+
+The argument is a direct consequence of the competence model in Section 2. A learner in unconscious incompetence cannot formulate a request about a gap they are unable to perceive; the request presupposes the awareness that is precisely what is missing. A system that responds only to what is asked is therefore structurally incapable of serving the stage 1 → stage 2 transition, which this project identifies as the highest-leverage one. Reactive help can support a learner who already knows what to ask; it cannot create that knowledge.
+
+Two constraints bound the function, and both matter for it to remain scaffolding rather than instruction:
+
+1. **Volume.** Marking is selective by definition — a tutor who marks every feature has marked none, and merely relocated the learner's problem from ignorance to triage. The protocol accordingly limits proactive surfacing to one or two items ranked by consequence.
+2. **Expertise sensitivity.** Kalyuga's (2007) expertise-reversal effect predicts that guidance which benefits novices degrades expert performance, because redundant guidance imposes extraneous cognitive load on a learner who already holds the relevant schema. Proactive prompting must therefore attenuate as demonstrated expertise rises — the same calibration the methodology already applies to diagnostic depth.
+
+The distinction that keeps this compatible with Design Principle 1 (*prompt the thinking; do not replace it*) is between **surfacing a consideration** and **supplying a conclusion**. Naming an unexamined stakeholder, consequence, or artifact hands the learner something to reason about. Naming the answer removes the reasoning. The first is scaffolding; the second is the substitution the methodology exists to avoid.
+
 ---
 
 ## 5. Situated cognition and just-in-time learning
@@ -98,6 +113,7 @@ This is also why the specific skills in this repository are presented as *one au
 - Ericsson, K. A., Krampe, R. T., & Tesch-Römer, C. (1993). The role of deliberate practice in the acquisition of expert performance. *Psychological Review*, 100(3), 363–406.
 - Gerlich, M. (2025). AI tools in society: Impacts on cognitive offloading and the future of critical thinking. *Societies*, 15(1).
 - Hoover, D. H., & Oshineye, A. (2009). *Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman*. O'Reilly Media.
+- Kalyuga, S. (2007). Expertise reversal effect and its implications for learner-tailored instruction. *Educational Psychology Review*, 19(4), 509–539.
 - Lee, H. P., et al. (2025). The impact of generative AI on critical thinking. *Proceedings of CHI 2025*.
 - Riccomini, C., & Ryaboy, D. (2021). *The Missing Readme: A Guide for the New Software Engineer*. No Starch Press.
 - Risko, E. F., & Gilbert, S. J. (2016). Cognitive offloading. *Trends in Cognitive Sciences*, 20(9), 676–688.

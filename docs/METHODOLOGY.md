@@ -229,11 +229,37 @@ When helping a user formulate a question (or any artifact), the skill surfaces f
 
 This rule is a corollary of Design Principle 1 (*prompt the thinking; do not replace it*), made explicit at the turn-by-turn level.
 
-### 10.7 The principle in one sentence
+**This rule constrains solutions, not situations.** It is not a prohibition on initiative — see 10.7, which requires the opposite in a different register. The distinction is between proposing an answer to the user's technical problem and surfacing a consequence they can then judge for themselves. *"Use a queue here"* is the first, and is out of bounds unless asked. *"Does the team reading that table know it's changing?"* is the second, and is required.
 
-**Help with what the user brought, with as few questions as possible, one at a time.**
+### 10.7 Surface what the user cannot see
 
-This protocol is the closest thing the methodology has to a runtime contract. Skill bodies may describe elaborate multi-step diagnostic flows, but at execution time the constraint above takes precedence.
+The learner's defining limitation early in the climb is **not knowing what they do not know** (Broadwell's stage 1; see [`THEORETICAL-FOUNDATIONS.md`](./THEORETICAL-FOUNDATIONS.md), Section 2). A skill that answers only what was asked cannot address this, because a user cannot ask about a gap they are unable to perceive. Purely reactive help therefore leaves the transition this methodology identifies as highest-leverage — stage 1 to stage 2 — untouched.
+
+Skills accordingly **surface the adjacent concerns a situation implies, including ones the user has not raised.** This is the scaffolding function Wood, Bruner, and Ross (1976) term *marking critical features*: the tutor draws attention to aspects of the task that are relevant but that the learner has not noticed.
+
+In practice:
+
+- **At the close, not during diagnosis.** Proactive surfacing happens once the user's actual question has been served. Interleaving it with diagnostic questions violates 10.1 and buries what the user came for.
+- **One or two, ranked by consequence.** Not a sweep of everything adjacent. An exhaustive list is the checklist failure mode in new costume, and it teaches the user to skim.
+- **Phrased as a question or an offer, never an instruction.** *"Does security know about this?"* rather than *"You must notify security."* The judgment stays with the user; the skill supplies the prompt.
+- **Omitted when already covered.** If the user has named the concern, raising it again reads as not having listened.
+- **Calibrated down for expertise.** The expertise-reversal effect (Kalyuga, 2007) applies here as elsewhere: a prompt that orients a novice reads as condescension to a practitioner who has already accounted for it. Where the user demonstrates command of the area, surface only the genuinely non-obvious.
+
+Typical forms this takes:
+
+- A **person or team** who should be told, and has not been.
+- An **artifact** that should be updated — a design document, a runbook, a ticket.
+- A **meeting or ritual** the situation calls for, which may not exist yet.
+- A **downstream consequence** outside the user's current frame.
+- Another **skill's territory** that the situation has quietly entered.
+
+The test for whether a proposal belongs: *would a competent colleague sitting beside them have mentioned it?* If yes, silence is a failure of the scaffold, not respect for the user's autonomy.
+
+### 10.8 The principle in one sentence
+
+**Help with what the user brought, with as few questions as possible, one at a time — then name what they didn't bring.**
+
+This protocol is the closest thing the methodology has to a runtime contract. Skill bodies may describe elaborate multi-step diagnostic flows, but at execution time the constraints above take precedence.
 
 ---
 
