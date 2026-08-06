@@ -37,7 +37,7 @@ Each skill lives in `plugins/swe-assistant/skills/<skill-name>/SKILL.md`. The re
 ```markdown
 ---
 name: skill-name-in-kebab-case
-description: One paragraph (max 1024 characters) describing when this skill
+description: One paragraph (see length guidance below) describing when this skill
   should trigger — specific situations, example phrases the user might use,
   and explicit do-not-trigger cases.
 ---
@@ -76,6 +76,15 @@ giving any tactics.]
 [Explicit out-of-scope cases, with routes to other skills where
 appropriate.]
 ```
+
+### Description length
+
+Two separate constraints apply, and only one is imposed by the platform:
+
+- **Hard limit — 1,536 characters.** Claude Code truncates the combined description text at 1,536 characters *in the skill listing*, which is the surface the runtime matches against when deciding whether to activate a skill. Exceeding this silently cuts the tail of the description — typically the non-trigger and routing clauses, which is the worst part to lose. Configurable via `skillListingMaxDescChars`, but do not rely on a non-default setting.
+- **Repository convention — 1,024 characters.** Stricter than the platform requires, and deliberately so. The skill listing shares a context budget (roughly 1% by default) across *every* installed skill. With 43 skills in this plugin, verbose descriptions crowd each other out. Keeping each under 1,024 keeps the whole set affordable.
+
+If a description will not fit in 1,024 characters, that is usually a signal that the skill's scope is too broad and it may want splitting, rather than a reason to raise the limit.
 
 ### Description guidelines
 

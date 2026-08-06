@@ -73,8 +73,8 @@ All skills in this repository conform to a consistent internal structure. Adopte
 ```
 ---
 name: <kebab-case identifier matching folder name>
-description: <one paragraph, max 1024 characters, listing specific
-              triggers and explicit non-triggers>
+description: <one paragraph listing specific triggers and explicit
+              non-triggers; see note on length below>
 ---
 
 # <skill name>
@@ -114,6 +114,8 @@ description: <one paragraph, max 1024 characters, listing specific
 [Sources surfaced as references but not yet folded into the
  skill body, with a pointer to READING-LIST.md.]
 ```
+
+**On description length.** Anthropic's runtime truncates the skill listing text at 1,536 characters, and the listing is the surface against which activation is decided — so an over-long description silently loses its tail, which is usually where the non-trigger and routing clauses live. Independently, the listing shares a context budget across all installed skills, so length in one skill is paid for by every other. This repository therefore holds descriptions to a stricter 1,024 characters. Adopters should verify the current platform figure rather than inheriting these numbers, which are specific to one runtime at one point in time.
 
 ---
 
