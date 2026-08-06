@@ -3,7 +3,7 @@
 A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Skills: 38](https://img.shields.io/badge/skills-38-blue.svg)](#skills)
+[![Skills: 41](https://img.shields.io/badge/skills-41-blue.svg)](#skills)
 [![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
 ---
@@ -19,7 +19,7 @@ This repository provides a working set of AI **skills** — situation-triggered 
 **Positioning.** The project offers two separable artifacts:
 
 1. **A methodology** for packaging engineering wisdom as situation-triggered AI-coaching skills (documented in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)). The methodology is the primary intended contribution and is meant to be applied by other educators, researchers, and practitioners building their own skill sets from their own sources.
-2. **A reference implementation** — the 38 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
+2. **A reference implementation** — the 41 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
 
 **Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
@@ -79,6 +79,7 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 | [`idempotency`](./plugins/swe-assistant/skills/idempotency/SKILL.md) | Any | Technical Knowledge, Execution | Designing an operation (API endpoint, handler, RPC) that can be safely retried — state-based checks, idempotency keys, dedup patterns |
 | [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) | Any | Technical Knowledge, Execution | Handling external/user/network input — validating format/range/whitespace, escaping for downstream context, applying OWASP-anchored security thinking |
 | [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) | Any | Technical Knowledge, Execution (meta) | Deliberately learning a codebase, system, tool, or domain |
+| [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md) | Any (Contributor+ most common) | Technical Knowledge, Execution | Making a structural decision — whether an abstraction earns its keep, where a boundary goes, why a change rippled; dependency/obscurity/inertia, YAGNI, least astonishment |
 | [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md) | Any | Technical Knowledge, Execution, Communication | Adding, structuring, or auditing logs — level choice, atomic messages, fast logging, redacting sensitive data |
 | [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md) | Any | Technical Knowledge, Execution | Choosing counter / gauge / histogram, picking what to measure, integrating a metrics library, watching for cardinality and sampling traps |
 | [`mocking`](./plugins/swe-assistant/skills/mocking/SKILL.md) | Any | Technical Knowledge, Execution | Deciding whether and how to mock a dependency — alternatives to mocking, inline before shared, mocks as a coupling smell, keeping mocks honest |
@@ -111,6 +112,8 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 | [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) | Any | Communication, Execution | Drafting a question for a colleague; deciding whether and how to ask |
 | [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) | Ramp-Up onward | Communication, Execution, Technical Knowledge | Giving or receiving feedback on a pull request |
 | [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) | Any | Communication, Execution | Writing commit messages or preparing a pull request for review |
+| [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) | Any (Contributor+ most common) | Technical Knowledge, Execution | Designing or changing an API that has callers — keeping the surface small, publishing a schema, classifying breaking changes, versioning deliberately |
+| [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) | Any (Contributor+ most common) | Technical Knowledge, Execution | Changing stored data — schema migrations, backfills, expand-and-contract, explicit vs schemaless, protecting downstream consumers |
 | [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) | Contributor onward | Communication, Execution, Technical Knowledge | Writing or reviewing a technical design document, RFC, or ADR |
 | [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) | Ramp-Up | Communication, Execution, Technical Knowledge | Past first weeks but not yet productive — building codebase context and manager relationship |
 | [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) | Any | Communication, Leadership | Frustration with code mess, before blame culture sets in |
@@ -187,7 +190,7 @@ Faculty members evaluating this project for course adoption, research use, or as
 - **[`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)** — honest catalog of what the project claims, what it does not claim, and what would be required to establish empirical support. Important reading before evaluation.
 - **[`docs/FOR-EDUCATORS.md`](./docs/FOR-EDUCATORS.md)** — concrete pedagogical use: course-integration suggestions, sample assignments, discussion prompts, and paths for adapting the project to other contexts.
 
-The current 38 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
+The current 41 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
 
 ## Design Principles
 

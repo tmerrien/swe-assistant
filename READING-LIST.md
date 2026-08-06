@@ -41,6 +41,22 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** A pattern language for the long climb to mastery — concrete practices like "expose your ignorance," "kindred spirits," "find mentors," "expand your bandwidth." Should sharpen the `learning-toolkit` framing and may surface new patterns worth packaging as their own skills.
 
+### A Philosophy of Software Design
+
+- **Author:** John Ousterhout (Yaknyam Press, 2018; 2nd ed. 2021)
+- **Source:** *The Missing Readme*, Ch. 11 — the chapter adopts this book's definition of complexity outright, and Ch. 11 Level Up
+- **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md), [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md), [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The definitional anchor for `managing-complexity`. Ousterhout defines complexity as *anything related to the structure of a system that makes it hard to understand and modify* — consequence-based rather than metric-based — and decomposes its symptoms into **dependency** and **obscurity**. Also the source of "deep modules" (simple interface, substantial implementation) and a sharp argument that comments are part of the design rather than an afterthought. Short, opinionated, and directly contradicts *Clean Code* in places, which makes reading both worthwhile. **Priority read** — a skill in this repository currently rests on a book that has not been read end to end.
+
+### Building Evolutionary Architectures
+
+- **Authors:** Neal Ford, Rebecca Parsons, Patrick Kua (O'Reilly, 2017; 2nd ed. 2022)
+- **Source:** *The Missing Readme*, Ch. 11 Level Up
+- **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md), [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md), [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Architecture designed for continuous change rather than for a predicted end state — the book-length version of Ch. 11's premise. Notable contribution is the **fitness function**: an automated, executable check that guards an architectural property (coupling limits, latency budgets, compatibility) the way a test guards behaviour. That idea is missing from this repository's skills and would strengthen all three Ch. 11 skills if folded in.
+
 ### Building Secure & Reliable Systems
 
 - **Authors:** Heather Adkins, Betsy Beyer, Paul Blankinship, Piotr Lewandowski, Ana Oprea, Adam Stubblefield (Google, O'Reilly Media, 2020)
@@ -65,6 +81,14 @@ Each entry shows:
 - **Relates to:** [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The canonical revision of Bloom's 1956 taxonomy. Distinguishes the *knowledge* dimension from the *cognitive process* dimension, and names the highest-order thinking levels (analyze, evaluate, create) that active-defense practices like Socratic dialogue exercise. Provides a defensible vocabulary for talking about *what kind of understanding* a skill is targeting.
+
+### Data Mesh: Delivering Data-Driven Value at Scale
+
+- **Author:** Zhamak Dehghani (O'Reilly, 2022)
+- **Source:** *The Missing Readme*, Ch. 11 Level Up
+- **Relates to:** [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The full architectural treatment of the **data product** idea that `evolvable-data` uses as its answer to shared-database coupling — treating published data as a deliberately-designed, owned, versioned product with a contract, rather than a byproduct other teams scrape from your internal tables. Data mesh as a whole is an organisational proposal aimed at large companies and is genuinely contested; the data-product-as-contract concept is the portable part and is useful at any scale.
 
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
@@ -170,6 +194,30 @@ Each entry shows:
 - **Relates to:** [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) (release engineering), [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) (release-engineering discipline as a formal role), [`deployment-discipline`](./plugins/swe-assistant/skills/deployment-discipline/SKILL.md) (automated, atomic, independent deploys), [`progressive-rollout`](./plugins/swe-assistant/skills/progressive-rollout/SKILL.md) (SLIs as the rollout-monitoring signal), [`on-call-shift`](./plugins/swe-assistant/skills/on-call-shift/SKILL.md) (Ch. 4 for SLI/SLO/SLA, Ch. 11 for on-call as a discipline), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) (Ch. 13–15 for emergency response, incident management, postmortem culture), [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md), [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md), [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md), [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The canonical text on running large-scale production systems. Chapter 8 (*"Release Engineering"*) formalizes release engineering as a discipline — reproducible builds, hermetic tooling, packaging and configuration policies, deployment. Chapter 4 (*"Service Level Objectives"*) is the authoritative treatment of the SLI/SLO/SLA distinction; Chapter 11 (*"Being On-Call"*) is the best single treatment of on-call as a discipline in print; Chapters 13–15 (*Emergency Response*, *Managing Incidents*, *Postmortem Culture*) cover the incident lifecycle end-to-end. Also foundational for the three-pillars-of-observability framing used in `operator-playbook`. Free online; often the first book people recommend to engineers moving into operations. **Priority read** — it is now the most-cited unread source in this repository.
+
+### Domain-Driven Design / Implementing Domain-Driven Design
+
+- **Authors:** Eric Evans (Addison-Wesley, 2003); Vaughn Vernon (Addison-Wesley, 2013)
+- **Source:** *The Missing Readme*, Ch. 11 — Evans cited in-chapter, Vernon in Ch. 11 Level Up
+- **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The architectural approach behind "encapsulate domain knowledge" — mapping software boundaries onto business domains. Evans (the "blue book") is the original and is dense; **Vernon is the more practical entry point** and is the one the chapter's Level Up list points to. The chapter's own position is worth preserving: full DDD is warranted only for genuinely complex domains, but the core vocabulary — bounded contexts, ubiquitous language, aggregates — sharpens boundary decisions long before anyone adopts the whole methodology.
+
+### Designing Data-Intensive Applications
+
+- **Author:** Martin Kleppmann (O'Reilly, 2017)
+- **Source:** *The Missing Readme*, Ch. 11 Level Up
+- **Relates to:** [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md), [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md), [`idempotency`](./plugins/swe-assistant/skills/idempotency/SKILL.md), [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md), [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The standard modern reference on data systems. **Chapter 4, "Encoding and Evolution,"** is the direct anchor for both Ch. 11 skills: it works through backward and forward compatibility across Avro, Protocol Buffers, and Thrift, and makes explicit the point those two skills are built on — that **stored data and service APIs are the same evolution problem**. The rest of the book (replication, partitioning, transactions, consistency, stream processing) is the best available grounding for anyone whose systems outgrow a single database. **Priority read**, alongside the SRE book.
+
+### Elements of Clojure
+
+- **Author:** Zachary Tellman (self-published, 2019)
+- **Source:** *The Missing Readme*, Ch. 11 Level Up
+- **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Despite the title, largely a book about naming, indirection, and abstraction as tools for managing complexity — the Clojure is a vehicle rather than the subject. Unusually rigorous on *why* a name is good or bad and on when indirection earns its cost, which is exactly the judgment `managing-complexity` tries to scaffold. Worth reading by engineers who will never write Clojure.
 
 ### Explore It! Reduce Risk and Increase Confidence with Exploratory Testing
 
@@ -294,6 +342,15 @@ Each entry shows:
 - **Relates to:** [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** Short, widely-cited essay distinguishing two incompatible ways of using a calendar: the *manager's schedule* (hour-long slots, context-switching is cheap) and the *maker's schedule* (half-day units, where a single meeting dropped in the middle can destroy the entire afternoon). Source of the vocabulary engineers use to explain — to managers, and to themselves — why design and deep work need protected blocks rather than gaps between meetings. Ten-minute read; unusually high ratio of usefulness to length.
+
+### Simple Made Easy
+
+- **Author:** Rich Hickey (2011, talk — Strange Loop)
+- **URL:** https://www.youtube.com/watch?v=SxdOUGdseq4
+- **Source:** *The Missing Readme*, Ch. 11 Level Up
+- **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The talk that separates **simple** (not intertwined — an objective property of a thing) from **easy** (familiar, near at hand — relative to the person). The distinction matters because teams routinely choose easy over simple and then pay for the complecting later, and because "this is simple" is usually a claim about familiarity rather than structure. Directly sharpens what `managing-complexity` means by its central term. Pairs with Hickey's *Hammock Driven Development*, already listed. Widely regarded as one of the best conference talks in the field.
 
 ### How to Write Usefully / Write Like You Talk
 
