@@ -12,7 +12,7 @@ Three distinct affordances, separable from each other:
 
 1. **A methodology to adopt or adapt.** The [`METHODOLOGY.md`](./METHODOLOGY.md) document specifies how skills are constructed. Faculty can apply the same method to their own student population, domain, source materials, and pedagogical goals — producing a different skill set tailored to their course.
 
-2. **A reference implementation to use, fork, or critique.** The 41 skills currently in this repository are immediately usable as reading material, discussion prompts, or installed AI tooling. They can also be forked and modified, or used as material for student critique.
+2. **A reference implementation to use, fork, or critique.** The 43 skills currently in this repository are immediately usable as reading material, discussion prompts, or installed AI tooling. They can also be forked and modified, or used as material for student critique.
 
 3. **A set of design artifacts to teach with.** The skills themselves, the trigger descriptions, the four-pillar rubric, the five-stage journey map, and the supporting documentation can serve as teaching material *about* how engineering practice is structured and how AI-augmented learning tools are designed.
 
@@ -153,7 +153,7 @@ For seminar-style classes or as supplementary discussion material:
 
 ## 6. Adapting the project for your context
 
-Faculty wishing to adopt the project beyond use of the current 41 skills have several paths:
+Faculty wishing to adopt the project beyond use of the current 43 skills have several paths:
 
 ### 6.1 Fork and modify
 

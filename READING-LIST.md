@@ -271,6 +271,32 @@ Each entry shows:
 
 ## Articles, Specs, and Talks
 
+### The Agile Manifesto (and the twelve principles behind it)
+
+- **Authors:** Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, et al. (2001)
+- **URLs:** https://agilemanifesto.org · principles: https://agilemanifesto.org/principles.html
+- **Source:** *The Missing Readme*, Ch. 12 — quoted in-chapter and in Ch. 12 Level Up
+- **Relates to:** [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md), [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md), [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md), [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Four value statements and twelve supporting principles, together shorter than a page. The **principles page is the more useful document and the far less read one** — it is the source of the retrospective principle used in `team-rituals`, and several principles describe things teams claim to believe and do not practice. Worth reading for the closing qualifier alone: *while there is value in the items on the right, we value the items on the left more* — the right-hand items are not dismissed, which is precisely how the manifesto is most often misused. Ten minutes total.
+
+### Atlassian Agile Coach
+
+- **Publisher:** Atlassian (ongoing documentation)
+- **URL:** https://www.atlassian.com/agile
+- **Source:** *The Missing Readme*, Ch. 12 Level Up
+- **Relates to:** [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md), [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The most accessible free practical reference on Scrum and Kanban mechanics — how to run each ceremony, how boards and WIP limits work, how backlogs are groomed. The **Kanban material is particularly good** and is the recommended starting point for a team moving that way. Vendor documentation, so read the tooling recommendations with the obvious caveat; the process explanations are sound and vendor-neutral. The chapter's own note is worth keeping: most agile *books* are overkill for an individual engineer, being exhaustive across variants and written for project and program managers.
+
+### Agile Retrospectives: Making Good Teams Great
+
+- **Authors:** Esther Derby, Diana Larsen (Pragmatic Bookshelf, 2006)
+- **Source:** Cited in [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) and [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) for the retrospective/individual-growth boundary
+- **Relates to:** [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) (postmortems are a related but distinct ritual)
+- **Status:** To read
+- **Why this matters here:** The standard reference on facilitating retrospectives. Source of the five-stage structure (set the stage, gather data, generate insights, decide what to do, close) and a catalogue of activities worth rotating through when a team's retro has gone stale and everyone is bored of the same three columns. Also the clearest statement of the boundary both skills above enforce: retrospectives address **team process**, not individual performance.
+
 ### Amazon Builder's Library
 
 - **Publisher:** Amazon Web Services (ongoing collection)
