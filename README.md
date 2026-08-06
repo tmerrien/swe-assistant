@@ -233,4 +233,34 @@ This work is licensed under the **Creative Commons Attribution 4.0 International
 
 You are free to share and adapt the material for any purpose, including academic and commercial use, provided that appropriate credit is given, a link to the license is provided, and changes are indicated.
 
-The underlying ideas paraphrased in the skills (from *The Missing Readme*, *Working Effectively with Legacy Code*, Fowler's writing, 
+The underlying ideas paraphrased in the skills (from *The Missing Readme*, *Working Effectively with Legacy Code*, Fowler's writing, Beams' article, and other cited works) remain the intellectual property of their respective authors and are not relicensed by this work. Forks and adaptations must preserve both this license and the inline source attributions within each skill body.
+
+## Acknowledgements & Source Materials
+
+This work is informed by, and gratefully acknowledges, the following primary sources. Each is credited inline in the skill bodies it shaped.
+
+**Anchoring the project's structure:**
+
+- Riccomini, C., & Ryaboy, D. (2021). *The Missing Readme: A Guide for the New Software Engineer*. No Starch Press. — Source of the four-pillar competence model, the five-stage journey, and the majority of individual skill frameworks.
+- Broadwell, M. M. (1969). *Teaching for Learning*. — Source of the Four Stages of Competence framework underlying the project's central design goal.
+- Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry*, 17(2). — Scaffolding theory, including the *marking critical features* function that grounds the Output Protocol's proactive-surfacing clause.
+
+**Shaping individual skills:**
+
+- Feathers, M. C. (2004). *Working Effectively with Legacy Code*. Prentice Hall. — The Legacy Code Change Algorithm and dependency-breaking techniques in `changing-legacy-code`.
+- Fowler, M. *Technical Debt Quadrant*. https://martinfowler.com/bliki/TechnicalDebtQuadrant.html — Used in `technical-debt`.
+- Beams, C. *How to Write a Git Commit Message*. https://chris.beams.io/posts/git-commit/ — The seven commit-message rules in `commit-and-pr-hygiene`.
+- Horowitz, B. (2014). *The Hard Thing About Hard Things*. Harper Business. — The "10× better" decision rule used across `change-discipline` and `choose-boring-technology`.
+- McKinley, D. *Choose Boring Technology*. http://boringtechnology.club/ — The innovation-tokens framework in `choose-boring-technology`.
+- Ousterhout, J. (2018). *A Philosophy of Software Design*. Yaknyam Press. — The definition of complexity, and the dependency/obscurity decomposition, in `managing-complexity`.
+- Kleppmann, M. (2017). *Designing Data-Intensive Applications*. O'Reilly. — The schema-evolution and compatibility framing shared by `evolvable-apis` and `evolvable-data`.
+- Beck, K., et al. (2001). *The Agile Manifesto and its twelve principles*. https://agilemanifesto.org — Underlies `agile-planning` and `team-rituals`.
+- Chi, M. T. H., et al. (1989). Self-explanations. *Cognitive Science*, 13(2); and Flavell, J. H. (1979). Metacognition and cognitive monitoring. *American Psychologist*, 34(10). — The self-explanation and metacognition research behind `stress-test-understanding`.
+
+Additional sources are tracked in [`READING-LIST.md`](./READING-LIST.md), with status indicators showing which have been read and folded into the skills. The theoretical grounding for the methodology itself is set out in [`docs/THEORETICAL-FOUNDATIONS.md`](./docs/THEORETICAL-FOUNDATIONS.md).
+
+## Maintainer
+
+Tanguy Merrien — `tmerrien@outlook.com`
+
+Issues and pull requests are welcome through the GitHub repository at https://github.com/tmerrien/swe-assistant.
