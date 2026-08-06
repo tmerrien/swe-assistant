@@ -17,8 +17,10 @@ abstract: >-
   document with YAML frontmatter (Anthropic skills format) that
   surfaces coaching prompts — checklists, frames, and questions —
   drawn from sources such as The Missing Readme (Riccomini &
-  Ryaboy), Working Effectively with Legacy Code (Feathers), and
-  Fowler's Technical Debt Quadrant. The skills are designed to
+  Ryaboy), Working Effectively with Legacy Code (Feathers),
+  A Philosophy of Software Design (Ousterhout), Designing
+  Data-Intensive Applications (Kleppmann), and the Agile
+  Manifesto. The skills are designed to
   prompt practitioner thinking rather than replace it, supporting
   the climb through Broadwell's stages of competence in early- and
   mid-career software engineering. Intended for students, junior
@@ -34,8 +36,8 @@ keywords:
   - open-educational-resources
   - mentoring
   - professional-development
-version: 0.1.0
-date-released: "2026-05-18"
+version: 0.2.0
+date-released: "2026-08-06"
 license: CC-BY-4.0
 url: "https://github.com/tmerrien/swe-assistant"
 repository-code: "https://github.com/tmerrien/swe-assistant"

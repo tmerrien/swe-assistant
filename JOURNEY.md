@@ -29,7 +29,10 @@ The first weeks at a new company, team, or role.
 
 **Skills for this stage:**
 
-- [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) — fires when you're in or about to enter the first weeks somewhere new.
+- [`new-team-onboarding`](./plugins/swe-assistant/skills/new-team-onboarding/SKILL.md) — fires when you're in or about to enter the first weeks somewhere new. **Start here.**
+- [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) — the "obvious questions" window is open now and closing. Fires when you're hesitating to ask.
+- [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) — fires when you're deliberately learning the codebase, the domain, or the tooling.
+- [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) — fires when the newness tips into feeling like a fraud — common and predictable at this stage.
 
 ---
 
@@ -51,7 +54,11 @@ The next few months after the first weeks. You've finished the setup; now you're
 
 **Skills for this stage:**
 
-- [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) — fires when you're in the Ramp-Up phase: past first weeks, contributing in small ways, building context and the manager relationship.
+- [`ramp-up-playbook`](./plugins/swe-assistant/skills/ramp-up-playbook/SKILL.md) — fires when you're in the Ramp-Up phase: past first weeks, contributing in small ways, building context and the manager relationship. **Start here.**
+- [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — fires whenever you're giving or receiving a review. Reading others' reviews is how you absorb the team's standards.
+- [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — fires when writing a commit message or preparing a PR — the small-PR rhythm this stage runs on.
+- [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) — fires when you're about to touch unfamiliar or untested code, which at this stage is most code.
+- [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) — fires when the mess starts to frustrate you, before it curdles into blame.
 
 ---
 
@@ -73,8 +80,13 @@ The team trusts you with bigger work, and you're starting to give as well as rec
 
 **Skills for this stage:**
 
-- [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) — fires when you're in the Contributor stage: trusted with bigger work, helping teammates, planning quarterly goals.
-- [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — fires whenever you're giving or receiving a code review. Useful from Ramp-Up onward; especially central at this stage.
+- [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md) — fires when you're in the Contributor stage: trusted with bigger work, helping teammates, planning quarterly goals. **Start here.**
+- [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — central at this stage — your reviews should now be useful enough that teammates seek them out.
+- [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — fires when you're handed something ambiguous and have to work out what to build.
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — fires when the thinking needs writing down for others to review.
+- [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md) — fires when estimating, writing stories, or sizing a sprint — you're shaping the work now, not just receiving it.
+- [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) — production-grade code means tests someone else could maintain.
+- [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) — fires when you need to identify, prioritise, or make the case for paying debt down.
 
 ---
 
@@ -95,8 +107,12 @@ You start taking responsibility for what happens *after* code is merged. Deliver
 
 **Skills for this stage:**
 
-- [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) — fires when you're in (or asked about) the Operator stage: delivery pipeline, observability, on-call prep, defending software in production.
-- [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) — fires when prod is on fire (or you've just been paged). Useful at any stage where you're on-call; central here.
+- [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) — fires when you're in (or asked about) the Operator stage: delivery pipeline, observability, on-call prep, defending software in production. **Start here.**
+- [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) — fires when prod is on fire, or you've just been paged.
+- [`on-call-shift`](./plugins/swe-assistant/skills/on-call-shift/SKILL.md) — fires for the rest of on-call — the support queue, prioritisation, handoffs, and not burning out.
+- [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md) — · [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md) · [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md) — the three observability instruments. Learn whichever your company actually uses, first.
+- [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) — · [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) · [`deployment-discipline`](./plugins/swe-assistant/skills/deployment-discipline/SKILL.md) · [`progressive-rollout`](./plugins/swe-assistant/skills/progressive-rollout/SKILL.md) — the delivery pipeline, one skill per phase.
+- [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) — fires when you're building the tooling operators will actually use.
 
 ---
 
@@ -118,8 +134,58 @@ The team trusts you to drive small projects end-to-end. You design, you decide, 
 
 **Skills for this stage:**
 
-- [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) — fires when you're in (or asked about) the Owner stage: driving small projects, design thinking, balancing maintenance, team process, career conversations.
-- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — fires whenever you're writing or reviewing a technical design document (also known as RFC or ADR depending on the team). Useful any time you need to think before building.
+- [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) — fires when you're in (or asked about) the Owner stage: driving small projects, design thinking, balancing maintenance, team process, career conversations. **Start here.**
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — the design document, and the spiral of thinking and discussion that produces it.
+- [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md) — fires when deciding where a boundary goes or whether an abstraction earns its keep — the structural judgment this stage is trusted with.
+- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) — · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — designing so that today's decisions don't trap tomorrow's.
+- [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) — · [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — judgment about rewrites, standards, and new technology.
+- [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) — fires when standups, reviews, or retros need fixing — the team-process improvement this stage brings to 1:1s.
+
+---
+
+## Skills that aren't stage-bound
+
+Most skills in this assistant attach to a **situation** rather than a career stage — they fire the first time you hit that situation, whether that's week two or year ten. The stage lists above name the skills that are *characteristic* of each stage; these are the rest, grouped by the kind of moment they serve.
+
+**Writing and changing code**
+
+- [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md) — hardening code — null safety, immutability, exception design, resource cleanup.
+- [`input-validation`](./plugins/swe-assistant/skills/input-validation/SKILL.md) — handling anything from outside the trust boundary.
+- [`idempotency`](./plugins/swe-assistant/skills/idempotency/SKILL.md) — designing an operation that might be executed more than once.
+- [`retry-and-backoff`](./plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) — calling something remote that can fail.
+- [`configuration`](./plugins/swe-assistant/skills/configuration/SKILL.md) — deciding what belongs in config, and how it's validated.
+- [`dependency-management`](./plugins/swe-assistant/skills/dependency-management/SKILL.md) — taking on, pinning, or untangling third-party code.
+- [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) — modifying code that's unfamiliar, untested, or frightening.
+
+**Testing**
+
+- [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) — deciding what to test and how much.
+- [`mocking`](./plugins/swe-assistant/skills/mocking/SKILL.md) — deciding whether and how to fake a collaborator.
+- [`test-determinism`](./plugins/swe-assistant/skills/test-determinism/SKILL.md) — diagnosing or preventing flaky tests.
+
+**Structure and change**
+
+- [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md) — deciding where complexity should live.
+- [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) — naming, prioritising, and proposing payoff.
+- [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) — when the mess is becoming a grievance.
+- [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) — rewrites, forks, and bypassing standards.
+- [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — adopting anything new into the stack.
+- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) — · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — changing a contract that other people depend on.
+
+**Working with people**
+
+- [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) — before you ask, or when you're avoiding asking.
+- [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — giving or receiving review.
+- [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — the artifacts around a change.
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — thinking a design through, and writing it down.
+- [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md) — · [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) — planning the work, and the meetings around it.
+
+**Learning and self-assessment**
+
+- [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md) — learning a codebase, tool, or domain deliberately.
+- [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md) — checking whether you actually understand something, or only feel that you do.
+- [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) — reflecting on your own growth — 1:1s, reviews, development planning.
+- [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) — when self-assessment has gone wrong in either direction.
 
 ---
 

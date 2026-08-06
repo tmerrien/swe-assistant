@@ -48,6 +48,9 @@ swe-assistant/
 ├── LICENSE                         Creative Commons Attribution 4.0
 ├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
 ├── CONTRIBUTING.md                 Contribution process and skill style conventions
+├── MISFIRE-LOG.md                  Log of skills that over-fired, under-fired, or mis-routed in real use
+├── scripts/
+│   └── sync-to-claude.sh           Sync the local plugin into Claude's cache for local iteration
 ├── docs/                           Academic and pedagogical documentation
 │   ├── THEORETICAL-FOUNDATIONS.md  Educational and cognitive literature the methodology draws on
 │   ├── METHODOLOGY.md              The skill-construction method, intended to be applied by others
