@@ -185,6 +185,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Push back on speculative fields.** "We might need it later" is the exact instinct this skill exists to interrupt.
 - **Name silent breakage explicitly.** Changing a field's meaning while keeping its name is the most dangerous change and the least likely to be noticed. Call it out whenever it appears.
 - **Respect existing conventions.** If the company has a versioning standard, the answer is to follow it, even if another scheme is theoretically nicer.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

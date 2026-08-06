@@ -140,6 +140,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **The propagation ask is the lead.** Anything else is decoration without it.
 - **Match the user's framework.** OpenTelemetry has slightly different APIs across languages; if the user mentions Python / Java / Go / Node, tailor to that.
 - **Be honest about the source.** The book gives this section brief treatment; this skill expands from common industry practice. Worth noting if the user is going deep.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

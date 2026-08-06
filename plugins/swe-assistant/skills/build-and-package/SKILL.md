@@ -145,6 +145,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work on their project if they show it.** If they paste a `Dockerfile`, `pom.xml`, `pyproject.toml`, `package.json`, `Makefile`, or CI config, walk through *their* build, not a generic one.
 - **Surface the ecosystem's actual tools.** `bazel query`, `mvn package`, `poetry build`, `cargo build`, `npm pack`, `docker build` — name what they'll actually type, not a generic "run your build tool."
 - **Don't lecture the disciplined.** A senior engineer asking about meta-packages doesn't need the five-step pipeline primer.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

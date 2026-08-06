@@ -105,6 +105,7 @@ Keep it short. Confirm the move, and offer to come back if the mess turns out to
 - **Don't validate blame.** *"Yeah, that engineer is incompetent"* is wrong even if the user wants to hear it. Validate the frustration; reframe the cause.
 - **Don't lecture.** The user is frustrated; you're not their professor. One sentence of reframe, then back to the practical move.
 - **Be charitable in the language about past developers.** Set the tone you want the user to carry into the team.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

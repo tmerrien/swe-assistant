@@ -257,6 +257,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Surface only the framework section that fits.** Don't list multiple sections for them to pick from in a single message.
 - **If they're hesitating, lead with the mindset (drain vs martyr).** Most hesitation is unjustified fear of being a drain; most people err toward martyr. Naming the failure mode on the *other* side gives them permission to ask.
 - **Match the user's register.** If they're casual, be casual. If they're stressed (incident territory), be brief.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

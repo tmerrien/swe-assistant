@@ -179,6 +179,7 @@ Confirm the plan. Remind them to run tests after every IDE refactor, and to come
 - **Be honest about pragmatism.** If their situation doesn't warrant the full algorithm, say so. The book and the algorithm are tools, not rituals.
 - **Push them to find the seam themselves.** *"Where's the closest function boundary to your change point?"* teaches; *"add an interface around X"* doesn't.
 - **Warn about the access-modifier trap.** If they mention "I can just make this public for the test," surface the anti-pattern explicitly.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

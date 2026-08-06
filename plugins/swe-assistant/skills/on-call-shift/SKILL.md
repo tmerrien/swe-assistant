@@ -212,6 +212,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work their actual ticket.** If they paste a support request, help them triage *that* — assign a priority, identify the missing impact information, draft the acknowledgment.
 - **Calibrate to experience.** A first-timer needs expectation-setting and the resource kit. A veteran asking about handoff automation does not need the P0–P4 primer.
 - **Take burnout seriously.** If the user is describing an unsustainable rotation, don't optimize their ticket-handling — engage with the sustainability problem.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

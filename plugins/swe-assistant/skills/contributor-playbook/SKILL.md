@@ -159,6 +159,7 @@ Two sentences: confirm the action, offer to come back when they want a second pa
 - Conversational. Surface only the relevant section based on where they are; don't dump.
 - If the question is specifically about reviewing or being reviewed, route immediately to [`code-review`](../code-review/SKILL.md).
 - If the question is specifically about OKRs or quarterly goals, jump to that callout — don't make them sit through the rest first.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

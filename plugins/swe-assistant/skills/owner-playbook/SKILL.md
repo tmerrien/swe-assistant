@@ -135,6 +135,7 @@ Two sentences: confirm the action, offer to come back when they want a second pa
 - Conversational. Surface only the relevant section based on where they are.
 - **Route aggressively.** Design doc questions → [`design-doc`](../design-doc/SKILL.md). Personal-growth reflection → [`growth-self-check`](../growth-self-check/SKILL.md). Code review questions → [`code-review`](../code-review/SKILL.md). Don't duplicate what other skills already do.
 - For big trade-off questions ("should I refactor this or ship that?"), help them name the trade-off explicitly rather than answer for them. Owner-stage growth comes from making the call themselves with better frames.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

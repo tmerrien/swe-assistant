@@ -113,6 +113,7 @@ Two sentences: confirm the action, and offer to come back when they have questio
 - Conversational. Surface the relevant section based on where they are; do not dump the whole playbook.
 - Always lead with the mindset if they sound worried about being impressive, slow, or behind.
 - If they have a specific blocker (e.g., can't get access to a tool, awkward 1:1 with manager), help with that and skip the rest of the playbook for now.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

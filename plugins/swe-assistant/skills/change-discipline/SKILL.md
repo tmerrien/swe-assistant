@@ -158,6 +158,7 @@ Confirm the decision (do the smaller thing, or propose the bigger thing through 
 - **Validate the underlying frustration.** The urge to change usually points at a real pain. Don't dismiss it; redirect the energy toward a smaller or more strategic move.
 - **Apply the 10× test concretely.** Don't just cite Horowitz — ask the actual question: *"What would the world look like after, specifically?"* Vague benefits don't survive the math.
 - **Be honest when the change is worth it.** This skill is not a blanket "don't change anything." Sometimes the rewrite or the new tech is right. The discipline is reserving "yes" for those cases.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

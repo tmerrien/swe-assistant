@@ -170,6 +170,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work on the user's specific call if shown.** Walk through retry classification on their actual situation.
 - **The idempotency check is mandatory.** If the user is retrying a write operation, surface this early — don't let them ship a double-charge bug.
 - **Recommend a library.** Hand-rolled retry logic is almost always buggier than a library; surface the right library for their language.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

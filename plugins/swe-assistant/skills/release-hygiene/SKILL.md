@@ -180,6 +180,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Name the specific tooling.** `git-cliff`, `semantic-release`, `cargo publish`, `twine upload`, `npm publish`, `mvn deploy`, `gh release create`, `helm push` — call out what they'll actually type.
 - **Don't force process on a solo project.** A one-person library on GitHub doesn't need a release train; it needs a stable tagging habit and a changelog. Calibrate.
 - **When they've already shipped a broken version**, help them recover (yank + fix-version + honest release notes) — don't lecture them about immutability first.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

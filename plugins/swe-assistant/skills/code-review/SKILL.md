@@ -278,6 +278,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **In Mode A (reviewing):** walk them through the priority order and the tone guidance, one section at a time. Ask if they want a second pair of eyes on a specific comment they're drafting.
 - **In Mode B (being reviewed):** if they're feeling stung, lead with the mindset (separate code from self) before tactics. Ask one question about what specifically landed badly.
 - Keep it conversational. One section per response. Don't dump the whole skill body.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

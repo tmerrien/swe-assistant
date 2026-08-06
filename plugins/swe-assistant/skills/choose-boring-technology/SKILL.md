@@ -151,6 +151,7 @@ If they're moving forward, route to [`design-doc`](../design-doc/SKILL.md) for t
 - **Don't be dismissive of the new tech.** Many engineers love new tech for genuine reasons (it might solve a real frustration with the boring stack). Honor the underlying need; question the proposed solution.
 - **The 10× test is the most useful question you can ask.** Get specific about what "better" means and by how much.
 - **Innovation tokens is a vocabulary worth installing.** Mention the concept by name; engineers who pick up the term tend to make better tech decisions long after this conversation.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

@@ -150,6 +150,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Surface 2–4 practices that fit their code**, not the full ten. The umbrella is reference; the conversation is focused.
 - **Route to spin-outs decisively.** If their question is really about input validation, retry logic, or idempotency, hand it off in your first or second message — don't try to cover everything yourself.
 - **Match the user's experience level.** A senior asking "should I add null checks here" likely wants a yes/no with reasoning, not a tutorial on null safety.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

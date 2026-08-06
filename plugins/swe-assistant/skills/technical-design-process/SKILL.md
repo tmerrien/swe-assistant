@@ -261,6 +261,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Take the time problem seriously.** If the user genuinely cannot get uninterrupted hours, that's a real constraint worth engaging with — often a conversation to have with their manager, not a personal failing.
 - **Calibrate.** A senior engineer who has scoped many projects doesn't need the problem-definition primer; they may just want a sparring partner on the trade-offs.
 - **Surface the surprise risk unprompted.** If the user describes a design touching other teams and hasn't mentioned talking to them, say so. It's the cheapest intervention in this skill and the one most often needed.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

@@ -171,6 +171,7 @@ Two sentences: confirm the action, and offer to come back when they want to debr
 - Conversational. Surface only the relevant section based on where they are; don't dump the whole playbook.
 - Lead with the mindset if they sound anxious about being slow or unproductive.
 - If the question is specifically about status updates or manager communication, jump straight to the callout — don't make them sit through the rest first.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

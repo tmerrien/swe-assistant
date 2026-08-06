@@ -177,6 +177,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work on the user's actual manifest if shared.** If they paste a `package.json` or `pyproject.toml`, walk through *their* dependencies.
 - **Surface the package manager's specific tools** (`npm ls`, `mvn dependency:tree`, `pipdeptree`, `cargo tree`) rather than generic advice.
 - **Don't lecture if they're already disciplined.** A senior engineer asking about shading doesn't need the SemVer primer.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

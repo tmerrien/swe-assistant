@@ -159,6 +159,7 @@ If they're submitting for review, remind them to route to [`code-review`](../cod
 - **Don't be precious about the rules.** If their team uses a different convention, the team's convention wins. The skill teaches a sensible default; the user lives with their team's reality.
 - **Show, then tell.** If they share a draft, edit it before lecturing. Concrete fix > abstract rule.
 - **Don't add complexity if they're already doing it well.** A clean three-commit history with imperative-mood messages doesn't need a PR description framework lecture.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

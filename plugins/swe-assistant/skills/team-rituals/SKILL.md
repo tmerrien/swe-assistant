@@ -161,6 +161,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Don't defend the ceremony.** If a meeting genuinely delivers nothing, saying so is more useful than insisting they run it better. Some teams should drop reviews.
 - **Guard the retro boundary firmly.** Retros that drift into individual performance are the fastest way to lose the team's trust — name it whenever it appears.
 - **Give them words.** For standup anxiety or a hard retro item, offer concrete phrasing rather than principles.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

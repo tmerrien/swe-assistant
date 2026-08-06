@@ -191,6 +191,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Be willing to say "leave it."** The inertia matrix exists so this is a real option. A skill that always recommends simplification is a checklist, not judgment.
 - **Watch for reflexive abstraction.** If the user is reaching for a factory, a strategy pattern, or a plugin system for a single case, name the YAGNI concern directly.
 - **Don't lecture the experienced.** A staff engineer asking where a bounded context should split doesn't need the YAGNI primer.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

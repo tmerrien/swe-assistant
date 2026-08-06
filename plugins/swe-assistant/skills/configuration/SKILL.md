@@ -226,6 +226,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Default to recommending the boring option.** Engineers reaching for a custom DSL or distributed config store almost always benefit from being asked *"would a file work?"*
 - **Push hard on validation-at-startup.** Many production issues trace back to invalid config that loaded silently and failed later. The skill should make this practice non-negotiable.
 - **Match the user's stack.** YAML conventions in Python differ from YAML conventions in Go; env-var conventions in Kubernetes differ from env-var conventions in bare-metal systemd. Tailor to context.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

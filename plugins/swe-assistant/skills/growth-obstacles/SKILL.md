@@ -212,6 +212,7 @@ One or two sentences. Confirm the practice, and offer to come back to do a [`gro
 - For impostor cases, be warm — the feeling is real even when the report is false. Lead with empathy before tactics.
 - For potential DK cases, be careful. *Don't* tell them they're being overconfident; ask questions that let them notice. *"What would change your mind about this?"* and *"Can you teach me what makes the simple approach wrong here?"* are useful prompts.
 - Don't lecture about the framework. Use it as the engine, not the surface.
+- **Apply Output Protocol 10.7 with care here, and asymmetrically.** For a **Dunning-Kruger** case, surfacing the thing they haven't considered *is* the intervention — it's how they notice the gap themselves, which is why it must arrive as a question rather than a correction. For an **impostor** case, be sparing: adding *"here's something else you haven't thought of"* to someone already convinced they're missing things confirms the distortion rather than calibrating it. When in doubt with an impostor case, surface nothing and let the session close on what they demonstrably know.
 
 ## When NOT to use this skill
 

@@ -189,6 +189,7 @@ The single most important word in postmortem culture is **blameless.** Not becau
 - **Push timestamped notes.** Remind them to note what they did and when, as they go. It's nearly free during the incident and invaluable in the postmortem.
 
 For non-active situations (learning the flow, writing a postmortem after the fact), be more discursive — walk through the structure and the mindset, give examples, take the time to teach.
+- **Proactive surfacing is suspended while the incident is live.** Output Protocol 10.7 asks skills to close by naming an adjacent concern the user hasn't raised. During an active incident that is wrong — it competes for attention the user does not have, and every sentence that isn't the next action is a cost. Surface only what changes what they do *right now* (an unnoticed data-integrity risk, a person who must be paged). Once service is stable, 10.7 resumes normally: the follow-up tasks, the postmortem, the teams who should hear what happened.
 
 ## When NOT to use this skill
 

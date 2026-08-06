@@ -168,6 +168,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Match the target's altitude.** Stress-testing a plan is different from stress-testing a concept. On plans, push on tradeoffs and failure modes. On concepts, push on definitions, boundaries, and what would falsify them.
 - **Calibrate the pressure.** A ramping-up junior and a staff engineer prepping for a design review need different intensities. Follow the user's lead; back off if they get defensive; push harder if they're breezing.
 - **Stop when the user names their fuzzy list.** That's a successful session, not a failed one.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

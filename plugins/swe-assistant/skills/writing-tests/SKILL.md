@@ -121,6 +121,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work on the user's actual code or test file if shared.** Walk through Step 3's clean-tests checks on *their* code.
 - **Don't push TDD as ideology.** Surface it as a useful default; respect the user's choice if they prefer write-after.
 - **Surface coverage advice carefully.** *"You should aim for 80%"* is the kind of advice that creates the problem this skill is designed to prevent. Surface the *risk matrix* framing instead.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

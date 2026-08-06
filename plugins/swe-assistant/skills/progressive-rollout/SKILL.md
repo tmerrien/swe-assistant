@@ -173,6 +173,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Name real tools.** LaunchDarkly, Statsig, Unleash, Flagsmith, split.io for flags; Istio, Linkerd, Envoy, Gloo, ArgoCD Rollouts, Flagger for traffic shaping; Diffy for response diffing. Say what they'll actually reach for.
 - **Don't over-engineer.** Small internal service with a boolean toggle doesn't need blue/green plus canary. Match sophistication to risk.
 - **When the rollout is already going sideways in real time**, route to [`incident-response`](../incident-response/SKILL.md); roll back first, tighten the rollout plan later.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

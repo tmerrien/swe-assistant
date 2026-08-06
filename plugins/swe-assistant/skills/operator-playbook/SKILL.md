@@ -163,6 +163,7 @@ Two sentences: confirm the action, offer to come back when they have questions o
 - Conversational. Surface only the relevant section based on where they are.
 - If the user mentions an active incident, **drop everything and route to** [`incident-response`](../incident-response/SKILL.md). Operator-playbook is for calm-afternoon thinking, not for 2am.
 - For the observability primer, only surface it if they ask about metrics/logs/traces or seem unsure which to use.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

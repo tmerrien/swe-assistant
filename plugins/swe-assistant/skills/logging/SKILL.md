@@ -184,6 +184,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Surface only the relevant section.** Most logging questions are about one of the four practices; identify which and skip the others.
 - **Be specific about the redaction list.** "Don't log sensitive data" is a generality; *"don't log the `Authorization` header"* is actionable.
 - **If the user is asking about an active incident**, route to [`incident-response`](../incident-response/SKILL.md) — they should be *reading* logs, not designing how to *write* them.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

@@ -137,6 +137,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Work on the user's actual test if shared.** Walk Step 3 on *their* code.
 - **Make reproduction the first ask.** A flake you can't reproduce can't be debugged.
 - **Surface disabling as a legitimate option** when the fix isn't feasible right now — better than a red build everyone ignores.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

@@ -162,6 +162,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Surface the right downstream-context escape rule for their situation.** SQL injection advice for code that builds HTML is wasted.
 - **Mention OWASP early if security is the user's concern.** It's the most useful single reference they can bookmark.
 - **Don't lecture if they're already validating.** Senior practitioners often want a sanity check, not a tutorial.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

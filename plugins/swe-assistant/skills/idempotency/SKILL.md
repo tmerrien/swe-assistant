@@ -199,6 +199,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Use the HTTP-methods table early** if the user is designing a web API — it grounds the concept fast.
 - **Work on the user's specific operation.** Apply a pattern to their actual design rather than walking the menu.
 - **Be explicit when an operation is not idempotent and cannot easily be made so.** Some operations genuinely can't be retried; the right answer is to fail fast and surface the failure clearly (route to [`retry-and-backoff`](../retry-and-backoff/SKILL.md) for the fail-fast guidance).
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

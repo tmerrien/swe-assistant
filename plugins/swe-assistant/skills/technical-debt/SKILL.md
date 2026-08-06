@@ -232,6 +232,7 @@ Before they submit, make sure they've defined how they'll know the work worked. 
 - Skeptical, in a friendly way. Most claims of "technical debt" don't survive the "what's the interest being paid?" question. That's good — the discipline of asking it protects the term.
 - For proposal-writing, **work on the actual draft with them** rather than lecturing about the framework. Apply the template to their situation.
 - When the answer is "do nothing for now," say so. Not all debt is worth paying down right away. Help them decide which.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

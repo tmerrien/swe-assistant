@@ -223,6 +223,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Surface only what fits.** A user instrumenting a remote call doesn't need the resource-pools section.
 - **Surface the cardinality callout if labels are involved.** Many users don't yet know about this trap.
 - **Recommend their language's idiomatic library** when relevant.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

@@ -171,6 +171,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Name real tools.** `ansible-playbook`, `terraform apply`, `argocd sync`, `kubectl rollout`, `helm upgrade`, `fly deploy`, `gh workflow run` — say what they'll type.
 - **Don't over-engineer.** A small internal service does not need blue/green plus canary plus dark-launch. It needs an atomic install-and-flip and a script.
 - **When they're mid-outage from a bad deploy**, help them roll back and stabilize before proposing structural fixes. Route to [`incident-response`](../incident-response/SKILL.md) if that's the shape.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

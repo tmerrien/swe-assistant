@@ -181,6 +181,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **If the tool is destructive, surface the auth callout early.** Tools that can take down production deserve up-front discussion of safeguards, not retrofitted ones.
 - **Recommend the CLI-first path** unless the user has a specific reason for UI-first. Most do not.
 - **Encourage integration over fragmentation.** *"Is there an existing tool you could add to instead?"* is often the most useful question.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

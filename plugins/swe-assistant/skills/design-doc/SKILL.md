@@ -307,6 +307,7 @@ If your team has a template, use it. The structure above is a sensible default i
 - If the user is **stuck mid-draft**, ask which section they're on and what's blocking them. Don't lecture about the whole structure.
 - If the user is **reviewing someone else's**, route the response style toward [`code-review`](../code-review/SKILL.md) tone (questions, not commands; suggest don't dictate; label severity).
 - If the user got **feedback they don't understand**, ask them to share the specific comment. Help them parse it before deciding how to respond.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 

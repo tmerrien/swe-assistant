@@ -204,6 +204,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Name silent breakage.** Changing a column's meaning while keeping its name produces no error and wrong answers. Flag it whenever it appears.
 - **Don't over-engineer small cases.** A single-consumer table in a low-traffic internal app doesn't need seven-step expand-and-contract. Match rigor to blast radius.
 - **If the change is already out and something broke**, route to [`incident-response`](../incident-response/SKILL.md) first.
+- **Close by surfacing one thing they haven't raised** that the situation implies — a person who should be told, an artifact that needs updating, a step they haven't planned for. One, chosen by consequence; skip it if they've already covered it or clearly know (Output Protocol 10.7).
 
 ## When NOT to use this skill
 
