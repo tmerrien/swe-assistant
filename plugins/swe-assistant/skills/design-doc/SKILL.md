@@ -9,7 +9,11 @@ description: Use when the user is about to write, currently writing, or reviewin
 
 *The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 10, "Technical Design Process"** — the *Writing Design Documents* section. The threshold for when a change warrants a design document, the write-for-your-audience discipline, and the keep-it-current material (including the two abandonment pitfalls and version-controlling the document alongside the code) come from there. Chapter 1, "The Journey Ahead" also frames design docs as Owner-stage work.
 
-Supplemented by widely-shared industry practice (Google design doc culture, Amazon 6-pagers, ADR conventions) for the template and review mechanics, which the book does not prescribe in detail.
+The document template — Introduction through Appendix, including the *Design and Architecture* subsections — is the structure that chapter proposes, with per-section guidance drawn from it.
+
+Supplemented by widely-shared industry practice (Google design doc culture, Amazon 6-pagers, ADR conventions) for the review mechanics and the non-goals convention, which the book does not prescribe in detail. Public proposal archives — Python PEPs, Kafka KIPs, Rust RFCs — are surfaced by the chapter as worked examples.
+
+One section, *"Often, nobody reads it. Write it anyway,"* reflects the maintainer's own professional experience and is labeled as such in place.
 
 For the *process* that produces the document — defining the problem, research, prototyping, protecting thinking time — see [`technical-design-process`](../technical-design-process/SKILL.md), which folds the rest of Chapter 10.
 
@@ -104,68 +108,124 @@ Before drafting, be explicit about two things:
 
 ## The standard structure
 
-Length expectations: **1–3 pages for most things; up to 5 for a meaningful project.** Past that, almost no one reads the whole thing.
+**Use your team's template if they have one.** The structure below is the default when there isn't one, and it is a *base proposal* — sections get merged, dropped, or added depending on the change. A pure backend change has no UI/UX section; a library has no persistence layer. Adapt rather than padding empty headings.
+
+**Length:** a full document for a consequential change typically runs several pages — the *Design and Architecture* section alone is usually the bulk. For the lighter one-pager or ADR case (see *When to write* above), keep the same section order and collapse to Introduction, Motivation, Potential Solutions, Proposed Solution, and Unresolved Questions.
+
+At a minimum, a design document should cover **the current design, the motivation for changing it, the potential solutions, and the proposed solution** — with enough detail on the proposal to be actionable: diagrams, algorithms, public APIs, schemas, trade-offs against the alternatives, assumptions, and dependencies.
 
 ```
 # [Title — what this is, in plain English]
 Author: [your name]   Status: Draft / In Review / Approved / Implemented
 Date: [today]   Reviewers: [names]   Stakeholders: [names]
 
-## Context
-[2–4 sentences. Why are we even talking about this? What changed, what's the problem
-from the team's or business's perspective? Assume the reader knows the codebase but
-not necessarily this corner of it.]
+## Introduction
+[Introduce the problem and say why it's worth solving. One paragraph summarizing
+the proposed change. Then a short reading guide pointing different audiences at the
+sections they care about — security engineers here, operations there, data
+scientists elsewhere. Most readers will only read this section; make it stand alone.]
 
-## Problem
-[Specific. Not "improve X" — "Today, the X service has Y behavior, which causes Z
-for users. We need it to do W instead." If you can't describe the problem in two
-or three sentences, you don't understand it well enough to design yet.]
+## Current State and Context
+[Describe the architecture being modified. Define terminology, and explain what
+systems with nonobvious names actually do. How is the issue being addressed today?
+Are there workarounds in play, and what do they cost?]
 
-## Goals
-- [What this work is trying to achieve. Outcomes, not activities.]
-- [2–4 bullets, ranked by importance.]
+## Motivation for Change
+[Teams always have more projects than capacity. Why this problem, and why now?
+Describe the benefits and tie them to business needs. Be careful not to overpromise —
+an oversold doc is a credibility debt you pay later.]
 
-## Non-goals
-- [Equally important. What this work is *not* trying to do, even though
-  someone might assume it is.]
-- [Naming non-goals prevents scope creep and confusing reviewers.]
+## Requirements
+[What an acceptable solution must satisfy. Usually broken out:]
 
-## Proposed solution
-[The actual design. Diagrams welcome. Code snippets welcome where they clarify.
-Walk through how the proposed thing works — the data flow, the API surface,
-the failure modes, the rollout plan.]
+### User-facing requirements
+[Usually the bulk. What the change means from the user's perspective.]
 
-## Alternatives considered
-[**This section is what makes the doc credible.** For each plausible alternative:]
+### Technical requirements
+[Hard constraints — typically interoperability concerns or internal guidelines.
+Service level objectives belong here.]
 
-### Alternative A: [name]
-- Approach: [one paragraph]
-- Pros: [bullets]
-- Cons: [bullets]
-- **Why not chosen:** [the actual reason]
+### Security and compliance requirements
+[Broken out separately — even though they could be filed above — specifically so
+security gets explicitly discussed rather than assumed. Data retention and access
+policies usually live here.]
 
-### Alternative B: [name]
-[same shape]
+### Other
+[Critical deadlines, budgets, and anything else that constrains the solution.]
 
-[Naming 2–3 alternatives — even ones you ruled out quickly — shows you thought
-about it. A doc with one option looks like a foregone conclusion.]
+## Potential Solutions
+[Reasonable alternative approaches, and why you dismissed each. This section is as
+much a tool for you as for the reader: it forces you past your first idea. It also
+preempts "why not do X?" comments — and if you dismissed something for a bad reason,
+this is where a reviewer catches it.]
 
-## Trade-offs of the proposed solution
-[Be honest. Every design has costs. Name them up front so reviewers don't
-have to dig for them. This builds trust.]
+## Proposed Solution
+[The approach you settled on, in more detail than the Introduction. Diagrams that
+highlight what changes. If the proposal has multiple phases, explain how the design
+evolves from phase to phase — here and in every section below.]
 
-## Risks and open questions
-- [What could go wrong, and what's the mitigation]
-- [What you're explicitly unsure about and want input on]
+## Design and Architecture
+[Normally the bulk of the document. All the technical detail worth discussing: key
+libraries and frameworks, implementation patterns, and any departure from common
+company practice.]
 
-## Plan
-- [Milestones with rough dates. Don't over-precisify; give reviewers a sense of shape.]
-- [Who's doing what, if not just you.]
+### System Diagram
+[Main components and how they interact. Highlight new and changed components, or
+give before/after diagrams. Accompany the diagram with prose walking the reader
+through the changes — a diagram alone is not an explanation.]
 
-## Appendix (optional)
-[Things that didn't fit but are useful — benchmarks, prior discussions, links to
-related docs.]
+### UI/UX Changes
+[Mock-ups, used to walk through a user's activity flow. No visual component? This
+section covers developer experience instead — how the library feels to call, how the
+CLI feels to use. The goal is to think through the experience of whoever interacts
+with your change.]
+
+### Code Changes
+[The implementation plan. What existing code changes, how, and when. Any new
+abstractions being introduced.]
+
+### API Changes
+[Changes to existing APIs and any new ones. Backward and forward compatibility, and
+versioning. Include error handling: what the API returns for malformed input,
+constraint violations, and unexpected internal errors.]
+
+### Persistence Layer Changes
+[Storage technologies introduced or modified — databases, file and filesystem
+layouts, search indices, data transformation pipelines. All schema changes, with a
+note on backward compatibility for each.]
+
+## Test Plan
+[How you'll verify the change — not every test enumerated in advance. Cover sourcing
+or generating test data, the use cases that must be covered, the libraries and
+strategies you expect to lean on, and how you'll validate the security requirements.]
+
+## Rollout Plan
+[How you'll avoid complicated deployment-ordering requirements. Which feature flags
+control the rollout, and which deployment patterns apply. Critically: how you'd find
+out the change isn't working, and how you'd roll back.]
+
+## Unresolved Questions
+[Pressing questions the design hasn't answered. This is how you solicit input, and
+how you state your known unknowns. A doc with an empty section here is usually
+hiding something.]
+
+## Appendix
+[Extra detail of interest, references to related work, further reading.]
 ```
+
+**A common addition from practice:** many teams add a **Non-goals** subsection under *Requirements* — what this work explicitly is *not* trying to do, even though a reader might assume it is. It costs two lines and prevents a surprising amount of scope confusion.
+
+Cross-references for the sections that have their own skills: [`writing-tests`](../writing-tests/SKILL.md) for the test plan, [`progressive-rollout`](../progressive-rollout/SKILL.md) and [`deployment-discipline`](../deployment-discipline/SKILL.md) for the rollout plan, [`input-validation`](../input-validation/SKILL.md) for API error handling, and [`dependency-management`](../dependency-management/SKILL.md) for the dependencies you're taking on.
+
+## Learn from public design documents
+
+Some engineering communities conduct design in the open, which means there are large public archives of real proposals — including the arguments, the objections, and the revisions. Reading a few is the fastest way to calibrate depth and tone:
+
+- **Python Enhancement Proposals (PEPs)** — https://peps.python.org/. Decades of language design, with an unusually disciplined house style.
+- **Kafka Improvement Proposals (KIPs)** — https://cwiki.apache.org/confluence/display/KAFKA/Kafka+Improvement+Proposals. Distributed-systems proposals with heavy attention to compatibility and migration.
+- **Rust RFCs** — https://github.com/rust-lang/rfcs. Notable for explicit *Drawbacks*, *Rationale and alternatives*, and *Unresolved questions* sections in every RFC.
+
+Read the discussion threads too, not just the accepted text. The objections a proposal survived tell you more about what makes a document persuasive than the final version does.
 
 ## Writing it well
 
@@ -181,6 +241,20 @@ related docs.]
 - **Tag specific reviewers and tell them what you want.** *"@Alice, I'd love your eye on the data model section. @Bob, the rollout plan is the part I'm least sure about."* Random "any thoughts?" gets random thoughts.
 - **Be explicit about timeline.** *"Hoping for feedback by Wednesday so I can start building Thursday."* Otherwise it sits.
 - **Reply to every comment.** Same rule as code review — every comment deserves a reply, even if it's *"good catch, updated."* Unresolved comments make reviewers think you're ignoring them.
+
+## Callout — Often, nobody reads it. Write it anyway.
+
+*This section reflects the maintainer's own professional experience rather than the cited literature, and is labeled as such. It is offered as a corrective to the (accurate but incomplete) picture the rest of this skill paints.*
+
+In practice — and especially at startups — you should expect that **most of your design documents will go largely unread.** Reviewers skim the introduction. Stakeholders read the section they were pointed at, if that. Some documents get no comments at all.
+
+This is worth knowing up front, because the alternative is discovering it after your third carefully-structured document lands with a thud and concluding the whole practice is theatre. It isn't. Three things remain true:
+
+- **The thinking is the deliverable.** Most of the value is extracted while writing, before anyone reads a word. The unknowns you surface, the alternative you talk yourself out of, the API error case you notice while documenting it — those pay for the document by themselves.
+- **Write it as if it will be read.** The discipline of writing for a real audience is what forces the clarity. A document written carelessly because "no one will read it anyway" loses the thinking benefit too — the sloppiness goes all the way down.
+- **It becomes valuable later, asymmetrically.** Unread on Tuesday, decisive six months later when someone asks why the system works this way, or when a new engineer needs the context, or when the decision is challenged and you have the reasoning written down with a date on it.
+
+**The important corollary:** a design document is **not a substitute for actually telling people.** Writing and circulating a document is not the same as communicating a change. If a proposal affects another team, tell them — in the channel they read, in a meeting, in person. The document supports that conversation and outlives it; it does not replace it. Assuming otherwise is how teams get surprised by changes that were "documented."
 
 ## Keeping the document alive
 

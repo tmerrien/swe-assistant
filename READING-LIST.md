@@ -252,6 +252,15 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The canonical short essay on writing good commit messages. The seven rules embedded in `commit-and-pr-hygiene` come from this article. Beams' full argument has more nuance than the rules alone convey; worth reading in full at least once. Short — ~10 minutes.
 
+### Public design-proposal archives — PEPs, KIPs, and Rust RFCs
+
+- **Publishers:** Python Software Foundation; Apache Kafka; the Rust project (all ongoing)
+- **URLs:** https://peps.python.org/ · https://cwiki.apache.org/confluence/display/KAFKA/Kafka+Improvement+Proposals · https://github.com/rust-lang/rfcs
+- **Source:** *The Missing Readme*, Ch. 10 — surfaced as worked examples of design documents
+- **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Three large archives of real design documents written in the open, by communities that conduct technical design publicly. Unlike a template, these show *finished* proposals at varying quality, and — because the discussion threads are preserved — the objections each one survived. That makes them the best available calibration for depth, tone, and how much detail a section actually needs. Rust RFCs are notable for requiring explicit *Drawbacks* and *Rationale and alternatives* sections in every proposal; KIPs for their attention to compatibility and migration; PEPs for house-style discipline across decades. Reading three or four, discussion included, is worth more than reading another article about how to write design docs.
+
 ### Maker's Schedule, Manager's Schedule
 
 - **Author:** Paul Graham (2009)
