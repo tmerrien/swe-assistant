@@ -106,6 +106,8 @@ Before drafting, be explicit about two things:
 
 **On learning to write:** write clearly, then **reread from your target audience's perspective**. It does not matter whether *you* find it clear — it matters whether *they* do. Be concise. And read what others have written, deliberately: ask how you would edit it, what's extra, what's missing. Editing other people's documents is the fastest way to improve your own.
 
+Technical writing is a learnable skill with a small canon worth knowing: Strunk & White's *The Elements of Style* and Zinsser's *On Writing Well* for prose generally, and Paul Graham's short essays *"How to Write Usefully"* (http://paulgraham.com/useful.html) and *"Write Like You Talk"* (http://paulgraham.com/talk.html) — the latter being an unusually good corrective for engineers whose documents come out stiff. Full entries in [`READING-LIST.md`](../../../../READING-LIST.md).
+
 ## The standard structure
 
 **Use your team's template if they have one.** The structure below is the default when there isn't one, and it is a *base proposal* — sections get merged, dropped, or added depending on the change. A pure backend change has no UI/UX section; a library has no persistence layer. Adapt rather than padding empty headings.
@@ -226,6 +228,10 @@ Some engineering communities conduct design in the open, which means there are l
 - **Rust RFCs** — https://github.com/rust-lang/rfcs. Notable for explicit *Drawbacks*, *Rationale and alternatives*, and *Unresolved questions* sections in every RFC.
 
 Read the discussion threads too, not just the accepted text. The objections a proposal survived tell you more about what makes a document persuasive than the final version does.
+
+For a company-scale worked example with a reusable template, WePay published both an account of their design-doc practice (https://wecode.wepay.com/posts/effective-software-design-documents) and the template itself (https://github.com/wepay/design_doc_template).
+
+For *reviewing* someone else's design rather than writing your own, see [`technical-design-process`](../technical-design-process/SKILL.md) — contributing to others' designs, and running the discussions where that happens, live there.
 
 ## Writing it well
 

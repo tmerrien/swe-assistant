@@ -98,6 +98,14 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** Team-level version-control discipline — branching models, review workflows, release branches — that determines what CI is even asked to build. A team's Git conventions are effectively the contract the build pipeline enforces. Useful complement to `commit-and-pr-hygiene` (which is about individual-author discipline) at the team-workflow layer.
 
+### The Elements of Style
+
+- **Authors:** William Strunk Jr., E. B. White (4th ed., Longman, 1999; first published 1918)
+- **Source:** *The Missing Readme*, Ch. 10 Level Up
+- **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The shortest respectable book on English prose style — under 100 pages, and the source of *"omit needless words."* Its value for engineers is concision: design documents fail more often from being too long to read than from being too short. Some of its grammatical prescriptions are dated and contested by linguists; read it for the editing instinct, not as law.
+
 ### The Legacy Code Programmer's Toolbox
 
 - **Author:** Jonathan Boccara (2021)
@@ -113,6 +121,14 @@ Each entry shows:
 - **Relates to:** [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) (second-system effect, rewrites), [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) (project planning, Brooks's law), [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) (managing complexity)
 - **Status:** To read
 - **Why this matters here:** Foundational collection of essays on software engineering management. Two concepts in particular are directly applicable to existing-code work: **Brooks's law** (*"adding manpower to a late software project makes it later"*) and the **second-system effect** (the tendency to over-engineer the second version of a system once the first one's constraints are removed). The second-system effect is exactly the trap `change-discipline` warns about in its rewrite section. The Anniversary Edition adds the retrospective essay *"No Silver Bullet"* and its 1995 update, both worth reading.
+
+### On Writing Well: The Classic Guide to Writing Nonfiction
+
+- **Author:** William Zinsser (30th Anniversary Edition, HarperCollins, 2006; first published 1976)
+- **Source:** *The Missing Readme*, Ch. 10 Level Up
+- **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The standard book on nonfiction writing, and a warmer, more practical companion to Strunk & White. Zinsser's central themes — clarity, simplicity, ruthless removal of clutter, and writing for a reader rather than to impress — map almost directly onto what makes a design document actually get read. Includes a chapter on writing about science and technology specifically, aimed at exactly the engineer who thinks they can't write.
 
 ### Presence: Bringing Your Boldest Self to Your Biggest Challenges
 
@@ -261,6 +277,15 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** Three large archives of real design documents written in the open, by communities that conduct technical design publicly. Unlike a template, these show *finished* proposals at varying quality, and — because the discussion threads are preserved — the objections each one survived. That makes them the best available calibration for depth, tone, and how much detail a section actually needs. Rust RFCs are notable for requiring explicit *Drawbacks* and *Rationale and alternatives* sections in every proposal; KIPs for their attention to compatibility and migration; PEPs for house-style discipline across decades. Reading three or four, discussion included, is worth more than reading another article about how to write design docs.
 
+### Hammock Driven Development
+
+- **Author:** Rich Hickey (2010, talk)
+- **URL:** https://youtu.be/f84n5oFoZBc
+- **Source:** *The Missing Readme*, Ch. 10 Level Up — which points specifically at the *"Field Report"* portion
+- **Relates to:** [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Hickey's talk on deliberately thinking a problem through before writing code — gathering facts, surveying prior art, identifying what you don't know, and then letting the problem sit (the "hammock") so the background mind can work on it. The single best available argument that unhurried thinking is *engineering work* rather than the absence of it, which is precisely the case an early-career engineer struggles to make to themselves and to their manager. Pairs naturally with Graham's *Maker's Schedule*.
+
 ### Maker's Schedule, Manager's Schedule
 
 - **Author:** Paul Graham (2009)
@@ -269,6 +294,24 @@ Each entry shows:
 - **Relates to:** [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** Short, widely-cited essay distinguishing two incompatible ways of using a calendar: the *manager's schedule* (hour-long slots, context-switching is cheap) and the *maker's schedule* (half-day units, where a single meeting dropped in the middle can destroy the entire afternoon). Source of the vocabulary engineers use to explain — to managers, and to themselves — why design and deep work need protected blocks rather than gaps between meetings. Ten-minute read; unusually high ratio of usefulness to length.
+
+### How to Write Usefully / Write Like You Talk
+
+- **Author:** Paul Graham (2020 and 2015 respectively)
+- **URLs:** http://paulgraham.com/useful.html · http://paulgraham.com/talk.html
+- **Source:** *The Missing Readme*, Ch. 10 Level Up
+- **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md), [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Two short companion essays, grouped because they're read together in ten minutes. *How to Write Usefully* argues that useful writing is important, correct, novel, and clear — a usable checklist for whether a design document is worth anyone's time. *Write Like You Talk* is the more immediately actionable of the pair for engineers: formal writing voice makes documents harder to read and is usually adopted to sound authoritative, at direct cost to being understood. If a design doc reads as stiff and nobody engages with it, this is the essay to read.
+
+### Effective Software Design Documents (WePay)
+
+- **Publisher:** WePay engineering blog
+- **URLs:** https://wecode.wepay.com/posts/effective-software-design-documents · template: https://github.com/wepay/design_doc_template
+- **Source:** *The Missing Readme*, Ch. 10 Level Up
+- **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** A company-scale account of adopting a design-document practice, with the actual template published as an open repository. Useful as a second data point against the template in `design-doc` — seeing where an independent team's structure agrees and diverges is a good check on which sections are genuinely load-bearing versus conventional. Note: one of the book's authors was at WePay, so this is close to a primary source for the chapter's template rather than an independent corroboration of it.
 
 ### On Pair Programming
 

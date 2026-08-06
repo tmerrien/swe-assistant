@@ -1,13 +1,13 @@
 ---
 name: technical-design-process
-description: Use when the user is working out WHAT to build, before or alongside writing it up — handed an ambiguous project, unsure where to start, trying to pin down the real problem, researching how others solved it, deciding whether to prototype, or struggling to find uninterrupted time to think. Triggers include "I've been asked to design X", "where do I even start", "I don't really understand the problem yet", "stakeholders disagree about what the problem is", "how do I research this", "should I build a prototype first", "how much should I polish this spike", "I can't get any deep work time", "maker's schedule", "how do I scope this", or "who do I need to circulate this to". Walks the design process from The Missing Readme (Ch. 10) — the spiral of solitary thinking and group discussion, defining the problem, doing research, running experiments, and protecting focus time. For structuring or writing the document itself, route to design-doc. For choosing a specific technology, route to choose-boring-technology.
+description: Use when the user is working out WHAT to build, or collaborating with others on a design — handed an ambiguous project, unsure where to start, pinning down the real problem, researching prior art, deciding whether to prototype, running or attending a design discussion, or reviewing someone else's design. Triggers include "I've been asked to design X", "where do I even start", "I don't understand the problem yet", "stakeholders disagree about the problem", "should I build a prototype first", "I can't get any deep work time", "maker's schedule", "how do I run a design brainstorm", "architectural review", "request for decision", "who do I need to loop in", "how do I avoid blindsiding another team", or "I'm reviewing a teammate's design". Walks Ch. 10 of The Missing Readme — the spiral of solitary thinking and group discussion, problem definition, research, experiments, focus time, review processes, and design discussions. For writing the document itself, route to design-doc.
 ---
 
 # technical-design-process
 
 ## Source
 
-*The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 10, "Technical Design Process."** The spiral framing (design alternates between solitary deep-thought work and collaborative group discussion, gaining clarity with each pass), the four thinking activities (define the problem, do your research, conduct experiments, give it time), and the widening circulation radius all come from this chapter.
+*The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 10, "Technical Design Process."** The spiral framing (design alternates between solitary deep-thought work and collaborative group discussion, gaining clarity with each pass), the four thinking activities (define the problem, do your research, conduct experiments, give it time), and the collaboration material — review-process types, the don't-surprise-people discipline, design-discussion mechanics, and contributing to others' designs — all come from this chapter.
 
 **"Maker's Schedule, Manager's Schedule"** — Paul Graham (2009), http://www.paulgraham.com/makersschedule.html. Cited in the chapter as the anchor for why design work needs large protected blocks rather than the fragmented hour-by-hour calendar that managers run on.
 
@@ -97,6 +97,8 @@ Prototypes turn arguments into evidence. When two approaches both sound reasonab
 - **Circulate the prototype.** A prototype your team can poke at generates far better feedback than a paragraph describing the same idea.
 - **Do not get attached to experimental code.** Its purpose is to illustrate or test an idea, then die. Don't write tests for it, don't polish it, don't let it become the implementation by accident. See the callout below.
 
+**Don't wait on final approval to start building.** Prototypes and proof-of-concept spikes run *in parallel* with review, not after it. They raise your confidence in the design, they answer questions reviewers will ask anyway, and they shorten the path to production once approval lands. Waiting idle for a review cycle to complete is wasted time — just be honest with yourself about which code is throwaway and which is real.
+
 ### Step 6 — Give it time, and protect it
 
 Design is the work that fragmented time destroys most completely.
@@ -107,7 +109,26 @@ Design is the work that fragmented time destroys most completely.
 - **Have your tools ready before you start** — whiteboard, notebook, paper. Hunting for a marker at minute three breaks the state you just spent twenty minutes entering.
 - **Take breaks.** Sustained concentration is finite, and design problems notoriously resolve during the walk rather than at the desk.
 
-### Step 7 — Circulate at a widening radius
+### Step 7 — Know which review process applies
+
+Find out what your team actually runs before you're in it. Two common shapes:
+
+- **Architectural review** — formal and heavyweight. A design document is required, outside stakeholders (operations, security) must approve, and there may be several rounds of meetings or presentations. Because it costs so much time, it's reserved for large or risky changes.
+- **Request for Decision (RFD)** — a fast intra-team review for decisions that need discussion but not the full ceremony. Someone circulates a short write-up naming the decision to be made; the team whiteboards it, weighs options, and decides.
+
+Plenty of teams use neither name, or something in between. The point is to **ask which process this change needs, early** — discovering you needed an architectural review after you've written the code is expensive, and running a two-hour formal review on a decision that warranted a fifteen-minute RFD burns everyone's goodwill.
+
+### Step 8 — Don't surprise people
+
+**A formal design document should never be the first time someone hears about your work.** If it is, you've set yourself up to fail — people asked to react cold to a finished proposal tend to react defensively, and any objection they raise now is maximally expensive to accommodate.
+
+Ease people in gradually instead:
+
+- **Get early feedback during the research phase**, from other teams and tech leads, while the design is still soft enough to change cheaply.
+- **Keep it informal.** These conversations do *not* need to be scheduled meetings. Over lunch, in a hallway, in the five minutes before a meeting starts — casual is fine, and often better, because people say things informally that they won't put in a review comment.
+- **Give updates as you go** — in standups, in status meetings, and in more casual conversations. The goal is that everyone who'll be affected has heard the shape of this two or three times before they ever see the document.
+- **Trace second-order effects.** Ask what your change implies downstream, and who that touches. Notify affected teams specifically — the team you didn't think of is exactly the one whose objection arrives late.
+- **Be inclusive.** Pull people into brainstorming rather than presenting at them, and listen to what they say. Involvement early is what converts potential objectors into contributors.
 
 Each turn of the spiral shares with a wider audience:
 
@@ -118,11 +139,24 @@ Each turn of the spiral shares with a wider audience:
 
 Don't jump to step 4 with a first draft, and don't stay at step 1 until implementation.
 
-### Step 8 — Keep going after implementation starts
+### Step 9 — Run design discussions to brainstorm
+
+Once the problem is reasonably well understood but the design is *not* yet settled — and a draft document exists — a design discussion is how you get the collaborative half of the spiral. Mechanics are in the *Callout — Running a design discussion* below; they matter more than people expect, because a badly-run session produces false consensus.
+
+### Step 10 — Contribute to other people's designs
+
+The spiral runs both directions. Read your teammates' design documents and show up to their brainstorming sessions — it improves the team's designs and it is one of the fastest ways to learn how design is done well.
+
+- **Think holistically.** Security, maintainability, performance, scale, operability. Designs are usually strong in whatever the author thinks about most and thin everywhere else.
+- **Pay special attention to your areas of expertise.** That's where you can see what nobody else in the room can, and it's the highest-value contribution you have.
+- **Asking questions is as valuable as making suggestions.** *"What happens if this queue backs up?"* often does more than a proposed alternative — it lets the author find the gap themselves, and it costs nothing if the answer turns out to be fine.
+- **Communicate clearly and be respectful.** You're reviewing a design, not the person. The [`code-review`](../code-review/SKILL.md) tone discipline transfers directly.
+
+### Step 11 — Keep going after implementation starts
 
 Implementation surfaces surprises, and surprises are design decisions. The spiral doesn't stop at the first line of production code — it just gets tighter. Update the document as the design actually changes. See [`design-doc`](../design-doc/SKILL.md) for keeping the document alive.
 
-### Step 9 — Pick one action, then close
+### Step 12 — Pick one action, then close
 
 Ask: *"What's the one move that takes you round the next turn?"* Push for concreteness.
 
@@ -161,6 +195,38 @@ Then write the problem statement — a few sentences, no solution in it — and 
 
 ---
 
+## Callout — Running a design discussion
+
+**When:** early in the design cycle — the problem is reasonably well understood, the design is *not* yet settled, and a draft document exists. Too early and there's nothing to react to; too late and you're seeking approval, not ideas.
+
+**Who, and how many:**
+
+- **Two to about five people.** Small enough that conversation flows without moderation.
+- **Go larger and more inclusive** when the problem is multifaceted or genuinely controversial — the cost in flow is worth the coverage and the buy-in.
+- **Go smaller** for straightforward discussions.
+- **Split across multiple sessions** with different participants, each focused on a different aspect of the design. One session covering everything with everyone serves nobody.
+
+**How long:** book a **large block — around two hours.** Ideas need time to develop, and the good ones rarely arrive in the first twenty minutes. **Don't cut the discussion short**; let people genuinely run out of ideas or get tired. Expect that one session may not be enough to reach a conclusion.
+
+**Before — the agenda:**
+
+- Circulate a **loose** agenda: the problem, the scope, the proposed design, the trade-offs you see, and your open questions.
+- **Keep it brief.** Participants are expected to read it beforehand, and its job is only to supply enough shared context for free-flowing discussion — not to pre-answer the questions.
+
+**During:**
+
+- **Don't impose much structure.** People need to jump between ideas; that's the mechanism working, not a derailment.
+- **Use a whiteboard, not a slide deck.** Slides signal a presentation and shut down contribution. A whiteboard invites people to pick up a marker.
+- **Speak extemporaneously** where you can. A rehearsed pitch produces an audience; thinking out loud produces collaborators.
+
+**Notes — the part teams get wrong:**
+
+- Note-taking is a genuine distraction from participating. Some teams designate a notetaker formally, which works — but **rotate the role evenly**, or your perpetual notetaker never gets to contribute their actual expertise. (Watch for this defaulting along gendered or seniority lines; it commonly does.)
+- **The whiteboard is itself a note-keeper.** Photograph it as the discussion progresses, not only at the end — intermediate states capture reasoning that the final board has erased. On a virtual board, save snapshots as you go.
+- **Afterward, write a summary from recollection**, using the whiteboard images as your guide, and send it to attendees and other relevant teammates. This is also how people who weren't in the room stay unsurprised.
+
+---
+
 ## Callout — Prototype discipline
 
 Experimental code exists to answer a question and then be deleted. The failure mode is letting it quietly become the implementation.
@@ -194,6 +260,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - **Don't let "do more research" become procrastination.** Research is bounded by the decision it serves. Ask what question the research is meant to answer.
 - **Take the time problem seriously.** If the user genuinely cannot get uninterrupted hours, that's a real constraint worth engaging with — often a conversation to have with their manager, not a personal failing.
 - **Calibrate.** A senior engineer who has scoped many projects doesn't need the problem-definition primer; they may just want a sparring partner on the trade-offs.
+- **Surface the surprise risk unprompted.** If the user describes a design touching other teams and hasn't mentioned talking to them, say so. It's the cheapest intervention in this skill and the one most often needed.
 
 ## When NOT to use this skill
 
@@ -210,3 +277,5 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 Surfaced as references — see [`READING-LIST.md`](../../../../READING-LIST.md) for tracked entries.
 
 - **"*Maker's Schedule, Manager's Schedule*"** — Paul Graham (2009), http://www.paulgraham.com/makersschedule.html. Short essay; the canonical argument for why design work needs half-day blocks and why a single mid-afternoon meeting is more expensive than it looks.
+- **"*Hammock Driven Development*"** — Rich Hickey (2010), https://youtu.be/f84n5oFoZBc. Talk on the deliberate practice of thinking hard about a problem before writing code — including the *"field report"* framing of gathering facts and prior art before designing. The clearest available argument that unhurried thinking is real engineering work rather than an absence of it.
+- **Public proposal archives** — Python PEPs, Kafka KIPs, Rust RFCs. See [`design-doc`](../design-doc/SKILL.md) and `READING-LIST.md`; useful here for seeing how design *discussion* plays out in public, not just the finished documents.
