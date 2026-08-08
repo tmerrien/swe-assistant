@@ -146,14 +146,6 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** Generative and computational approaches to brand systems. The honest assessment is that this is the least likely of the four to fold into a software-engineering skill set, and the most likely to be worth reading for its own sake. If a connection emerges it is probably methodological rather than topical — generative design and situation-triggered skills are both attempts to encode judgment as a system that produces variation rather than a fixed output. That is a thin thread and should not be forced.
 
-### The Creative Act: A Way of Being
-
-- **Author:** Rick Rubin (Penguin, 2023)
-- **Source:** Recommended to the maintainer personally; added here with the fit deliberately marked uncertain
-- **Relates to:** possibly [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) (the *give it time* material), possibly [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
-- **Status:** To read
-- **Why this matters here:** **Uncertain, and recorded as uncertain on purpose.** Rubin's book is aphoristic and deliberately non-prescriptive, which sits badly against this repository's Design Principle 3.5 (*skill bodies are operational, not literary*) and its requirement that every claim trace to something actionable. It is unlikely to fold cleanly and should not be forced. The one place it plausibly touches is the conditions for creative work — protected time, unhurried thinking, the tolerance for not-knowing — which `technical-design-process` already covers via Graham's *Maker's Schedule* and Hickey's *Hammock Driven Development*. Read for its own sake; fold only if something specific and operational actually lands.
-
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
 - **Author:** Robert C. Martin (Prentice Hall, 2008)
