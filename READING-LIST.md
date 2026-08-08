@@ -140,11 +140,11 @@ Each entry shows:
 
 ### Code Crafted — Generative Design in Branding
 
-- **Author:** *(entry incomplete — publisher and author not yet confirmed)*
+- **Publisher:** viction:ary (Victionary) *(author/editor not recorded — Victionary titles are typically curated compilations rather than single-author works)*
 - **Source:** Owned by the maintainer
-- **Relates to:** speculative — furthest from the current scope of any book on this list
+- **Relates to:** no current skill; furthest from scope of anything on this list
 - **Status:** To read
-- **Why this matters here:** Generative and computational approaches to brand systems. The honest assessment is that this is the least likely of the four to fold into a software-engineering skill set, and the most likely to be worth reading for its own sake. If a connection emerges it is probably methodological rather than topical — generative design and situation-triggered skills are both attempts to encode judgment as a system that produces variation rather than a fixed output. That is a thin thread and should not be forced.
+- **Why this matters here:** Generative and computational approaches to brand identity, from a design publisher whose catalogue is visually-led curated work rather than argued methodology. That format matters for how it could ever be used here: a compilation of executed work builds visual literacy and a sense of what is possible, but it does not carry the "situation → judgment → action" structure this repository's skills are built from. **Realistically this is a read-for-its-own-sake book**, and the entry is kept mainly so the intent is on the record rather than because a fold is expected. If anything transfers it is likely to be an idea rather than a practice — that a well-made system produces coherent variation from constraints, which is arguably what a good skill set does too.
 
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
