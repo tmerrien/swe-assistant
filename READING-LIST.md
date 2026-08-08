@@ -114,6 +114,46 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** Structured as a ladder from being managed through to senior leadership, which means **the first chapter is written directly for an individual contributor** — what to expect from a manager, what a good 1:1 looks like from the other side, what to ask for and when. The most useful single chapter an early-career engineer can read on this relationship, and the rest of the book explains where your manager's incentives come from.
 
+### The Staff Engineer's Path
+
+- **Author:** Tanya Reilly (O'Reilly, 2022)
+- **Source:** Owned by the maintainer; selected to address the career-arc gap recorded in [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md), Section 7a
+- **Relates to:** [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md)
+- **Status:** To read — **next up**
+- **Why this matters here:** The most direct fix available for this repository's largest structural gap. [`JOURNEY.md`](./JOURNEY.md) inherits a five-stage map from *The Missing Readme* that stops at roughly senior; Reilly's book is the staff-and-beyond arc, organised around three pillars — the big picture, execution, and levelling up others — that map onto territory `owner-playbook` currently only gestures at. Also covers the parts of staff-plus work that have no home here at all: influence without authority, choosing what *not* to work on, and the shift from doing the work to setting technical direction.
+
+### Designing Interfaces
+
+- **Authors:** Jenifer Tidwell, Charles Brewer, Aynne Valencia (O'Reilly, 3rd ed. 2020)
+- **Source:** Owned by the maintainer
+- **Relates to:** speculative — no current skill covers interface design. Nearest neighbours are [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) (developer- and operator-facing UX) and [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) (API surface as an interface)
+- **Status:** To read
+- **Why this matters here:** A catalogue of UI patterns with the reasoning behind each. **Folding it in would be a deliberate scope change**, not an extension — [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) Section 8 currently states the project's scope as software engineering only. Worth reading regardless for anyone building product surfaces; worth noting that McKinsey's 2025 PDLC analysis argues UI-pattern knowledge in isolation is the *depreciating* half of design skill while UX judgment appreciates, so read it as vocabulary rather than as the durable core.
+
+### Universal Principles of UX
+
+- **Author:** Irene Pereyra (Rockport, 2023)
+- **Source:** Owned by the maintainer
+- **Relates to:** speculative — same scope question as *Designing Interfaces*, but the better first read of the two
+- **Status:** To read
+- **Why this matters here:** One hundred UX principles, each presented atomically with an example. **Structurally, that is almost exactly this repository's skill format** — a principle, the situation it applies to, and why — which makes it the most fold-able of the design books by some distance. If the project ever extends into product surfaces, this is the entry point: principles before patterns, and per the McKinsey analysis the more durable half of the discipline.
+
+### Code Crafted — Generative Design in Branding
+
+- **Author:** *(entry incomplete — publisher and author not yet confirmed)*
+- **Source:** Owned by the maintainer
+- **Relates to:** speculative — furthest from the current scope of any book on this list
+- **Status:** To read
+- **Why this matters here:** Generative and computational approaches to brand systems. The honest assessment is that this is the least likely of the four to fold into a software-engineering skill set, and the most likely to be worth reading for its own sake. If a connection emerges it is probably methodological rather than topical — generative design and situation-triggered skills are both attempts to encode judgment as a system that produces variation rather than a fixed output. That is a thin thread and should not be forced.
+
+### The Creative Act: A Way of Being
+
+- **Author:** Rick Rubin (Penguin, 2023)
+- **Source:** Recommended to the maintainer personally; added here with the fit deliberately marked uncertain
+- **Relates to:** possibly [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) (the *give it time* material), possibly [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** **Uncertain, and recorded as uncertain on purpose.** Rubin's book is aphoristic and deliberately non-prescriptive, which sits badly against this repository's Design Principle 3.5 (*skill bodies are operational, not literary*) and its requirement that every claim trace to something actionable. It is unlikely to fold cleanly and should not be forced. The one place it plausibly touches is the conditions for creative work — protected time, unhurried thinking, the tolerance for not-knowing — which `technical-design-process` already covers via Graham's *Maker's Schedule* and Hickey's *Hammock Driven Development*. Read for its own sake; fold only if something specific and operational actually lands.
+
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
 - **Author:** Robert C. Martin (Prentice Hall, 2008)
@@ -400,6 +440,15 @@ Each entry shows:
 - **Relates to:** [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`stress-test-understanding`](./plugins/swe-assistant/skills/stress-test-understanding/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** Hickey's talk on deliberately thinking a problem through before writing code — gathering facts, surveying prior art, identifying what you don't know, and then letting the problem sit (the "hammock") so the background mind can work on it. The single best available argument that unhurried thinking is *engineering work* rather than the absence of it, which is precisely the case an early-career engineer struggles to make to themselves and to their manager. Pairs naturally with Graham's *Maker's Schedule*.
+
+### How an AI-Enabled Software Product Development Life Cycle Will Fuel Innovation
+
+- **Authors:** Chandra Gnanasambandam, Martin Harrysson, Rikki Singh, with Aditi Chawla (McKinsey & Company, February 2025)
+- **URL:** https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-an-ai-enabled-software-product-development-life-cycle-will-fuel-innovation
+- **Source:** Surfaced in conversation; PDF saved locally
+- **Relates to:** [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) (which skills appreciate), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) and [`on-call-shift`](./plugins/swe-assistant/skills/on-call-shift/SKILL.md) (roles the article predicts will change)
+- **Status:** Read
+- **Why this matters here:** Consultancy analysis of how AI reshapes the software product development life cycle. Useful for calibrating what to learn, with one important correction to how it is usually summarised: **the role convergence it describes runs toward product managers, not engineers.** It predicts the PM role subsuming product marketing, product owner, technical product manager, and UI/UX positions, with PMs building technical POCs directly. For engineers it predicts something narrower — rising demand for senior/staff judgment able to review AI-generated code, a push toward full-stack plus business literacy, declining demand for UI-only skills alongside rising demand for UX research, and SDET and some SRE work being absorbed elsewhere. Read critically: it is vendor-adjacent thought leadership built on interviews rather than measurement, and it openly leaves the biggest question open — if AI absorbs junior work, how the next generation of senior engineers gets trained is "still to be determined."
 
 ### Maker's Schedule, Manager's Schedule
 
