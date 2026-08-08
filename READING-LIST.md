@@ -130,13 +130,13 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** A catalogue of UI patterns with the reasoning behind each. **Folding it in would be a deliberate scope change**, not an extension — [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) Section 8 currently states the project's scope as software engineering only. Worth reading regardless for anyone building product surfaces; worth noting that McKinsey's 2025 PDLC analysis argues UI-pattern knowledge in isolation is the *depreciating* half of design skill while UX judgment appreciates, so read it as vocabulary rather than as the durable core.
 
-### Universal Principles of UX
+### Universal Principles of UX: 100 Timeless Strategies to Create Positive Interactions between People and Technology
 
-- **Author:** Irene Pereyra (Rockport, 2023)
+- **Author:** Irene Pereyra (Rockport Publishers, March 2023) — Volume 4 of the Rockport Universal series, ISBN 9780760378045
 - **Source:** Owned by the maintainer
 - **Relates to:** speculative — same scope question as *Designing Interfaces*, but the better first read of the two
 - **Status:** To read
-- **Why this matters here:** One hundred UX principles, each presented atomically with an example. **Structurally, that is almost exactly this repository's skill format** — a principle, the situation it applies to, and why — which makes it the most fold-able of the design books by some distance. If the project ever extends into product surfaces, this is the entry point: principles before patterns, and per the McKinsey analysis the more durable half of the discipline.
+- **Why this matters here:** One hundred UX principles grouped into four sections — Consider, Empathize, Define, Validate — with each principle given a fixed two-page spread: definition, examples, and guidelines on one side, illustrative graphics on the other. **That template is structurally near-identical to a `SKILL.md`**: an atomic unit pairing a situation with the judgment it calls for. Of every book on this list it is the most mechanically fold-able, which is worth noting and also worth being suspicious of — ease of translation is not evidence that the material belongs in a software-engineering skill set. Folding it in would still be the deliberate scope change against [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) Section 8 that the *Designing Interfaces* entry describes. If that decision is ever taken, this is the entry point: principles before patterns, and per the McKinsey PDLC analysis the more durable half of design skill.
 
 ### Code Crafted — Generative Design in Branding
 
