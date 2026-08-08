@@ -193,7 +193,7 @@ Most skills in this assistant attach to a **situation** rather than a career sta
 
 ## Beyond Stage 5
 
-These five stages complete the journey from Chapter 1 of *The Missing Readme*. Beyond the Owner stage lies the broader senior / staff / principal arc — territory for future chapters and future books to map. Subsequent chapters of *The Missing Readme* will deepen the *situations* an engineer encounters (incidents, design, communication, career) rather than add new stages, and that material will fold into the existing skills as it arrives.
+These five stages complete the journey **as Chapter 1 of *The Missing Readme* maps it** — which is roughly junior through senior, gesturing at staff. That is a good deal less than a career, and the limits of this model are recorded honestly in [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md), Section 7a. Beyond the Owner stage lies the broader senior / staff / principal arc — territory for future chapters and future books to map. Subsequent chapters of *The Missing Readme* will deepen the *situations* an engineer encounters (incidents, design, communication, career) rather than add new stages, and that material will fold into the existing skills as it arrives.
 
 The journey is also not a one-way ladder. Every time you change company, team, or technology, you cycle back through earlier stages for those new contexts. Senior engineers who join a new company are still Newcomers there for a few weeks, even if they're Owners in their broader career.
 

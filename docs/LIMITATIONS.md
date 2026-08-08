@@ -116,6 +116,19 @@ Some of these gaps reflect deliberate scope choices; others reflect coverage the
 
 ---
 
+## 7a. The career model stops well short of a full career
+
+[`JOURNEY.md`](../JOURNEY.md) presents five stages — Newcomer, Ramp-Up, Contributor, Operator, Owner — adapted from Riccomini and Ryaboy. That map is inherited wholesale from one book, and it is narrower than its five-stage presentation suggests.
+
+- **It covers roughly junior through senior, gesturing at staff.** The arc beyond that — staff, principal, distinguished, and the very different work those roles involve — is out of scope. An engineer who has reached the Owner stage has not finished the journey; they have finished *this map*.
+- **It is a single-track individual-contributor model.** Engineering management, technical program management, developer relations, architecture, and research tracks diverge from it early and are not represented (see also Section 7).
+- **Stage boundaries are not empirical.** They are a pedagogically useful carving, not a validated developmental sequence. No evidence is offered — here or in the source — that engineers move through these stages in this order, or that the boundaries fall where the model places them.
+- **Level vocabulary does not transfer between companies.** What one organization calls "senior" another calls "mid," and the ladders differ enough that a stage name is a rough orientation rather than a portable claim.
+
+The stages remain useful for their actual purpose: tagging which skills tend to matter when, and noticing when a stage is under-served. They should not be read as a complete or authoritative account of an engineering career, and the repository does not have the sources to make one.
+
+---
+
 ## 8. Scope is software engineering only
 
 The methodology is presented as a general framework for packaging professional wisdom for AI-mediated coaching, but the implementation addresses only software engineering practice. Related domains where the methodology might transfer — data engineering, machine-learning engineering, security engineering, product management, technical writing, scientific computing — are not addressed by this repository and would require separate implementations.

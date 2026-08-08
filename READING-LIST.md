@@ -329,6 +329,15 @@ Each entry shows:
 - **Status:** To read
 - **Why this matters here:** The standard reference on facilitating retrospectives. Source of the five-stage structure (set the stage, gather data, generate insights, decide what to do, close) and a catalogue of activities worth rotating through when a team's retro has gone stale and everyone is bored of the same three columns. Also the clearest statement of the boundary both skills above enforce: retrospectives address **team process**, not individual performance.
 
+### Valve Handbook for New Employees
+
+- **Publisher:** Valve Corporation (2012)
+- **URL:** widely mirrored; commonly cited from https://www.valvesoftware.com/en/publications
+- **Source:** *The Missing Readme*, Ch. 14 — the T-shaped skills frame
+- **Relates to:** [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`learning-toolkit`](./plugins/swe-assistant/skills/learning-toolkit/SKILL.md), [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Source of the **T-shaped** frame folded into `growth-self-check` — breadth across many valuable skills (the bar) plus expert depth in one narrow discipline (the stem), with Valve naming the failure mode for each half. Worth reading in full and critically: it is a recruiting and culture document for one unusually structured company (flat, no managers, desks on wheels), so its claims about how work should be organized do not transfer to most employers. The T-shape itself does. Note the internal tension the skill preserves — Valve also states that collaboration traits matter *more* than deep domain knowledge, which sits awkwardly beside the vertical stem.
+
 ### Amazon Builder's Library
 
 - **Publisher:** Amazon Web Services (ongoing collection)

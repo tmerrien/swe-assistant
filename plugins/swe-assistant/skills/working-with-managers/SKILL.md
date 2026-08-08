@@ -1,6 +1,6 @@
 ---
 name: working-with-managers
-description: Use when the user is handling the working relationship with their manager — preparing for a 1:1, writing a status update, setting or reviewing OKRs, drafting a self-review, or working out how to give their manager feedback. Triggers include "I have a 1:1 tomorrow", "what should I bring to my 1:1", "my manager keeps cancelling our 1:1", "we don't do 1:1s", "PPP", "progress plans problems", "weekly status update", "how do I set OKRs", "what makes a good key result", "writing my self-review", "performance review prep", "how do I give my manager feedback", or "my manager has no idea what I'm working on". Covers Ch. 13 of The Missing Readme — owning your 1:1, PPP status updates, OKRs, review preparation, and managing up. For judging whether you are actually growing, route to growth-self-check. For team retrospectives, route to team-rituals.
+description: Use when the user is handling the working relationship with their manager — preparing for a 1:1, writing a status update, setting or reviewing OKRs, drafting a self-review, or working out how to give their manager feedback. Triggers include "I have a 1:1 tomorrow", "what should I bring to my 1:1", "my manager keeps cancelling our 1:1", "we don't do 1:1s", "PPP", "progress plans problems", "weekly status update", "how do I set OKRs", "what makes a good key result", "writing my self-review", "performance review prep", "how do I give my manager feedback", "how do I get promoted", "am I ready for senior", or "my manager has no idea what I'm working on". Covers Ch. 13 of The Missing Readme — owning your 1:1, PPP status updates, OKRs, review preparation, and managing up. For judging whether you are actually growing, route to growth-self-check. For team retrospectives, route to team-rituals.
 ---
 
 # working-with-managers
@@ -12,6 +12,8 @@ description: Use when the user is handling the working relationship with their m
 **SBI (Situation–Behavior–Impact)** is a feedback framework developed by the Center for Creative Leadership; the chapter recommends it for upward feedback.
 
 **OKRs** (Objectives and Key Results) originate with Andy Grove at Intel and are set out in his *High Output Management* (1983).
+
+The **promotion** guidance in Step 7 is from Chapter 14 of the same book.
 
 ## Pillars this skill strengthens
 
@@ -67,7 +69,7 @@ A 1:1 should be **weekly or biweekly**, and it exists for critical topics, big-p
 
 **If you don't have 1:1s at all:** ask whether your manager runs them. Not all do, though it's common. Without a standing meeting, managers reasonably assume there's nothing to discuss — and you should have something most weeks.
 
-**If your manager repeatedly cancels:** raise it. This is uncomfortable and worth doing anyway. It need not be a confrontation — it's precisely the kind of feedback a manager wants and needs, and Step 7 is how to deliver it.
+**If your manager repeatedly cancels:** raise it. This is uncomfortable and worth doing anyway. It need not be a confrontation — it's precisely the kind of feedback a manager wants and needs, and Step 8 is how to deliver it.
 
 **Set up 1:1s with people who aren't your manager, too.** Senior engineers you can learn from, especially if your company has no mentoring program. Bring an agenda to those as well; an unprepared "pick your brain" meeting wastes a senior person's time and won't get a second one.
 
@@ -124,7 +126,28 @@ Then write it **honestly** — including what went badly. A self-review with no 
 
 For the reflective half — *am I actually growing, and in which direction* — route to [`growth-self-check`](../growth-self-check/SKILL.md), which walks the four-pillar rubric. This step is about assembling the evidence; that skill is about judging it.
 
-### Step 7 — Manage up: give your manager feedback
+### Step 7 — Start the promotion conversation early
+
+The common mistake is treating promotion as something that happens *to* you at review time. It isn't — it's a case someone has to build, usually your manager, using evidence you supplied.
+
+**Start the conversation when you're roughly halfway there**, not when you think you've arrived. At the halfway point there is still time to close whatever gap exists; at the point you feel ready, the evidence for the last twelve months is already fixed.
+
+The conversation is short and has three parts:
+
+- *"I'm interested in moving to `<level>`. What does the bar actually look like here?"* — get the expectations stated. They're often written down somewhere you haven't been shown, and where they aren't, your manager's mental model is the real rubric.
+- *"Where do you see me against that today?"* — this is the uncomfortable one and the whole point. You want the gap named while it's still closeable.
+- *"What would you need to see?"* — turns the gap into work you can actually plan.
+
+Then **feed the evidence back**, using the record from Steps 3 and 4. A manager arguing your case in a promotion committee needs specifics, and they will not remember what you didn't tell them.
+
+Two calibrations worth keeping in mind:
+
+- **Ladders differ everywhere.** Levels, titles, and what "senior" means vary enormously between companies, and a level at one is not a level at another. Ask about *this* company's bar rather than assuming a general one.
+- **The answer may be "not yet, and here's why."** That's a successful outcome for this conversation — it's the information you wanted, delivered while you can still act on it.
+
+For judging your own readiness rather than negotiating it, route to [`growth-self-check`](../growth-self-check/SKILL.md), whose four-pillar rubric and T-shape callout are the assessment half of this.
+
+### Step 8 — Manage up: give your manager feedback
 
 Your manager needs feedback as much as you do, and receives it from fewer people. Use **SBI**:
 
@@ -138,7 +161,7 @@ Three rules: **privately, calmly, and frequently.** The 1:1 is the natural venue
 
 **The test:** is this the kind of feedback you'd want to receive? If not, rework it before delivering it.
 
-### Step 8 — Pick one action, then close
+### Step 9 — Pick one action, then close
 
 Ask: *"What's the one thing you'll do?"* Push for concreteness.
 
@@ -227,7 +250,7 @@ Follow the [Output Protocol](../../../../docs/METHODOLOGY.md#10-output-protocol)
 - The user's self-assessment is **distorted** — impostor feelings, or overconfidence. Route to [`growth-obstacles`](../growth-obstacles/SKILL.md) before any review or 1:1 prep.
 - The user is running or fixing **team meetings** — standups, retros, sprint reviews. Route to [`team-rituals`](../team-rituals/SKILL.md).
 - The user is doing **sprint-level planning or estimation**. Route to [`agile-planning`](../agile-planning/SKILL.md).
-- The user is giving feedback **on code**. Route to [`code-review`](../code-review/SKILL.md), whose tone discipline is the peer-level version of Step 7.
+- The user is giving feedback **on code**. Route to [`code-review`](../code-review/SKILL.md), whose tone discipline is the peer-level version of Step 8.
 - The user needs help **asking a colleague a technical question**. Route to [`asking-for-help`](../asking-for-help/SKILL.md).
 - The user wants the wider **stage playbook** for where they are. Route to [`contributor-playbook`](../contributor-playbook/SKILL.md) or [`owner-playbook`](../owner-playbook/SKILL.md).
 
@@ -238,5 +261,5 @@ Surfaced as references — see [`READING-LIST.md`](../../../../READING-LIST.md) 
 - ***The Manager's Path*** — Camille Fournier (O'Reilly, 2017). The chapter on being managed is the most useful thing an individual contributor can read about what their manager is actually doing and what a good 1:1 looks like from the other side.
 - ***High Output Management*** — Andy Grove (1983). Where OKRs come from, and the origin of the 1:1 as a structured practice — Grove treats it as the manager's highest-leverage activity.
 - ***An Elegant Puzzle: Systems of Engineering Management*** — Will Larson (Stripe Press, 2019). How engineering organizations actually make decisions about headcount, team shape, and priorities — useful for understanding the constraints your manager is working inside.
-- ***Managing Up*** — Mary Abbajay (Wiley, 2018). A full treatment of Step 7, including how to adapt to different managerial styles.
+- ***Managing Up*** — Mary Abbajay (Wiley, 2018). A full treatment of Step 8, including how to adapt to different managerial styles.
 - ***Thanks for the Feedback*** — Douglas Stone & Sheila Heen (Penguin, 2014). The receive side; directly applicable to performance reviews.

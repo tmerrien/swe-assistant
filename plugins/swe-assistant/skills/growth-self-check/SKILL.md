@@ -9,6 +9,8 @@ description: Use when the user is reflecting on their own growth as a software e
 
 *The Missing Readme: A Guide for the New Software Engineer* by Chris Riccomini and Dmitriy Ryaboy (No Starch Press, 2021), Chapter 1: "The Journey Ahead."
 
+The **T-shaped skills** frame in the callout below is from Valve's *Handbook for New Employees* (2012), surfaced via *The Missing Readme*, Chapter 14.
+
 ## Pillars this skill strengthens
 
 All four — this is a meta-skill that makes the rubric explicit so the user can grow against it deliberately. Most directly: **Leadership** (learning from mistakes, handling ambiguity) and **Communication** (preparing for honest conversations with managers and peers).
@@ -28,6 +30,26 @@ This is a coaching skill. Do **not** grade the user. Do **not** volunteer assess
 **3. Communication** — Clear in writing and speech; give and receive feedback well; ask for help and clarification proactively; raise issues constructively; help others and start to influence peers; document work; write clear design docs and invite feedback; patient and empathetic.
 
 **4. Leadership** — Work independently on well-scoped tasks; learn quickly from mistakes; handle change and ambiguity well; participate in project and quarterly planning; help new teammates onboard; give meaningful feedback to your manager.
+
+## Callout — The shape of a skillset (T-shaped)
+
+The four pillars tell you *which areas* are thin. They don't tell you *what shape* you're aiming for. Valve's *Handbook for New Employees* supplies the missing axis with the **T-shaped** frame:
+
+- **The horizontal bar — breadth.** Being a generalist: broadly skilled across many valuable things.
+- **The vertical stem — depth.** Being an expert: among the best in one narrow discipline.
+
+Valve's argument is that **both halves are load-bearing**, and they name the failure mode for each:
+
+| Shape | Failure mode |
+|---|---|
+| **Deep, no breadth** (⊦) | Difficulty collaborating. You can't engage with work outside your column, so you're only usable on a narrow class of problem. |
+| **Broad, no depth** (▔) | You end up on the margins — "not really contributing as an individual." Useful in a conversation, not decisive in one. |
+
+**Using this in the self-check:** after the four pillars, ask *"what's my stem?"* and *"how wide is my bar?"* Early-career engineers usually have neither yet, which is normal and worth saying — the T is a direction, not an entry requirement. Mid-career, the useful question is which one you've been neglecting, because the two need different remedies: breadth comes from exposure and rotation, depth comes from staying with one thing past the point where it stops being novel.
+
+**One honest tension in the source.** Valve also says the collaboration traits — deconstructing problems on the fly while talking them through, being inventive, iterative, reactive — matter *more* than deep domain knowledge. Read alongside the vertical stem, that's a real tension rather than a tidy formula. The workable reading: depth is what earns you a seat, breadth and collaboration are what make the seat useful. Don't present the T as a settled prescription; it's a lens for noticing which half you've been avoiding.
+
+Route to [`learning-toolkit`](../learning-toolkit/SKILL.md) when the user knows which half they want to build and needs a way to actually build it.
 
 ## How to run the self-check
 
