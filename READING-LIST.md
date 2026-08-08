@@ -23,6 +23,87 @@ Each entry shows:
 
 ---
 
+## Reading order
+
+Sixty-one entries is a pile, not a plan. This is the order to work through them, built around one assumption: **this list serves the work first and the repository second.** Where those conflict, the work wins.
+
+Tiers are sequential; within a tier, order barely matters.
+
+### Tier 0 — The work in front of me
+
+- **Universal Principles of UX** — read *Empathize* and *Define* properly; skim *Consider* and *Validate* and treat them as lookup. These map onto research-led product work directly.
+- **Designing Interfaces** — not linear. Consult it as a pattern lookup once actual screens are being laid out.
+
+*Accessibility references (WCAG 2.2, WCAG2Mobile, W3C COGA, platform guidance) are deliberately **not** on this list — they live with the project they serve, not here.*
+
+### Tier 1 — The cheap wins
+
+**The highest-leverage tier by a wide margin.** Roughly five hours of reading clears eleven entries, and most are already cited in shipped skills — so reading them converts aspirational citations into real ones, which is exactly the honesty gap this list exists to track.
+
+Ordered shortest first:
+
+- **The Agile Manifesto and its twelve principles** — 10 minutes; the principles page is the one that matters
+- **How to Write a Git Commit Message** (Beams) — 10 minutes
+- **Maker's Schedule, Manager's Schedule** (Graham) — 10 minutes
+- **How to Write Usefully / Write Like You Talk** (Graham) — 20 minutes for both
+- **Semantic Versioning** — 20 minutes; worth knowing by heart
+- **What Happens When the Pager Goes Off?** (*Increment*) — 20 minutes
+- **Effective Software Design Documents** (WePay) — 20 minutes, plus the template
+- **Choose Boring Technology** (McKinley) — 30 minutes
+- **Hammock Driven Development** (Hickey) — 40-minute talk
+- **Simple Made Easy** (Hickey) — one-hour talk, and one of the best in the field
+- **Google's Code Review Developer Guide** — an hour, free, short by book standards
+
+### Tier 2 — The load-bearing anchors
+
+**Three live skills currently rest on a chapter's summary of these rather than the books themselves.** This is the largest honesty gap in the repository.
+
+1. **A Philosophy of Software Design** (Ousterhout) — **read this first of the three.** Under 200 pages, and `managing-complexity` is built directly on its definition of complexity.
+2. **Designing Data-Intensive Applications** (Kleppmann) — **Chapter 4 only, first.** "Encoding and Evolution" is the anchor for both `evolvable-apis` and `evolvable-data`. The rest of the book is Tier 4.
+3. **Site Reliability Engineering** (Google) — **named chapters only, never linearly.** Ch. 4 (SLOs), Ch. 11 (Being On-Call), Ch. 13–15 (Emergency Response, Managing Incidents, Postmortem Culture). Free online.
+
+### Tier 3 — The career arc
+
+- **The Staff Engineer's Path** (Reilly) — owned, and the direct fix for the gap in [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) Section 7a
+- **The Manager's Path** (Fournier) — Chapter 1 alone is worth it for an individual contributor
+- **Thanks for the Feedback** (Stone & Heen) — the receive side, and it pairs with performance reviews
+
+### Tier 4 — The deep canon
+
+Long, foundational, and none of it urgent. Read when a specific problem makes one of them relevant, rather than as a programme.
+
+Working Effectively with Legacy Code · Refactoring · The Pragmatic Programmer · Continuous Delivery · Release It! · Code Complete · Clean Code (read alongside Ousterhout — they disagree in useful places) · On Pair Programming · the rest of *Designing Data-Intensive Applications* · Domain-Driven Design (Vernon before Evans) · Building Evolutionary Architectures · High Output Management · An Elegant Puzzle · Agile Retrospectives · Extreme Programming Explained · Unit Testing (Khorikov) · Test-Driven Development · Explore It! · The Legacy Code Programmer's Toolbox · Building Secure & Reliable Systems · The Mythical Man-Month · The Elements of Style · On Writing Well · Apprenticeship Patterns · All You Have to Do is Ask · Managing Up · The Hard Thing About Hard Things · Git for Teams · Elements of Clojure · Data Mesh · Valve Handbook
+
+### Tier 5 — Reference, not reading
+
+Never read linearly. Consulted when a specific question arises.
+
+Amazon Builder's Library · Atlassian Agile Coach · public proposal archives (PEPs, KIPs, Rust RFCs) · PEP 440 · the SemVer spec once read once · Designing Interfaces as a catalogue
+
+### Tier 6 — Academic sources, abstracts suffice
+
+Cited for grounding rather than read for content. The abstract and conclusion carry what the skills need.
+
+A Taxonomy for Learning, Teaching, and Assessing (Bloom revision) · Test-Enhanced Learning (Roediger & Karpicke) · Elaborative Interrogation (Pressley et al.)
+
+*Chi et al. and Flavell are already **Folded** — read and integrated. The McKinsey PDLC article is marked **Read**. Entries already at Read or Folded are not placed in a tier.*
+
+### Not ranked
+
+- **Code Crafted — Generative Design in Branding** — read for its own sake; no fold expected
+- **Presence** (Cuddy) — the power-pose research has replication problems; read critically or skip
+
+---
+
+## How to use this order
+
+- **Tier 1 before anything else.** The ratio is not close — five hours against eleven entries, most of them already cited in code that ships.
+- **Ousterhout is the single best next book** if the goal is the repository rather than the day job.
+- **Two of the three anchors are partial reads.** Kleppmann Ch. 4 and five SRE chapters cover what the skills actually rest on. Treating either as a cover-to-cover commitment is how they stay unread for another year.
+- **When something moves to *Read*, update its status here and note the takeaways.** When it changes a skill, fold it and mark **Folded**. An entry that never changes status is a book that was never really read.
+
+---
+
 ## Books
 
 ### An Elegant Puzzle: Systems of Engineering Management
