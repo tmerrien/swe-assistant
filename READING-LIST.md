@@ -116,7 +116,7 @@ Each entry shows:
 
 ### The Staff Engineer's Path
 
-- **Author:** Tanya Reilly (O'Reilly, 2022)
+- **Author:** Tanya Reilly — *A Guide for Individual Contributors Navigating Growth and Change* (O'Reilly, October 2022), ISBN 9781098118730
 - **Source:** Owned by the maintainer; selected to address the career-arc gap recorded in [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md), Section 7a
 - **Relates to:** [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md)
 - **Status:** To read — **next up**
@@ -124,7 +124,7 @@ Each entry shows:
 
 ### Designing Interfaces
 
-- **Authors:** Jenifer Tidwell, Charles Brewer, Aynne Valencia (O'Reilly, 3rd ed. 2020)
+- **Authors:** Jenifer Tidwell, Charles Brewer, Aynne Valencia — *Patterns for Effective Interaction Design* (O'Reilly, 3rd ed. 2020), ISBN 9781492051961
 - **Source:** Owned by the maintainer
 - **Relates to:** speculative — no current skill covers interface design. Nearest neighbours are [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) (developer- and operator-facing UX) and [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) (API surface as an interface)
 - **Status:** To read
