@@ -85,6 +85,7 @@ The team trusts you with bigger work, and you're starting to give as well as rec
 - [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — fires when you're handed something ambiguous and have to work out what to build.
 - [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — fires when the thinking needs writing down for others to review.
 - [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md) — fires when estimating, writing stories, or sizing a sprint — you're shaping the work now, not just receiving it.
+- [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md) — fires for 1:1s, status updates, and the OKR cycle this stage brings you into.
 - [`writing-tests`](./plugins/swe-assistant/skills/writing-tests/SKILL.md) — production-grade code means tests someone else could maintain.
 - [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) — fires when you need to identify, prioritise, or make the case for paying debt down.
 
@@ -110,8 +111,8 @@ You start taking responsibility for what happens *after* code is merged. Deliver
 - [`operator-playbook`](./plugins/swe-assistant/skills/operator-playbook/SKILL.md) — fires when you're in (or asked about) the Operator stage: delivery pipeline, observability, on-call prep, defending software in production. **Start here.**
 - [`incident-response`](./plugins/swe-assistant/skills/incident-response/SKILL.md) — fires when prod is on fire, or you've just been paged.
 - [`on-call-shift`](./plugins/swe-assistant/skills/on-call-shift/SKILL.md) — fires for the rest of on-call — the support queue, prioritisation, handoffs, and not burning out.
-- [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md) — · [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md) · [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md) — the three observability instruments. Learn whichever your company actually uses, first.
-- [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) — · [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) · [`deployment-discipline`](./plugins/swe-assistant/skills/deployment-discipline/SKILL.md) · [`progressive-rollout`](./plugins/swe-assistant/skills/progressive-rollout/SKILL.md) — the delivery pipeline, one skill per phase.
+- [`metrics`](./plugins/swe-assistant/skills/metrics/SKILL.md) · [`logging`](./plugins/swe-assistant/skills/logging/SKILL.md) · [`tracing`](./plugins/swe-assistant/skills/tracing/SKILL.md) — the three observability instruments. Learn whichever your company actually uses, first.
+- [`build-and-package`](./plugins/swe-assistant/skills/build-and-package/SKILL.md) · [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) · [`deployment-discipline`](./plugins/swe-assistant/skills/deployment-discipline/SKILL.md) · [`progressive-rollout`](./plugins/swe-assistant/skills/progressive-rollout/SKILL.md) — the delivery pipeline, one skill per phase.
 - [`operational-tools`](./plugins/swe-assistant/skills/operational-tools/SKILL.md) — fires when you're building the tooling operators will actually use.
 
 ---
@@ -135,10 +136,10 @@ The team trusts you to drive small projects end-to-end. You design, you decide, 
 **Skills for this stage:**
 
 - [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md) — fires when you're in (or asked about) the Owner stage: driving small projects, design thinking, balancing maintenance, team process, career conversations. **Start here.**
-- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — the design document, and the spiral of thinking and discussion that produces it.
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — the design document, and the spiral of thinking and discussion that produces it.
 - [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md) — fires when deciding where a boundary goes or whether an abstraction earns its keep — the structural judgment this stage is trusted with.
-- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) — · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — designing so that today's decisions don't trap tomorrow's.
-- [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) — · [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — judgment about rewrites, standards, and new technology.
+- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — designing so that today's decisions don't trap tomorrow's.
+- [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) · [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — judgment about rewrites, standards, and new technology.
 - [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) — fires when standups, reviews, or retros need fixing — the team-process improvement this stage brings to 1:1s.
 
 ---
@@ -170,15 +171,16 @@ Most skills in this assistant attach to a **situation** rather than a career sta
 - [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md) — when the mess is becoming a grievance.
 - [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md) — rewrites, forks, and bypassing standards.
 - [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) — adopting anything new into the stack.
-- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) — · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — changing a contract that other people depend on.
+- [`evolvable-apis`](./plugins/swe-assistant/skills/evolvable-apis/SKILL.md) · [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md) — changing a contract that other people depend on.
 
 **Working with people**
 
 - [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) — before you ask, or when you're avoiding asking.
 - [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) — giving or receiving review.
 - [`commit-and-pr-hygiene`](./plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — the artifacts around a change.
-- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) — · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — thinking a design through, and writing it down.
-- [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md) — · [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) — planning the work, and the meetings around it.
+- [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md) · [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) — thinking a design through, and writing it down.
+- [`agile-planning`](./plugins/swe-assistant/skills/agile-planning/SKILL.md) · [`team-rituals`](./plugins/swe-assistant/skills/team-rituals/SKILL.md) — planning the work, and the meetings around it.
+- [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md) — 1:1s, status updates, goals, reviews, and feedback upward.
 
 **Learning and self-assessment**
 

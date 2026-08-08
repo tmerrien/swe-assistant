@@ -25,6 +25,14 @@ Each entry shows:
 
 ## Books
 
+### An Elegant Puzzle: Systems of Engineering Management
+
+- **Author:** Will Larson (Stripe Press, 2019)
+- **Source:** *The Missing Readme*, Ch. 13 Level Up
+- **Relates to:** [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md), [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md), [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** How engineering organizations actually decide things — team sizing and shape, headcount, migrations, how work gets prioritized across groups. Written for managers, and useful to an individual contributor precisely for that reason: it makes legible the constraints your manager is operating inside, which is most of what turns "my manager said no" into a negotiable conversation. Larson's material on organizational debt is a good companion to `technical-debt`.
+
 ### All You Have to Do is Ask: How to Master the Most Important Skill for Success
 
 - **Author:** Wayne Baker (2020)
@@ -48,6 +56,14 @@ Each entry shows:
 - **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md), [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md), [`changing-legacy-code`](./plugins/swe-assistant/skills/changing-legacy-code/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The definitional anchor for `managing-complexity`. Ousterhout defines complexity as *anything related to the structure of a system that makes it hard to understand and modify* — consequence-based rather than metric-based — and decomposes its symptoms into **dependency** and **obscurity**. Also the source of "deep modules" (simple interface, substantial implementation) and a sharp argument that comments are part of the design rather than an afterthought. Short, opinionated, and directly contradicts *Clean Code* in places, which makes reading both worthwhile. **Priority read** — a skill in this repository currently rests on a book that has not been read end to end.
+
+### High Output Management
+
+- **Author:** Andrew S. Grove (Random House, 1983; reissued 1995)
+- **Source:** *The Missing Readme*, Ch. 13 Level Up — also cited in [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md)
+- **Relates to:** [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md), [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md), [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** The origin of both practices `working-with-managers` is built on. Grove invented what became **OKRs** at Intel, and treats the **1:1** as the manager's single highest-leverage activity — worth reading for the argument that the meeting belongs to the *subordinate*, which is exactly the framing the skill takes. Also the source of the "managerial leverage" idea that explains why your manager behaves as they do. Forty years old and still the most-recommended management book in the industry.
 
 ### Building Evolutionary Architectures
 
@@ -89,6 +105,14 @@ Each entry shows:
 - **Relates to:** [`evolvable-data`](./plugins/swe-assistant/skills/evolvable-data/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The full architectural treatment of the **data product** idea that `evolvable-data` uses as its answer to shared-database coupling — treating published data as a deliberately-designed, owned, versioned product with a contract, rather than a byproduct other teams scrape from your internal tables. Data mesh as a whole is an organisational proposal aimed at large companies and is genuinely contested; the data-product-as-contract concept is the portable part and is useful at any scale.
+
+### The Manager's Path
+
+- **Author:** Camille Fournier (O'Reilly, 2017)
+- **Source:** *The Missing Readme*, Ch. 13 Level Up — also cited in [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md)
+- **Relates to:** [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md), [`owner-playbook`](./plugins/swe-assistant/skills/owner-playbook/SKILL.md), [`contributor-playbook`](./plugins/swe-assistant/skills/contributor-playbook/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** Structured as a ladder from being managed through to senior leadership, which means **the first chapter is written directly for an individual contributor** — what to expect from a manager, what a good 1:1 looks like from the other side, what to ask for and when. The most useful single chapter an early-career engineer can read on this relationship, and the rest of the book explains where your manager's incentives come from.
 
 ### Clean Code: A Handbook of Agile Software Craftsmanship
 
@@ -153,6 +177,14 @@ Each entry shows:
 - **Relates to:** [`design-doc`](./plugins/swe-assistant/skills/design-doc/SKILL.md), [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md), [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md)
 - **Status:** To read
 - **Why this matters here:** The standard book on nonfiction writing, and a warmer, more practical companion to Strunk & White. Zinsser's central themes — clarity, simplicity, ruthless removal of clutter, and writing for a reader rather than to impress — map almost directly onto what makes a design document actually get read. Includes a chapter on writing about science and technology specifically, aimed at exactly the engineer who thinks they can't write.
+
+### Managing Up: How to Move Up, Win at Work, and Succeed with Any Type of Boss
+
+- **Author:** Mary Abbajay (Wiley, 2018)
+- **Source:** *The Missing Readme*, Ch. 13 Level Up
+- **Relates to:** [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md), [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md)
+- **Status:** To read
+- **Why this matters here:** A full treatment of the managing-up material `working-with-managers` compresses into one step. Organized around adapting to *types* of manager — absent, micromanaging, indecisive — which is the practical question an engineer actually faces, since you rarely get to choose. Read critically: the genre tends toward the anecdotal, and the advice is strongest where it is most concrete.
 
 ### Presence: Bringing Your Boldest Self to Your Biggest Challenges
 
@@ -247,7 +279,7 @@ Each entry shows:
 
 - **Authors:** Douglas Stone, Sheila Heen (Penguin, 2014)
 - **Source:** *The Missing Readme*, Ch. 7 Level Up
-- **Relates to:** [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) (receive-side specifically), [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) (the identity-trigger framing maps onto impostor-syndrome distortion), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) (using feedback as data in self-assessment), [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) (the related skill of asking for and metabolizing feedback)
+- **Relates to:** [`code-review`](./plugins/swe-assistant/skills/code-review/SKILL.md) (receive-side specifically), [`working-with-managers`](./plugins/swe-assistant/skills/working-with-managers/SKILL.md) (performance reviews), [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) (the identity-trigger framing maps onto impostor-syndrome distortion), [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) (using feedback as data in self-assessment), [`asking-for-help`](./plugins/swe-assistant/skills/asking-for-help/SKILL.md) (the related skill of asking for and metabolizing feedback)
 - **Status:** To read
 - **Why this matters here:** The companion volume to Stone & Heen's earlier *Difficult Conversations*, focused entirely on the receive side of feedback. The framework — three triggers that make feedback hard to hear (*truth* triggers: it's wrong; *relationship* triggers: from this person?; *identity* triggers: I'm not the kind of person who...) and concrete moves for hearing it well anyway — transfers directly to code review and to any growth-feedback context. The single most useful book on receiving feedback. The framing is well-known and frequently cited in performance-review and leadership-development contexts; less commonly cited in engineering-specific writing despite being directly applicable. Worth folding into the receive-side section of `code-review` once read.
 
