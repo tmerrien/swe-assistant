@@ -23,7 +23,7 @@ Each entry records four things:
   - `skip` — doesn't apply here
 - **Open question** — anything unresolved, if there is one.
 
-**Scope caveat, standing:** folding UX material into this repository would be a deliberate change against [`docs/LIMITATIONS.md`](../docs/LIMITATIONS.md) Section 8, which currently scopes the project to software engineering. Nothing here commits to that. A `fold` verdict means *worth doing if the scope decision is taken*, not that it has been.
+**Scope — decided.** Interface and experience design is treated as *within* software engineering, not adjacent to it; see [`docs/LIMITATIONS.md`](../docs/LIMITATIONS.md) Section 8. A `fold` verdict is therefore actionable rather than conditional. The narrower limit still holds: design as a discipline — brand systems, visual identity, design as a career — remains out of scope. The test for any entry here is whether an engineer owning a user-facing outcome would need it.
 
 **Build rule:** no skill gets built from a single principle. Candidates are assembled at section boundaries, once a cluster is visible.
 

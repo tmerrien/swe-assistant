@@ -133,6 +133,16 @@ The stages remain useful for their actual purpose: tagging which skills tend to 
 
 The methodology is presented as a general framework for packaging professional wisdom for AI-mediated coaching, but the implementation addresses only software engineering practice. Related domains where the methodology might transfer — data engineering, machine-learning engineering, security engineering, product management, technical writing, scientific computing — are not addressed by this repository and would require separate implementations.
 
+**What "software engineering" is taken to include.** Interface and experience design is treated as *within* that scope, not adjacent to it. This is a deliberate position and worth stating, because an earlier reading of this section treated user-facing design as out of scope.
+
+The repository already contains a substantial amount of interface-design material. [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) is entirely concerned with designing tools that operators can actually use; [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md) treats an API as a surface that other people consume and warns about implicit knowledge; [`logging`](../plugins/swe-assistant/skills/logging/SKILL.md) concerns what a human reads under pressure; [`configuration`](../plugins/swe-assistant/skills/configuration/SKILL.md) concerns what an operator must reason about; [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md) carries the principle of least astonishment.
+
+The boundary previously implied was therefore not *design versus engineering*. It was **interfaces for developers and operators count as engineering; interfaces for end users do not** — a distinction that does not survive being stated plainly. Audience, goal, context of use, and not surprising people are the same considerations on either side of it.
+
+The practical case is stronger still for the engineers this project is written for. An engineer at a small company owns outcomes end to end and makes interface decisions whether or not anyone calls them design. Withholding that material describes a team structure most of the intended audience does not have.
+
+This does **not** extend the scope to design as a discipline — brand systems, visual identity, and design practice as a career remain outside it. The claim is narrower: an engineer who owns a user-facing outcome is doing interface design as part of engineering, and the project should serve that.
+
 The four-pillar competence rubric used here (Technical Knowledge, Execution, Communication, Leadership) is plausibly transferable across many engineering disciplines but has not been validated outside the context of *The Missing Readme*'s framing.
 
 ---

@@ -14,7 +14,7 @@ This repository provides a working set of AI **skills** — situation-triggered 
 
 **Intended audience:** computer science students, junior and mid-level software engineers, engineering educators, and curriculum designers.
 
-**Scope.** This is a *coaching framework*, not a code-generation toolkit. The skills aim to make practitioners better at the underlying engineering work, not to perform that work for them. They will not write code, design systems, or compose documents on the user's behalf; they will prompt the user through frameworks for doing those things deliberately.
+**Scope.** This is a *coaching framework*, not a code-generation toolkit. It is written for engineers who **own outcomes end to end** rather than implement specified work, which is the ordinary condition at smaller companies — so interface and experience design is treated as part of software engineering rather than a separate discipline (see [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md), Section 8). The skills aim to make practitioners better at the underlying engineering work, not to perform that work for them. They will not write code, design systems, or compose documents on the user's behalf; they will prompt the user through frameworks for doing those things deliberately.
 
 **Positioning.** The project offers two separable artifacts:
 
