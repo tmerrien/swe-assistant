@@ -133,40 +133,38 @@ That is the same discipline, stated for engineering problems rather than interfa
 
 **What it says.** Draws on Harry Brignull's **dark patterns** / **deceptive patterns**, with emphasis on the less obvious cases — the slippery-slope and insidious ones rather than the flagrant. Since UI/UX design has no ethics code, the field depends on individual designers making the right moral call. Designs that deliberately hide true costs, trick people into decisions, or misrepresent information make their designer part of the problem. If you designed it, you are responsible for it.
 
-**The claim that needs correcting.** *"There is no ethics code"* is true of **design** and false of **engineering** — which matters here, because [`docs/LIMITATIONS.md`](../docs/LIMITATIONS.md) Section 8 now places interface design inside software engineering.
+**Correction to an earlier version of this entry.** A previous draft cited **EU DSA Article 25**, **FTC** enforcement, and **Canada's Bill C-27** as though all three bore on the maintainer's situation. Two do not apply and one is not law:
 
-The [ACM Code of Ethics and Professional Conduct](https://www.acm.org/code-of-ethics) (2018) applies to *"anyone who uses computing technology in an impactful way"*, and two of its general principles bear directly on this material:
+- **Bill C-27 died on the Order Paper in January 2025** when Parliament was prorogued; it never reached a vote, and the April 2025 election delayed reform further. Canada still operates under **PIPEDA**. Citing C-27 as binding was an error.
+- **EU DSA Article 25** governs EU platforms; **FTC** action governs US commerce. Neither reaches an Ontario care marketplace serving Ontario users.
 
-- **1.2 — Avoid harm.**
-- **1.3 — Be honest and trustworthy**, requiring transparency and full disclosure of a system's capabilities, limitations, and problems.
+They remain useful as evidence that regulators internationally are converging on deceptive design as a legal rather than merely ethical matter — but as **context**, not as authority.
 
-An engineer building an interface is therefore **not** in the code-less position Pereyra describes. This is more than a technicality: a designer relying on personal conscience is in a weak position arguing with a stakeholder, while an engineer citing a numbered clause of a professional standard is in a much stronger one.
+**What actually applies in Ontario today.** The local position is stronger than the foreign one:
 
-**And it is increasingly law, not only ethics.**
+- **PIPEDA** — consent must not be obtained through deception, and organisations must not mislead or deceive individuals in connection with obtaining consent.
+- **PHIPA** — for products handling personal health information, consent must be meaningful. Consent obtained through a deceptive interface is plausibly not valid consent, which converts a dark pattern from a moral failure into a compliance one.
+- **The Office of the Privacy Commissioner is actively examining this.** A late-2024 OPC sweep reviewed **145 Canadian websites and apps** specifically for deceptive design patterns. In November 2024 the federal, provincial and territorial Information and Privacy Commissioners issued a **joint resolution** urging organisations to avoid designs that influence, manipulate, or coerce users into decisions against their privacy interests.
+- **OPC guidance on meaningful consent** is not binding law, but states regulator expectations and is relied on in investigations.
 
-- **EU Digital Services Act, Article 25** prohibits designing or operating an interface in a way that deceives or manipulates recipients, or that materially distorts or impairs their ability to make free and informed decisions. The Commission's **first formal DSA non-compliance decision (5 December 2025)** fined X €120 million, partly for deceptive design in the verification badge.
-- **FTC** treats dark patterns as unfair and deceptive practices under the FTC Act, with ROSCA available for subscription-flow cases.
-- **Canada, Bill C-27** — an organisation must not obtain or attempt to obtain consent by providing false or misleading information, or by using deceptive or misleading practices.
+**On professional codes — a correction of emphasis.** An earlier draft treated the [ACM Code of Ethics](https://www.acm.org/code-of-ethics) as giving engineers solid ground that designers lack. That overstated it. The ACM Code is **voluntary and unenforceable**: membership is optional, there is no licensure for software engineers in most jurisdictions, and no disciplinary consequence follows a violation. Contrast a P.Eng in Ontario, governed by the *Professional Engineers Act* with a protected title and a real regulator — which most software engineers are not. **Nobody takes a vow leaving a computer science programme.**
 
-**Where this bites hardest.** In products handling health information under consent-based privacy law — PHIPA in Ontario, for instance — the ethical and legal arguments converge. Consent obtained through a deceptive interface is plausibly not valid consent, which makes a dark pattern a **compliance failure** rather than only a moral one. For a marketplace whose users include seniors and people with disabilities, the exposure is higher still, because the patterns that exploit hurry, confusion, or low confidence are exactly the ones those users are least protected against.
+The Code's clauses — **1.2 Avoid harm**, **1.3 Be honest and trustworthy** — remain worth knowing, but their value is **rhetorical rather than enforceable**. They help frame an argument; they do not settle one. The regulatory position does more work.
 
-**Collides with — and exposes a hole.** The repository has **essentially no professional-ethics content**, and `LIMITATIONS.md` Section 7 does not list it among the coverage gaps (which name interviewing, salary, toxic dynamics, burnout, stack onboarding, and non-IC trajectories). The nearest neighbours are oblique:
+**On the designer/engineer split.** The earlier draft leaned on a distinction between the two that does not hold and that undercuts [`docs/LIMITATIONS.md`](../docs/LIMITATIONS.md) Section 8. Designers are engineers and engineers are designers; the person who ships the interface owns its consequences regardless of job title.
 
-- [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) — OWASP-anchored, but security rather than ethics.
-- [`incident-response`](../plugins/swe-assistant/skills/incident-response/SKILL.md) — blameless postmortems, an ethical stance toward colleagues rather than users.
-- [`change-discipline`](../plugins/swe-assistant/skills/change-discipline/SKILL.md) — judgment about changing things, with no ethical dimension.
+**Collides with — and exposes a hole.** The repository has essentially no professional-ethics content. Nearest neighbours are oblique: [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) (security, not ethics), [`incident-response`](../plugins/swe-assistant/skills/incident-response/SKILL.md) (blameless postmortems — an ethical stance toward colleagues, not users), [`change-discipline`](../plugins/swe-assistant/skills/change-discipline/SKILL.md) (judgment without an ethical dimension). Now recorded in `LIMITATIONS.md` Section 7.
 
-**The gap grew when the scope decision was taken.** Deciding that interface design is engineering imported the surface where most user-facing ethical failures actually occur, without importing anything that addresses them.
+**Verdict:** `fold` plus documentation fix (done), and the strongest standalone skill candidate in the section.
 
-**Verdict:** `fold` **plus a documentation fix**, and the strongest candidate in the section so far for eventually becoming its own skill.
+The situation is well-shaped for this repository: *"I have been asked to pre-check this box"*, *"make the cancel flow harder"*, *"default this to opt-in"*. A real recurring moment with a decision inside it.
 
-1. **Immediate and cheap:** add professional ethics to the coverage-gaps list in `LIMITATIONS.md` Section 7. It is a genuine omission and naming it costs nothing.
-2. **Skill candidate:** deceptive-pattern recognition is situation-shaped in the way this repository requires — *"I have been asked to add a pre-checked box"*, *"make the cancel flow harder"*, *"default this to opt-in"*. That is a real recurring moment with a decision in it, not a topic.
-3. **The distinguishing content** would be the ACM clauses and the regulatory position. Not because the moral argument is insufficient, but because engineers are usually pushing back against someone with more authority, and *"this is manipulative"* loses that argument where *"this is an Article 25 problem and ACM 1.3"* does not.
+**Design note for the eventual skill — from the maintainer.** It should be able to **raise the concern unprompted** when a design under discussion looks ethically off, not only answer when asked. That is [`docs/METHODOLOGY.md`](../docs/METHODOLOGY.md) Section 10.7 (surface what the user cannot see) applied to ethics, and it is arguably the highest-value application of that clause anywhere in the skill set — an engineer mid-implementation is exactly the person who will not think to ask.
 
 **Open questions.**
 
-- Brignull's taxonomy (deceptive.design) names specific patterns — confirmshaming, roach motel, sneak into basket, and so on. Does the eventual skill teach the taxonomy, or teach the test that catches novel ones? The repository's usual answer is the test, per the standing preference for judgment over checklists.
-- Is this UX at all, or is it engineering ethics that happens to surface in interfaces? If the latter, it belongs outside the UX cluster entirely and does not wait on the *Consider* section finishing.
+- Teach Brignull's taxonomy (confirmshaming, roach motel, sneak into basket), or teach the test that catches novel patterns? The repository's standing preference is the test.
+- Is this UX, or engineering ethics surfacing in interfaces? **Maintainer's answer: both.** It therefore does not need to wait for the *Consider* section to finish.
+- Jurisdiction is a live problem for a skill meant to be portable. The Ontario position above is specific to one maintainer. A general skill would need to teach *find your regulator's position* rather than assert any particular one.
 
 <!-- Next entry goes here. Keep the four-part shape. -->
