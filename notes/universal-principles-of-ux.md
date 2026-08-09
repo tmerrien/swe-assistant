@@ -167,4 +167,34 @@ The situation is well-shaped for this repository: *"I have been asked to pre-che
 - Is this UX, or engineering ethics surfacing in interfaces? **Maintainer's answer: both.** It therefore does not need to wait for the *Consider* section to finish.
 - Jurisdiction is a live problem for a skill meant to be portable. The Ontario position above is specific to one maintainer. A general skill would need to teach *find your regulator's position* rather than assert any particular one.
 
+### 6. Words matter
+
+**What it says.** Writing is the highest-return skill to invest in for UX. Good copy evokes emotion while removing ambiguity, and its absence is felt sharply. People do read on the web — differently: more task-oriented and goal-focused than in print, and expecting something closer to conversation because they can go back and forth with the system. Make copy digestible: simplify language, label content, keep it bite-sized, avoid burying links inside long paragraphs, make it scannable, use lists. Address users as **"you"** — it makes the copy about their goals rather than about the product. Edit ruthlessly at sentence and paragraph level, cutting to exactly what needs saying. Then **read it aloud**; if it sounds robotic, it is not finished.
+
+**Strong cross-source convergence — the headline.** The read-aloud test is Paul Graham's, near-verbatim, from *Write Like You Talk* — already in [`READING-LIST.md`](../READING-LIST.md) and already cited in [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md). Graham derives it for essays; Pereyra derives it for interface copy. **Two independent sources, different surfaces, identical diagnostic.** Convergence of that kind usually indicates the test is load-bearing rather than a stylistic preference, and it is the strongest evidence so far that the writing material in this repository generalises beyond documents.
+
+**Her central claim is better than her argument for it.** *"The best skill to invest in for UX is writing"* sounds like hyperbole until one notices that **most of an interface is words** — labels, buttons, errors, empty states, confirmations, permission prompts. The visual layer that receives most attention is frequently a container for text. She asserts the claim without making that observation, which is the thing that actually justifies it.
+
+**Collides with — four skills and no owner.** The repository holds this discipline in pieces:
+
+- [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) — the *learn to write* material: write clearly, reread from the audience's perspective, be concise, edit others' work to improve your own. Cites Strunk & White, Zinsser, and both Graham essays.
+- [`commit-and-pr-hygiene`](../plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — Beams' seven rules.
+- [`logging`](../plugins/swe-assistant/skills/logging/SKILL.md) — what a human reads under pressure at 3am.
+- [`working-with-managers`](../plugins/swe-assistant/skills/working-with-managers/SKILL.md) — short PPP bullets.
+
+Four surfaces, one discipline, no skill that owns it. Interface copy would be a fifth. **Possible future consolidation:** a writing skill that these reference, rather than each carrying a fragment. Not yet justified — recorded so the pattern is visible if a sixth surface appears.
+
+**A tension the principle does not address.** *"Evoke emotion while simultaneously removing all ambiguity"* treats as free something that is a trade. Evocative copy tends loose; unambiguous copy tends dry. Warmth and precision can coexist, but not without effort, and the principle does not say which yields when they conflict.
+
+In high-stakes, low-attention contexts the resolution is clear: **precision wins, and warmth is a constraint on how precision is expressed rather than a competing goal.** An attendant confirming a shift or a person granting consent to share health information needs to be certain what they are agreeing to. That resolution is not in the source and would need adding to anything built from it.
+
+**Meets the accessibility thread.** Plain language is among the central recommendations of W3C COGA (*Making Content Usable for People with Cognitive and Learning Disabilities*). This principle and the cognitive-accessibility material reach the same practices from different directions — simplify, chunk, scan, avoid burying meaning in prose. Worth noting because it means plain-language work serves two masters at once, which is a good argument when justifying the effort.
+
+**Verdict:** `fold`. Two candidates:
+
+1. **Extend `design-doc`'s writing section** to note that the read-aloud test and the concision discipline apply to interface copy as well as documents — cheap, and true today.
+2. **Hold as the anchor** for an eventual consolidated writing skill, if the four-surfaces-no-owner pattern is judged worth resolving.
+
+**Open question.** Is *"words are most of the interface"* an observation worth putting in front of an engineer explicitly? It is the kind of thing that sounds obvious once stated and is routinely ignored in practice — engineers reach for layout and component choices when the error message is what is actually failing the user.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
