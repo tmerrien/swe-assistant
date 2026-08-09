@@ -197,4 +197,29 @@ In high-stakes, low-attention contexts the resolution is clear: **precision wins
 
 **Open question.** Is *"words are most of the interface"* an observation worth putting in front of an engineer explicitly? It is the kind of thing that sounds obvious once stated and is routinely ignored in practice — engineers reach for layout and component choices when the error message is what is actually failing the user.
 
+### 7. Visual metaphors communicate the fastest
+
+**What it says.** A good visual metaphor creates new meaning out of **mental models** — "the lens of our mind" — and lets an audience relate quickly by drawing on symbolism they already hold. Illustrated by Google Japan's interactive memorial after the 2011 tsunami, which let people leave messages in their own language, built around the cherry blossom. A short principle in the book.
+
+**The durable part is the mechanism, not the medium.** *Visual metaphor* is one delivery vehicle; **borrowing an existing mental model rather than asking someone to construct a new one** is the general move, and this repository already runs on it:
+
+- [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md) argues that domain-aligned boundaries are the rare structural move that reduces dependency *without* a matching obscurity cost — and the stated reason is that the boundary matches a model people already carry. Same mechanism.
+- The **principle of least astonishment** in the same skill is the same idea stated as a constraint: expectation comes from a model already held.
+- *Naming that carries meaning* is listed there as an obscurity lever.
+
+**The engineer's highest-frequency application is naming, not iconography.** Classes, endpoints, tables, error vocabulary. A good name borrows a model the reader has; a poor one forces them to build one. [*Elements of Clojure*](../READING-LIST.md) (Tellman), already on the reading list, is substantially about this.
+
+**Two failure modes the principle omits.**
+
+- **Metaphors leak, then expire.** The save icon is a floppy disk most users have never handled. A metaphor that stops matching reality does not degrade gracefully — it misleads, because users continue to trust the model it implied.
+- **Metaphors are culturally located.** The cherry blossom works *because* it is culturally specific; that specificity is the reason the example succeeds. The same move fails outside its context. For a product serving a linguistically and culturally diverse population, this is a live constraint rather than a footnote.
+
+**Pattern in the source — recording once, properly.** Principle 4's exemplar was Apple's pinch-to-zoom; principle 7's is a Google memorial experience. Both are consumer showcase work: expressive, well-resourced, emotionally driven. Pereyra's practice is consumer design (Google, Nickelodeon, FOX, Red Bull, Balenciaga), and it shapes which examples the book treats as exemplary.
+
+**This is not a criticism of the book — it is a known transfer condition.** Anything built from this source for operational, high-stakes, or accessibility-sensitive software needs the examples re-derived rather than borrowed. Flagged here so later entries can reference this note instead of rediscovering it.
+
+**Verdict:** `cluster` — with the *UI is not downstream* group, as further support that the visual layer carries genuine communicative weight. **Thin, and recorded as such:** the mechanism is already covered by `managing-complexity`, and the new contribution — apply it to visual symbol choice — is narrow. Not every principle in a hundred is load-bearing, and noting that is more useful than manufacturing depth.
+
+**Open question.** Do the two omitted failure modes belong to this principle or to a later one? A book with a hundred entries may well cover metaphor decay elsewhere. Worth checking before adding them as original contributions.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
