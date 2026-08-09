@@ -222,4 +222,34 @@ In high-stakes, low-attention contexts the resolution is clear: **precision wins
 
 **Open question.** Do the two omitted failure modes belong to this principle or to a later one? A book with a hundred entries may well cover metaphor decay elsewhere. Worth checking before adding them as original contributions.
 
+### 8. Attractive products are more usable
+
+**What it says.** The **aesthetic-usability effect**, from Kurosu and Kashimura (1995). People do not judge usability by how usable an interface actually is — they judge it by how it looks. We are biased toward believing attractive products work better even when they do not, and when they fail we continue to find them attractive and forgive their usability problems. Forgiveness has a limit: if something genuinely does not work, beauty will not save it.
+
+**The evidence is unusually strong for a design claim — worth stating precisely.**
+
+- **Kurosu & Kashimura (1995)**, Hitachi Design Center: 26 ATM interface variations, 252 participants. *Apparent* usability correlated more strongly with aesthetic properties (layout symmetry, colour harmony) than with *inherent* usability measured by task-completion efficiency.
+- **Tractinsky (1997)** attempted to break it. He obtained the original layouts, translated them from Japanese to Hebrew, and imposed tighter methodological controls, expecting the effect to be culturally specific. It replicated — and the correlation was **stronger** in Israel than in Japan.
+- **Tractinsky, Katz & Ikar (2000)**: r > 0.9 between pre-use and post-use perceptions, with aesthetics driving usability judgments **irrespective of performance outcomes**.
+
+A replication designed to fail that did not is about as good as evidence gets in this literature. Note the object throughout: the effect concerns **perceived** usability. Attractive interfaces are not easier to operate; they are believed to be.
+
+**The implication the book does not draw — a measurement hazard.** If aesthetics drives perceived usability independently of performance, then **usability testing conducted on an attractive prototype systematically under-reports problems**. Participants rate a polished mockup as easier than an equivalent ugly one, and forgive friction they would otherwise report.
+
+This lands squarely on [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) **Step 5**, which currently says *"circulate the prototype — a running thing generates real feedback, a description generates polite nods."* That is true and incomplete: **the more polished the artifact, the more the feedback flatters it.** For research-led work this is not a subtlety, it is a validity threat to the primary instrument.
+
+Practical consequences worth carrying into a fold:
+
+- Test flows on deliberately low-fidelity artifacts when the question is *does this work*, and save polish for when the question is *does this appeal*.
+- Treat "users liked it" from a high-fidelity prototype as weak evidence of usability.
+- Watch for the inverse error too: an ugly prototype may be rated harshly for reasons unrelated to the flow being tested.
+
+**Connects two principles the book leaves unconnected.** Principle 5 established that design is not neutral. Principle 8 establishes that beauty buys forgiveness. Together: **beauty can purchase forgiveness a product has not earned**, suppressing complaints about something that genuinely underserves people. Pereyra notes forgiveness has limits without observing that this is adjacent to the deceptive-design territory of principle 5. The link is worth making explicitly in anything built from either.
+
+**Transfer condition** (see the note at principle 7). For consequence-bearing software, forgiveness is the wrong currency. If a worker misses a shift because a screen was confusing, goodwill toward the visual design does not undo the missed shift. The effect operates on **satisfaction**; care, medical, and financial software are judged on **outcomes**. The principle remains true there — it simply stops being something to rely on and becomes something to control for.
+
+**Verdict:** `fold` into `technical-design-process` Step 5, as a validity caution on prototype feedback. This is the most immediately actionable entry in the section so far, because it changes how research is run rather than how an interface is drawn. Secondary `cluster` link to *UI is not downstream* — the effect is further evidence that visual quality does real work.
+
+**Open question.** The literature includes work on boundary conditions for the effect (task complexity appears to moderate it). If a skill is built on this, is the honest statement *"aesthetics biases perceived usability"* or the narrower *"aesthetics biases perceived usability under conditions X"*? Worth checking before asserting the general form.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
