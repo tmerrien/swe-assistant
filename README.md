@@ -49,6 +49,7 @@ swe-assistant/
 ├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
 ├── CONTRIBUTING.md                 Contribution process and skill style conventions
 ├── MISFIRE-LOG.md                  Log of skills that over-fired, under-fired, or mis-routed in real use
+├── notes/                          Working reading notes; raw material for future skills, not skills themselves
 ├── scripts/
 │   └── sync-to-claude.sh           Sync the local plugin into Claude's cache for local iteration
 ├── docs/                           Academic and pedagogical documentation
