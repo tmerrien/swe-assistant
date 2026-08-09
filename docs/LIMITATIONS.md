@@ -111,6 +111,7 @@ Even within the project's chosen scope — early- to mid-career software enginee
 - Imposter syndrome at level transitions (partially covered by `growth-obstacles`, but not specifically).
 - Specific stack or language onboarding (the skills are stack-agnostic by design).
 - Non-IC trajectories (engineering management, technical writing, developer relations).
+- **Professional ethics.** No skill addresses deceptive interface patterns, the ACM Code of Ethics, or how an engineer pushes back on a request they consider manipulative. This gap widened when Section 8 placed interface design within scope, since that is the surface on which most user-facing ethical failures occur.
 
 Some of these gaps reflect deliberate scope choices; others reflect coverage the author has not yet built. The project's status documentation and contribution guidelines invite proposals for new skills.
 

@@ -129,4 +129,44 @@ That is the same discipline, stated for engineering problems rather than interfa
 
 **Open question.** Where does the search for a non-obvious solution actually happen in the existing process? Step 4 (*do your research*) and Step 5 (*conduct experiments*) are the plausible homes — prior art and prototyping are how you find solutions nobody described. If so, the fold may be a cross-reference rather than new text.
 
+### 5. Design is not neutral
+
+**What it says.** Draws on Harry Brignull's **dark patterns** / **deceptive patterns**, with emphasis on the less obvious cases — the slippery-slope and insidious ones rather than the flagrant. Since UI/UX design has no ethics code, the field depends on individual designers making the right moral call. Designs that deliberately hide true costs, trick people into decisions, or misrepresent information make their designer part of the problem. If you designed it, you are responsible for it.
+
+**The claim that needs correcting.** *"There is no ethics code"* is true of **design** and false of **engineering** — which matters here, because [`docs/LIMITATIONS.md`](../docs/LIMITATIONS.md) Section 8 now places interface design inside software engineering.
+
+The [ACM Code of Ethics and Professional Conduct](https://www.acm.org/code-of-ethics) (2018) applies to *"anyone who uses computing technology in an impactful way"*, and two of its general principles bear directly on this material:
+
+- **1.2 — Avoid harm.**
+- **1.3 — Be honest and trustworthy**, requiring transparency and full disclosure of a system's capabilities, limitations, and problems.
+
+An engineer building an interface is therefore **not** in the code-less position Pereyra describes. This is more than a technicality: a designer relying on personal conscience is in a weak position arguing with a stakeholder, while an engineer citing a numbered clause of a professional standard is in a much stronger one.
+
+**And it is increasingly law, not only ethics.**
+
+- **EU Digital Services Act, Article 25** prohibits designing or operating an interface in a way that deceives or manipulates recipients, or that materially distorts or impairs their ability to make free and informed decisions. The Commission's **first formal DSA non-compliance decision (5 December 2025)** fined X €120 million, partly for deceptive design in the verification badge.
+- **FTC** treats dark patterns as unfair and deceptive practices under the FTC Act, with ROSCA available for subscription-flow cases.
+- **Canada, Bill C-27** — an organisation must not obtain or attempt to obtain consent by providing false or misleading information, or by using deceptive or misleading practices.
+
+**Where this bites hardest.** In products handling health information under consent-based privacy law — PHIPA in Ontario, for instance — the ethical and legal arguments converge. Consent obtained through a deceptive interface is plausibly not valid consent, which makes a dark pattern a **compliance failure** rather than only a moral one. For a marketplace whose users include seniors and people with disabilities, the exposure is higher still, because the patterns that exploit hurry, confusion, or low confidence are exactly the ones those users are least protected against.
+
+**Collides with — and exposes a hole.** The repository has **essentially no professional-ethics content**, and `LIMITATIONS.md` Section 7 does not list it among the coverage gaps (which name interviewing, salary, toxic dynamics, burnout, stack onboarding, and non-IC trajectories). The nearest neighbours are oblique:
+
+- [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) — OWASP-anchored, but security rather than ethics.
+- [`incident-response`](../plugins/swe-assistant/skills/incident-response/SKILL.md) — blameless postmortems, an ethical stance toward colleagues rather than users.
+- [`change-discipline`](../plugins/swe-assistant/skills/change-discipline/SKILL.md) — judgment about changing things, with no ethical dimension.
+
+**The gap grew when the scope decision was taken.** Deciding that interface design is engineering imported the surface where most user-facing ethical failures actually occur, without importing anything that addresses them.
+
+**Verdict:** `fold` **plus a documentation fix**, and the strongest candidate in the section so far for eventually becoming its own skill.
+
+1. **Immediate and cheap:** add professional ethics to the coverage-gaps list in `LIMITATIONS.md` Section 7. It is a genuine omission and naming it costs nothing.
+2. **Skill candidate:** deceptive-pattern recognition is situation-shaped in the way this repository requires — *"I have been asked to add a pre-checked box"*, *"make the cancel flow harder"*, *"default this to opt-in"*. That is a real recurring moment with a decision in it, not a topic.
+3. **The distinguishing content** would be the ACM clauses and the regulatory position. Not because the moral argument is insufficient, but because engineers are usually pushing back against someone with more authority, and *"this is manipulative"* loses that argument where *"this is an Article 25 problem and ACM 1.3"* does not.
+
+**Open questions.**
+
+- Brignull's taxonomy (deceptive.design) names specific patterns — confirmshaming, roach motel, sneak into basket, and so on. Does the eventual skill teach the taxonomy, or teach the test that catches novel ones? The repository's usual answer is the test, per the standing preference for judgment over checklists.
+- Is this UX at all, or is it engineering ethics that happens to surface in interfaces? If the latter, it belongs outside the UX cluster entirely and does not wait on the *Consider* section finishing.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
