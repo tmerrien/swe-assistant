@@ -104,29 +104,29 @@ That is the version worth carrying into a skill, because it holds whether the wo
 
 ### 4. Always surpass expectations
 
-**What it says.** Look for the extra that makes an interaction memorable, which requires approaching the problem from an unfamiliar angle. A product must work first — but given how many apps exist, usable-and-forgettable is not enough. Two things produce a memorable, positive experience: features people do not expect (pinch-to-zoom at the 2007 Apple event is the example given), and getting people into a **state of flow** — Csikszentmihalyi, on complete immersion, and on involvement and focus making an activity more engaging. Surprise plus an interaction model that removes distraction gets you closer to surpassing expectations.
+**What it says.** Look for the extra that makes an interaction memorable, which requires approaching the problem from an unfamiliar angle. A product must work first — but given how many apps exist, usable-and-forgettable is not enough. Two things produce a memorable, positive experience: features people do not expect (pinch-to-zoom at the 2007 Apple event), and getting people into a **state of flow** — Csikszentmihalyi, on complete immersion, and on involvement and focus making an activity more engaging.
 
-**This principle bundles two claims of very different evidentiary strength.** They are worth separating before anything is built from it.
+**The reading that matters.** *"Features people won't expect"* does **not** mean features nobody needs. It means **unexpected solutions to needs people genuinely have**. Pinch-to-zoom did not arrive from nowhere: the need — zoom precisely and quickly on a small screen — was well established, and the existing answers were +/- buttons, double-tap, and scrollbars. What was surprising was the *solution*, not the problem.
 
-**The weak half — unexpected features.**
+That distinction settles two apparent conflicts:
 
-- **Collides with principle 1 in this same section.** Principle 1 says do not let designer assumptions drive decisions; principle 4 says invent things people did not ask for. Reconcilable, but the book does not do the reconciling.
-- **Collides with [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md)**, which names *features nobody asked for* as one of three YAGNI traps: every feature costs to build and to maintain permanently, and its usefulness is unknown at the time it is added.
-- **The example is survivorship bias.** Pinch-to-zoom is canonical *because* it succeeded. The base rate of "delightful" features that added surface area and were removed two releases later is invisible in this framing. Citing the most famous launch in the industry as evidence for surprising users is selecting on the outcome.
+- **No conflict with YAGNI.** [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md) warns against *features nobody asked for* — speculative **problems**. This principle concerns non-obvious **solutions** to real problems. Different objects; the trap and the principle do not touch.
+- **No conflict with principle 1.** Both make the same move: do not stop at what the user literally said. Principle 1 says do not let assumption override need. Principle 4 says do not mistake a stated request for the underlying need. Same target, approached from opposite sides.
 
-**The strong half — flow.**
+*(An earlier version of this entry read the principle as licensing speculative features and logged it as read-critically. That was a misreading, corrected here.)*
 
-- Csikszentmihalyi's flow is genuine research with a substantial literature behind it (*Flow: The Psychology of Optimal Experience*, 1990). Not currently in [`READING-LIST.md`](../READING-LIST.md); should be added **if and when** flow becomes load-bearing in a skill, per the standing rule against aspirational citation.
-- **Eliminating distraction is subtractive.** It asks what to remove, not what to add — which makes it compatible with YAGNI, with principle 3's usability focus, and with the repository's existing posture. The two halves of this principle point in opposite directions and only one of them is well-supported.
+**Collides with — and this is the strong one.** [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md), Step 3:
 
-**Domain limit — the first place the source's origin shows.** Pereyra's practice is consumer work (Google, Nickelodeon, FOX, Red Bull, Balenciaga). Memorable-or-die is true in that market. It is not true everywhere. In care, medical, emergency, or financial software — high-stakes, low-attention, accessibility-sensitive — **surprise is a defect**. A worker checking a shift between clients wants an interface that works without thought, not one that is memorable. Flow transfers cleanly to those contexts; delight-through-novelty does not.
+> *"Ask stakeholders what **they** perceive the problem to be. Not what solution they want — what problem they think exists."* … *"note when the answer is actually a solution, and gently ask what it would fix."*
 
-This is not an error in the book. It is a limit on transferability, and any skill derived from this material needs to carry the limit rather than the unqualified claim.
+That is the same discipline, stated for engineering problems rather than interface ones. **Pereyra is not in tension with the repository here — she is the design-side statement of something it already holds.** The existing skill stops at *find the real problem*; this principle continues to *and the best solution to it may not be the one anyone described*. That continuation is the addition.
 
-**Verdict:** `cluster`, with the halves split. The flow material joins the *UI is not downstream* cluster comfortably — removing distraction is a usability move, which is principle 3's territory. The unexpected-features material is held as **read-critically**: recorded, not adopted, and specifically not folded into any skill without the YAGNI tension and the domain limit attached.
+**The flow half.** Csikszentmihalyi's flow is genuine research (*Flow: The Psychology of Optimal Experience*, 1990) and points the same direction as principle 3 — eliminating distraction is a **subtractive** usability move. Not currently in [`READING-LIST.md`](../READING-LIST.md); add only if flow becomes load-bearing in a skill, per the standing rule against aspirational citation.
 
-**Open question.** Is the surprise-versus-YAGNI tension genuinely resolvable, or are these two defensible positions serving different product contexts — consumer discretionary versus operational necessity? If the latter, the useful skill content is not "surpass expectations" but **knowing which kind of product you are building**, which would be a diagnostic rather than a prescription.
+**One narrow constraint worth carrying.** In high-stakes, low-attention contexts — care, medical, emergency, financial — **unfamiliarity has a cost that consumer contexts do not pay**. A genuinely better solution that is unfamiliar to a stressed or hurried user still has to be learnable at the moment of use. This is a constraint on how an innovative solution is introduced, not an argument against innovating. Pereyra's practice is consumer work, so the constraint is not visible in the source and would need adding.
 
----
+**Verdict:** `fold` — into `technical-design-process` Step 3, extending *find the real problem* with *and the obvious solution to it may not be the best one*. Also `cluster` on the flow material, which belongs with principles 2 and 3 under *UI is not downstream*.
+
+**Open question.** Where does the search for a non-obvious solution actually happen in the existing process? Step 4 (*do your research*) and Step 5 (*conduct experiments*) are the plausible homes — prior art and prototyping are how you find solutions nobody described. If so, the fold may be a cross-reference rather than new text.
 
 <!-- Next entry goes here. Keep the four-part shape. -->
