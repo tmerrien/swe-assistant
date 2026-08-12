@@ -201,13 +201,14 @@ The current 44 skills are presented as one author's worked example, not as autho
 
 ## Design Principles
 
-The skills in this repository follow five principles. New contributions are expected to follow them as well.
+The skills in this repository follow six principles. New contributions are expected to follow them as well.
 
 1. **Prompt the thinking, do not replace it.** Skills surface checklists and questions, not finished answers. The user performs the engineering work; the skill provides scaffolding.
 2. **Trigger on situations, not on topics.** A skill activates when the user is about to take a specific action, not when a topic is mentioned in passing.
 3. **Synthesize sources, do not enshrine them.** Each skill's `Sources` section accumulates references over time as new materials inform the practice. No single source is treated as authoritative.
 4. **Cite the literature that shaped the skill.** Every source that informed a skill is named inline, preserving the path back to the original work.
 5. **Paraphrase, do not reproduce.** Skill bodies are operational ("do X, then Y"), not literary excerpts. Underlying source materials retain their own copyrights and are credited but not reproduced.
+6. **Preserve productive disagreement.** Where competent practitioners genuinely disagree, a skill carries both positions and the conditions that decide between them, rather than picking a winner. This applies where the disagreement is real — not to questions that merely have two describable sides.
 
 ## How to Cite
 
@@ -225,7 +226,7 @@ For inline attribution in derived works, the suggested string is:
 
 Contributions are welcome. Areas of particular interest include:
 
-- **New skills** for situations not yet covered, following the five design principles above.
+- **New skills** for situations not yet covered, following the six design principles above.
 - **Source integration** — folding wisdom from books on the [`READING-LIST.md`](./READING-LIST.md) into the relevant skills, updating Sources sections, and marking entries as **Folded**.
 - **Trigger-description refinements** based on real-world use — cases where a skill should have activated and did not, or activated when it should not have.
 - **Translation** of skills into other languages.

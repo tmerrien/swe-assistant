@@ -30,9 +30,9 @@ This mechanism has two methodological consequences:
 
 ---
 
-## 3. The five design principles
+## 3. The six design principles
 
-All skills in this repository are constructed to satisfy five principles. Adopting the methodology means adopting these principles; modifications are reasonable, but the principles function as a coherent system.
+All skills in this repository are constructed to satisfy six principles. Adopting the methodology means adopting these principles; modifications are reasonable, but the principles function as a coherent system.
 
 ### 3.1 Prompt the thinking; do not replace it
 

@@ -20,7 +20,7 @@ Out of scope for this repository:
 
 ## Skill Design Principles
 
-All new skills must adhere to the five principles stated in the main [`README.md`](./README.md):
+All new skills must adhere to the six principles stated in the main [`README.md`](./README.md):
 
 1. **Prompt the thinking, do not replace it.**
 2. **Trigger on situations, not on topics.**
