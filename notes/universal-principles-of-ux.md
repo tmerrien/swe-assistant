@@ -542,4 +542,29 @@ The author's claim holds cleanly for **convention** and **expression** and fails
 
 ---
 
+### 17 — Nothing lasts forever
+
+**What it says.** A digital design's longevity is guarded by whoever commissioned it. When the people on the client side turn over, the odds of the design surviving intact go to roughly nothing. The author's own read is that this is something to accept rather than fight.
+
+**Maintainer's read, and I agree: this is a personal reflection rather than a working principle.** Logged for completeness. What follows is the small amount that does transfer, and an explicit note that it required no change to the skill set.
+
+**The one transferable claim — and the repository already holds it.** If design survival is an organisational property rather than a quality property, then the thing that outlives turnover is **the written rationale, not the artifact**. [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) already says this twice and better: the document *"becomes valuable later, asymmetrically — decisive six months later when someone asks why the system works this way, or when a new engineer needs the context,"* and, on losing edit history, *"that history is often the most valuable part — it's what stops the team relitigating a settled decision next year."* Checked before writing; no addition warranted.
+
+**The distinction worth keeping — 16 and 17 decay for different reasons and take different countermeasures.** Both say the work won't last, which makes them easy to collapse into one idea. They shouldn't be:
+
+| | Cause | Countermeasure |
+|---|---|---|
+| **16** | context drift — the artifact is untouched, the world moves | shearing layers; make fast layers cheap to replace |
+| **17** | ownership turnover — the artifact is fine, the guardian left | written rationale that survives the person |
+
+Neither countermeasure helps against the other's cause. Clean boundaries do nothing when a new stakeholder wants a fresh look; a decision record does nothing about a deprecated dependency. **The pairing is the contribution here**, not principle 17 alone.
+
+**A link back to existing skills.** [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md) and [`changing-legacy-code`](../plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) both instruct the reader to find out *why* strange code exists before changing it. Principle 17 explains why that information is usually unavailable: **the person who held the reasoning moved on and it was never written down.** 17 is the supply side of the problem those two skills handle on the demand side. Worth knowing; not worth a skill edit.
+
+**Verdict:** `context`. **The first principle in this reading to produce no change to the skill set** — recorded deliberately, since a reading practice that always finds something to add is not reading, it is confirmation bias with a commit history.
+
+**Separate observation, not derived from this principle.** Grepping for it while checking the above: **Conway's Law appears nowhere in the repository** — not in any skill, not in the docs. Principle 17's mechanism is roughly its dynamic form (the system tracks the org, so when the org changes the system comes under pressure to change with it, independent of technical merit). That absence is a real gap and probably a significant one, but it is far too large to hang off a personal reflection at the end of a UX chapter. Logged here so it isn't lost.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
