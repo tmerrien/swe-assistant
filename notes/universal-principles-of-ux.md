@@ -334,7 +334,7 @@ That yields a rule the book does not state: **if you want something remembered l
 
 ---
 
-## Consider — structure so far (through principle 12)
+## Consider — structure so far (through principle 15)
 
 Recorded here because the build rule assembles candidates at section boundaries. Two clusters and three standalones have emerged. Updated as the section progresses.
 
@@ -356,6 +356,12 @@ The strongest independent skill candidate in the section, and arguably not UX at
 Folds into `technical-design-process` Step 5 as a validity caution on prototype feedback. The most immediately actionable item so far.
 
 **Note on Cluster B's reach.** It is the only cluster whose content is already load-bearing across the existing skill set without having been named, and now the only one with a theoretical anchor the project already holds. That makes it the most likely candidate to become something domain-agnostic that other skills reference, rather than a UX skill — echoing the open question first raised at principle 2, now with better evidence behind it.
+
+**Cluster C — *Time is a design material*** (principles 13, 14, 15)
+
+Three decisions about the user's time rather than their attention: **how fast you answer them** (13), **when you deliberately slow them down** (14), and **how long you have before they leave** (15). The cluster's spine is that all three are threshold effects — there is a value past which behaviour changes in kind, not in degree — and all three are consequently invisible to aggregate statistics. That last property is what makes the cluster transfer to engineering: it is the same lesson [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) teaches about histograms and averages, arrived at from the human side.
+
+Note that 13 and 14 are a thesis/antithesis pair (speed as the goal; friction as a deliberate purchase), which makes this the second cluster whose members argue with each other — see the standing design note below.
 
 ---
 
@@ -472,6 +478,32 @@ Engineers routinely treat the third case as the first and optimise into a wall.
 **Verdict:** split, honestly. `fold` the engineering half into [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) — done on logging. `cluster` the ethics half with principle 5. Separately, 13+14 form **Cluster C — the pace of interaction is a design decision**, alongside Clusters A and B.
 
 **Open question.** If habituation defeats any friction pattern once it becomes standard, then type-the-name is on a clock too — it is already common enough at GitHub, AWS, and Stripe that the reflex may be forming. Does that imply safety gates need periodic redesign, or is task-specific input structurally immune because the input can't be memorised? I suspect the latter, but the study's mechanism doesn't obviously guarantee it.
+
+---
+
+### 15 — First impressions matter
+
+**What it says.** Drawing on Microsoft Research work by Chao Liu, Ryen W. White, and Susan Dumais: users who don't see or grasp a page's value within about ten seconds leave. The author's claim is that the impression is carried by **design rather than content**.
+
+**The paper's mechanism is far more useful than the ten-second number.** *Understanding Web Browsing Behaviors through Weibull Analysis of Dwell Time* ([SIGIR 2010, pp. 379–386](https://dl.acm.org/doi/10.1145/1835449.1835513)). The move is to treat page abandonment as **system failure in reliability analysis** and fit dwell time with a Weibull distribution. What that reveals is significant **negative aging**: the hazard rate *falls* as time on page rises. A page is the opposite of a wearing machine part — the longer someone stays, the less likely they are to leave. The authors name the resulting behaviour **"screen-and-glean."**
+
+So there are **two regimes, not a countdown**: a brief high-hazard *screening* phase, and — if it is survived — a low-hazard *gleaning* phase measured in minutes. The practical consequence is not "you have ten seconds" but **effort spent inside the screening phase has a structurally different return than effort spent anywhere else in the experience.**
+
+**Citation hygiene — the study doesn't support the claim the principle attaches to it.** Liu, White, and Dumais establish the *shape* of abandonment, not its *cause*; nothing in a dwell-time distribution says whether people leave because of design or content. The claim that first impressions are visual is properly licensed by **Lindgaard, Fernandes, Dudek, and Brown (2006)**, *Attention web designers: You have 50 milliseconds to make a good first impression!* (*Behaviour & Information Technology*) — 50ms being far too short to read anything, which is exactly why it isolates the visual channel. **Right claim, wrong paper.** Anything derived from this principle should cite both and say which does which. Worth noting as the second citation-precision issue in the book, after principle 13's 400ms.
+
+**The pattern worth naming — the book has now made the same statistical point twice.** Principle 13: latency thresholds are perceptual, so they bind per interaction and the average lies. Principle 15: abandonment hazard is front-loaded, so the average dwell time lies. **Both are threshold effects concealed by aggregate statistics**, and both are the lesson [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) already teaches — histograms over averages, the tail is where the human is. The reading keeps re-deriving the repository's own metrics discipline from the human side, which is good evidence the discipline is right rather than merely conventional.
+
+**Collides with.** No skill cleanly, which is the finding — see the gap below. Adjacent: [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md), [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md), [`new-team-onboarding`](../plugins/swe-assistant/skills/new-team-onboarding/SKILL.md).
+
+**Engineering transfer — time-to-first-success is the hazard metric.** Everything shipped to other engineers has a screening phase: a library, an internal service, a CLI, a README, a first week on a team. The window is longer than ten seconds — perhaps ten minutes for a library — but the structure is identical: high early abandonment, then commitment. Concretely measurable and almost never measured: time from install to first successful call; whether the quickstart survives copy-paste; whether the first error message on misconfiguration is legible. Teams instrument the steady state and leave the screening phase dark, which is exactly backwards given where the hazard is.
+
+**Why the screening phase is systematically under-served: curse of knowledge.** READMEs, quickstarts, and onboarding docs are written by the person with the most context — structurally the worst author for a screening-phase artifact, because they can no longer perceive the screen they are being asked to design. This is the same failure [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) already names as *the operator at 2am does not have the mental model*, and it argues for the same fix: have someone without the context walk it.
+
+**The gap this exposes — and it is a real one.** Nothing in the repository owns **designing the first encounter with a thing you ship.** `new-team-onboarding` is deliberately the newcomer's own playbook and says so explicitly under *When NOT to use*: *"the user is asking about onboarding others… the content is reusable but the framing is different."* The repository has the receiving side and not the designing side. Skill candidate: **first-run experience** — READMEs, quickstarts, developer onboarding, first-error legibility, time-to-first-success as an instrumented metric. Holding to the build rule: recorded as a candidate, assembled at the section boundary, not built from one principle.
+
+**Verdict:** `cluster` into **Cluster C**, and log the skill candidate above.
+
+**Open question — a third contradiction, and unverified.** There is a research line holding that **prototypical** designs, ones resembling what people expect for their category, are judged more appealing in exactly these first milliseconds. If it holds, it collides head-on with principle 9 (the unusual is remembered) and principle 12 (differentiate to be noticed): **typicality may win the screening phase while distinctiveness wins the memory.** The deciding condition would be which risk dominates — abandonment or forgettability. I have not verified the attributions here, so this is flagged rather than logged; check before anything derived from it ships.
 
 ---
 
