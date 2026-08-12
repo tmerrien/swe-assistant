@@ -118,5 +118,5 @@ Two sentences: confirm the action, and offer to come back when they have questio
 ## When NOT to use this skill
 
 - The user has been at the company/team for more than ~3 months. They've moved past the Newcomer stage; route to other skills.
-- The user is asking about onboarding *others* (writing onboarding docs for a new hire they'll receive). The content is reusable but the framing is different.
+- The user is asking about onboarding *others* — writing the setup document, the week-one plan, or the docs a new hire will receive. Route to [`first-run-experience`](../first-run-experience/SKILL.md), which covers designing a first encounter rather than living through one.
 - The user has a tactical engineering question with no onboarding context. Skip — those need real help, not a checklist.

@@ -19,6 +19,8 @@ import sys
 # Keys must match directory names in
 # ~/Repositories/swe-assistant/plugins/swe-assistant/skills/
 PATTERNS = {
+    "first-run-experience": r"(README\b|quick.?start|getting.?started|onboarding\s+docs?|setup\s+(guide|doc|instructions)|first.?run\s+experience|time.?to.?first|nobody\s+uses\s+our|new\s+(users?|hires?)\s+(get|keep)\s+(stuck|asking)|same\s+setup\s+question|document\s+(this|our)\s+(service|library|API|package))",
+
     "interface-decisions": r"\b(UI|UX|user\s+interface|user\s+experience|mock.?up|wireframe|user.?facing|design\s+the\s+(screen|page|flow|form)|onboarding\s+flow|polish(ed)?\s+later)\b",
     "rationing-attention": r"(too\s+much\s+on\s+(this|the)|everything.{0,30}?\b(looks|feels|is|seems)\s+(equally\s+)?important|what\s+(should\s+i|to)\s+(emphasi[sz]|highlight)\w*|visual\s+hierarch\w*|primary\s+action|cluttered|information\s+overload|make\s+\w+\s+stand\s+out)",
     "interface-tradeoffs": r"(minimal(ism|ist)?\s+(vs|versus|or)|too\s+(plain|busy|boring)|which\s+direction\s+(should|do)|break\s+(the\s+)?(\w+\s+){0,3}pattern|deviate\s+from\s+(the\s+)?(design\s+system|pattern|convention)|design\s+system\s+default|less\s+is\s+(more|a\s+bore))",

@@ -150,6 +150,8 @@ Most skills in this assistant attach to a **situation** rather than a career sta
 
 **Designing what people use**
 
+- [`first-run-experience`](./plugins/swe-assistant/skills/first-run-experience/SKILL.md) — designing someone's first encounter with a thing you own: README, quickstart, setup docs, a new hire's first week.
+
 - [`interface-decisions`](./plugins/swe-assistant/skills/interface-decisions/SKILL.md) — building or changing a user-facing surface; the frame the other interface skills sit on.
 - [`rationing-attention`](./plugins/swe-assistant/skills/rationing-attention/SKILL.md) — deciding what to emphasize and what to let recede, in any medium.
 - [`interface-tradeoffs`](./plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) — a contested design call: minimal vs rich, familiar vs distinctive, fast vs deliberate.

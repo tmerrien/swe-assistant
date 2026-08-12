@@ -597,7 +597,7 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 `interface-tradeoffs` is the only skill in the repository whose *shape* came from the maintainer rather than a source. It is Design Principle 3.6 given a situation to fire in.
 
-**Not built, recorded as a live candidate:** **first-run experience** (from principle 15) — READMEs, quickstarts, first-error legibility, time-to-first-success as an instrumented metric. Deferred because it is engineering-flavoured rather than UX and deserves its own build.
+**Built after the section closed:** [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) (from principle 15) — READMEs, quickstarts, first-error legibility, time-to-first-success as an instrumented metric. The gap was real and the repository had stated it itself: `new-team-onboarding` explicitly declined the designing side under *When NOT to use*, and that bullet now routes here. Two supporting finds at build time — `configuration` already argued that a config with no required values is the friendliest possible first run, the discipline operating unnamed; and Newton's 1990 tapping study (tappers predicted 50% recognition, listeners managed 3 of 120) turned out to be the cleanest available statement of why an author cannot review their own README.
 
 **Also outstanding:** Conway's Law appears nowhere in the repository (noted at principle 17), and the four-layer durability stratification proposed at principle 16 is unverified against the HCI literature.
 
