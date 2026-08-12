@@ -13,6 +13,8 @@ description: Use when the user is making a structural decision about code and wo
 
 **Domain-driven design** is Eric Evans, *Domain-Driven Design* (Addison-Wesley, 2003); the practical treatment is Vaughn Vernon's *Implementing Domain-Driven Design* (2013). **Muntzing** is named after Earl "Madman" Muntz, a mid-century television manufacturer who reportedly removed components from a working circuit one at a time until it stopped working, then replaced the last one.
 
+The organisational-inertia material draws on **Melvin Conway**, *How Do Committees Invent?* (Datamation, April 1968), with empirical support from **Nagappan, Murphy & Basili**, *The Influence of Organizational Structure on Software Quality* (ICSE 2008) and **MacCormack, Rusnak & Baldwin**, *Exploring the Duality Between Product and Organizational Architectures* (*Research Policy* 41(8), 2012). The limits are real and recorded in [`notes/conways-law.md`](../../../../notes/conways-law.md): mirroring is prevalent within firms but **not universal**, and does not hold for open collaborative projects (Colfer & Baldwin, *Industrial and Corporate Change*, 2016).
+
 ## Pillars this skill strengthens
 
 - **Primary:** Technical Knowledge, Execution
@@ -75,6 +77,10 @@ Ask which one the user actually has. Engineers reflexively reach for abstraction
 **Inertia** is the third dimension, and the one that decides whether any of this is worth doing: *how entrenched is this software, and how likely is it to stay in use?* A service a dozen critical applications depend on has high inertia. A script one team runs quarterly does not.
 
 Combine it with how often the code changes — the matrix is in the callout below. The short version: **high inertia and high change is where simplification pays**. Low inertia and low change can stay ugly, and choosing to leave it alone is a legitimate engineering decision rather than negligence.
+
+**There is a second kind of inertia the code cannot show you.** A boundary that does not match how the organisation actually communicates tends to **regenerate after you move it**. Conway's observation (*How Do Committees Invent?*, Datamation, 1968) is that a system's structure copies the communication structure of the people who built it — so a module split between two teams who talk constantly will grow shortcuts back across the seam, and a module owned by two teams who never talk will keep drifting apart no matter how clean you make the interface.
+
+The diagnostic to add here: **can this boundary actually move, or would the organisation rebuild it?** If the awkward seam sits exactly where two teams meet, refactoring is treating a symptom. That does not make the refactor wrong — sometimes a symptom is worth treating — but it changes how long you should expect the fix to hold, and it is worth saying out loud before anyone commits a quarter to it.
 
 This is the step that keeps the rest of the skill from becoming an excuse to gold-plate everything.
 
@@ -152,6 +158,8 @@ Nearly every technique that "reduces complexity" moves it. Knowing the direction
 The pattern: **dependency and obscurity trade against each other.** Reducing coupling almost always means putting distance between cause and effect, and distance is obscurity. When someone proposes a simplification, the useful question is *"what does this make harder, and for whom?"* An answer of "nothing" usually means the trade hasn't been found yet.
 
 **The main exception** is domain-aligned boundaries (Step 7), which reduce dependency without a matching obscurity cost — because the boundary matches a model people already have. That's why it's worth more than most structural moves.
+
+**A second exception runs the other way: some of this was placed for you.** Note that three rows above turn on *who owns what* — different people, different owners. That is not incidental. The evidence for organisational shape driving system shape is stronger than most engineers realise: organisational metrics predicted failure-proneness in Windows Vista at 86% precision, beating code churn, complexity, and coverage (Nagappan, Murphy & Basili, ICSE 2008), and across matched product pairs, loosely-coupled organisations produced designs up to **eight times** more modular than tightly-coupled ones (MacCormack, Rusnak & Baldwin, *Research Policy*, 2012). Some of the complexity in front of you was transferred by an org chart before you arrived, and no amount of local cleverness removes it.
 
 ---
 

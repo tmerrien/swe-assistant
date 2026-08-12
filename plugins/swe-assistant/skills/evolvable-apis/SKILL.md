@@ -53,7 +53,7 @@ If it isn't already clear, ask **one** question — and make it this one:
 The answer sets the rigor for every subsequent step:
 
 - **External / customer-facing** — highest inertia. Formal schema, strict compatibility, real versioning, versioned docs, long deprecation windows. You have the least control and the most obligation.
-- **Internal, other teams** — moderate. Schema and compatibility matter; versioning can be lighter and deprecation faster because you can talk to every consumer.
+- **Internal, other teams** — moderate. Schema and compatibility matter; versioning can be lighter and deprecation faster because you can talk to every consumer. **Expect the surface to show the negotiation.** Cross-team APIs tend to mirror the relationship between the teams rather than the domain (Conway, 1968) — which is why they are so often over-general, or oddly specific, or carry a field that exists because one team would not budge. Worth naming when you inherit one: the awkwardness usually has a reason, and it may still be live.
 - **Internal, your team, deployed together** — lowest. Keep it clean, but formal versioning is usually overhead you don't need.
 
 Common shapes from here: **designing new** → Step 3. **Changing existing** → Step 5. **No formal spec at all** → Step 4. **Choosing a versioning scheme** → Step 6.

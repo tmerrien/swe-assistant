@@ -9,6 +9,8 @@ description: Use when the user is expressing frustration with the messiness, inc
 
 *The Missing Readme*, Chapter 3, "Working with Existing Code." The broader concept of software entropy / "broken windows" in code is also widely discussed in *The Pragmatic Programmer* (Hunt & Thomas) and the broader engineering literature. The fourth driver (context drift) and the shearing-layers response draw on Stewart Brand, *How Buildings Learn* (1994), by way of Pereyra, *Universal Principles of UX*, principle 16.
 
+The organisational-inertia material draws on **Melvin Conway**, *How Do Committees Invent?* (Datamation, April 1968), with empirical support from **Nagappan, Murphy & Basili**, *The Influence of Organizational Structure on Software Quality* (ICSE 2008) and **MacCormack, Rusnak & Baldwin**, *Exploring the Duality Between Product and Organizational Architectures* (*Research Policy* 41(8), 2012). The limits are real and recorded in [`notes/conways-law.md`](../../../../notes/conways-law.md): mirroring is prevalent within firms but **not universal**, and does not hold for open collaborative projects (Colfer & Baldwin, *Industrial and Corporate Change*, 2016).
+
 ## Pillars this skill strengthens
 
 - **Primary:** Communication (avoiding blame culture; collaborating constructively), Leadership (modeling charitable interpretation of others' work)
@@ -68,6 +70,18 @@ The first three drivers all require **somebody to change something**. This one d
 Applied to software: identify the fast-moving layers — UI, integrations, config, anything platform-facing — and make them **cheap to replace without disturbing the slow ones** (domain logic, data model, public contracts). A fast layer's short lifespan is an argument *for* a clean boundary around it, not a reason to invest less in it. See [`evolvable-apis`](../evolvable-apis/SKILL.md) and [`managing-complexity`](../managing-complexity/SKILL.md).
 
 Practically, this makes **scheduled replacement of fast layers normal work**, budgeted like dependency upgrades — rather than an admission that the original was wrong. The real failure is a surface rewrite that has to reach into the domain because the two were never separated.
+
+---
+
+## Callout — A fifth answer, and it isn't decay
+
+The four drivers above all describe **degradation over time**. There is a fifth answer to *"why is this code like this?"* that works differently: some of the shape was **there from the beginning**.
+
+Conway's observation (*How Do Committees Invent?*, Datamation, 1968) is that organisations produce designs that copy their own communication structures. The awkward seam is often not the residue of a bad decision — it is a picture of who was talking to whom when the thing was built. Two modules that duplicate each other frequently belonged to two teams who never met. An interface with a strange, over-negotiated surface is usually a treaty.
+
+This matters here for the same reason the other four do: **it is another explanation that is not incompetence.** And it is well evidenced — organisational metrics predicted failure-proneness in Windows Vista better than code churn, complexity, or coverage (Nagappan, Murphy & Basili, ICSE 2008).
+
+Two things follow. **Reading it is useful**: the org chart from when the code was written explains more than the commit log for this class of oddity. **Acting on it is mostly not yours to do** — you rarely get to restructure teams, and it backfires on entrenched systems anyway. What you can do is say the real reason out loud when someone proposes a refactor that would put the boundary back where the organisation does not want it. See [`managing-complexity`](../managing-complexity/SKILL.md), Step 4.
 
 ---
 
