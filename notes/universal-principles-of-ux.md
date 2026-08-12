@@ -567,4 +567,40 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+---
+
+## Consider — what the section produced
+
+*Written at the section boundary, per the build rule. The Consider section ran principles 1–17.*
+
+**Five new skills**, taking the repository from 44 to 49:
+
+| Skill | Built from | Fires when |
+|---|---|---|
+| `interface-decisions` | Cluster A (2, 3, 7, 8) | building or changing a user-facing surface |
+| `rationing-attention` | Cluster B (6, 9, 10, 11, 12) | deciding what to emphasize, in any medium |
+| `interface-tradeoffs` | 11/12 pair, generalised via Design Principle 3.6 | a contested design call |
+| `interface-copy` | Standalone from 6 | writing labels, errors, empty states |
+| `design-ethics` | Standalone B (5, mechanism from 14) | a design that may work against its user |
+
+**Folds completed at the boundary** (held per the build rule):
+
+- `technical-design-process` **Step 3** — stakeholders are not users; establish context of use; the best solution may not be the one anyone described, bounded above by MAYA. *(principles 1, 4, 9)*
+- `technical-design-process` **prototype callout** — the aesthetic-usability effect as a validity caution on prototype feedback. *(principle 8)*
+- `design-doc` — the *UI/UX Changes* template section given its weight. *(principle 3)*
+
+**Folds completed during the reading:** `metrics` (13), `operational-tools` (14), `software-entropy` (16).
+
+**Two judgments worth recording.**
+
+`rationing-attention` was deliberately built **domain-agnostic** rather than as a UX skill, following the note at principle 11: the constraint is cognitive, so it holds for logs, alerts, dashboards, and documents as much as for screens — and this repository was already applying it in four places without naming it. Interfaces are its primary worked domain, not its scope.
+
+`interface-tradeoffs` is the only skill in the repository whose *shape* came from the maintainer rather than a source. It is Design Principle 3.6 given a situation to fire in.
+
+**Not built, recorded as a live candidate:** **first-run experience** (from principle 15) — READMEs, quickstarts, first-error legibility, time-to-first-success as an instrumented metric. Deferred because it is engineering-flavoured rather than UX and deserves its own build.
+
+**Also outstanding:** Conway's Law appears nowhere in the repository (noted at principle 17), and the four-layer durability stratification proposed at principle 16 is unverified against the HCI literature.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

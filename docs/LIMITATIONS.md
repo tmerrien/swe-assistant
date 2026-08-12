@@ -1,6 +1,6 @@
 # Limitations
 
-This document catalogs the limitations of *SWE Assistant* honestly. It distinguishes limitations of the **methodology** (see [`METHODOLOGY.md`](./METHODOLOGY.md)) from limitations of *this specific implementation* (the 44 skills currently in this repository). Both are presented openly because a project that does not name its limitations cannot be evaluated, and a project that overclaims cannot be trusted.
+This document catalogs the limitations of *SWE Assistant* honestly. It distinguishes limitations of the **methodology** (see [`METHODOLOGY.md`](./METHODOLOGY.md)) from limitations of *this specific implementation* (the 49 skills currently in this repository). Both are presented openly because a project that does not name its limitations cannot be evaluated, and a project that overclaims cannot be trusted.
 
 This document is intended to be revised as the project evolves, and as users — particularly faculty and researchers — identify limitations not yet captured here.
 
@@ -8,7 +8,7 @@ This document is intended to be revised as the project evolves, and as users —
 
 ## 1. The specific skills are one author's interpretation
 
-The 44 skills in this repository reflect one author's reading of one set of source materials. They are presented as an **existence proof** of the methodology — what the method produces in practice — not as authoritative content.
+The 49 skills in this repository reflect one author's reading of one set of source materials. They are presented as an **existence proof** of the methodology — what the method produces in practice — not as authoritative content.
 
 **Specific implications:**
 
@@ -102,7 +102,7 @@ This limitation is recorded because the change is recent, affects every skill in
 
 ## 7. Coverage gaps within the chosen scope
 
-Even within the project's chosen scope — early- to mid-career software engineering practice — the current 44 skills do not cover every recurring situation a learner may face. Known gaps include:
+Even within the project's chosen scope — early- to mid-career software engineering practice — the current 49 skills do not cover every recurring situation a learner may face. Known gaps include:
 
 - Technical interviewing and job search.
 - Salary negotiation and compensation discussions.
@@ -111,7 +111,7 @@ Even within the project's chosen scope — early- to mid-career software enginee
 - Imposter syndrome at level transitions (partially covered by `growth-obstacles`, but not specifically).
 - Specific stack or language onboarding (the skills are stack-agnostic by design).
 - Non-IC trajectories (engineering management, technical writing, developer relations).
-- **Professional ethics.** No skill addresses deceptive interface patterns, the ACM Code of Ethics, or how an engineer pushes back on a request they consider manipulative. This gap widened when Section 8 placed interface design within scope, since that is the surface on which most user-facing ethical failures occur.
+- ~~**Professional ethics.**~~ **Partially closed.** [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md) now covers deceptive interface patterns, the limits of the ACM Code, and how an engineer raises the objection. What remains uncovered: ethics outside the interface — data retention, model and algorithmic harm, workplace conduct, whistleblowing. The skill is also **jurisdictionally anchored to one maintainer's position** (Canada/Ontario) and teaches *find your regulator* rather than asserting a general regime; adopters elsewhere should expect to replace that section.
 
 Some of these gaps reflect deliberate scope choices; others reflect coverage the author has not yet built. The project's status documentation and contribution guidelines invite proposals for new skills.
 

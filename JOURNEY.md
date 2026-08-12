@@ -148,6 +148,14 @@ The team trusts you to drive small projects end-to-end. You design, you decide, 
 
 Most skills in this assistant attach to a **situation** rather than a career stage — they fire the first time you hit that situation, whether that's week two or year ten. The stage lists above name the skills that are *characteristic* of each stage; these are the rest, grouped by the kind of moment they serve.
 
+**Designing what people use**
+
+- [`interface-decisions`](./plugins/swe-assistant/skills/interface-decisions/SKILL.md) — building or changing a user-facing surface; the frame the other interface skills sit on.
+- [`rationing-attention`](./plugins/swe-assistant/skills/rationing-attention/SKILL.md) — deciding what to emphasize and what to let recede, in any medium.
+- [`interface-tradeoffs`](./plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) — a contested design call: minimal vs rich, familiar vs distinctive, fast vs deliberate.
+- [`interface-copy`](./plugins/swe-assistant/skills/interface-copy/SKILL.md) — the words inside the product: labels, errors, empty states, confirmations.
+- [`design-ethics`](./plugins/swe-assistant/skills/design-ethics/SKILL.md) — a design that may work against the person using it.
+
 **Writing and changing code**
 
 - [`defensive-programming`](./plugins/swe-assistant/skills/defensive-programming/SKILL.md) — hardening code — null safety, immutability, exception design, resource cleanup.

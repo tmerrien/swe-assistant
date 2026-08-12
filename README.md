@@ -19,7 +19,7 @@ This repository provides a working set of AI **skills** — situation-triggered 
 **Positioning.** The project offers two separable artifacts:
 
 1. **A methodology** for packaging engineering wisdom as situation-triggered AI-coaching skills (documented in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)). The methodology is the primary intended contribution and is meant to be applied by other educators, researchers, and practitioners building their own skill sets from their own sources.
-2. **A reference implementation** — the 44 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
+2. **A reference implementation** — the 49 skills currently in this repository — built from one author's reading of one set of source materials. These are presented as a worked example demonstrating what the methodology produces in practice. They are explicitly *not* offered as authoritative content. Faculty and other adopters are expected to disagree with specific skills, fork the implementation, replace content, and build alternative versions appropriate to their student populations.
 
 **Format.** Each skill is a Markdown file with YAML frontmatter (Anthropic skills format), installable as a Claude plugin (Claude Code CLI or Claude Cowork desktop). The skills can also be read directly as standalone reference material, independent of any AI tool.
 
@@ -110,6 +110,7 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 | [`progressive-rollout`](./plugins/swe-assistant/skills/progressive-rollout/SKILL.md) | Any (Contributor+ most common) | Execution, Technical Knowledge | Deciding how to expose a deployed change — feature flags, circuit breakers, canary and blue/green ramps, dark launches — and monitoring rollouts against pre-declared SLIs |
 | [`release-hygiene`](./plugins/swe-assistant/skills/release-hygiene/SKILL.md) | Any (Contributor+ most common) | Execution, Communication | Cutting a release, choosing a package repository, deciding release cadence, writing changelogs and release notes, keeping releases immutable, owning end-to-end publication |
 
+| [`interface-decisions`](./plugins/swe-assistant/skills/interface-decisions/SKILL.md) | Any | Execution, Communication | Building or changing a user-facing surface — a screen, form, flow, or dashboard; sets the frame the other interface skills sit on |
 ### Communication
 
 | Skill | Stage(s) | Pillar(s) | Triggering situation |
@@ -127,6 +128,9 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 | [`technical-design-process`](./plugins/swe-assistant/skills/technical-design-process/SKILL.md) | Contributor onward | Communication, Execution | Working out *what* to build — defining the problem with stakeholders, researching prior art, running throwaway prototypes, protecting deep-thinking time |
 | [`technical-debt`](./plugins/swe-assistant/skills/technical-debt/SKILL.md) | Any (Contributor+ most common) | Communication, Leadership, Execution | Identifying, prioritizing, or proposing the payoff of specific technical debt |
 
+| [`interface-copy`](./plugins/swe-assistant/skills/interface-copy/SKILL.md) | Any | Communication | Writing the words inside a product — button labels, error messages, empty states, confirmations, permission prompts |
+| [`interface-tradeoffs`](./plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) | Any | Communication, Technical Knowledge | A contested design call — minimal vs rich, familiar vs distinctive, fast vs deliberate; states both sides and names the deciding condition |
+| [`rationing-attention`](./plugins/swe-assistant/skills/rationing-attention/SKILL.md) | Any | Communication, Execution | Deciding what to emphasize and what to let recede — a crowded screen, a log level scheme, an alert set, a document |
 ### Leadership
 
 | Skill | Stage(s) | Pillar(s) | Triggering situation |
@@ -136,6 +140,7 @@ Skills are grouped below by the **primary pillar of competence** they strengthen
 | [`growth-obstacles`](./plugins/swe-assistant/skills/growth-obstacles/SKILL.md) | Any | Leadership, Communication (meta) | Expressing impostor-syndrome distortion, or showing potential Dunning-Kruger overconfidence |
 | [`growth-self-check`](./plugins/swe-assistant/skills/growth-self-check/SKILL.md) | Any | Leadership, Communication (meta) | Reflecting on growth as an individual — prepping for a 1:1, performance review, promotion conversation, or development planning |
 
+| [`design-ethics`](./plugins/swe-assistant/skills/design-ethics/SKILL.md) | Any | Leadership, Communication | A design that may work against the person using it — pre-checked boxes, obstructed cancellation, deceptive defaults; also fires unprompted |
 ## How to Use
 
 ### Direct reading
@@ -197,7 +202,7 @@ Faculty members evaluating this project for course adoption, research use, or as
 - **[`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)** — honest catalog of what the project claims, what it does not claim, and what would be required to establish empirical support. Important reading before evaluation.
 - **[`docs/FOR-EDUCATORS.md`](./docs/FOR-EDUCATORS.md)** — concrete pedagogical use: course-integration suggestions, sample assignments, discussion prompts, and paths for adapting the project to other contexts.
 
-The current 44 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
+The current 49 skills are presented as one author's worked example, not as authoritative content. Faculty are explicitly invited to disagree with specific skills, fork the repository, replace content, and build alternative implementations appropriate to their student populations.
 
 ## Design Principles
 

@@ -180,7 +180,12 @@ through the changes — a diagram alone is not an explanation.]
 [Mock-ups, used to walk through a user's activity flow. No visual component? This
 section covers developer experience instead — how the library feels to call, how the
 CLI feels to use. The goal is to think through the experience of whoever interacts
-with your change.]
+with your change.
+
+This section is routinely treated as optional decoration and is frequently the one
+that would have caught the real problem. A flow you cannot sketch simply is usually
+not simple, and finding that out here costs minutes rather than weeks. See
+`interface-decisions`.]
 
 ### Code Changes
 [The implementation plan. What existing code changes, how, and when. Any new

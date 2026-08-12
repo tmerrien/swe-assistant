@@ -76,6 +76,15 @@ This is where most design failures originate. Do not let the user skip it.
 - **Synthesize into a clear problem statement.** Think critically about what you've been told — stakeholders describe symptoms and preferred solutions, not root problems. Pay close attention to scope.
 - **Write it down and circulate it.** The problem statement is your first artifact and your first alignment checkpoint. Getting agreement here is far cheaper than discovering disagreement after you've designed a solution.
 
+**Two additions when the thing being built has users:**
+
+- **Stakeholders are not users.** The people who commission work, the people affected by it, and the people who operate it are three groups, and they routinely want different things. Ask explicitly *who actually uses this, and are they in the room?* When they are not, that absence is a finding to record, not a gap to fill with assumption.
+- **Establish the context of use, not just the requirement.** Where is the person when they do this, on what device, under what time pressure, with what else competing for their attention? A requirement satisfied in the wrong context is not satisfied. An attendant confirming a shift one-handed on a phone between tasks is a different problem from the same action at a desk.
+
+**And a caution on the solution, once the problem is clear: the best solution may not be the one anyone described.** Stakeholders describe solutions they can already imagine. Pinch-to-zoom answered a real, well-understood need in a form nobody had requested. When the obvious solution to a well-defined problem feels unsatisfying, that is worth one deliberate pass asking whether a different shape would serve the same need better.
+
+**Bounded above by MAYA** — Loewy's *Most Advanced Yet Acceptable*. An unfamiliar solution costs the user relearning, so it has to earn that cost against a need you have actually observed. A surprising answer to a real problem is innovation; a surprising answer to no problem is the thing [`managing-complexity`](../managing-complexity/SKILL.md) calls YAGNI. **The distinction is the need, not the novelty.**
+
 See the *Callout — Problem-definition questions* below for the questions in usable form.
 
 ### Step 4 — Do your research
@@ -243,6 +252,12 @@ Experimental code exists to answer a question and then be deleted. The failure m
 - Write tests for it. It isn't going to production.
 - Polish it, refactor it, or handle edge cases. Every hour spent making throwaway code nice is an hour not spent learning.
 - Get attached. The most dangerous prototype is the one that works well enough that shipping it starts to feel reasonable.
+
+**A validity caution when the prototype has a user interface.** The **aesthetic-usability effect** — people judge attractive things as more usable, somewhat independently of whether they are — contaminates the feedback a prototype generates. A polished prototype receives kinder responses than a rough one showing the identical flow, and the difference is not information about the flow.
+
+- **Test structure with low-fidelity artifacts.** Sketches and wireframes produce honest reactions, because there is no polish to be charmed by.
+- **Distrust praise for a beautiful prototype.** Ask what the person would do next rather than whether they like it — observed behaviour survives the effect, stated preference does not.
+- **The inverse costs real work too:** a rough prototype attracts criticism aimed at its roughness rather than its structure. Say what you are testing before you show it.
 
 **The trap:** a successful prototype creates enormous pressure to ship it as-is — it demos well and it "already works." Name this risk out loud with your team before you start, and decide up front whether the prototype is throwaway or a genuine first increment. Both are legitimate; confusing them is not.
 
