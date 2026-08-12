@@ -281,4 +281,51 @@ That is **MAYA with a lower acceptability threshold**, not an original contribut
 
 **Open question.** Does the acceptability threshold in MAYA vary by audience expertise as well as by stakes? A power user tolerates more novelty than a first-time user, which would make MAYA a per-segment judgment rather than a single product-wide setting. Not addressed in the source.
 
+### 10. First and last items are remembered most
+
+**What it says.** The **serial position effect**, from Hermann Ebbinghaus's experimental work on memory. Items at the beginning or end of a sequence are recalled more easily than those in the middle, which makes ordering a real design decision rather than an arbitrary one. Do not bury important things in the middle. Not everything can be equally important: decide what you want people to remember or do, and place it first or last. An interaction model should **deliberately allow users to forget** the less important parts so there is room for what matters.
+
+**A sharpening the principle omits — the halves are not interchangeable.** The effect decomposes into two mechanisms:
+
+- **Primacy** — early items receive more rehearsal and reach long-term memory. **Durable.**
+- **Recency** — late items are still in working memory. **Fragile**; it collapses under delay or interference.
+
+That yields a rule the book does not state: **if you want something remembered later, put it first. If you want it acted on now, put it last.** The distinction matters whenever there is a gap between reading and acting.
+
+**Explains existing repository conventions rather than adding new ones.** This is the entry's main value — several established practices turn out to be the serial position effect applied without naming it:
+
+- [`commit-and-pr-hygiene`](../plugins/swe-assistant/skills/commit-and-pr-hygiene/SKILL.md) — Beams' subject line first. Primacy.
+- [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) — lead with the problem; the Introduction must stand alone because *"most readers will only read this section."* Primacy.
+- **Skill descriptions** — situation first, routing and non-trigger clauses last, trigger phrases in between. Primacy and recency bracketing the least critical material, which is why trimming from the middle worked when all descriptions were brought under budget.
+- [`working-with-managers`](../plugins/swe-assistant/skills/working-with-managers/SKILL.md) — **PPP** places *Problems* last. Under recency that is the correct slot for the item requiring action this week. Whether deliberate or inherited, the format is well-formed.
+
+**The non-obvious half: designing for forgetting.** Nearly all design advice concerns what to make memorable. The instruction to *let users forget* is subtractive, and it is the third independent arrival at that shape in this section — after flow's *eliminate distraction* (principle 4) and rationed emphasis (principle 9).
+
+**Synthesis across 9 and 10:** *emphasis is a budget, and forgetting is how you fund it.* Something can only be made memorable if other things are permitted to be forgettable. This is the strongest cross-principle idea the section has produced.
+
+**Verdict:** `cluster`, and it clarifies the section's shape — see below.
+
+---
+
+## Consider — structure at the ten-principle mark
+
+Recorded here because the build rule assembles candidates at section boundaries. Two clusters and three standalones have emerged:
+
+**Cluster A — *UI is not downstream*** (principles 2, 3, and 7 in support)
+The visual and interaction layer is where usability is decided, not decoration applied afterwards. Supported by principle 8, since the aesthetic-usability effect is further evidence that visual quality does real work.
+
+**Cluster B — *Attention is finite; order and emphasis are how you spend it*** (principles 6, 9, 10)
+Writing, rationed distinctiveness, and sequence position are three faces of one constraint. The unifying line: **emphasis is a budget, and forgetting is how you fund it.** This cluster travels furthest beyond interfaces — it already describes log levels, alert discipline, commit subjects, design-doc introductions, and Output Protocol 10.7.
+
+**Standalone A — problem definition** (principles 1 and 4+9 combined)
+Folds into [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3, extended with *the best solution may not be the one anyone described*, bounded by MAYA.
+
+**Standalone B — ethics** (principle 5)
+The strongest independent skill candidate in the section, and arguably not UX at all. Does not need to wait for the section to finish.
+
+**Standalone C — the measurement hazard** (principle 8)
+Folds into `technical-design-process` Step 5 as a validity caution on prototype feedback. The most immediately actionable item so far.
+
+**Note on Cluster B's reach.** It is the only cluster whose content is already load-bearing across the existing skill set without having been named. That makes it the most likely candidate to become something domain-agnostic that other skills reference, rather than a UX skill — echoing the open question first raised at principle 2.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
