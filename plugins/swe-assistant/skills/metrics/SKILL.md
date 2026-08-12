@@ -7,7 +7,7 @@ description: Use when the user is adding, choosing, or designing metrics in thei
 
 ## Source
 
-*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Metrics). The three-pillars-of-observability framing (metrics / logs / traces) is in [`operator-playbook`](../operator-playbook/SKILL.md); this skill goes deeper specifically on metrics.
+*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Metrics). Latency-target thresholds from Miller (1968) via Nielsen, and Doherty & Thadani, *The Economic Value of Rapid Response Time* (IBM Systems Journal, 1982), by way of Pereyra, *Universal Principles of UX*, principle 13. The three-pillars-of-observability framing (metrics / logs / traces) is in [`operator-playbook`](../operator-playbook/SKILL.md); this skill goes deeper specifically on metrics.
 
 ## Pillars this skill strengthens
 
@@ -211,6 +211,30 @@ Metrics are the substrate for **Service Level Objectives** (SLOs) — explicit c
 - Without metrics, you can't have an SLO. With an SLO, you have a shared definition of "healthy" the team can act on.
 
 Even informally, *"what would my SLO look like for this endpoint?"* is a useful design-time question. It forces you to think about what success looks like and what you need to measure to know.
+
+---
+
+## Callout — Where latency targets come from
+
+Teams usually pick latency targets from what's currently achievable, or from percentile habit (*p99 under 500ms*). Both are arbitrary. There is a principled source.
+
+Three thresholds, first measured by Miller (1968) and popularised by Nielsen, describe human limits rather than machine ones — which is why they have not moved in fifty years of hardware improvement:
+
+- **0.1s** — perceived as instantaneous.
+- **1s** — the delay is noticed, but the user's train of thought survives.
+- **10s** — the limit of sustained attention on the interaction.
+
+**These are perceptual, so they bind per interaction — not on the average.** There is no such thing as an averagely-interrupted train of thought. A service at p50 80ms and p99 4s is not fast with a rough edge; it throws one interaction in a hundred past the flow-of-thought limit. This is the concrete reason the tail matters: **the tail is where the human actually is.**
+
+**The thresholds also tell you which problem you have**, which is more useful than the target itself:
+
+- **Under ~1s** — a performance problem. Optimise it.
+- **1–10s** — a performance problem you also owe feedback on. The system must visibly show it is working.
+- **Over 10s** — **not** a performance problem. It is an architecture problem: move the work to the background, let the user leave and come back, report progress against a known total. Turning 30 seconds into 20 does not fix it; removing the obligation to wait does.
+
+Optimising a case-three operation as though it were case one is a common and expensive mistake.
+
+**One caution on instinct.** The usual argument against latency work is that nobody consciously notices 300ms versus 100ms. Doherty and Thadani's finding (IBM Systems Journal, 1982) is that conscious perception is the wrong instrument — below the threshold user *behaviour* changes and throughput rises superlinearly, without anyone reporting that anything feels different. **Latency work driven by complaints under-invests by construction**, for the same reason error rates driven by complaints do.
 
 ---
 

@@ -408,4 +408,42 @@ Principles 11 and 12 are not merely two sides of a table. **They complement each
 
 ---
 
+### 13 — Provide feedback quickly
+
+**What it says.** Draws on Walter J. Doherty and Ahrvind J. Thadani, *The Economic Value of Rapid Response Time* (IBM Systems Journal, November 1982), which reset the expected response-time requirement from ~2 seconds to **400ms**. The finding was not that faster is nicer but that **productivity rises more than in direct proportion to the drop in response time** — superlinear, not linear. When machine and user interact at a pace where neither waits on the other, throughput rises, work quality improves, and satisfaction goes up.
+
+Jakob Nielsen's three thresholds:
+
+- **0.1s** — feels instantaneous.
+- **1s** — the user notices the delay but their flow of thought survives.
+- **10s** — the outer limit of held attention.
+
+Speed is framed as the ultimate usability metric, and often the thing people remember most.
+
+**The part worth stating that the principle doesn't.** Nielsen's thresholds are not his — he traces them to Robert B. Miller (1968) — and he notes they have not changed in the decades since, because **they are properties of human perception and cognition, not of technology.** That makes them one of the very few UX constants: hardware gets faster, the thresholds do not move. An engineering target derived from them does not go stale.
+
+**Collides with.** [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) most directly — it teaches histograms over averages and the SLO connection, but never says where target *values* should come from. Also [`on-call-shift`](../plugins/swe-assistant/skills/on-call-shift/SKILL.md) (SLI/SLO/SLA), [`tracing`](../plugins/swe-assistant/skills/tracing/SKILL.md), [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md).
+
+**The sharpest engineering transfer — thresholds are perceptual, so they bind per interaction, not on the average.** This is the one to lead with. Latency targets are conventionally set by what's achievable or by percentile habit (*p99 under 500ms*). Nielsen gives a target grounded in human limits instead. But because the limit is perceptual, **every individual interaction either cleared it or didn't** — there is no such thing as an averagely-interrupted train of thought. A service at p50 80ms and p99 4s is not fast with a rough edge; it drops one interaction in a hundred past the flow-of-thought limit, and those are the ones users remember. `metrics` already says the average lies and the tail matters; this explains *why the tail is where the human sits*.
+
+**Second transfer — the thresholds tell you which kind of problem you have.** This is a design-decision rule, not a performance target:
+
+- **Under ~1s** — a performance problem. Optimise.
+- **1–10s** — a performance problem you also owe feedback on: the system must visibly indicate it is working.
+- **Over 10s** — no longer a performance problem. It is an **architecture problem**: background the work, allow the user to leave and return, report progress against a known total. Making a 30-second operation into a 20-second one does not fix it; removing the user's obligation to wait does.
+
+Engineers routinely treat the third case as the first and optimise into a wall.
+
+**Third — Doherty cuts against the "fast enough" instinct.** The common engineering position is that nobody consciously perceives 300ms versus 100ms, so the work isn't worth it. Doherty's result is that conscious perception is the wrong instrument: user *behaviour* changes below the threshold — think time drops, exploration rises, throughput goes superlinear — without anyone reporting that the system feels different. **Latency work driven by complaints therefore systematically under-invests**, which is the same failure `metrics` already names as *users stop telling you because they've left*.
+
+**Fourth — a genuine disagreement, logged under [Design Principle 3.6](../docs/METHODOLOGY.md).** Perceived latency can be bought without buying real latency: optimistic UI, skeleton screens, prefetching. **Both sides are real.** Optimistic UI legitimately satisfies the perceptual threshold and is the correct call for high-frequency, low-stakes, reliably-succeeding actions. It is also a claim about state that has not happened yet, and when the write fails the rollback lands *after* the user has moved on — worse than the wait would have been. *What decides it:* the failure rate of the underlying operation and the cost of reversing a wrong optimistic display. Cheap to reverse and rarely fails, show it optimistically; expensive to reverse or fails often, make them wait and say why. Fake progress bars sit on the far side of this and belong with principle 5 — that is deception, not perceived performance.
+
+**Internal links.** Principle 9 (people remember the unusual) explains why slowness is disproportionately memorable — a stall is an anomaly and gets encoded as one. Principle 3 supplies the floor this sits on: speed cannot rescue a design that doesn't work. Principle 8 is the counterweight — an attractive slow product may be forgiven longer than it deserves, which is a measurement hazard, not a licence.
+
+**Verdict:** `fold` into [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) — the most directly actionable engineering content in the book so far, and it lands in an existing gap rather than needing a new skill. Folded on logging.
+
+**Open question.** The 400ms figure came from 1982 terminal transactions. The three Nielsen thresholds are perceptual and should hold; Doherty's specific number is an empirical result from a particular workload and probably should not be quoted as a universal target. Worth keeping the thresholds and the superlinearity claim, and treating 400ms as historical context rather than a number to put in an SLO.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
