@@ -538,8 +538,16 @@ A Taxonomy for Learning, Teaching, and Assessing (Bloom revision) · Test-Enhanc
 - **URL:** https://www.youtube.com/watch?v=SxdOUGdseq4
 - **Source:** *The Missing Readme*, Ch. 11 Level Up
 - **Relates to:** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md), [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`software-entropy`](./plugins/swe-assistant/skills/software-entropy/SKILL.md)
-- **Status:** To read
+- **Status:** Folded
 - **Why this matters here:** The talk that separates **simple** (not intertwined — an objective property of a thing) from **easy** (familiar, near at hand — relative to the person). The distinction matters because teams routinely choose easy over simple and then pay for the complecting later, and because "this is simple" is usually a claim about familiarity rather than structure. Directly sharpens what `managing-complexity` means by its central term. Pairs with Hickey's *Hammock Driven Development*, already listed. Widely regarded as one of the best conference talks in the field.
+- **Takeaways:**
+  1. **Simple is objective; easy is relative.** *Sim-plex* is one fold — one role, one task, one concept, countable without knowing who is looking. *Adjacens* is "to lie near" — installed, familiar, close to what you already know. Confusing them is the central error, and it runs in both directions: a comfortable construct can be thoroughly braided, an unfamiliar one perfectly simple.
+  2. **Complect** — archaic verb, to interleave or braid — names the thing complexity comes *from*. Its opposite is **compose**. Having the verb makes the problem visible; `managing-complexity` had the concept and not the word.
+  3. **Assess constructs by their artifacts, not by the authoring experience.** We judge tools on programmer convenience and how fast they get us moving; what ships is the artifact, and the questions that matter are correctness, changeability, and whether it can be debugged by someone who did not write it. Folded into `choose-boring-technology` as its second trap.
+  4. **Simplicity often means making more things, not fewer** — which reads directly against YAGNI and Muntzing until you separate the axes. YAGNI governs *scope*; decomplecting governs *structure*. Taking one thing that does four jobs and making four things that do one each raises the part count and lowers the braid count. Fewer parts was never the goal.
+  5. **Modularity does not imply simplicity.** Partitioning and stratification are *enabled* by simplicity, not equivalent to it — you can file a tangle across twelve tidy modules and change nothing. *"Don't be fooled by code organisation."*
+  6. **Ousterhout and Hickey define complexity differently, and it matters.** Ousterhout's is consequence-based (*hard to understand and modify*); Hickey's is structural and observer-independent. Under the first, "the team is used to it" answers a complexity objection; under the second it is the confusion being warned about. Logged as a Design Principle 3.6 tension with a deciding condition — triage an existing system with Ousterhout, evaluate a construct you have not adopted yet with Hickey.
+  7. **Every bug that reached production passed the type checker and all the tests.** Not an argument against testing — tests verify what you thought to check, and complexity is what makes you fail to think of things. Simplicity is upstream of the guardrails, not a substitute for them.
 
 ### How to Write Usefully / Write Like You Talk
 

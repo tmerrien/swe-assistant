@@ -9,6 +9,8 @@ description: Use when the user is making a structural decision about code and wo
 
 *The Missing Readme* (Riccomini & Ryaboy, No Starch Press 2021), **Chapter 11, "Creating Evolvable Architectures."** The design principles (YAGNI, principle of least astonishment, encapsulating domain knowledge) and the **inertia** dimension are from this chapter — inertia is the authors' own addition to the framework below.
 
+**Simple versus easy**, *complect*, and the caution that modularity does not imply simplicity are from **Rich Hickey's *Simple Made Easy*** (Strange Loop, 2011), https://www.youtube.com/watch?v=SxdOUGdseq4.
+
 **Complexity, dependency, and obscurity** are taken from John Ousterhout's *A Philosophy of Software Design* (Yaknyam Press, 2018), which *The Missing Readme* adopts explicitly. Ousterhout defines complexity as *anything related to the structure of a system that makes it hard to understand and modify* — a deliberately consequence-based definition rather than a metric.
 
 **Domain-driven design** is Eric Evans, *Domain-Driven Design* (Addison-Wesley, 2003); the practical treatment is Vaughn Vernon's *Implementing Domain-Driven Design* (2013). **Muntzing** is named after Earl "Madman" Muntz, a mid-century television manufacturer who reportedly removed components from a working circuit one at a time until it stopped working, then replaced the last one.
@@ -72,6 +74,8 @@ Two symptoms, from Ousterhout. Naming which one you have determines the fix, and
 
 Ask which one the user actually has. Engineers reflexively reach for abstraction, which treats dependency — and *worsens* obscurity if that was the real problem.
 
+**Before either, ask the prior question: is this complex, or just unfamiliar?** Hickey's distinction (*Simple Made Easy*, 2011) is that **simple** means *one braid* — one role, one task, one concept — and is a property of the thing, while **easy** means *near at hand*: installed, familiar, close to what you already know. They are constantly confused, in both directions. A construct the team finds comfortable can be thoroughly braided; an unfamiliar one can be perfectly simple. See the callout below before spending effort.
+
 ### Step 4 — Check inertia before spending effort
 
 **Inertia** is the third dimension, and the one that decides whether any of this is worth doing: *how entrenched is this software, and how likely is it to stay in use?* A service a dozen critical applications depend on has high inertia. A script one team runs quarterly does not.
@@ -109,6 +113,8 @@ Also: **use standard libraries and idiomatic patterns.** Writing your own square
 Group code by **business domain** — accounting, billing, shipping — rather than by technical layer alone. When software components map onto the business concepts they serve, changes stay focused: a billing rule change touches billing.
 
 This produces **high cohesion** (things that change together live together) and **low coupling** (things that change independently are separated), and it's notable for being one of the few moves that reduces dependency *without* adding obscurity — because the boundaries match a model people already carry in their heads.
+
+**A caution that belongs here more than anywhere:** partitioning does not imply simplicity. You can split a tangle across twelve well-named modules and have changed nothing except how far you have to scroll to see the whole tangle. Boundaries *enable* simplicity; they do not produce it. **Don't be fooled by code organisation** — the test is whether the pieces are actually untangled, not whether they are tidily filed.
 
 **Domain-driven design** is the full architectural treatment of this idea. Complete DDD is warranted only for genuinely complex domains, but the core concepts — bounded contexts, ubiquitous language, aggregates — sharpen boundary decisions well before you'd ever adopt the whole methodology.
 
@@ -160,6 +166,44 @@ The pattern: **dependency and obscurity trade against each other.** Reducing cou
 **The main exception** is domain-aligned boundaries (Step 7), which reduce dependency without a matching obscurity cost — because the boundary matches a model people already have. That's why it's worth more than most structural moves.
 
 **A second exception runs the other way: some of this was placed for you.** Note that three rows above turn on *who owns what* — different people, different owners. That is not incidental. The evidence for organisational shape driving system shape is stronger than most engineers realise: organisational metrics predicted failure-proneness in Windows Vista at 86% precision, beating code churn, complexity, and coverage (Nagappan, Murphy & Basili, ICSE 2008), and across matched product pairs, loosely-coupled organisations produced designs up to **eight times** more modular than tightly-coupled ones (MacCormack, Rusnak & Baldwin, *Research Policy*, 2012). Some of the complexity in front of you was transferred by an org chart before you arrived, and no amount of local cleverness removes it.
+
+---
+
+## Callout — Simple is not easy
+
+The single most useful distinction available for these decisions, from Rich Hickey's *Simple Made Easy* (2011).
+
+- **Simple** — from *sim-plex*, **one fold**. One role, one task, one concept, one dimension. It is a property of the construct and it is **objective**: you can count the braids without knowing who is looking.
+- **Easy** — from *adjacens*, **to lie near**. Already installed, already familiar, already close to what you know. It is **relative** — easy *for whom?*
+
+**The verb that matters is *complect*** — an archaic word meaning to interleave, entwine, braid. Complecting is where complexity comes from, and its opposite is **compose**: placing things together without entangling them. Once you have the word, you start seeing the thing.
+
+**Why this belongs in this skill:** *"this is simple"* is very often a claim about familiarity rather than structure. A construct the team is comfortable with can be thoroughly braided, and the comfort actively hides it. That failure has a signature — **early speed followed by a slowdown that nobody can attribute.** Ease is available at the start; complexity is paid later and continuously.
+
+**Reconciling this with Step 5, because they appear to conflict.** Hickey says *simplicity often means making more things, not fewer* — which reads directly against YAGNI and Muntzing. Both are right and they operate on different axes:
+
+- **YAGNI and Muntzing govern scope.** Don't build what nothing needs; remove what nothing uses.
+- **Decomplecting governs structure.** Take one thing doing four jobs and make four things doing one job each. Same total function, more parts, fewer entanglements.
+
+*"Fewer parts"* is not the goal. **Fewer braids is the goal**, and reaching it frequently increases the part count. Removing a speculative abstraction and splitting an overloaded one are both correct, and they move the file count in opposite directions.
+
+**And one argument for doing simplicity work at all.** Hickey's line is that every bug that ever reached production passed the type checker and all the tests. Read carelessly that sounds like an argument against testing; it isn't. Tests verify what you thought to check, and complexity is precisely what makes you fail to think of things. **Your ability to reason informally about the program is the upstream safety property** — see [`writing-tests`](../writing-tests/SKILL.md), which this supports rather than undercuts.
+
+---
+
+## Callout — Ousterhout and Hickey disagree about what complexity *is*
+
+Both sources are now in play here and their definitions are not the same. Worth knowing, because the difference decides real arguments ([Design Principle 3.6](../../../../docs/METHODOLOGY.md)).
+
+- **Ousterhout:** complexity is *anything related to the structure of a system that makes it hard to understand and modify* — deliberately **consequence-based**, defined by its effect on a reader.
+- **Hickey:** simple is *one braid* — **structural and objective**, independent of any observer.
+
+**Why the difference bites.** Under a consequence-based definition, *"the team is used to it"* is a legitimate reply to a complexity objection: if nobody finds it hard, it isn't complex. Under Hickey's, that reply is exactly the confusion he is warning about — familiarity has made a braided thing feel fine, and the braids will still be there when the team turns over.
+
+**What decides which to use:**
+
+- **Prioritising work on an existing system → Ousterhout.** You are triaging by what actually hurts, and pain felt by real people is the right metric. This is what the inertia matrix above is for.
+- **Evaluating a construct, library, or pattern you are about to adopt → Hickey.** Here consequence-based reasoning is unreliable, because the consequences have not happened yet and familiarity will masquerade as simplicity. Count the braids instead.
 
 ---
 

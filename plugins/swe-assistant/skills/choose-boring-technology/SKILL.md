@@ -7,7 +7,7 @@ description: Use when the user is evaluating, proposing, or being pulled toward 
 
 ## Source
 
-*The Missing Readme*, Chapter 3, "Working with Existing Code" (Section: Avoiding Pitfalls). The framework comes from **Dan McKinley's *Choose Boring Technology***: http://boringtechnology.club/ (originally a talk and essay, 2015). See also the related [`change-discipline`](../change-discipline/SKILL.md) for the broader pitfalls.
+*The Missing Readme*, Chapter 3, "Working with Existing Code" (Section: Avoiding Pitfalls). The framework comes from **Dan McKinley's *Choose Boring Technology***: http://boringtechnology.club/ (originally a talk and essay, 2015). See also the related [`change-discipline`](../change-discipline/SKILL.md) for the broader pitfalls. The construct-versus-artifact framing and the easy/simple distinction are from **Rich Hickey's *Simple Made Easy*** (Strange Loop, 2011).
 
 ## Pillars this skill strengthens
 
@@ -29,6 +29,10 @@ But the most expensive engineering mistakes are made by teams that adopt new tec
 - The "boring" tech in your stack is the result of survival. It's still there because it works well enough that nobody had a reason to replace it. That history is information.
 
 The trap: judging new vs. boring on **feature comparisons** rather than on **failure-mode and ecosystem maturity**. Features are visible in marketing; failure modes are invisible until they happen to you.
+
+**A second trap, and the harder one: judging a technology by what it is like to *write*.** Hickey's framing (*Simple Made Easy*, 2011) is that we assess constructs by the experience of using the construct — how fast it gets us going, how pleasant the API feels, how little we have to learn — when **the thing that actually ships is the artifact**. Does the software do what it should? Can it be changed? Can it be debugged at 3am by someone who did not write it? **Assess constructs by their artifacts, not by their authoring experience.**
+
+This sharpens what *boring* is doing here. Boring technology is **easy** in Hickey's sense — near at hand, familiar, already installed — and that is a real operational virtue, because known failure modes are what you want under pressure. But easy is not **simple** (one braid, an objective property), and a familiar tool can be deeply entangled. **What decides it:** if the risk you are managing is *operational* — unknown failure modes, nobody to ask at 3am — favour boring. If the risk is *structural* — this choice will braid concerns together for years — favour the simpler construct even when it is less familiar, and spend an innovation token deliberately on the learning. See [`managing-complexity`](../managing-complexity/SKILL.md).
 
 ---
 
