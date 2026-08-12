@@ -507,4 +507,39 @@ So there are **two regimes, not a countdown**: a brief high-hazard *screening* p
 
 ---
 
+### 16 — UX design isn't timeless
+
+**What it says.** Presents Dieter Rams' ten principles of good design (Braun, 1970s–80s) — innovative, useful, aesthetic, understandable, unobtrusive, honest, long-lasting, thorough to the last detail, environmentally friendly, and as little design as possible. The author then rejects **principle 7** for UX specifically: the field and its practices endure, but no interface is timeless. How we interact with computers depends on the hardware and software available at that moment, so an interface is always a product of its time.
+
+**The claim is true of some layers and false of others — and this book has already contradicted itself on it.** At principle 13 the note records that Miller's response-time thresholds *"have not changed in fifty years because they are properties of human perception and cognition, not of technology,"* and that a target derived from them does not go stale. Principle 16 says nothing in UX lasts. Both are right about different strata:
+
+| Layer | Example | Half-life |
+|---|---|---|
+| **Human** | perceptual thresholds (13), serial position (10), cognitive load (11) | effectively fixed |
+| **Concept** | undo, copy/paste, hyperlink, search, direct manipulation | decades |
+| **Convention** | hamburger menu, pull-to-refresh, floating action button | ~a decade, platform-bound |
+| **Expression** | skeuomorphism, flat, neumorphism, glassmorphism | a few years, fashion-driven |
+
+The author's claim holds cleanly for **convention** and **expression** and fails for **human** and **concept** — copy-and-paste has survived every substrate change since the 1970s. This stratification is more useful than the principle as stated, because it says **where to invest**: effort in the top two layers compounds, effort in the bottom two is consumable by design.
+
+**Rams isn't wrong; he was working a different layer.** A Braun radio's affordances are bounded by human hands, which do not change. Interfaces sit on a substrate that does. Logged as a [3.6](../docs/METHODOLOGY.md) disagreement whose **deciding condition is the layer** — Rams' longevity claim is sound for anything constrained by the body, and unsound for anything constrained by the platform.
+
+**Collides with.** [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md) directly — see the fold. Also [`choose-boring-technology`](../plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`technical-debt`](../plugins/swe-assistant/skills/technical-debt/SKILL.md), [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md).
+
+**The fold — a fourth driver of entropy that the skill is missing.** `software-entropy` names three causes of mess, and **all three require somebody to change something**: developers differ in style, stacks and requirements evolve, fixes accrete complexity. Principle 16 describes the opposite mechanism — **the artifact is untouched and the world moves under it.** Dependencies deprecate, platform conventions shift, browser defaults change, accessibility expectations rise, user expectations reset against whatever they used yesterday. **You can rot by standing still.** The mitigations differ too: linters, code review, and continuous refactoring all act on code being written, and none of them detects context drift.
+
+**The design response is shearing layers.** Stewart Brand, *How Buildings Learn* (1994), extending Frank Duffy: a building is site, structure, skin, services, space plan, and stuff, each changing at a different rate, and an adaptive building **lets the differently-paced layers slip past one another rather than coupling them rigidly**. Brand later generalised this as *pace layering*. This is exactly the answer to principle 16: if the surface has a short half-life, the architecture's job is to make it **cheap to replace without disturbing what is slow.** That is [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md) and [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md)'s encapsulation arriving from architecture rather than from computer science — and it makes the UI's short lifespan an argument *for* clean boundaries rather than a reason to care less about it.
+
+**Reframes an organisational argument worth having.** Teams treat a redesign as evidence the original design was wrong. Under this principle, redesign of the convention and expression layers is **scheduled maintenance**, budgeted like dependency upgrades. What *would* be a failure is a redesign that has to reach through into the concept or data layers because they were never separated.
+
+**The trap.** *"Interfaces are products of their time"* is also the standard justification for chasing fashion. The condition that separates the two: does the change serve a **substrate shift** — touch arrived, screens shrank, a new accessibility requirement landed — or a **fashion cycle**? Substrate shifts justify rework. Fashion cycles spend the user's relearning budget, which principle 9 bounds with MAYA and principle 12 prices as innovation tokens.
+
+**Resolves an apparent conflict with `choose-boring-technology`.** Boring technology says prefer long track records; principle 16 says interfaces are of their moment. These only conflict if the system is one layer. Once stratified the rule is clean: **boring substrate, disposable surface.**
+
+**Verdict:** `fold` into [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md) — done on logging. Not a Cluster C member: C concerns the *user's* time inside an interaction, this concerns the *artifact's* lifespan. Standing alone for now as the durability thread; likely to attract company later in the book.
+
+**Open question.** Does the four-layer stratification above hold up, or is it my construction? The book supplies the claim and the Rams list but not the strata. Before anything ships on it, check whether an established layering already exists in the HCI literature — inventing a taxonomy the field already has under another name would be a citation failure of the kind principle 15 just exhibited.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
