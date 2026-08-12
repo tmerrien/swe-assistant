@@ -7,7 +7,7 @@ description: Use when the user is designing or building tools that help operator
 
 ## Source
 
-*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Tools). Augmented with widely-attested SRE practice (CLI-first conventions, self-describing APIs, role-based access for destructive operations).
+*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Tools). Augmented with widely-attested SRE practice (CLI-first conventions, self-describing APIs, role-based access for destructive operations). Friction design draws on Böhme & Köpsell, *Trained to Accept? A Field Experiment on Consent Dialogs* (CHI 2010), by way of Pereyra, *Universal Principles of UX*, principle 14.
 
 ## Pillars this skill strengthens
 
@@ -155,6 +155,28 @@ The book doesn't make this explicit, but it's one of the most consequential desi
 - **Multi-party approval for the most dangerous operations.** Some actions (deleting production data, changing global config) should require a second engineer to approve before they execute. The friction is intentional.
 
 The principle: **the cost of a guardrail is much smaller than the cost of an accidental production deletion.**
+
+---
+
+## Callout — Designing friction that actually works
+
+Guardrails are worth their cost, but most of them don't work, and the reason is measurable.
+
+**Generic confirmations are trained away.** Böhme and Köpsell (CHI 2010) ran one consent dialog in twelve variations across 80,000 live users and found that people accept *more* readily the more a dialog resembles the ones they have seen before. Familiarity is not neutral — it is the mechanism that drains the gate of meaning. Users weren't deciding; they were pattern-matching and moving on.
+
+**This applies to your own team.** The `Are you sure? [y/N]` in a deploy script is trained away within a week — engineers add `--force` and alias past it. A gate that is routinely bypassed is worse than no gate, because the team now believes there is one.
+
+**What survives habituation is friction that requires task-specific input.** *Type the cluster name to confirm* works precisely because you cannot muscle-memory your way through `prod-cluster-eu-west-1`. The operator has to look at what they are about to destroy and reproduce its identity. That is the whole mechanism — not the extra keystrokes, and not making the warning louder.
+
+**Size the friction to irreversibility × blast radius, not to how dangerous the action feels.** Deleting a row of your own test data feels dangerous and isn't. Changing one config value feels routine and can be global.
+
+**Best of all, remove the irreversibility instead of gating it.** A confirmation is what you reach for when the action can't be undone. Often it can be made undoable:
+
+- **Soft delete with a retention window** rather than a hard delete.
+- **Expand-and-contract migrations** rather than dropping the column now — see [`evolvable-data`](../evolvable-data/SKILL.md).
+- **A delay before execution**, with a cancel path, rather than a prompt before it.
+
+A reversible action needs no gate. Ask whether the operation can be made reversible **before** deciding what to put in front of it.
 
 ---
 

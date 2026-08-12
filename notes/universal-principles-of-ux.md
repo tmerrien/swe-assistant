@@ -446,4 +446,33 @@ Engineers routinely treat the third case as the first and optimise into a wall.
 
 ---
 
+### 14 — Friction isn't always bad
+
+**What it says.** Unwanted friction should go, but not every interaction should be frictionless. Where consequences are serious, users should be made to slow down and attend to what they are about to do. Cites Böhme and Köpsell (CHI 2010) on users clicking through agreements without reading them. Closes on the designer's obligation: since what we build has tangible effects on people's lives, we should not exploit inertia, and should hold the line on security and safety.
+
+**The study says something sharper than "people don't read," and it changes the engineering advice.** Rainer Böhme and Stefan Köpsell, *Trained to Accept? A Field Experiment on Consent Dialogs* ([CHI 2010](https://dl.acm.org/doi/10.1145/1753326.1753689)) — one dialog in 2×2×3 variations across **80,000 users** of a live privacy tool. The headline finding is **habituation**: users **"blindly accept terms the more their presentation resembles a EULA."** The resemblance itself is the failure mechanism. Two further results:
+
+- **Politeness backfired.** Polite phrasing and buttons signalling a voluntary choice *decreased* consent, against what social psychology predicts.
+- **Heuristic processing dominated systematic processing** — measured via response latency and whether users consulted help. People were not deciding; they were pattern-matching and moving on.
+
+**The consequence, which the principle doesn't draw: a confirmation dialog inherits the trained reflex from every dialog that came before it.** Familiarity is not neutral — it is the thing that drains the gate of meaning. So *"are you sure? [OK]"* is not weak friction, it is close to no friction, and no amount of making it scarier fixes it. What works is friction that **cannot be habituated because it demands task-specific input**: typing the resource name. You cannot muscle-memory your way through `prod-cluster-eu-west-1`. [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) already recommends type-the-name; this supplies the mechanism, which is the difference between teaching it and cargo-culting it.
+
+**And it applies to your own team, not just end users.** The `Are you sure? [y/N]` in a deploy script is trained away within a week; engineers add `--force` and alias past it. That is the same heuristic processing, in people who know exactly what the gate is for. `operational-tools` already warns that a bad tool is worse than none because it gives *the illusion of safety* — this is that failure with a named cause.
+
+**Collides with.** [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) (the auth/RBAC callout), [`change-discipline`](../plugins/swe-assistant/skills/change-discipline/SKILL.md), [`progressive-rollout`](../plugins/swe-assistant/skills/progressive-rollout/SKILL.md) (gates), [`idempotency`](../plugins/swe-assistant/skills/idempotency/SKILL.md), and principle 5's ethics material.
+
+**The rule the principle implies: friction should be proportional to irreversibility × blast radius, not to how dangerous the action feels.** Deleting one row of your own test data feels dangerous and isn't. Editing a config value feels routine and can be global.
+
+**A genuine disagreement, logged under [Design Principle 3.6](../docs/METHODOLOGY.md).** The dominant usability position (Nielsen, Tognazzini) is that **undo beats confirmation** — a confirmation taxes the 99% who meant it, and gets habituated anyway, while undo costs nothing until it's needed and actually works. Against that: undo is often not implementable, and offering it where it doesn't really exist is worse than a gate. *What decides it:* **whether the action is genuinely reversible.** And engineering has a third move the UX framing misses — **change the reversibility instead of gating the action.** Soft delete with a retention window, expand-and-contract migrations, delayed execution: these convert an irreversible action into a reversible one, which beats both confirming and undoing. [`evolvable-data`](../plugins/swe-assistant/skills/evolvable-data/SKILL.md)'s expand-and-contract is exactly this — **friction as architecture**, imposed because the drop is irreversible, not because it feels risky.
+
+**Pairs with 13 — the book's second explicit thesis/antithesis.** Principle 13 says speed is the ultimate usability metric; 14 says not always. The synthesis: **speed is the default, and friction is a deliberate purchase made where consequences are irreversible.** That two such pairs now exist is further support for Design Principle 3.6 being the right shape for derived skills — the book keeps arguing with itself on purpose.
+
+**The ethics half, and a clean test for it.** *"Don't exploit inertia"* has a sharp operational form: **is the friction placed where the consequence is, or where the revenue is?** One-click to subscribe and seven screens to cancel is the same mechanism as a safety gate, aimed the other way. Böhme and Köpsell supply the mechanism principle 5 only asserts — this is *why* deceptive design works, and the absence of friction where consequence is high is as much a choice as its presence where consequence is low. This materially strengthens the ethics skill candidate (Standalone B).
+
+**Verdict:** split, honestly. `fold` the engineering half into [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) — done on logging. `cluster` the ethics half with principle 5. Separately, 13+14 form **Cluster C — the pace of interaction is a design decision**, alongside Clusters A and B.
+
+**Open question.** If habituation defeats any friction pattern once it becomes standard, then type-the-name is on a clock too — it is already common enough at GitHub, AWS, and Stripe that the reflex may be forming. Does that imply safety gates need periodic redesign, or is task-specific input structurally immune because the input can't be memorised? I suspect the latter, but the study's mechanism doesn't obviously guarantee it.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
