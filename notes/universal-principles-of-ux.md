@@ -548,7 +548,19 @@ The author's claim holds cleanly for **convention** and **expression** and fails
 
 **Verdict:** `fold` into [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md) — done on logging. Not a Cluster C member: C concerns the *user's* time inside an interaction, this concerns the *artifact's* lifespan. Standing alone for now as the durability thread; likely to attract company later in the book.
 
-**Open question.** Does the four-layer stratification above hold up, or is it my construction? The book supplies the claim and the Rams list but not the strata. Before anything ships on it, check whether an established layering already exists in the HCI literature — inventing a taxonomy the field already has under another name would be a citation failure of the kind principle 15 just exhibited.
+**Open question — checked, and the answer is no, it is not my construction.** *(Verified after the section closed. Two prior claims exist; both would have gone uncited.)*
+
+**1. Foley & van Dam's four-level model (1982)** — conceptual / semantic / syntactic / lexical, borrowed explicitly from programming-language design: the user's mental model, the meanings conveyed by input and output, how units assemble, and the precise mechanisms that specify them. Adjacent to the table above and **stratified on a different axis**: theirs is *level of abstraction*, mine is *rate of change*. The layers do correlate — deeper is generally more durable — but they are not the same claim, and theirs has no equivalent of the *human* layer, because perceptual thresholds and memory limits are not part of the interface language at all. Cite it as prior art on the shape, not as the same taxonomy.
+
+**2. Pace layering applied to interfaces — already done, repeatedly, and not by me.** Mark Boulton connected Brand's pace layers to design work in **2018**; Ben Callahan wrote *Design System Shearing Layers*; Jim Nielsen wrote *UI Pace Layers* in 2025. The move recorded at principle 16 — take Brand's differently-paced layers and apply them to interface durability — is an established practitioner framing with years of writing behind it. **What I logged as an original construction is a known one.**
+
+**What survives as an actual contribution is narrow:** the **human layer** underneath the others. Neither Foley & van Dam nor the pace-layering writers include a stratum of things that do not change at all — Miller's thresholds, serial position, working-memory limits. That layer is the one that resolves the principle 13 / principle 16 contradiction, so it earns its place, but the other three are borrowed and must be attributed.
+
+**And Brand supplies something the table was missing.** It was static — four half-lives, sitting there. Brand's actual claim is dynamic: **"fast learns, slow remembers"**, and *"the fast parts gradually suggest things to the building which get integrated into the slow parts."* Applied here, that is how the hamburger menu happened: an expression-layer experiment that worked got promoted into convention. **The layers are not just different speeds; the fast ones propose and the slow ones adopt.** Folded that into [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md), which already carries the shearing-layers material.
+
+**Not shipping the four-layer table itself into a skill.** Now that it is known to be derivative, its remaining job — reconciling two of this book's principles — is a reading-notes insight rather than a runtime one. Recorded here; not worth a skill's context budget.
+
+*(One caveat on the practitioner sources: the frequently-quoted figure that ~75% of teams report their design system moving slower than their products comes from an industry survey, not peer-reviewed work. Usable as illustration, not as evidence.)*
 
 ---
 
@@ -609,7 +621,7 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 **Built after the section closed:** [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) (from principle 15) — READMEs, quickstarts, first-error legibility, time-to-first-success as an instrumented metric. The gap was real and the repository had stated it itself: `new-team-onboarding` explicitly declined the designing side under *When NOT to use*, and that bullet now routes here. Two supporting finds at build time — `configuration` already argued that a config with no required values is the friendliest possible first run, the discipline operating unnamed; and Newton's 1990 tapping study (tappers predicted 50% recognition, listeners managed 3 of 120) turned out to be the cleanest available statement of why an author cannot review their own README.
 
-**Also outstanding:** the four-layer durability stratification proposed at principle 16 remains unverified against the HCI literature. *(Conway's Law is now folded — see [`notes/conways-law.md`](./conways-law.md). The prototypicality question at principle 15 is resolved above.)*
+**Outstanding: none from this section.** *(Conway's Law is folded — see [`notes/conways-law.md`](./conways-law.md). The prototypicality question at principle 15 and the durability stratification at principle 16 are both resolved above.)*
 
 ---
 

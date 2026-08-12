@@ -69,6 +69,10 @@ The first three drivers all require **somebody to change something**. This one d
 
 Applied to software: identify the fast-moving layers — UI, integrations, config, anything platform-facing — and make them **cheap to replace without disturbing the slow ones** (domain logic, data model, public contracts). A fast layer's short lifespan is an argument *for* a clean boundary around it, not a reason to invest less in it. See [`evolvable-apis`](../evolvable-apis/SKILL.md) and [`managing-complexity`](../managing-complexity/SKILL.md).
 
+**Brand's claim is not only that the layers move at different speeds — it is that they feed each other.** His summary is *"fast learns, slow remembers"*: the fast parts gradually suggest things that get integrated into the slow parts. In software this is the useful half. The fast layer is where you find out what works, cheaply and reversibly, and the good discoveries earn promotion inward — a pattern proven in the UI becomes a domain concept, a config flag that never varies becomes a constant, an integration hack that survives two years becomes a supported interface.
+
+That gives the fast layer a job beyond being disposable: **it is the system's cheapest place to learn.** A team that treats its fast layers purely as churn gets the cost of change without the information.
+
 Practically, this makes **scheduled replacement of fast layers normal work**, budgeted like dependency upgrades — rather than an admission that the original was wrong. The real failure is a surface rewrite that has to reach into the domain because the two were never separated.
 
 ---
