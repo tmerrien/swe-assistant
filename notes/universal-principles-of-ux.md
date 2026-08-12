@@ -307,15 +307,44 @@ That yields a rule the book does not state: **if you want something remembered l
 
 ---
 
-## Consider — structure at the ten-principle mark
+### 11. Less is more
 
-Recorded here because the build rule assembles candidates at section boundaries. Two clusters and three standalones have emerged:
+**What it says.** Presented by the author as a cliché and openly controversial — *"there is no right or wrong here. Sometimes less is more and sometimes it's not."* Sourced to **Ludwig Mies van der Rohe**, who held that elegance does not derive from abundance and that restrained decoration has more impact than plentiful decoration. Supported by **John Sweller**: overloading memory raises the error rate. So less is more where an interface requires complicated tasks — while other parts of an interface may legitimately inspire, create wonder, and prompt action.
+
+**The strongest link to this repository's own foundations so far.** Sweller is already cited in [`docs/THEORETICAL-FOUNDATIONS.md`](../docs/THEORETICAL-FOUNDATIONS.md) Section 6, where cognitive load theory justifies the consistent skill body structure and the practice of surfacing only the situationally relevant skill. **This is the first UX principle resting on a source the project already holds as part of its own grounding** — which makes the transfer unusually well-supported.
+
+**Sweller resolves the controversy the principle leaves open.** She cites him and then declines to adjudicate, but the framework adjudicates. Cognitive load is not one quantity:
+
+- **Intrinsic** — the inherent difficulty of the task. Cannot be reduced without reducing the task.
+- **Extraneous** — imposed by *presentation*. This is what "less is more" should target.
+- **Germane** — the load that contributes to building understanding. Removing it is harmful.
+
+**"Less is more" is therefore wrong as stated, which is precisely why it feels contested.** The defensible version: **reduce extraneous load, leave intrinsic alone, protect germane.** Undifferentiated minimalism strips germane load along with the rest, which is how a spare interface ends up incomprehensible. Anything built from this principle should carry the three-way distinction rather than the aphorism.
+
+**The repository already applies this correctly without naming it.**
+
+- [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md) — *sensible defaults make a large API feel small.* Defaults remove **presentation** burden while preserving capability. Extraneous load reduced, intrinsic untouched. Textbook.
+- [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md) — *the most reliable way to keep code flexible is to have less of it*, with **Muntzing** as the procedure: remove a component, check whether it still works, restore the last one that broke it. **Less-is-more with a falsification test attached**, which is a substantial improvement on the aphorism and worth keeping as the model for how the principle should be operationalised.
+
+**Her second half is a load budget by zone.** Reduce load where the task is demanding; permit richness where it is not. That is Cluster B extended from attention to cognitive capacity — the same budgeting logic applied to a different scarce resource.
+
+**Verdict:** `cluster` into **Cluster B**, where it supplies the **theoretical spine**. The cluster's members — writing (6), rationed emphasis (9), serial position (10), and load management (11) — are four applications of one constraint, and Sweller names the constraint. Notably the repository already cites him for the same purpose in a completely different domain, which strengthens the case made in the section summary below that Cluster B is domain-agnostic rather than UX-specific.
+
+**Open question.** If Cluster B becomes a skill, does it cite Sweller directly or defer to `THEORETICAL-FOUNDATIONS.md` Section 6? The methodology requires claims to trace to sources; it does not say whether a skill may lean on the project's own grounding document rather than re-citing. Worth settling once, since it will recur.
+
+---
+
+## Consider — structure so far (through principle 11)
+
+Recorded here because the build rule assembles candidates at section boundaries. Two clusters and three standalones have emerged. Updated as the section progresses.
 
 **Cluster A — *UI is not downstream*** (principles 2, 3, and 7 in support)
 The visual and interaction layer is where usability is decided, not decoration applied afterwards. Supported by principle 8, since the aesthetic-usability effect is further evidence that visual quality does real work.
 
-**Cluster B — *Attention is finite; order and emphasis are how you spend it*** (principles 6, 9, 10)
-Writing, rationed distinctiveness, and sequence position are three faces of one constraint. The unifying line: **emphasis is a budget, and forgetting is how you fund it.** This cluster travels furthest beyond interfaces — it already describes log levels, alert discipline, commit subjects, design-doc introductions, and Output Protocol 10.7.
+**Cluster B — *Attention is finite; order and emphasis are how you spend it*** (principles 6, 9, 10, 11)
+Writing, rationed distinctiveness, sequence position, and load management are four faces of one constraint. The unifying line: **emphasis is a budget, and forgetting is how you fund it.** This cluster travels furthest beyond interfaces — it already describes log levels, alert discipline, commit subjects, design-doc introductions, and Output Protocol 10.7.
+
+**Principle 11 supplies the theory.** Sweller's cognitive load theory names the constraint the other three apply, and this repository **already cites Sweller** in [`docs/THEORETICAL-FOUNDATIONS.md`](../docs/THEORETICAL-FOUNDATIONS.md) Section 6 — for skill body structure and selective surfacing, in a domain with no interfaces in it. A theory that independently grounds both a UX cluster and the project's own pedagogy is strong evidence the cluster is not UX-specific.
 
 **Standalone A — problem definition** (principles 1 and 4+9 combined)
 Folds into [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3, extended with *the best solution may not be the one anyone described*, bounded by MAYA.
@@ -326,6 +355,8 @@ The strongest independent skill candidate in the section, and arguably not UX at
 **Standalone C — the measurement hazard** (principle 8)
 Folds into `technical-design-process` Step 5 as a validity caution on prototype feedback. The most immediately actionable item so far.
 
-**Note on Cluster B's reach.** It is the only cluster whose content is already load-bearing across the existing skill set without having been named. That makes it the most likely candidate to become something domain-agnostic that other skills reference, rather than a UX skill — echoing the open question first raised at principle 2.
+**Note on Cluster B's reach.** It is the only cluster whose content is already load-bearing across the existing skill set without having been named, and now the only one with a theoretical anchor the project already holds. That makes it the most likely candidate to become something domain-agnostic that other skills reference, rather than a UX skill — echoing the open question first raised at principle 2, now with better evidence behind it.
+
+---
 
 <!-- Next entry goes here. Keep the four-part shape. -->
