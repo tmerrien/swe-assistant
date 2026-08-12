@@ -252,4 +252,33 @@ Practical consequences worth carrying into a fold:
 
 **Open question.** The literature includes work on boundary conditions for the effect (task complexity appears to moderate it). If a skill is built on this, is the honest statement *"aesthetics biases perceived usability"* or the narrower *"aesthetics biases perceived usability under conditions X"*? Worth checking before asserting the general form.
 
+### 9. People remember the unusual
+
+**What it says.** Follows Raymond Loewy's **MAYA** — *Most Advanced Yet Acceptable*: to sell something new make it familiar, and to sell something familiar make it surprising. Also invokes the **Von Restorff effect** (the isolation effect, von Restorff 1933): an item that stands out from a set is better remembered. Short and direct in the book.
+
+**MAYA supplies the ceiling principle 4 lacked.** Principle 4 argued for surprising users with innovative solutions and set no upper bound. Loewy's formulation *is* the bound: advance to the edge of what people will accept, and stop there. **Acceptable is the constraint on advanced.** Read together, 4 and 9 are one principle — innovate, but only as far as the audience can follow.
+
+**Self-correction.** The entry for principle 4 records a caveat presented as an addition to the source:
+
+> *"In high-stakes, low-attention contexts, unfamiliarity has a cost that consumer contexts do not pay. A genuinely better solution that is unfamiliar to a stressed or hurried user still has to be learnable at the moment of use."*
+
+That is **MAYA with a lower acceptability threshold**, not an original contribution. The book covers it three principles later. This is precisely the failure flagged at principle 7 — check whether the source handles something later before recording it as an addition. The observation stands; the attribution was wrong. What remains genuinely additive is only the narrower claim that **the acceptability threshold moves with stakes and attention**, which Loewy does not address.
+
+**Von Restorff has a sharper engineering application than the book's framing.** The isolation effect is usually presented as a way to make things memorable. In this repository it already appears as a **failure mode**:
+
+- [`logging`](../plugins/swe-assistant/skills/logging/SKILL.md) — log levels exist so WARN and ERROR stand out from INFO. Von Restorff by design.
+- [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md) — *"if an alert fires regularly and nobody acts on it, either fix it or delete it."* **Alert fatigue is the Von Restorff effect collapsing**: once everything is distinctive, nothing is.
+
+**Tension with least astonishment, and its resolution.** Principle 3's territory says be predictable; Von Restorff says stand out. These are reconciled by **scarcity** — distinctiveness works only when rationed. The same rule appears in at least three unrelated places:
+
+- Wood, Bruner & Ross on *marking critical features*: a tutor who marks every feature has marked none.
+- [`docs/METHODOLOGY.md`](../docs/METHODOLOGY.md) Section 10.7, capping proactive surfacing at one or two items ranked by consequence.
+- Alert and log-level discipline, above.
+
+**Emphasis is a budget, not a technique.** That formulation is worth keeping; it generalises well beyond interfaces and is the transferable content of this principle.
+
+**Verdict:** `fold`, attached to the principle-4 fold rather than standing alone — MAYA becomes the ceiling clause on *the best solution may not be the one anyone described*. Secondary note for [`logging`](../plugins/swe-assistant/skills/logging/SKILL.md) and [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md): both already teach rationed emphasis without naming the effect that explains why it works.
+
+**Open question.** Does the acceptability threshold in MAYA vary by audience expertise as well as by stakes? A power user tolerates more novelty than a first-time user, which would make MAYA a per-segment judgment rather than a single product-wide setting. Not addressed in the source.
+
 <!-- Next entry goes here. Keep the four-part shape. -->
