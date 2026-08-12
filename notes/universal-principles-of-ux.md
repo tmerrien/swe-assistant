@@ -334,15 +334,15 @@ That yields a rule the book does not state: **if you want something remembered l
 
 ---
 
-## Consider — structure so far (through principle 11)
+## Consider — structure so far (through principle 12)
 
 Recorded here because the build rule assembles candidates at section boundaries. Two clusters and three standalones have emerged. Updated as the section progresses.
 
 **Cluster A — *UI is not downstream*** (principles 2, 3, and 7 in support)
 The visual and interaction layer is where usability is decided, not decoration applied afterwards. Supported by principle 8, since the aesthetic-usability effect is further evidence that visual quality does real work.
 
-**Cluster B — *Attention is finite; order and emphasis are how you spend it*** (principles 6, 9, 10, 11)
-Writing, rationed distinctiveness, sequence position, and load management are four faces of one constraint. The unifying line: **emphasis is a budget, and forgetting is how you fund it.** This cluster travels furthest beyond interfaces — it already describes log levels, alert discipline, commit subjects, design-doc introductions, and Output Protocol 10.7.
+**Cluster B — *Attention is finite; order and emphasis are how you spend it*** (principles 6, 9, 10, 11, 12)
+Writing, rationed distinctiveness, sequence position, load management, and the minimalism debate are five faces of one constraint. The unifying line: **emphasis is a budget, and forgetting is how you fund it.** This cluster travels furthest beyond interfaces — it already describes log levels, alert discipline, commit subjects, design-doc introductions, and Output Protocol 10.7.
 
 **Principle 11 supplies the theory.** Sweller's cognitive load theory names the constraint the other three apply, and this repository **already cites Sweller** in [`docs/THEORETICAL-FOUNDATIONS.md`](../docs/THEORETICAL-FOUNDATIONS.md) Section 6 — for skill body structure and selective surfacing, in a domain with no interfaces in it. A theory that independently grounds both a UX cluster and the project's own pedagogy is strong evidence the cluster is not UX-specific.
 
@@ -358,5 +358,31 @@ Folds into `technical-design-process` Step 5 as a validity caution on prototype 
 **Note on Cluster B's reach.** It is the only cluster whose content is already load-bearing across the existing skill set without having been named, and now the only one with a theoretical anchor the project already holds. That makes it the most likely candidate to become something domain-agnostic that other skills reference, rather than a UX skill — echoing the open question first raised at principle 2, now with better evidence behind it.
 
 ---
+
+### 12. Less is a bore
+
+**What it says.** Robert Venturi's riposte to Mies, coined roughly two decades after *less is more* (*Complexity and Contradiction in Architecture*, 1966), arguing for personality and maximalism. The principle warns against applying minimalism everywhere, which is part of why so many applications now look alike. That homogeneity is also an opportunity: in a market where everything resembles everything else, difference attracts attention. The author closes: **"If a design is difficult to use, it's neither maximalist nor minimalist — it's just bad."** Design still has to function.
+
+**11 and 12 are a deliberate pair, and the closer is the load-bearing sentence.** Neither principle stands alone. Presented together they are thesis and antithesis, and the resolution is in the final line: **usability is the floor; the minimal/maximal choice happens above it.** Anything built from either principle should carry the pair, not one half.
+
+**Three principles now constrain each other in a structure the book does not map.**
+
+- **Principle 3 sets the floor** — usability decides whether the thing works at all.
+- **Principle 9 sets the ceiling** — MAYA: differentiate up to the limit of acceptability, no further. Loewy bounds Venturi exactly as he bounded principle 4's argument for innovation.
+- **Principles 11 and 12 argue over the space between.**
+
+That structure is more useful than any of the four individually and is a candidate for how a derived skill would be organised.
+
+**Terminological trap — flag this hard.** Venturi's title argues **for** complexity. That is not Ousterhout's complexity, which [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md) defines as *anything related to the structure of a system that makes it hard to understand and modify*. **Venturi means richness and ambiguity; Ousterhout means cost.** Same word, opposite valence, and both sources are now in play in this project. Any material drawing on both must keep them separate or it will produce incoherence.
+
+**The transferable engineering content is innovation tokens.** [`choose-boring-technology`](../plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) holds that novelty draws on a limited budget: spend it where it earns something and use boring conventions elsewhere. **Visual differentiation is a token spend.** That reframes the principle usefully — being different is not free, it is a purchase, and the question is whether *this* difference is worth what it costs in unfamiliarity. Which returns once more to Cluster B: a budget for a scarce resource.
+
+**Note on homogenisation.** The convergence the principle observes has a specific cause for engineers: component libraries and design systems mean inheriting somebody else's visual decisions wholesale. That is efficient and it is also the mechanism producing sameness. Worth stating plainly, because for an engineer the choice is rarely *minimal or maximal* in the abstract — it is *accept the library's defaults or deviate from them*, which is the same decision wearing work clothes.
+
+For anyone extending an **existing** design system rather than starting fresh, the live tradeoff is not minimalism versus maximalism at all: it is **consistency with what exists versus differentiation from it**, with an existing codebase weighting one side.
+
+**Verdict:** `cluster` into **Cluster B**, paired with principle 11. The pair contributes the floor-and-ceiling structure above, and the innovation-token reframing is the part that transfers cleanly to engineering work.
+
+**Open question.** Does the differentiation argument survive outside consumer markets? It assumes attention is contested and that being noticed has value. For internal tools, operational software, and products people use because they must rather than because they chose to, standing out may carry cost with no corresponding benefit — see the transfer condition recorded at principle 7.
 
 <!-- Next entry goes here. Keep the four-part shape. -->
