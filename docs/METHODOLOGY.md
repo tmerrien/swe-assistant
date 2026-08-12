@@ -64,6 +64,20 @@ Every framework, claim, or technique in a skill body must be traceable to a cite
 
 Skill bodies are operational ("do X, then Y, check Z"), not literary excerpts. Source material is paraphrased into action-guiding instructions; the original prose is not reproduced. This serves both copyright and pedagogical purposes — the skill must work as instruction at the moment of use, not as a summary of someone else's writing.
 
+### 3.6 Preserve productive disagreement
+
+Where competent practitioners genuinely disagree, a skill carries **both positions and the conditions under which each applies** — rather than selecting a winner, splitting the difference, or declining to engage.
+
+**This is not a restatement of 3.3.** That principle says no single source is authoritative, and directs skills to *synthesize*. But synthesis merges, and merging genuinely contested positions manufactures a consensus that does not exist in the field. The learner is then handed a settled answer to an unsettled question, and has no way to recognise the situations where it fails.
+
+**The bounding condition, without which this principle degrades into false balance:** it applies where the disagreement is real — where informed practitioners hold opposing views for defensible reasons, and the right answer depends on circumstances the skill cannot know in advance. Minimalism versus richness, mocking versus real collaborators, monolith versus services, stretch goals versus commitments. It does **not** apply where one position is simply better supported. Whether to validate untrusted input is not a debate, and presenting it as one would violate this principle rather than satisfy it.
+
+**Practical implication.** In contested territory a skill states the positions, names what each buys and costs, and then **asks which situation the user is in** — converting a prescription into a diagnostic. The user makes the call; the skill ensures they make it knowing the argument exists.
+
+**Theoretical basis:** Perry's scheme of intellectual and ethical development (1970). See [`THEORETICAL-FOUNDATIONS.md`](./THEORETICAL-FOUNDATIONS.md), Section 4.2.
+
+**Failure mode this replaces.** Declining to engage is not neutrality. A skill that says *"people are passionate about this and the argument is unproductive — do whatever works for your team"* has withheld the very thing the reader needed, which is the shape of the argument.
+
 ---
 
 ## 4. Skill body structure

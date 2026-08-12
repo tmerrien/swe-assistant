@@ -62,6 +62,26 @@ Two constraints bound the function, and both matter for it to remain scaffolding
 
 The distinction that keeps this compatible with Design Principle 1 (*prompt the thinking; do not replace it*) is between **surfacing a consideration** and **supplying a conclusion**. Naming an unexamined stakeholder, consequence, or artifact hands the learner something to reason about. Naming the answer removes the reasoning. The first is scaffolding; the second is the substitution the methodology exists to avoid.
 
+### 4.2 Perry's scheme — the warrant for preserving disagreement
+
+Perry's (1970) scheme of intellectual and ethical development describes a progression through nine positions, conventionally grouped into four stages:
+
+1. **Dualism** — the belief that every problem has a right answer, that the learner's task is to acquire those answers, and that authorities possess them.
+2. **Multiplicity** — recognition that authorities disagree, initially experienced as all opinions being equally valid.
+3. **Relativism** — the capacity to weigh positions using evidence, and to see knowledge as contextual.
+4. **Commitment within relativism** — making reasoned choices and holding them, while accepting that they were made under uncertainty.
+
+The scheme supplies the warrant for a property the methodology requires of every skill in contested territory (see [`METHODOLOGY.md`](./METHODOLOGY.md), Section 3.6): **where practitioners genuinely disagree, a skill presents the disagreement rather than resolving it.**
+
+The argument runs directly from the project's stated goal. This methodology exists to move practitioners toward independent judgment. A skill that always supplies a single answer trains the reader to expect one — which is the defining feature of dualism, the stage the project is trying to move people out of. **Consistently resolving contested questions on the learner's behalf is therefore not merely unhelpful; it is actively counter-developmental**, however correct each individual answer happens to be.
+
+Two constraints keep this from collapsing into false balance:
+
+1. **The disagreement must be real.** Perry's progression is not served by presenting settled questions as open. A learner taught that input validation is a matter of taste has been misinformed, not developed. The principle applies where the correct answer depends on circumstances the skill cannot know — team, scale, domain, risk tolerance — not where evidence favours one side and the author is reluctant to say so.
+2. **The conditions must be supplied.** Stage 2 (multiplicity) — *"everyone disagrees, so nothing can be known"* — is a worse destination than dualism for practical purposes. Naming a disagreement without naming what determines the answer leaves the learner there. The skill's contribution is the **conditions**, not the controversy.
+
+This also explains why the repository's most useful passages tend to be conditional rather than prescriptive: the schemaless-is-sometimes-right conditions in `evolvable-data`, the complexity-transfer table in `managing-complexity`, the inertia matrix that makes *leave it alone* a legitimate answer. Each presents a genuine disagreement together with the circumstances that settle it.
+
 ---
 
 ## 5. Situated cognition and just-in-time learning
@@ -113,6 +133,7 @@ This is also why the specific skills in this repository are presented as *one au
 - Ericsson, K. A., Krampe, R. T., & Tesch-Römer, C. (1993). The role of deliberate practice in the acquisition of expert performance. *Psychological Review*, 100(3), 363–406.
 - Gerlich, M. (2025). AI tools in society: Impacts on cognitive offloading and the future of critical thinking. *Societies*, 15(1).
 - Hoover, D. H., & Oshineye, A. (2009). *Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman*. O'Reilly Media.
+- Perry, W. G., Jr. (1970). *Forms of Intellectual and Ethical Development in the College Years: A Scheme*. Holt, Rinehart and Winston.
 - Kalyuga, S. (2007). Expertise reversal effect and its implications for learner-tailored instruction. *Educational Psychology Review*, 19(4), 509–539.
 - Lee, H. P., et al. (2025). The impact of generative AI on critical thinking. *Proceedings of CHI 2025*.
 - Riccomini, C., & Ryaboy, D. (2021). *The Missing Readme: A Guide for the New Software Engineer*. No Starch Press.

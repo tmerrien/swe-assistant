@@ -107,7 +107,13 @@ Two common schemes:
 - **Time-based** — one point ≈ one workday.
 - **Complexity-based** — t-shirt sizing, typically 1 (XS), 2 (S), 3 (M), 5 (L), 8 (XL). The gaps widen deliberately: bigger work is estimated less accurately, and the scale should reflect that rather than implying false precision.
 
-Agile frameworks generally frown on time-based points — the argument is that dates carry emotional weight and don't represent complexity, and that non-time units make uncertainty easier to express. **People are passionate about this and the argument is rarely productive.** Use whichever your team estimates well with.
+**Practitioners genuinely disagree here, and the argument is worth knowing rather than avoiding.**
+
+*The case for complexity points:* the indirection is the point. An estimate expressed in days gets read as a commitment by anyone outside the team, and once "three days" is said aloud it becomes a date somebody is holding you to. Non-time units break that reflex, make uncertainty expressible through the widening scale, and stay meaningful when team members work at different speeds.
+
+*The case for time-based points:* they are legible to everyone without translation, convert directly into forecasting, and require no calibration period before they mean anything. The complexity scale's protection is also partly a fiction — stakeholders ask "so how many days is that?" and someone answers.
+
+*What decides it:* **whether your estimates are consumed outside the team.** If they are quoted back to you as commitments, the indirection is doing real work and complexity points earn their cost. If your team is small and stable and nobody outside reads the numbers, time-based is simpler and the indirection buys you little.
 
 **The technique that actually improves accuracy is relative sizing.** People are poor absolute estimators and much better comparative ones. Assign points to work already finished, then size new work against it: *is this more or less like that three-pointer we shipped last month?* Planning poker formalizes this, but even just reviewing completed work calibrates you to your team's scale — which is the part that transfers.
 

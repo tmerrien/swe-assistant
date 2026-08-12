@@ -385,4 +385,27 @@ For anyone extending an **existing** design system rather than starting fresh, t
 
 **Open question.** Does the differentiation argument survive outside consumer markets? It assumes attention is contested and that being noticed has value. For internal tools, operational software, and products people use because they must rather than because they chose to, standing out may carry cost with no corresponding benefit — see the transfer condition recorded at principle 7.
 
+---
+
+## Standing design note — hold the disagreement, don't resolve it
+
+*Raised at principle 12; governs every skill derived from this file and now generalized into the methodology.*
+
+Principles 11 and 12 are not merely two sides of a table. **They complement each other in a conversation.** The value is not in deciding which is correct — it is in being able to raise the other side's argument at the moment a decision is being taken: *given situation X, which direction, and why?*
+
+**This generalizes past 11/12.** Research and practice are full of people who disagree for good reasons. The real world is a gray area, and taking one side and closing the question forfeits what the other side knows. Carrying the whole spectrum of the argument is what makes a position usable across varied situations rather than only the one it was written for.
+
+**Consequences for this file.** Every genuine disagreement already logged here is material to preserve rather than a defect to resolve:
+
+- **Principle 4 vs. YAGNI** — surpassing expectations against not building what isn't needed.
+- **Principle 6** — emotional warmth against precision in interface language.
+- **Principle 8 vs. principle 3** — the aesthetic-usability effect against usability as ground truth; principle 8 is itself the measurement hazard.
+- **Principle 12 vs. Ousterhout** — complexity as richness against complexity as cost.
+
+**Where it went.** Promoted to [`METHODOLOGY.md`](../docs/METHODOLOGY.md) Design Principle 3.6, *Preserve productive disagreement*, grounded in Perry's scheme (1970) at [`THEORETICAL-FOUNDATIONS.md`](../docs/THEORETICAL-FOUNDATIONS.md) Section 4.2. The bounding condition recorded there matters as much as the principle: it applies where the disagreement is **real**, not to questions that merely have two describable sides.
+
+**The mechanism a derived skill uses.** State the positions, name what each buys and costs, then ask which situation the user is in. The skill supplies the argument; the user makes the call.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
