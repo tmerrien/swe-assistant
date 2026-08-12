@@ -195,6 +195,25 @@ This critique was taken seriously but the project has not, at the time of writin
 
 The choice not to consolidate is consistent with the project's worked-example positioning (Section 1 above): the skill set is offered as one author's implementation, not as a curated curriculum. Forks that prefer a different breadth/depth balance are exactly the kind of derivative the methodology supports.
 
+### The count has a measured runtime cost, not just a rhetorical one
+
+The argument above is about pedagogy. There is also a hard constraint, measured against Claude Code 2.1.220:
+
+The runtime sends Claude a **skill listing** — each skill's name plus its `description` — and caps that listing's size. Two settings govern it: `skillListingMaxDescChars` (default **1536**, a per-skill cap) and `skillListingBudgetFraction` (default **0.01**, the share of the context window the whole listing may occupy, computed as `contextTokens x fraction x 4 chars`).
+
+**When the listing exceeds the budget, descriptions are not shortened — they are dropped whole, skill by skill, in priority order.** A skill that does not fit is sent as **name only**. Since triggering is a semantic match against the description, a name-only skill is effectively unmatchable except by exact name. Already-activated and bundled skills are protected; the rest compete.
+
+At 49 skills the full listing is **50,174 characters (~12,500 tokens)**. Against the default 0.01 fraction that is an 8,000-character budget, and roughly **42 of 49 skills would be sent without descriptions**. Fitting all of them requires a fraction of about **0.063**, which spends ~6.3% of a 200k context on the skill listing *on every turn*.
+
+This is the real cost of breadth, and it is worth stating plainly:
+
+- **Every skill added taxes every conversation**, whether or not it fires.
+- **The failure mode is silent.** A skill dropped from the listing does not error; it simply never triggers, and nothing in the transcript indicates that it should have.
+- **Description length is therefore a shared resource**, not a per-skill decision. The mean description in this repository is roughly 1,000 characters; halving that would halve the listing cost.
+- At the current size there is **under 2,000 characters of headroom** before the next increase is needed.
+
+None of this changes the pedagogical argument above, but it does mean the depth-versus-breadth question has a measurable second axis. An adopter running a much larger skill set should expect to either raise the fraction deliberately or write substantially shorter descriptions.
+
 This limitation is documented honestly because the count is non-trivial and the critique is reasonable; users should know what design decision they're consuming.
 
 ---
