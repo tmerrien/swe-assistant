@@ -48,10 +48,13 @@ swe-assistant/
 ├── LICENSE                         Creative Commons Attribution 4.0
 ├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
 ├── CONTRIBUTING.md                 Contribution process and skill style conventions
+├── CODE_OF_CONDUCT.md              Contributor Covenant 2.1
 ├── MISFIRE-LOG.md                  Log of skills that over-fired, under-fired, or mis-routed in real use
 ├── notes/                          Working reading notes; raw material for future skills, not skills themselves
+├── hooks/                          Optional Claude Code hooks (not part of the plugin)
+│   └── swe-skill-router.py         UserPromptSubmit hook; regex floor under the runtime's semantic match
 ├── scripts/
-│   └── sync-to-claude.sh           Sync the local plugin into Claude's cache for local iteration
+│   └── sync-to-claude.sh           Sync the local plugin (and the hook) into Claude's cache
 ├── docs/                           Academic and pedagogical documentation
 │   ├── THEORETICAL-FOUNDATIONS.md  Educational and cognitive literature the methodology draws on
 │   ├── METHODOLOGY.md              The skill-construction method, intended to be applied by others

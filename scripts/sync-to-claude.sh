@@ -59,6 +59,32 @@ if [[ "$SRC_COUNT" != "$DEST_COUNT" ]]; then
   echo "warning: destination now reports $DEST_COUNT skills (expected $SRC_COUNT)" >&2
 fi
 
+# --- hooks ------------------------------------------------------------------
+# The skill router is not part of the plugin, but it is version-controlled here
+# so it doesn't survive only as one untracked file in ~/.claude/hooks. The repo
+# copy is the source of truth: edit hooks/, not the installed copy.
+#
+# If the installed copy has diverged, we refuse rather than overwrite — losing
+# hand-tuned regexes silently would be worse than an extra manual step.
+HOOK_SRC="$REPO/hooks/swe-skill-router.py"
+HOOK_DIR="$HOME/.claude/hooks"
+HOOK_DEST="$HOOK_DIR/swe-skill-router.py"
+
+if [[ -f "$HOOK_SRC" ]]; then
+  if [[ -f "$HOOK_DEST" ]] && ! cmp -s "$HOOK_SRC" "$HOOK_DEST"; then
+    echo "warning: $HOOK_DEST differs from the repo copy — NOT overwriting." >&2
+    echo "         if the installed version has tuning you want to keep:" >&2
+    echo "           cp \"$HOOK_DEST\" \"$HOOK_SRC\"  # then commit it" >&2
+    echo "         otherwise, to take the repo version:" >&2
+    echo "           cp \"$HOOK_SRC\" \"$HOOK_DEST\"" >&2
+  else
+    mkdir -p "$HOOK_DIR"
+    cp "$HOOK_SRC" "$HOOK_DEST"
+    chmod +x "$HOOK_DEST"
+    echo "synced skill router -> $HOOK_DEST"
+  fi
+fi
+
 # Honesty check: if the repo is dirty or unpushed, the skills now loaded are not
 # what anyone else would get. That matters when logging trigger misfires.
 cd "$REPO"
