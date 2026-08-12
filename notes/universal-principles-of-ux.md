@@ -503,7 +503,17 @@ So there are **two regimes, not a countdown**: a brief high-hazard *screening* p
 
 **Verdict:** `cluster` into **Cluster C**, and log the skill candidate above.
 
-**Open question — a third contradiction, and unverified.** There is a research line holding that **prototypical** designs, ones resembling what people expect for their category, are judged more appealing in exactly these first milliseconds. If it holds, it collides head-on with principle 9 (the unusual is remembered) and principle 12 (differentiate to be noticed): **typicality may win the screening phase while distinctiveness wins the memory.** The deciding condition would be which risk dominates — abandonment or forgettability. I have not verified the attributions here, so this is flagged rather than logged; check before anything derived from it ships.
+**Third contradiction — checked, and it holds with one correction.** *(Verified after the section closed; was logged here as unverified.)*
+
+**Tuch, Presslaber, Stöcklin, Opwis & Bargas-Avila**, *The role of visual complexity and prototypicality regarding first impression of websites* (*International Journal of Human-Computer Studies* 70(11), 2012). 119 real website screenshots, visual complexity crossed with prototypicality, shown at 50/500/1000ms in study 1 and at **17/33/50ms** in study 2. Both factors move aesthetic judgment **within 17 milliseconds**.
+
+The mechanism is **processing fluency** — **Reber, Schwarz & Winkielman**, *Processing Fluency and Aesthetic Pleasure* (*Personality and Social Psychology Review* 8(4), 2004). Ease of processing is itself experienced as pleasure, and prototypicality is one of the properties they trace to it, alongside symmetry, figural goodness, and repetition.
+
+**So the contradiction is real: typicality is liked, distinctiveness is remembered**, and it collides with principle 9 and principle 12 exactly as suspected. MAYA is the practitioner's compromise between the two findings, which is a point in Loewy's favour.
+
+**The correction, and it is not the obvious guess.** At the shortest exposures **visual complexity dominates, not prototypicality** — PT's effect is measurably weaker than VC's at 17–50ms, and *"with increasing presentation time the effect of PT becomes as influential as the VC effect."* My hypothesis had typicality winning the screening phase outright. It doesn't: **simplicity wins the first blink; typicality catches up over slightly longer encounters.** Folded that ordering into [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) rather than the version originally guessed.
+
+**A connection worth recording separately.** Processing fluency puts principle 8 (the aesthetic-usability effect) adjacent to Cluster B's cognitive-load spine rather than in its own aesthetic category: **easy to process → feels pleasant → gets misread as usable.** Same constraint, different observable. Added to [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md)'s aesthetic-usability callout. Whether Sweller's load and Reber's fluency are the *same* construct is beyond what these sources establish — stated as adjacency, not identity.
 
 ---
 
@@ -599,7 +609,7 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 **Built after the section closed:** [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) (from principle 15) — READMEs, quickstarts, first-error legibility, time-to-first-success as an instrumented metric. The gap was real and the repository had stated it itself: `new-team-onboarding` explicitly declined the designing side under *When NOT to use*, and that bullet now routes here. Two supporting finds at build time — `configuration` already argued that a config with no required values is the friendliest possible first run, the discipline operating unnamed; and Newton's 1990 tapping study (tappers predicted 50% recognition, listeners managed 3 of 120) turned out to be the cleanest available statement of why an author cannot review their own README.
 
-**Also outstanding:** Conway's Law appears nowhere in the repository (noted at principle 17), and the four-layer durability stratification proposed at principle 16 is unverified against the HCI literature.
+**Also outstanding:** the four-layer durability stratification proposed at principle 16 remains unverified against the HCI literature. *(Conway's Law is now folded — see [`notes/conways-law.md`](./conways-law.md). The prototypicality question at principle 15 is resolved above.)*
 
 ---
 

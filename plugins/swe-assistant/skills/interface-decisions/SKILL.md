@@ -96,6 +96,8 @@ The constraint is that **a metaphor only works if the referent is actually share
 
 The **aesthetic-usability effect**: people judge attractive things as more usable, somewhat independently of whether they are. This has a direct methodological consequence that matters more than the design advice:
 
+**Why it happens is worth knowing, because it connects to load.** The leading account is **processing fluency** (Reber, Schwarz & Winkielman, 2004): the more easily something is processed, the more pleasant it is experienced as being — and properties like simplicity, symmetry, and conforming to type all raise fluency. That puts the aesthetic-usability effect adjacent to cognitive load rather than in a separate aesthetic category: **a design that is easy to process feels good, and feeling good gets misread as being usable.** Which is precisely why the effect contaminates testing — see [`rationing-attention`](../rationing-attention/SKILL.md) for the load side of the same constraint.
+
 **It contaminates your usability testing.** A polished prototype will receive kinder feedback than a rough one showing the same flow, and the difference is not information about the flow. Two working rules:
 
 - **Test structure with low-fidelity artifacts.** Sketches and wireframes get you honest reactions to the flow, because there is no polish to be charmed by.

@@ -99,7 +99,11 @@ A great many design arguments dissolve once someone checks whether the floor hol
 
 **What decides it:** **is attention contested, and are your users captive?** Consumer products competing for a click need to be noticed. Internal tools, operational software, and anything people use because they must gain little from standing out and pay the unfamiliarity cost in full.
 
-> This one has an unresolved wrinkle, stated honestly: there is a research line holding that *prototypical* designs are judged more appealing in the first fractions of a second, which would mean familiarity wins the initial screen while distinctiveness wins the memory. The maintainer's notes flag the attributions as unverified. Present it as an open question, not a finding.
+**Both sides have measurement behind them, and they genuinely point opposite ways.** Tuch et al. (*International Journal of Human-Computer Studies*, 2012) showed 119 real website screenshots at exposures as short as **17 milliseconds** and found that **prototypicality** — how much a page looks like what people expect for its category — already moves aesthetic judgment at that speed. The mechanism is **processing fluency**: things that are easier to process are experienced as more pleasant, and typicality is one of the properties that makes processing easy (Reber, Schwarz & Winkielman, 2004). Meanwhile the von Restorff effect is equally solid on the other side: what is *distinct* is what gets remembered.
+
+So the honest statement is that **typicality is liked and distinctiveness is remembered**, and no design gets both for free. MAYA is the practitioner's compromise between exactly these two findings, which is a point in Loewy's favour.
+
+> **One refinement worth carrying, because it is not the obvious guess.** At the very shortest exposures the dominant factor is not typicality but **visual complexity** — prototypicality is present at 17ms but weaker, and only becomes as influential as complexity when people are given longer to look. So if the risk is an instant bounce, **simplify first and conform second**. Typicality earns its keep over slightly longer encounters, not in the first blink.
 
 ### Warm versus precise wording
 
