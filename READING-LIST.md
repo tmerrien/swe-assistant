@@ -479,8 +479,17 @@ A Taxonomy for Learning, Teaching, and Assessing (Bloom revision) · Test-Enhanc
 - **URL:** http://boringtechnology.club/
 - **Source:** *The Missing Readme*, Ch. 3 — primary citation in [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) (not Level Up; cited within the chapter's main content)
 - **Relates to:** [`choose-boring-technology`](./plugins/swe-assistant/skills/choose-boring-technology/SKILL.md), [`change-discipline`](./plugins/swe-assistant/skills/change-discipline/SKILL.md)
-- **Status:** To read
+- **Status:** Folded
 - **Why this matters here:** Foundational essay/talk on technology adoption discipline in engineering teams. Source of the "innovation tokens" vocabulary used in `choose-boring-technology`. Short read; the essay form crystallizes the argument in a way the skill body doesn't fully capture. The talk version (linked from the site) covers additional ground.
+- **Takeaways:**
+  1. **The token budget is about three, and it is not annual.** McKinley says early in a company's life you get roughly three — full stop. This skill had it as "2–3 per year", which quietly licenses a steady drip of adoptions and inverts the point. **Corrected.** He also notes the company's mission consumes tokens before engineering sees any.
+  2. **"The right tool for the job" is the trap, not the goal.** Modelled as problems-to-technologies edges each carrying perpetual maintenance cost, the question is which term dominates — and operating cost does. So the conclusion is that no tool you pick may be optimal for any individual job while the set is still the right choice overall. Per-job optimality is the wrong objective function.
+  3. **Consolidation has a positive payoff, not just an avoided cost.** Etsy built activity feeds on Memcached rather than adding Redis, ate real extra work for ephemerality, and later absorbed roughly 20x growth unnoticed because the shared stack was being scaled anyway by people unaware the feature existed. Bespoke dependencies do not get that, and the bill lands after the team has dispersed.
+  4. **The two adoption questions are better than the imported 10x test.** *"How would we solve this without adding anything new?"* immediately exposes the case where the problem is really the desire to use the technology. Then **write down every awkward thing you would have to do** — the list resolves in either direction and produces an argument rather than an urge.
+  5. **Every tool feels bad early because you are discovering its problems.** Switching then means never reaching mastery, and produces stacks with nine alerting systems. The provocative form holds: the tool worth keeping is often the one you complain about most, because complaint tracks knowledge. Useful test — can they list its failure modes? Then it is mastery, not a reason to switch.
+  6. **Adding technology must be a conversation.** Global effects, so not an individual's call and not one team's. Free rein over infrastructure reads as freedom and functions as its opposite.
+  7. **Known unknowns and unknown unknowns both exist everywhere**; new technology simply has more of each. And "boring" means *known*, not dull — he regrets the word. The boring option may be bad; you can just list how.
+  8. **My Hickey fold from the previous day understated the weighting.** I had structural simplicity trading evenly against operational familiarity. McKinley's claim is that operating costs dominate, so a simpler-but-unfamiliar construct has to beat the *full* cost of operationalising a new thing. **Corrected in place.** The two authors turn out to agree on the deeper point — your emotional response to a tool is not evidence about its quality.
 
 ### Google's Code Review Developer Guide
 

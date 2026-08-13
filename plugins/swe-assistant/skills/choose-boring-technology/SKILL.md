@@ -7,7 +7,7 @@ description: Use when the user is evaluating, proposing, or being pulled toward 
 
 ## Source
 
-*The Missing Readme*, Chapter 3, "Working with Existing Code" (Section: Avoiding Pitfalls). The framework comes from **Dan McKinley's *Choose Boring Technology***: http://boringtechnology.club/ (originally a talk and essay, 2015). See also the related [`change-discipline`](../change-discipline/SKILL.md) for the broader pitfalls. The construct-versus-artifact framing and the easy/simple distinction are from **Rich Hickey's *Simple Made Easy*** (Strange Loop, 2011).
+*The Missing Readme*, Chapter 3, "Working with Existing Code" (Section: Avoiding Pitfalls). The framework comes from **Dan McKinley's *Choose Boring Technology***: http://boringtechnology.club/ (originally a talk and essay, 2015), **read in full and folded** — the innovation-token budget, the bipartite cost model, the right-tool-for-the-job refutation, the shared-platform argument, the two adoption questions, and the mastery curve are all his. See also the related [`change-discipline`](../change-discipline/SKILL.md) for the broader pitfalls. The construct-versus-artifact framing and the easy/simple distinction are from **Rich Hickey's *Simple Made Easy*** (Strange Loop, 2011).
 
 ## Pillars this skill strengthens
 
@@ -24,15 +24,38 @@ But the most expensive engineering mistakes are made by teams that adopt new tec
 
 **Boring isn't bad. Boring is well-understood.**
 
+McKinley regrets the word — he does not mean dull, he means *known*. The boring option may well be bad; the point is that **you can list the ways it will let you down.**
+
 - Boring technology has known failure modes. When it breaks, the failure looks like things that have broken before, and you (or the people you can ask) know how to fix them.
 - New technology has unknown failure modes. When it breaks, you and your team are inventing the recovery — usually under pressure, usually at the worst possible time.
+- **Both categories exist in everything**; the difference is quantity. Mature software has a bug tracker full of known problems nobody will fix, *and* unknown ones. New software has more of both — more known unknowns you could at least test for, and many more unknown unknowns you cannot, because you do not know they are a category of thing that happens.
 - The "boring" tech in your stack is the result of survival. It's still there because it works well enough that nobody had a reason to replace it. That history is information.
 
 The trap: judging new vs. boring on **feature comparisons** rather than on **failure-mode and ecosystem maturity**. Features are visible in marketing; failure modes are invisible until they happen to you.
 
 **A second trap, and the harder one: judging a technology by what it is like to *write*.** Hickey's framing (*Simple Made Easy*, 2011) is that we assess constructs by the experience of using the construct — how fast it gets us going, how pleasant the API feels, how little we have to learn — when **the thing that actually ships is the artifact**. Does the software do what it should? Can it be changed? Can it be debugged at 3am by someone who did not write it? **Assess constructs by their artifacts, not by their authoring experience.**
 
-This sharpens what *boring* is doing here. Boring technology is **easy** in Hickey's sense — near at hand, familiar, already installed — and that is a real operational virtue, because known failure modes are what you want under pressure. But easy is not **simple** (one braid, an objective property), and a familiar tool can be deeply entangled. **What decides it:** if the risk you are managing is *operational* — unknown failure modes, nobody to ask at 3am — favour boring. If the risk is *structural* — this choice will braid concerns together for years — favour the simpler construct even when it is less familiar, and spend an innovation token deliberately on the learning. See [`managing-complexity`](../managing-complexity/SKILL.md).
+This sharpens what *boring* is doing here. Boring technology is **easy** in Hickey's sense — near at hand, familiar, already installed — and that is a real operational virtue, because known failure modes are what you want under pressure. But easy is not **simple** (one braid, an objective property), and a familiar tool can be deeply entangled. **What decides it — with the scales weighted, which an earlier version of this skill understated.** If the risk you are managing is *operational* — unknown failure modes, nobody to ask at 3am — favour boring. If the risk is *structural* — this choice will braid concerns together for years — a simpler-but-less-familiar construct can be the right call. But McKinley's position is that operating costs dominate in practice, so the structural benefit has to beat the **full** cost of operationalising a new thing, not merely exist. Being genuinely simpler is necessary and not sufficient. See [`managing-complexity`](../managing-complexity/SKILL.md).
+
+**Hickey and McKinley are not actually opposed here, and it is worth seeing why.** Hickey warns that comfort with a construct hides its entanglement; McKinley warns that frustration with a tool means you *know* it. Both are making the same underlying point from opposite ends: **your emotional response to a technology is not evidence about its quality.** Comfort conceals braids; friction signals familiarity earned.
+
+---
+
+## Callout — "The right tool for the job" is the trap, not the goal
+
+The single most useful line in McKinley's talk, and the direct answer to *"you can't stop me using the best tool for this job."*
+
+Model it as a bipartite graph: business problems on one side, technologies on the other. Every edge you draw is a technology choice, and every choice carries an **ongoing maintenance cost** as well as a benefit. The total cost of your engineering operation is the sum of those maintenance costs minus the velocity you get back.
+
+Which strategy wins depends entirely on **which term dominates in reality** — and McKinley's argument, from having run this at scale, is that **the operating costs dominate.** Getting started with a technology is easy; running it at a professional level is not. So the right shape is a *small* set of technologies spanning the whole problem domain.
+
+The conclusion is genuinely counterintuitive and worth stating plainly to anyone arguing the point:
+
+> **None of the tools you pick may be the "right tool" for any individual job — and they can still be the right choice for the total set of jobs.**
+
+Per-job optimality is the wrong objective function. Optimising each edge locally produces a stack nobody can operate.
+
+**There is also a positive benefit, not just an avoided cost.** McKinley's example: Etsy built activity feeds on Memcached rather than adding Redis, which cost real extra work up front because Memcached is ephemeral and they had to handle data simply not being there. Usage later grew roughly twentyfold and nobody noticed — because the shared stack was being scaled horizontally anyway, by people who had no idea that feature existed. **A shared platform means other people's capacity work covers you for free.** A bespoke dependency means it doesn't, and the bill arrives when your team has moved on — and people are markedly less willing to clean up someone else's mess than their own.
 
 ---
 
@@ -42,13 +65,29 @@ The core concept from McKinley's essay. Worth installing as a vocabulary.
 
 **Every team has a small, finite budget of innovation tokens.** An "innovation token" is what you spend when you introduce a non-boring choice into your stack — a new language, a new framework, a new database, a new build system, a novel architecture pattern.
 
-- A team has maybe **2–3 innovation tokens per year** in a typical environment. More if the team is large and senior; fewer if it's small or early-career.
+- **The budget is roughly three, and it is not an annual allowance.** McKinley's claim is that early in a company's life you get *about three* — not three per year, three. This matters: an annual refill quietly licenses a steady drip of adoptions, which is the behaviour the concept exists to prevent.
 - Tokens are **non-recoverable** for the lifetime of the choice — once you adopt the new thing, it's in your stack, with its full ongoing cost, for years.
 - **Tokens spent on tech adoption are tokens not spent on innovative features.** Every "let's use this new database" decision is, in effect, a decision *not* to ship something else novel during that period.
 
 **The implication:** spend tokens on the choices that genuinely differentiate your product or unlock something the boring options can't. Don't spend them on "this language is more elegant" or "I prefer this framework's syntax." Those don't earn tokens.
 
-The honest test: *"If I could only make one non-boring choice this year, would this be it?"* If no, the boring option wins.
+**And spend them on what the company is actually for.** McKinley's framing is that the mission consumes tokens before engineering gets any — a company trying to reshape an industry has already committed one or two to that. What remains for infrastructure novelty is the remainder, not the whole budget.
+
+The honest test: *"If we only get about three of these, is this one of them?"* If no, the boring option wins.
+
+---
+
+## Callout — Every tool seems bad at first, and that is information
+
+A pattern worth naming because it drives a specific, common, expensive mistake.
+
+When you first put a technology into production, your experience of it gets worse, because you are steadily discovering its problems. The naive reading of that experience is *this tool is bad, we should try a different one for the next thing.* Act on that repeatedly and you wake up running nine alerting systems, none of which anyone understands well.
+
+The new tool is not better. **You are simply not yet aware of the ways it will fail you.** And by switching at the bottom of the curve you never reach the part past it — the state where the problems are still there but feel manageable, which is what mastery actually is.
+
+McKinley's conclusion is deliberately provocative and holds up: **the tool you should probably be using is the one you complain about most, because complaint is a symptom of knowledge.** A team's loudest frustration is usually attached to the technology they understand best.
+
+**How to use this in a conversation:** when someone proposes replacing a tool they find frustrating, ask whether they can list its main failure modes. If they can, that is mastery talking and the frustration is the price of it. If they can't, the frustration is unfamiliarity, and the replacement will reproduce it in a new shape.
 
 ---
 
@@ -94,9 +133,20 @@ What specifically are they trying to do that the current stack can't?
 
 If they can't state the need precisely, the urge isn't ready to become a proposal.
 
-### 2. Identify the boring alternative
+### 2. Ask McKinley's question, then write the list
 
-Before evaluating the new thing, ask: **what's the most boring possible solution to this need within the existing stack?** Often it's a small extension, a known pattern, or a library that's already in use elsewhere in the codebase. If the boring solution gets you 80% of the benefit, the new tech probably isn't earning its token.
+**"How would we solve this problem without adding anything new?"**
+
+This is the source's own gate and it is sharper than it looks. It immediately exposes the case where the actual problem is *"we would like to use this technology"* wearing a business problem's clothes — and when that surfaces, the conversation can simply stop.
+
+Assuming a real problem, the answer is rarely that it can't be done. With a functioning system of any complexity you can usually get there on the existing stack, possibly via some awkward manoeuvres. So:
+
+**Write down every awkward thing you would have to do.** Actually write the list. It resolves in both directions, which is what makes it worth doing:
+
+- Often the list turns out to be shorter and duller than it felt, and the boring path wins.
+- Sometimes the list is genuinely grim, and now you have a written case for adoption rather than an urge.
+
+If the boring solution gets most of the benefit, the new tech isn't earning its token.
 
 ### 3. Apply the 10× test (Horowitz, via [`change-discipline`](../change-discipline/SKILL.md))
 
@@ -115,9 +165,17 @@ If it survives the test, treat the adoption as a real engineering project:
 - Write a [`design-doc`](../design-doc/SKILL.md). Name the underlying need, the boring alternative, the proposed adoption, the trade-offs, the success criteria.
 - Pilot it on **one bounded part** of the system first. Don't migrate the whole stack on the first try.
 - Define rollback criteria upfront — what would make you decide to back out, and at what point.
-- Budget the innovation token explicitly. That's now spent for this year; spend the others wisely.
+- **Prove it in production at low risk first**, then grow confidence. The failure shape is deciding to adopt and then rewriting the application on it in one move.
+- **If the new thing is redundant with something you already run, commit to removing the old one.** The goal is replacement, not two overlapping technologies maintained forever — which is how a stack silently accumulates. Commit to the reverse too: if it doesn't work out, rewrite back on the old tools.
+- Budget the innovation token explicitly against a total of about three, not an annual allowance.
 
 ## How to run
+
+### Step 0 — Establish that this is a conversation
+
+McKinley's practical prescription, and he notes it is beyond many engineering organisations despite sounding trivial: **adding technology has to be a conversation with other people.** Technology choices have global effects on a company, so they are not an individual engineer's call and not a single team's call either.
+
+If the user is describing a decision they are making alone, or a team making one unilaterally, name that first. Handing individuals free rein over infrastructure reads as freedom and functions as the opposite — the person choosing is binding everyone, including their future colleagues, to the operational work that follows.
 
 ### Step 1 — Diagnose
 
@@ -166,6 +224,7 @@ If they're moving forward, route to [`design-doc`](../design-doc/SKILL.md) for t
 
 ## Further reading
 
-Surfaced as the primary reference but not yet folded in — see [`READING-LIST.md`](../../../../READING-LIST.md).
+See [`READING-LIST.md`](../../../../READING-LIST.md) for tracked entries.
 
-- *Choose Boring Technology* — Dan McKinley (http://boringtechnology.club/). The full essay and the related talks. The innovation-tokens concept and much of the surrounding argument originate here; the essay is short, punchy, and worth reading in full.
+- *Choose Boring Technology* — Dan McKinley (http://boringtechnology.club/). **Folded.** Short, and worth reading in full even though this skill now carries its substance — the Etsy anecdotes do argumentative work that a summary cannot.
+- *Simple Made Easy* — Rich Hickey (2011). **Folded.** Source of the construct-versus-artifact framing above.
