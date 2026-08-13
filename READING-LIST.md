@@ -138,6 +138,10 @@ A Taxonomy for Learning, Teaching, and Assessing (Bloom revision) · Test-Enhanc
 - **Status:** To read
 - **Why this matters here:** The definitional anchor for `managing-complexity`. Ousterhout defines complexity as *anything related to the structure of a system that makes it hard to understand and modify* — consequence-based rather than metric-based — and decomposes its symptoms into **dependency** and **obscurity**. Also the source of "deep modules" (simple interface, substantial implementation) and a sharp argument that comments are part of the design rather than an afterthought. Short, opinionated, and directly contradicts *Clean Code* in places, which makes reading both worthwhile. **Priority read** — a skill in this repository currently rests on a book that has not been read end to end.
 
+- **Two open decisions this read settles** *(logged 12 Aug 2026, after folding Hickey's* Simple Made Easy*)*:
+  1. **Is the Ousterhout/Hickey split a real disagreement?** [`managing-complexity`](./plugins/swe-assistant/skills/managing-complexity/SKILL.md) currently carries a Design Principle 3.6 callout treating consequence-based complexity (*hard to understand and modify*) and structural complexity (*one braid*) as genuinely opposed, with a deciding condition. Ousterhout may simply accept the structural account as the *cause* of his consequences — in which case that callout manufactures a conflict, which is the failure mode 3.6 itself warns about. Settle it here.
+  2. **Information as data.** Hickey argues that hiding information behind a micro-language — a class with information-specific methods — thwarts generic composition and ties logic to representation. That collides with `managing-complexity` Step 7's encapsulation material and was deliberately not folded pending this read.
+
 ### High Output Management
 
 - **Author:** Andrew S. Grove (Random House, 1983; reissued 1995)
