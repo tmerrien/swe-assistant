@@ -653,4 +653,30 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 19 — Allow for differences in digital literacy
+
+**What it says.** Digital literacy is the skill and knowledge needed to evaluate, use, and create digital information, content, and tools. Where users vary in it, the interface has to work regardless — **design for the lowest digital literacy first** — and minimise fear and confusion. Three moves: language and interactions that are understood and context-appropriate; letting people go at their own pace; deliberate effort on help and instruction throughout. Then two more: **memory aids showing relationships between categories** (colour-coding), and **flexible learning pathways** that offer an entry level and ambiently educate users toward the more complex parts **in a scaffolded way**. And if the people entering data have lower digital literacy, the system itself should be designed for quality control.
+
+**The word *scaffolded* is not a coincidence, and this is the entry's main finding.** [`THEORETICAL-FOUNDATIONS.md`](../docs/THEORETICAL-FOUNDATIONS.md) Section 4 is built on Wood, Bruner and Ross (1976) and Vygotsky's ZPD — it is the mechanism this entire project's *method* rests on. Pereyra reaches the same theory from interface design, independently.
+
+**This is the second such convergence.** At principle 11 the notes recorded that Sweller's cognitive load theory grounds both Cluster B and this repository's own pedagogy, in a domain with no interfaces in it. Now scaffolding does the same. **Two independent convergences on the same educational-theory base is materially better evidence that the methodology generalises than any argument for it would be** — recorded in `THEORETICAL-FOUNDATIONS.md` Section 4 accordingly.
+
+**And it yields something the source doesn't say. Fading is constitutive of scaffolding.** The foundations document already states it: *"support that is gradually withdrawn as the learner internalises the task"*, and *"a skill the learner remains permanently dependent on is, in scaffolding terms, a failed scaffold."* Applied to interfaces: **an onboarding tour that cannot be dismissed, a wizard with no expert path, help text that never goes away — these are failed scaffolds.** Pereyra says *scaffolded* and stops; the fading half is where the actionable content is.
+
+**Which exposes the tension the principle doesn't address.** *"Design for the lowest digital literacy first"* reads as costless. It isn't — **Kalyuga's expertise-reversal effect** (already cited in `METHODOLOGY.md`, `THEORETICAL-FOUNDATIONS.md`, and `LIMITATIONS.md`) holds that guidance which helps novices actively *degrades* expert performance, because redundant support is extraneous load for someone who already has the schema. So designing uniformly for the least confident user taxes everyone else, measurably.
+
+**The resolution is not lowest-common-denominator design; it is dismissible scaffolding.** Set the floor for the least confident user, and make the support sheddable. That is the same resolution the repository already ships in [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md), whose Mode A / Mode B split exists for exactly this reason and cites Kalyuga for it. **A skill already solves this problem; no interface guidance in the repository does.**
+
+**Collides with — and this is the clean fold.** [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) is **entirely adversarial**: never trust input, the trust boundary, OWASP, injection, and every pitfall in its table is a security failure. It has no model of a user who is *trying to get it right and failing*. Principle 19's data-quality point supplies exactly that: same checks, opposite response — reject-and-reveal-nothing versus explain-and-preserve — and the strongest move is one layer up, making the invalid state **unenterable** rather than validating after the fact. Folded on logging.
+
+**One more link worth keeping: fear is a deterrent, not just a risk.** For a user who is not confident with software, an action that might be irreversible does not merely carry risk — it stops them acting at all. That reframes the reversibility material in [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) and [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md): **undo is not only safety, it is permission to explore**, and for this population it is what makes the product learnable at all.
+
+**A correction to the principle's own advice.** It recommends colour-coding as a memory aid for category relationships without qualification. Colour as the *sole* carrier of a relationship fails WCAG 1.4.1 (*Use of Color*) and is invisible to a meaningful share of users. Colour plus a second channel — shape, label, position, icon — is the correct form. Noting it because the principle is in the *Empathize* section, which makes the omission slightly ironic.
+
+**Verdict:** `fold`, done on logging — [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) gains the supportive-validation callout, and `THEORETICAL-FOUNDATIONS.md` Section 4 records the convergence and the fading consequence. **Held for the section boundary:** the mixed-expertise interface material (design for the floor, make the scaffolding sheddable) is a strong cluster candidate and likely to attract company from later *Empathize* principles about user variation.
+
+**Open question.** Is *digital literacy* the right axis, or a proxy for several — familiarity with this product, familiarity with software generally, reading level, confidence, and whether the person chose to use the tool or was assigned it? They pull apart: a confident user of other software meeting an unfamiliar domain looks like low digital literacy and is not. Worth resolving before anything is built on the term, because the design responses differ.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

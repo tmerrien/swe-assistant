@@ -7,7 +7,7 @@ description: Use when the user is writing code that handles input from outside t
 
 ## Source
 
-*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Defensive Programming, subsection on validating inputs). The OWASP material is anchored by the **OWASP Top 10**: https://owasp.org/www-project-top-ten/ — *the* essential reference for early-career engineers on what security failures actually happen in production.
+*The Missing Readme*, Chapter 4, "Writing Operable Code" (Section: Defensive Programming, subsection on validating inputs). The supportive-validation callout below is from Pereyra, *Universal Principles of UX*, principle 19 (*Allow for differences in digital literacy*), which supplies the non-adversarial reason to do the same work. The OWASP material is anchored by the **OWASP Top 10**: https://owasp.org/www-project-top-ten/ — *the* essential reference for early-career engineers on what security failures actually happen in production.
 
 ## Pillars this skill strengthens
 
@@ -106,6 +106,30 @@ For internal functions called from a validated boundary, lightweight preconditio
 ### Step 6 — For durability-critical data: checksums
 
 If you need strong guarantees that data hasn't been corrupted in transit or storage, use checksums (CRC32, SHA-256, etc.). The application or library validates the checksum on read; corruption fails the read, doesn't silently produce wrong results.
+
+---
+
+## Callout — The other reason to validate: the user is trying and failing
+
+Everything above assumes input may be **hostile**. Much of it isn't — it is a person who wants to get this right and can't, and the two cases call for the same checks and **opposite responses**.
+
+| | Input may be hostile | User is trying and failing |
+|---|---|---|
+| **Goal** | Protect the system | Get them to a valid entry |
+| **On failure** | Reject, log, reveal nothing | Explain, preserve their work, show the fix |
+| **Best outcome** | The attempt is blocked | **The error was never makeable** |
+
+**The strongest move is at the affordance, not the validator.** This skill already says *be as constrained as possible* about validation rules; apply the same instinct one layer up, to what the interface will physically accept. A date picker cannot produce a malformed date. A set of radio buttons cannot produce a value outside the enum. An input mask cannot produce a phone number with letters in it. **Make the invalid state unenterable** and the validator becomes a backstop rather than the user's main obstacle.
+
+Where the error is still possible:
+
+- **Check as they go, not on submit.** A field that reports its problem when the user leaves it costs one correction. A form that reports eight problems after submission costs a person their patience.
+- **Never discard what they typed.** A form that clears on error is punishing someone for not already knowing the rule.
+- **State the rule, not the violation.** *"Dates need to be DD/MM/YYYY"* beats *"invalid date format."* See [`interface-copy`](../interface-copy/SKILL.md) — for a user who isn't confident with software, the error message **is** the interface.
+
+**This matters most where data quality matters most.** If the people entering the data are the least comfortable with the software — field staff, care workers, anyone using a tool they did not choose — then data quality is a property of the *input design*, not of the validator or of the people. Constrain the affordance and the quality problem largely disappears; leave a free-text box and no amount of downstream validation recovers it.
+
+**Both callouts are the same discipline.** Validate at the boundary, be as constrained as possible — then decide, deliberately, whether the failure path is a wall or a hand.
 
 ---
 

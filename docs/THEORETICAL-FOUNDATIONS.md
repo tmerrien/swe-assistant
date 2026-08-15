@@ -47,6 +47,10 @@ The project's first design principle — *prompt the thinking, do not replace it
 
 This design choice distinguishes the methodology from alternatives that aim for permanent AI assistance with the underlying work.
 
+**A note on independent convergence.** Scaffolding is not only the mechanism this project uses; it is also the mechanism the interface-design literature names for the same problem. Pereyra's *Universal Principles of UX* (principle 19) prescribes *"flexible learning pathways that offer an entry level into usage"* and can *"ambiently educate users on more complex parts of the interface in a scaffolded way"* — arriving at Wood, Bruner, and Ross from an entirely different direction. This is the **second** such convergence: Sweller's cognitive load theory (Section 6) independently grounds both this project's skill-body structure and a cluster of interface principles. A theoretical base that is load-bearing in two unrelated domains is better evidence that the methodology generalises than an argument for it would be.
+
+The convergence also carries a consequence worth stating, because the interface literature usually omits it. **Fading is constitutive of scaffolding, not optional.** An onboarding tour that cannot be dismissed, a wizard with no expert path, a help panel that never goes away — these are the interface equivalent of a skill the learner never stops needing, and by the definition above they are **failed scaffolds**. Kalyuga's expertise-reversal effect (below) supplies the cost: support built for the least confident user actively degrades performance for everyone past that point, unless it can be shed.
+
 ### 4.1 Marking critical features — the warrant for proactive prompting
 
 Wood, Bruner, and Ross decompose scaffolding into six tutoring functions. One of them, **marking critical features**, is the tutor's act of drawing the learner's attention to aspects of a task that are relevant but that the learner has not noticed. It is not a supplement to scaffolding; it is constitutive of it.
