@@ -707,4 +707,32 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 21 — Children are not small adults
+
+**What it says.** Where adults tend to stick to the main path when looking for information, children try many different options — the author's own observation from her practice rather than a cited study, and worth marking as that source class. Defining the right age group matters much more than with adults, because developmental stages differ sharply. And you can make an app *slightly harder* to navigate in order to work with children's curiosity.
+
+**The last clause is the interesting one, because it contradicts most of what came before it.** Principle 3 makes usability the floor, 13 makes speed the goal, 19 says minimise fear and confusion, 20 says remove friction. Principle 21 says add some, deliberately, for a population the book has otherwise been arguing to protect.
+
+**It is not a contradiction once you separate the reasons for friction, and there turn out to be three:**
+
+| Reason | Example | The test |
+|---|---|---|
+| **Consequence** (principle 14) | Type the cluster name to confirm | Is the action reversible? |
+| **Engagement** (principle 21) | Exploration that rewards poking around | **Who benefits?** |
+| **Accumulation** | Nobody decided; it is just there | Why is this here at all? |
+
+[`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) covered only the first — its deciding condition was *reversibility and blast radius*, full stop. **That was a gap in something written three days ago**, and this principle found it. Folded on logging.
+
+**The engagement case needs its own test because it is shaped exactly like a dark pattern.** Friction that makes the *user's* experience richer — discovery, mastery, a puzzle worth solving — is design. Identical friction that makes the *product's* numbers better is [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md)'s asymmetry test failing. From outside the mechanism is the same; only the beneficiary differs. **And children are the population where "engagement" is least defensible as a justification**, which makes it slightly uncomfortable that this is where the book raises it. To be fair to the author, exploration-for-learning is clearly what she means — but the sentence as written does not carry that limit, and anything derived from it must.
+
+**Age is a worse proxy here than in principle 20, not a better one.** The principle says defining the right age group is *more* critical, which is still demographic reasoning. A six-year-old and a nine-year-old differ more than a forty- and a fifty-year-old, and unevenly — reading ability, motor precision, abstraction, and impulse control do not advance in step. So this strengthens rather than complicates the **capability-axes** reading forming across 18–20: the actionable question is *can they read, can they hit a 44px target, can they hold a two-step instruction*, not *how old are they*. (A reader will reach for Piaget's developmental stages here; worth knowing that the stage model has been substantially revised — children show several competencies earlier and less discretely than it claimed — so it should not be cited as settled.)
+
+**The engineering-relevant part the principle omits entirely: products touching minors carry a regulatory layer.** COPPA in the US and the UK's Age Appropriate Design Code impose hard obligations that engineers implement — consent mechanics, data-collection limits, high-privacy defaults. **Canada has no children-specific equivalent**; PIPEDA applies generally and the OPC has issued guidance. Flagged rather than asserted, per the correction at principle 5: check what actually binds the product before citing anything. Relevant to the maintainer's own work only if the care marketplace ever serves families directly.
+
+**Verdict:** `fold` — the friction-taxonomy gap in `interface-tradeoffs`, done on logging. Otherwise `context`: this repository's audience is mostly not building children's products, and the age-group material is domain-specific rather than transferable.
+
+**Open question.** Does the exploration finding generalise beyond children — is *"tries many options"* versus *"sticks to the main path"* actually a developmental difference, or a **confidence and stakes** difference that happens to correlate with age? Adults explore freely in low-stakes software they did not pay for. If it is stakes rather than age, that is a considerably more useful finding and it belongs on the axes list.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

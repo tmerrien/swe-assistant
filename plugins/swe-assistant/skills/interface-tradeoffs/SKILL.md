@@ -91,6 +91,12 @@ A great many design arguments dissolve once someone checks whether the floor hol
 
 **What decides it:** **reversibility and blast radius** — not how dangerous the action feels. And check first whether the irreversibility can simply be removed: a soft delete with a retention window, a delayed execution with a cancel path, an expand-and-contract migration. **A reversible action needs no gate at all.** See [`operational-tools`](../operational-tools/SKILL.md) and [`metrics`](../metrics/SKILL.md).
 
+**A third purchase, which the reversibility test does not cover: friction bought for *engagement*.** Effort can make a thing more absorbing rather than safer — exploration that rewards poking around, a puzzle that would be worse if solved instantly, a learning tool that is deliberately not frictionless. This is legitimate, and it is also the exact shape of a dark pattern, so it needs its own test rather than the safety one.
+
+**Whose interest does the friction serve?** Friction that makes *the user's* experience richer — discovery, learning, mastery — is a design choice. Identical friction that makes the *product's* numbers better — time on task, session length, steps before they can leave — is [`design-ethics`](../design-ethics/SKILL.md)'s asymmetry test failing. The mechanism is indistinguishable from the outside; only the beneficiary separates them, which is why it has to be asked explicitly rather than assumed.
+
+So there are three reasons to add friction, and they take three different tests: **consequence** (is it reversible?), **engagement** (who benefits?), and — the one worth checking first — **none, it just accumulated**.
+
 ### Familiar versus distinctive
 
 **For familiar:** recognition is faster than comprehension. Conventional patterns are understood before they are read, and every deviation spends some of the user's relearning budget.
