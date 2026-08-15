@@ -89,6 +89,8 @@ McKinley's conclusion is deliberately provocative and holds up: **the tool you s
 
 **How to use this in a conversation:** when someone proposes replacing a tool they find frustrating, ask whether they can list its main failure modes. If they can, that is mastery talking and the frustration is the price of it. If they can't, the frustration is unfamiliarity, and the replacement will reproduce it in a new shape.
 
+**The same curve has a builder's side.** If you are the one shipping the tool rather than adopting it, the dip is a design problem — see [`first-run-experience`](../first-run-experience/SKILL.md) on learnability as intercept, slope, and ceiling. Teams abandoning tools at the bottom of the curve is partly a consequence of products that were never designed to teach while being used.
+
 ---
 
 ## Why new technology costs more than it looks

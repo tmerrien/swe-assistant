@@ -735,4 +735,31 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 22 — Design for learnability
+
+**What it says.** Learnability is how easily someone can interact with a new product and how much effort it takes to learn new tasks in it. It is a form of usability, distinguished by the fact that users learn the interface *while* using it. The author looks to computer games for models. Three things to measure: how quickly people figure it out the first time, how quickly they improve on each repeat visit, and how easy it is once fully learned. For complex or novel products the goal is minimising the effort to become an **experienced** user — so if the interaction is genuinely new, low initial usability is not the alarm; failing to let people **ambiently learn while interacting** is.
+
+**The three measurements are a curve, and that is the whole finding.** First-time success is the **intercept**, improvement per visit is the **slope**, ease once mastered is the **ceiling**. Nearly all usability measurement takes the intercept and calls it usability.
+
+**Which means this principle argues directly against a skill built two days ago.** [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) opened with *"time-to-first-success — the one metric worth having."* It optimises the intercept, and **the intercept can be raised at the ceiling's expense**: wizards, forced linear flows, unskippable hand-holding, and one-obvious-path interfaces all make attempt one easier and attempt one hundred worse. That was a real overstatement and it is corrected on logging.
+
+**The deciding condition is frequency of return, and it is clean.** Not novelty, not complexity — **how often the same person comes back.**
+
+- **Rarely, per person** — a signup, a government form, tax software, an annual report. There is no second visit to amortise learning against, so the intercept *is* the product.
+- **Daily, same people** — a professional tool, an internal service, a care worker's shift app. Optimise the ceiling. **A tool that is instantly obvious and permanently slow is worse than one that takes a week and then flies** — and the people who evaluate it once will report the opposite, which is why professional software is routinely judged badly by reviewers who use it once.
+
+**A third cross-source convergence, and this one is the same curve from the other end.** [`choose-boring-technology`](../plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) now carries McKinley's mastery curve — every tool feels awful early because you are discovering its problems, and switching then means never reaching mastery. That is the **adopter's** view. Principle 22 is the **builder's** view of the identical phenomenon, and it adds an obligation McKinley does not: if you know the dip exists, it is yours to design. Teams abandoning tools at the bottom of the curve is partly a symptom of products that never taught while being used. Both skills now cross-reference the other.
+
+*(Running count of independent convergences in this reading: Sweller at principle 11, scaffolding at 19, the learning curve here. Three separate bodies of work arriving at material this repository already held.)*
+
+**"Ambient learning while interacting" is principle 19's scaffolding again**, and it inherits the same requirement: **fading**. Support that cannot be dismissed caps the very ceiling it was added to raise. 19 and 22 are the same mechanism approached from opposite ends — 19 from *who cannot use this yet*, 22 from *how does anyone become fluent* — and they belong together in the section's cluster.
+
+**On games as the reference.** Worth taking seriously rather than treating as colour: games are the domain that actually solved this, and they solved it by **teaching through play instead of through a manual** — capability introduced when it becomes needed, difficulty tracking growing competence. The engineering translation is **disclosure tied to demonstrated use** rather than a tour on first launch, which nobody reads and which is the failed-scaffold pattern in its most common form.
+
+**Verdict:** `fold`, done on logging — [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) gains the curve, the frequency-of-return condition, and a corrected opening claim; [`choose-boring-technology`](../plugins/swe-assistant/skills/choose-boring-technology/SKILL.md) gains the cross-link to the builder's side of its mastery curve.
+
+**Open question.** Is there a fourth measurement the principle omits — **retention after absence**? Returning to a tool after three months is a distinct case from first use and from daily use, it is extremely common in practice, and a design optimised for the daily user can be brutal for the returning one. Suspected to be a real gap in the three-metric model rather than something the book covers later.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

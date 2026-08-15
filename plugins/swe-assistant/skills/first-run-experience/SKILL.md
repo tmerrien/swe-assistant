@@ -7,7 +7,7 @@ description: Use when the user is building or writing the thing someone else wil
 
 ## Source
 
-Pereyra, *Universal Principles of UX* (Rockport) — principle 15 (*First impressions matter*).
+Pereyra, *Universal Principles of UX* (Rockport) — principles 15 (*First impressions matter*) and 22 (*Design for learnability*), the second of which supplies the caution that the first encounter is one point on a curve.
 
 The abandonment structure comes from **Chao Liu, Ryen W. White, and Susan Dumais**, *Understanding Web Browsing Behaviors through Weibull Analysis of Dwell Time* (SIGIR 2010). Modelling page abandonment as failure in reliability analysis, they find significant **negative aging** — the hazard rate falls as time on page rises — and name the resulting pattern **screen-and-glean**.
 
@@ -71,9 +71,9 @@ For engineering artifacts the window is longer than a web page's — perhaps ten
 - **Most teams instrument the steady state and leave the screening phase dark**, which is backwards given where the losses are.
 - **The people who abandon never file a ticket.** Your feedback comes from survivors, so it systematically under-reports the problem this skill addresses.
 
-## Time-to-first-success — the number to actually measure
+## Time-to-first-success — the number to start with
 
-The one metric worth having. Clock from *decided to try it* to *it did something useful for them*.
+The most useful single measurement, and — see the callout below — **one point on a curve rather than the whole picture.** Clock from *decided to try it* to *it did something useful for them*.
 
 Concretely:
 
@@ -85,6 +85,31 @@ Concretely:
 Two properties make this worth the trouble. It is **measurable** — you can time it with a stopwatch and one volunteer, and instrument it properly later. And it is **falsifiable**: nobody argues with *"it took them fifty minutes and eleven of those were on credentials."*
 
 For the SLI and instrumentation mechanics, see [`metrics`](../metrics/SKILL.md).
+
+## Callout — First-run is the intercept; learnability is the whole curve
+
+Optimising the first encounter can be done **at the expense of everything after it**, and this skill will push you there if you let it. Pereyra's framing (principle 22) is that learnability has three measurements, not one:
+
+| Measurement | What it is |
+|---|---|
+| How fast they succeed the **first** time | the intercept — what this skill has been about |
+| How much better they get **each repeat** | the slope |
+| How easy it is once they have **fully learned it** | the ceiling |
+
+**A design can raise the intercept and lower the ceiling.** Wizards, forced linear flows, hand-holding that cannot be skipped, and one-obvious-path interfaces all make the first attempt easier and the hundredth attempt worse. Conversely, a genuinely novel interaction may have a poor first attempt and a far higher ceiling — the fault is not the low intercept, it is failing to make the thing **learnable while it is being used**.
+
+**What decides which one to optimise: how often the same person comes back.**
+
+- **Used once, or rarely, by any given person** — a signup, a government form, an annual report, tax software. There is no second visit to amortise learning over, so **the intercept is the whole game.** Everything else in this skill applies at full strength.
+- **Used daily by the same people** — a professional tool, an internal service, a care worker's shift app, anything someone will operate a thousand times. **Optimise the ceiling.** A tool that is instantly obvious and permanently slow is worse than one that takes a week and then flies, and the people who evaluate it once will tell you the opposite.
+
+That second case is why professional software is routinely judged badly by reviewers who use it once, and why teams sometimes rebuild a fast tool into a friendly one and make it worse for everyone who actually uses it.
+
+**When the ceiling is what matters, the mechanism is ambient teaching, not a tutorial.** The system should teach while being used — the same scaffolding logic as [`interface-copy`](../interface-copy/SKILL.md)'s empty states, and the same requirement that it **fade**: support that cannot be dismissed is a failed scaffold, and it caps the ceiling it was meant to raise.
+
+The adopter's side of this same curve is in [`choose-boring-technology`](../choose-boring-technology/SKILL.md) — every tool feels bad early because you are discovering its problems, and switching at that point means never reaching mastery. **This is that curve seen from the other end: if you are the one building the thing, the dip is yours to design.**
+
+---
 
 ## The copy-paste test
 
