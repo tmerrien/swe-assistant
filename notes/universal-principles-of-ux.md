@@ -625,4 +625,32 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+## Empathize
+
+*Section two. Per [`READING-LIST.md`](../READING-LIST.md) line 34 this is one of the two sections to read properly rather than skim.*
+
+**The section epigraph is worth logging on its own.** *"We can design meaningful experiences that help people, or we can choose to deliberately mislead and coerce for personal gain."* Notable structurally: the book puts the manipulate-or-help choice at the **head of the section about understanding users**, not in a chapter of its own. That is the third time this thread has surfaced — principle 5, principle 14, and now as a section opener — which retroactively supports [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md) being a standalone skill rather than a callout inside something else.
+
+### 18 — Accessibility first
+
+**What it says.** Accessibility is essential for some and useful for everyone. The more it is designed for, the better the result for all users.
+
+**Maintainer's read: thin. Agreed.** The claim is true, standard, and stated without argument. Logged mostly for the one place it is weaker than it sounds.
+
+**The "helps everyone" claim does not hold uniformly, and relying on it is a tactical mistake.** Some accessibility work genuinely spills over — captions, contrast, plain language, keyboard navigation, clear focus states all serve people who were never the target. Some does not: correct screen-reader semantics help screen-reader users and automated tooling, and essentially nobody else. **If the case for accessibility is built on universal benefit and someone checks a case where the benefit isn't universal, the whole argument goes with it.** That is a real risk when the argument is being made to a sceptical stakeholder.
+
+**The stronger form of the same idea is the persona spectrum** — Microsoft's inclusive design framing: **permanent, temporary, situational.** For touch: one arm; a broken arm; a new parent holding a baby. Their figure is the useful part — roughly **26,000 people a year in the US lose upper extremities, but counting temporary and situational impairment the population is over 20 million.** That converts a vague *"it helps everyone"* into an addressable-population argument, which survives scrutiny in a way the vague version does not.
+
+**And for the work that genuinely doesn't spill over, the honest argument is the plain one:** these are users and they cannot use the thing. Not every case needs a business case, and reaching for one where it doesn't exist is what makes the whole position look like advocacy rather than engineering.
+
+**Collides with — and the boundary holds.** [`READING-LIST.md`](../READING-LIST.md) line 37 records a deliberate decision: *"Accessibility references (WCAG 2.2, WCAG2Mobile, W3C COGA, platform guidance) are deliberately not on this list — they live with the project they serve, not here."* Principle 18 supplies no reason to move that line.
+
+**But it does describe a pattern this repository already follows without having named it.** Accessibility content is present in exactly one substantive place — [`interface-copy`](../plugins/swe-assistant/skills/interface-copy/SKILL.md)'s *plain language does double duty* callout, which takes W3C COGA because it converges with a practice the skill was already teaching. **That is principle 18 in operation:** accessibility enters this skill set where it is load-bearing for something else, and stays out where it would be a standalone concern belonging to the product. Worth stating explicitly so the pattern is deliberate rather than accidental.
+
+**Verdict:** `context`. No skill change. The sharpened argument above is for the maintainer's Whimble work, where the case actually has to be made, rather than for this repository.
+
+**Open question.** None. This one is what it appears to be.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
