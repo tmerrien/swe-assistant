@@ -679,4 +679,32 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 20 — Take extra care of seniors
+
+**What it says.** Beyond removing unnecessary elements and making things bigger: minimise the number of icons across the interface, label things clearly, and remove the friction of account management — passwords especially. Framed as including the older population in the digital movement.
+
+**The icon point is already covered, and it is the better half of the principle.** [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md) already carries the constraint from principle 7: *"a metaphor drawn from your own domain knowledge, **your own generation**, or your own culture may communicate nothing to the person using it,"* with the tooltip test attached. Principle 20 is that constraint instantiated for one population rather than a new claim. **No fold needed** — recording the coverage so it is not re-derived later.
+
+**"Make everything bigger" is the weakest advice here and the most repeated in the wild.** It conflates three separate mechanisms that have different fixes:
+
+- **Contrast sensitivity** declines with age — so larger text at low contrast helps nobody, and this is the failure that actually ships.
+- **Presbyopia** is a near-focus problem — affected by type size, but also by viewing distance and line length.
+- **Motor precision** — governed by target size *and* spacing. Bigger buttons that remain adjacent do little for mis-taps; separation does more.
+
+*Bigger* is a proxy for all three and a poor one. Worth naming because the proxy is what gets implemented.
+
+**The account-management point is the substantive one, and the principle gets its shape wrong.** *"Remove the friction"* is the wrong instruction: weaker password rules, longer sessions, and easier recovery are all attack surface, and this population is specifically targeted — elder financial abuse and family-member account takeover are documented patterns, not hypotheticals. So *make recovery easy* cuts badly in a predictable direction.
+
+**The engineering answer is to change the mechanism, not weaken it.** Passkeys and WebAuthn remove the memorised secret entirely while being phishing-resistant, which is strictly better than relaxing password rules. Device trust and trusted-contact recovery move the friction **from the user's memory to the system**, which is the move the principle is reaching for and does not name. Logged as a [3.6](../docs/METHODOLOGY.md) tension with a real resolution: accessible recovery and resistance to takeover are genuinely opposed *only* while the secret lives in the user's head.
+
+**And it exposes a gap: this repository has no authentication skill.** Grepped — `password` appears in [`logging`](../plugins/swe-assistant/skills/logging/SKILL.md) (do not log them) and in [`input-validation`](../plugins/swe-assistant/skills/input-validation/SKILL.md) only as an OWASP category name. **Nothing owns password policy, session lifetime, account recovery, MFA choice, or passkey adoption** — all decisions engineers make routinely and get wrong in both directions. Skill candidate recorded; not built mid-section per the build rule, and it needs its own research pass rather than one principle's worth of material.
+
+**The pattern across 18, 19 and 20 — this is the *Empathize* spine forming.** All three name a **population** and say *be careful with them*: disabled users, low-digital-literacy users, seniors. The transferable version is not a list of populations but a set of **capability axes** — vision, motor precision, memory load, domain familiarity, confidence, and whether the person chose the tool or was assigned it. Axes are designable against; demographics produce stereotypes and miss people who do not fit them. A 70-year-old retired engineer and a 70-year-old first-time user share an age and nothing relevant. This was logged at principle 19 as an open question about *digital literacy*; three principles in, it is a pattern and probably the cluster.
+
+**Verdict:** `context`, plus a recorded skill candidate (**authentication and account lifecycle**). The icon material is already shipped; the size material is a correction rather than an addition; the account material is real but belongs in a skill that does not exist yet.
+
+**Open question.** Does the book eventually reason in capability axes, or does *Empathize* stay population-shaped for all its principles? If the latter, the cluster's contribution is precisely the translation — and that would be a genuine addition rather than a restatement.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
