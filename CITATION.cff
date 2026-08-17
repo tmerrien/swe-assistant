@@ -45,9 +45,7 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.21982920
     description: >-
-      Concept DOI. Always resolves to the most recent version; cite
-      this one when referring to the work in general.
-  - type: doi
-    value: 10.5281/zenodo.21982921
-    description: >-
-      Versioned DOI for 0.2.1, resolving to that deposit specifically.
+      Concept DOI. Always resolves to the most recently archived
+      version, so it never needs updating here. Every release also
+      mints its own versioned DOI, listed on the Zenodo record; cite
+      one of those when a specific version matters.

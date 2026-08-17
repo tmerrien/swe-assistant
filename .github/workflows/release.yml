@@ -83,6 +83,26 @@ jobs:
           git push origin HEAD:main
           git push origin "v${VERSION}"
 
+      - name: Publish the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.bump.outputs.version }}
+        run: |
+          # Zenodo archives on Release events, not on tag pushes. Without this
+          # step the version exists and the tag exists, but nothing is ever
+          # deposited and no DOI is minted — which is exactly what happened to
+          # 0.2.2 before this was added.
+          #
+          # Notes are generated from the commits since the last release. The
+          # hand-written prose lives in CHANGELOG.md, which stays curated: not
+          # every patch deserves a paragraph, but every version deserves an
+          # archive.
+          gh release create "v${VERSION}" \
+            --verify-tag \
+            --title "${VERSION}" \
+            --generate-notes \
+            --latest
+
       - name: Summary
         env:
           VERSION: ${{ steps.bump.outputs.version }}
@@ -92,7 +112,10 @@ jobs:
             echo "### Released \`${VERSION}\` (${LEVEL})"
             echo
             echo "Installed users will be offered this update."
+            echo "Zenodo will archive the release and mint a versioned DOI;"
+            echo "the concept DOI in CITATION.cff needs no change."
             echo "Pull before your next push — main has moved."
             echo
-            echo "A CHANGELOG.md entry for \`${VERSION}\` is still owed."
+            echo "A CHANGELOG.md entry for \`${VERSION}\` is owed only if the"
+            echo "change is worth describing. Most patches are not."
           } >> "$GITHUB_STEP_SUMMARY"
