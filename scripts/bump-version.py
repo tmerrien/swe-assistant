@@ -20,19 +20,27 @@ silently wrong the moment nobody remembers. It read 44 against a real count of
 
 Usage:
   ./scripts/bump-version.py patch|minor|major   # bump, write, print new version
-  ./scripts/bump-version.py --check             # exit 1 if a bump or badge is owed
+  ./scripts/bump-version.py --check             # exit 1 if a bump, badge, or archive is owed
   ./scripts/bump-version.py --sync-badge        # fix the badge without bumping
   ./scripts/bump-version.py --show              # print the current version
 
-`--check` is the guard: it fails when plugins/swe-assistant/ has changed since
-the last tag without the version moving, and when the badge disagrees with the
-roster. Run it locally or in CI. It compares against the last tag, so
-uncommitted work is invisible to it.
+`--check` is the guard, and it tests three things that go wrong independently:
+
+  the version did not move       -> installed users are offered nothing
+  the badge disagrees with disk  -> the front page states something untrue
+  a tag has no GitHub Release    -> Zenodo never deposited it, so no DOI
+
+All three are reported rather than stopping at the first, because a release
+that goes wrong tends to go wrong in more than one way at once. The release
+check needs `gh` and network; without either it is skipped rather than failed,
+so this stays usable offline. It compares against the last tag, so uncommitted
+work is invisible to it.
 """
 import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from datetime import date
@@ -148,6 +156,32 @@ def write_badge(count: int) -> bool:
     return True
 
 
+def tags_without_releases():
+    """Version tags that have no published GitHub Release.
+
+    A tag without a Release is never deposited to Zenodo and so has no DOI —
+    the state 0.2.3 was left in when `gh release create` hit a transient 503.
+    The job went red, but a red job does not look like "a released version is
+    unarchived", so it is worth checking rather than reading logs.
+
+    Returns None when the answer is unknown — no `gh`, not authenticated, or
+    no network — so that this stays usable offline instead of failing loudly
+    about something it cannot see.
+    """
+    if not shutil.which("gh"):
+        return None
+    try:
+        out = subprocess.run(
+            ["gh", "release", "list", "--limit", "200", "--json", "tagName", "--jq", ".[].tagName"],
+            cwd=REPO, capture_output=True, text=True, check=True, timeout=30,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
+        return None
+    released = {t.strip() for t in out.stdout.split() if t.strip()}
+    tags = {t.strip() for t in git("tag", "-l", "v*").splitlines() if t.strip()}
+    return sorted(tags - released)
+
+
 def last_tag() -> str:
     return git("describe", "--tags", "--abbrev=0", "--match", "v*")
 
@@ -210,6 +244,20 @@ def check() -> int:
         )
     elif actual >= 0 and claimed == actual:
         print(f"OK: README badge and roster agree at {actual} skills.")
+
+    unreleased = tags_without_releases()
+    if unreleased is None:
+        print("SKIP: cannot reach GitHub, so tags-versus-releases went unchecked.")
+    elif unreleased:
+        problems.append(
+            "UNARCHIVED: these tags have no GitHub Release, so Zenodo never\n"
+            "  deposited them and they have no DOI:\n"
+            + "\n".join(f"    {t}" for t in unreleased)
+            + "\n\n    gh release create <tag> --verify-tag --generate-notes --latest"
+        )
+    else:
+        n = len(git("tag", "-l", "v*").split())
+        print(f"OK: all {n} version tags have a published release.")
 
     for p in problems:
         print("\n" + p)

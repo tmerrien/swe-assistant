@@ -122,6 +122,15 @@ jobs:
           echo "::error::could not publish v${VERSION} after 5 attempts. The version is tagged but never archived, so it has no DOI. Publish the release by hand to trigger Zenodo."
           exit 1
 
+      - name: Verify nothing is left unarchived
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Catches drift the retry above cannot: a tag from an earlier run
+          # that never got a Release, and so was never deposited. Runs here
+          # rather than being something to remember to run.
+          python scripts/bump-version.py --check
+
       - name: Summary
         env:
           VERSION: ${{ steps.bump.outputs.version }}
