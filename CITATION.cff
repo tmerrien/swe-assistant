@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: >-
   If you use, adapt, or reference this work, please cite it as
   shown below.
-type: dataset
+type: software
 title: >-
   SWE Assistant: A Curated Collection of Claude AI Skills for
   Software Engineers
