@@ -97,11 +97,30 @@ jobs:
           # hand-written prose lives in CHANGELOG.md, which stays curated: not
           # every patch deserves a paragraph, but every version deserves an
           # archive.
-          gh release create "v${VERSION}" \
-            --verify-tag \
-            --title "${VERSION}" \
-            --generate-notes \
-            --latest
+          # Retried because this call has already failed once on a transient
+          # 503 from GitHub's release API, leaving 0.2.3 tagged but never
+          # deposited. The job goes red, but the consequence — a version with
+          # no archive and no DOI — is not what a red X looks like, so it is
+          # worth not depending on someone reading the log.
+          for attempt in 1 2 3 4 5; do
+            if gh release view "v${VERSION}" >/dev/null 2>&1; then
+              echo "release v${VERSION} already exists; nothing to do"
+              exit 0
+            fi
+            if gh release create "v${VERSION}" \
+                 --verify-tag \
+                 --title "${VERSION}" \
+                 --generate-notes \
+                 --latest; then
+              echo "published on attempt ${attempt}"
+              exit 0
+            fi
+            delay=$((attempt * 10))
+            echo "attempt ${attempt} failed; retrying in ${delay}s"
+            sleep "${delay}"
+          done
+          echo "::error::could not publish v${VERSION} after 5 attempts. The version is tagged but never archived, so it has no DOI. Publish the release by hand to trigger Zenodo."
+          exit 1
 
       - name: Summary
         env:
