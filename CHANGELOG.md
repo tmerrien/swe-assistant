@@ -1,8 +1,19 @@
 # Changelog
 
-All notable changes to the `swe-assistant` plugin. Format follows
+Notable changes to the `swe-assistant` plugin. Format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+**Not every released version appears below, and that is deliberate.** Releases
+are cut automatically — any push touching `plugins/swe-assistant/` bumps and
+tags itself — so versions are produced faster than prose is worth writing. A
+description tweak does not merit a paragraph, and inventing one for every patch
+is how a changelog turns into a commit log nobody reads.
+
+Entries here cover releases worth describing. **The complete record is the tags
+and the git history**, which are exhaustive by construction; this file is the
+edited version. If a version is missing below, `git log v0.2.0..v0.2.1` is the
+authoritative answer to what changed in it.
 
 ## Versioning rules for this repository
 
@@ -12,13 +23,24 @@ decoration. Claude Code resolves a plugin's version from the first of
 as the cache key that decides whether an update is available. **If the version
 does not move, installed users receive nothing**, however many commits land.
 
-- **Bump only when `plugins/swe-assistant/` changes.** Reading notes, `docs/`,
-  `READING-LIST.md`, and `MISFIRE-LOG.md` never trigger a release.
-- **Major** — a skill is removed or renamed. That breaks `/<skill-name>`, the
-  router's `PATTERNS` keys, and anyone's habits.
+**This is enforced rather than remembered**, because remembering is what failed
+the first time. [`.github/workflows/release.yml`](./.github/workflows/release.yml)
+runs on any push touching `plugins/swe-assistant/`, calls
+[`scripts/bump-version.py`](./scripts/bump-version.py) to move all three version
+fields together, then commits and tags. Reading notes, `docs/`, `READING-LIST.md`,
+and `MISFIRE-LOG.md` sit outside that path and never cut a release.
+
+- **Patch** — the default. Skill content revised, router patterns tuned, docs
+  corrected.
 - **Minor** — skills added, or the plugin gains a component or a requirement.
-- **Patch** — skill content revised, router patterns tuned, docs corrected.
-- **Tag every bump** (`git tag -a v0.2.0`) so a version names exactly one tree.
+  Opt in with `[minor]` in the commit message.
+- **Major** — a skill removed or renamed, which breaks `/<skill-name>`, the
+  router's `PATTERNS` keys, and anyone's habits. Opt in with `[major]`.
+
+Major and minor stay manual because only the author knows whether a rename
+happened; patch is safe to assume. `./scripts/bump-version.py --check` fails
+when a committed plugin change has no bump behind it — note it compares against
+the last tag, so uncommitted work is invisible to it.
 
 Three files carry a version, and they mean different things:
 
