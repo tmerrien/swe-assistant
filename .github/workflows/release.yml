@@ -66,9 +66,13 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # README.md carries the skill-count badge, which bump-version.py
+          # refreshes from the roster. Omitting it here would leave the fix
+          # uncommitted in the runner and the badge stale on the front page.
           git add plugins/swe-assistant/.claude-plugin/plugin.json \
                   .claude-plugin/marketplace.json \
-                  CITATION.cff
+                  CITATION.cff \
+                  README.md
           git commit -m "Release ${VERSION} [skip ci]" -m \
             "Automatic ${LEVEL} bump: the plugin changed, so the update gate moves.
 

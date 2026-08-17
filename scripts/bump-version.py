@@ -13,13 +13,21 @@ memory:
   .claude-plugin/marketplace.json                    the catalog's own version
   CITATION.cff                                       the citable release
 
+README.md's skill-count badge is maintained here too. It is not a version, but
+it is the same kind of fact — stated in one place, derived from another, and
+silently wrong the moment nobody remembers. It read 44 against a real count of
+50 for five days on the repository's front page.
+
 Usage:
   ./scripts/bump-version.py patch|minor|major   # bump, write, print new version
-  ./scripts/bump-version.py --check             # exit 1 if a bump is owed
+  ./scripts/bump-version.py --check             # exit 1 if a bump or badge is owed
+  ./scripts/bump-version.py --sync-badge        # fix the badge without bumping
   ./scripts/bump-version.py --show              # print the current version
 
 `--check` is the guard: it fails when plugins/swe-assistant/ has changed since
-the last tag without the version moving. Run it locally or in CI.
+the last tag without the version moving, and when the badge disagrees with the
+roster. Run it locally or in CI. It compares against the last tag, so
+uncommitted work is invisible to it.
 """
 import argparse
 import json
@@ -40,6 +48,8 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLUGIN_JSON = os.path.join(REPO, "plugins", "swe-assistant", ".claude-plugin", "plugin.json")
 MARKETPLACE_JSON = os.path.join(REPO, ".claude-plugin", "marketplace.json")
 CITATION = os.path.join(REPO, "CITATION.cff")
+README = os.path.join(REPO, "README.md")
+SKILLS_DIR = os.path.join(REPO, "plugins", "swe-assistant", "skills")
 PLUGIN_DIR = "plugins/swe-assistant"
 
 
@@ -99,6 +109,45 @@ def write_citation(version: str, released: str) -> None:
         fh.write(text)
 
 
+def count_skills() -> int:
+    """The roster size, counted from disk rather than trusted from a badge."""
+    try:
+        return sum(
+            1 for name in os.listdir(SKILLS_DIR)
+            if os.path.isfile(os.path.join(SKILLS_DIR, name, "SKILL.md"))
+        )
+    except OSError:
+        return -1
+
+
+def badge_count() -> int:
+    """What README.md currently claims. -1 if the badge is missing."""
+    try:
+        with open(README, encoding="utf-8") as fh:
+            m = re.search(r"skills-(\d+)-blue", fh.read())
+        return int(m.group(1)) if m else -1
+    except OSError:
+        return -1
+
+
+def write_badge(count: int) -> bool:
+    """Rewrite the skill-count badge. Returns True if it changed.
+
+    The count appears twice — once as the image alt text and once inside the
+    shields.io URL — and updating only one leaves the badge rendering a number
+    that disagrees with its own label.
+    """
+    with open(README, encoding="utf-8") as fh:
+        text = fh.read()
+    new = re.sub(r"Skills: \d+", f"Skills: {count}", text)
+    new = re.sub(r"skills-\d+-blue", f"skills-{count}-blue", new)
+    if new == text:
+        return False
+    with open(README, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(new)
+    return True
+
+
 def last_tag() -> str:
     return git("describe", "--tags", "--abbrev=0", "--match", "v*")
 
@@ -123,28 +172,48 @@ def version_moved_since(ref: str) -> bool:
 
 
 def check() -> int:
-    """Fail when a release is owed. This is the guard that replaces remembering."""
+    """Fail when a release is owed, or a stated fact has drifted.
+
+    Both are checked every time rather than short-circuiting on the first pass,
+    because they fail independently: a version that did not move ships nothing,
+    and a badge that did not move states something untrue on the front page.
+    Neither failure is loud on its own — that is the whole reason for this.
+    """
     ref = last_tag()
     version = current_version()
-    if not plugin_changed_since(ref):
-        print(f"OK: {PLUGIN_DIR}/ unchanged since {ref or 'the beginning'}; "
-              f"version {version} needs no bump.")
-        return 0
-    if version_moved_since(ref):
-        print(f"OK: {PLUGIN_DIR}/ changed and the version moved to {version}.")
-        return 0
+    problems = []
 
-    changed = git("diff", "--name-only", f"{ref}..HEAD", "--", PLUGIN_DIR).splitlines()
-    print(f"BUMP OWED: {PLUGIN_DIR}/ changed since {ref} but the version is still {version}.")
-    print("\nUsers will receive none of this — the version is the update gate:")
-    for path in changed[:10]:
-        print(f"  {path}")
-    if len(changed) > 10:
-        print(f"  ... and {len(changed) - 10} more")
-    print("\n  ./scripts/bump-version.py patch   # content revised, patterns tuned")
-    print("  ./scripts/bump-version.py minor   # skills added, or a new component")
-    print("  ./scripts/bump-version.py major   # a skill removed or renamed")
-    return 1
+    if plugin_changed_since(ref) and not version_moved_since(ref):
+        changed = git("diff", "--name-only", f"{ref}..HEAD", "--", PLUGIN_DIR).splitlines()
+        lines = [
+            f"BUMP OWED: {PLUGIN_DIR}/ changed since {ref} but the version is still {version}.",
+            "  Users will receive none of this — the version is the update gate:",
+        ]
+        lines += [f"    {p}" for p in changed[:10]]
+        if len(changed) > 10:
+            lines.append(f"    ... and {len(changed) - 10} more")
+        lines += [
+            "",
+            "    ./scripts/bump-version.py patch   # content revised, patterns tuned",
+            "    ./scripts/bump-version.py minor   # skills added, or a new component",
+            "    ./scripts/bump-version.py major   # a skill removed or renamed",
+        ]
+        problems.append("\n".join(lines))
+    else:
+        print(f"OK: version {version} is current for {PLUGIN_DIR}/.")
+
+    actual, claimed = count_skills(), badge_count()
+    if actual >= 0 and claimed >= 0 and actual != claimed:
+        problems.append(
+            f"BADGE STALE: README.md claims {claimed} skills; there are {actual}.\n"
+            "    ./scripts/bump-version.py --sync-badge"
+        )
+    elif actual >= 0 and claimed == actual:
+        print(f"OK: README badge and roster agree at {actual} skills.")
+
+    for p in problems:
+        print("\n" + p)
+    return 1 if problems else 0
 
 
 def main() -> int:
@@ -152,8 +221,10 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("level", nargs="?", choices=["patch", "minor", "major"])
     ap.add_argument("--check", action="store_true",
-                    help="exit 1 if the plugin changed since the last tag without a bump")
+                    help="exit 1 if a bump is owed or the skill-count badge has drifted")
     ap.add_argument("--show", action="store_true", help="print the current version")
+    ap.add_argument("--sync-badge", action="store_true",
+                    help="rewrite the README skill count from the roster, without bumping")
     args = ap.parse_args()
 
     if args.show:
@@ -161,8 +232,13 @@ def main() -> int:
         return 0
     if args.check:
         return check()
+    if args.sync_badge:
+        n = count_skills()
+        print(f"README skill count -> {n}" if write_badge(n)
+              else f"README skill count already {n}")
+        return 0
     if not args.level:
-        ap.error("give a level (patch/minor/major), or --check / --show")
+        ap.error("give a level (patch/minor/major), --check, --show, or --sync-badge")
 
     old = current_version()
     new = bump(old, args.level)
@@ -176,6 +252,13 @@ def main() -> int:
     print("  plugins/swe-assistant/.claude-plugin/plugin.json")
     print("  .claude-plugin/marketplace.json")
     print("  CITATION.cff")
+
+    # The roster only changes when the plugin changes, which is exactly when a
+    # bump happens — so the badge is refreshed here rather than on its own
+    # schedule. It sat at 44 for five days against a real count of 50.
+    skills = count_skills()
+    if skills >= 0 and write_badge(skills):
+        print(f"  README.md (skill count -> {skills})")
     print(f"\nCHANGELOG.md is not touched — write the entry for {new} yourself.")
     return 0
 
