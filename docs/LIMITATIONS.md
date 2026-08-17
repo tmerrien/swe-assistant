@@ -203,14 +203,14 @@ The runtime sends Claude a **skill listing** — each skill's name plus its `des
 
 **When the listing exceeds the budget, descriptions are not shortened — they are dropped whole, skill by skill, in priority order.** A skill that does not fit is sent as **name only**. Since triggering is a semantic match against the description, a name-only skill is effectively unmatchable except by exact name. Already-activated and bundled skills are protected; the rest compete.
 
-At 50 skills this plugin contributes **36,164 characters (~9,041 tokens)** to that listing, after a deliberate pass tightening every description from a ~1,000-character mean to ~723. Against the default 0.01 fraction that is an 8,000-character budget, and roughly **42 of 49 skills would be sent without descriptions**. Fitting all of them requires a fraction of about **0.063**, which spends ~6.3% of a 200k context on the skill listing *on every turn*.
+At 50 skills this plugin contributes **36,164 characters (~9,041 tokens)** to that listing, after a deliberate pass tightening every description from a ~1,000-character mean to ~723. Against the default 0.01 fraction that is an 8,000-character budget — room for about eleven descriptions at that mean — so roughly **39 of the 50 would be sent without one**. Fitting all of them requires a fraction of about **0.045** (36,164 ÷ 800,000), which spends ~4.5% of a 200k context on the skill listing *on every turn*.
 
 This is the real cost of breadth, and it is worth stating plainly:
 
 - **Every skill added taxes every conversation**, whether or not it fires.
 - **The failure mode is silent.** A skill dropped from the listing does not error; it simply never triggers, and nothing in the transcript indicates that it should have.
-- **Description length is therefore a shared resource**, not a per-skill decision. The mean description in this repository is roughly 1,000 characters; halving that would halve the listing cost.
-- At the current size there is **under 2,000 characters of headroom** before the next increase is needed.
+- **Description length is therefore a shared resource**, not a per-skill decision. Tightening the mean from ~1,000 characters to ~723 cut the listing by 28% without removing a single skill.
+- At the current size, rounding the fraction up to 0.05 (40,000 characters) leaves roughly **3,800 characters of headroom** — about five more skills at the current mean before it has to rise again.
 
 None of this changes the pedagogical argument above, but it does mean the depth-versus-breadth question has a measurable second axis. An adopter running a much larger skill set should expect to either raise the fraction deliberately or write substantially shorter descriptions.
 
