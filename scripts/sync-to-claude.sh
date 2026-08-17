@@ -45,12 +45,30 @@ fi
 
 SRC_COUNT=$(find "$SRC/skills" -maxdepth 1 -mindepth 1 -type d | wc -l)
 
-# Mirror skills/ exactly (--delete so removed skills actually disappear), and
-# refresh the plugin manifest.
-rsync -a --delete "$SRC/skills/" "$DEST/skills/"
-if [[ -d "$SRC/.claude-plugin" ]]; then
-  rsync -a "$SRC/.claude-plugin/" "$DEST/.claude-plugin/"
-fi
+# Mirror one directory exactly, removing anything the source no longer has.
+# rsync is the obvious tool but is not present in a default Git Bash install on
+# Windows, where this script would otherwise fail outright — so fall back to a
+# remove-then-copy, which has the same delete semantics.
+mirror() {
+  local src="$1" dest="$2"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --delete "$src/" "$dest/"
+  else
+    rm -rf "$dest"
+    mkdir -p "$dest"
+    cp -R "$src/." "$dest/"
+  fi
+}
+
+# Stale copies must actually disappear: a removed skill left behind still loads,
+# and a stale router would route against the previous skill roster. hooks/ and
+# scripts/ are part of the plugin now, so they travel with it.
+mirror "$SRC/skills" "$DEST/skills"
+for sub in .claude-plugin hooks scripts; do
+  if [[ -d "$SRC/$sub" ]]; then
+    mirror "$SRC/$sub" "$DEST/$sub"
+  fi
+done
 
 DEST_COUNT=$(find "$DEST/skills" -maxdepth 1 -mindepth 1 -type d | wc -l)
 
@@ -59,30 +77,20 @@ if [[ "$SRC_COUNT" != "$DEST_COUNT" ]]; then
   echo "warning: destination now reports $DEST_COUNT skills (expected $SRC_COUNT)" >&2
 fi
 
-# --- hooks ------------------------------------------------------------------
-# The skill router is not part of the plugin, but it is version-controlled here
-# so it doesn't survive only as one untracked file in ~/.claude/hooks. The repo
-# copy is the source of truth: edit hooks/, not the installed copy.
-#
-# If the installed copy has diverged, we refuse rather than overwrite — losing
-# hand-tuned regexes silently would be worse than an extra manual step.
-HOOK_SRC="$REPO/hooks/swe-skill-router.py"
-HOOK_DIR="$HOME/.claude/hooks"
-HOOK_DEST="$HOOK_DIR/swe-skill-router.py"
-
-if [[ -f "$HOOK_SRC" ]]; then
-  if [[ -f "$HOOK_DEST" ]] && ! cmp -s "$HOOK_SRC" "$HOOK_DEST"; then
-    echo "warning: $HOOK_DEST differs from the repo copy — NOT overwriting." >&2
-    echo "         if the installed version has tuning you want to keep:" >&2
-    echo "           cp \"$HOOK_DEST\" \"$HOOK_SRC\"  # then commit it" >&2
-    echo "         otherwise, to take the repo version:" >&2
-    echo "           cp \"$HOOK_SRC\" \"$HOOK_DEST\"" >&2
-  else
-    mkdir -p "$HOOK_DIR"
-    cp "$HOOK_SRC" "$HOOK_DEST"
-    chmod +x "$HOOK_DEST"
-    echo "synced skill router -> $HOOK_DEST"
-  fi
+# --- stale standalone hook --------------------------------------------------
+# The router used to be installed by hand into ~/.claude/hooks and registered in
+# settings.json. It now ships inside the plugin (hooks/hooks.json, auto-loaded),
+# so an old copy left behind would route twice against a stale skill roster.
+# Flag it rather than delete it — removing a file someone may have tuned is not
+# this script's call to make.
+LEGACY_HOOK="$HOME/.claude/hooks/swe-skill-router.py"
+if [[ -f "$LEGACY_HOOK" ]]; then
+  echo
+  echo "note: found a pre-plugin router at $LEGACY_HOOK"
+  echo "      the router now ships with the plugin. that copy is stale and will"
+  echo "      double-fire. remove it, and drop its UserPromptSubmit entry from"
+  echo "      ~/.claude/settings.json:"
+  echo "        rm \"$LEGACY_HOOK\""
 fi
 
 # Honesty check: if the repo is dirty or unpushed, the skills now loaded are not
