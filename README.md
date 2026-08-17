@@ -2,8 +2,9 @@
 
 A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21982920.svg)](https://doi.org/10.5281/zenodo.21982920)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Skills: 44](https://img.shields.io/badge/skills-44-blue.svg)](#skills)
+[![Skills: 50](https://img.shields.io/badge/skills-50-blue.svg)](#skills)
 [![Plugin: Claude](https://img.shields.io/badge/plugin-Claude-purple.svg)](https://docs.claude.com/en/docs/claude-code)
 
 ---
