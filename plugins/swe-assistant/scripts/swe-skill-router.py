@@ -6,8 +6,10 @@ the skills that apply. Topic-based on purpose, not situation-based: "write a
 doc about incident response" should fire just as "prod is down" does, because
 guidance written about a practice should be grounded in the skill too.
 
-Tuned to OVER-fire. Per ~/.claude/CLAUDE.md, false positives are the signal
-the author wants — they reveal trigger descriptions that need tightening.
+Tuned to OVER-fire: a visible false positive costs one correction, while a
+silent non-fire costs the help and produces no signal at all. See hooks/README.md
+for the full argument — it ships with the plugin, unlike the personal config
+this note used to point at.
 
 Also records what it suggested to the event log, so the routing decision can be
 compared later against the skill that actually got invoked. See
