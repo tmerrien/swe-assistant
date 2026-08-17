@@ -41,3 +41,13 @@ date-released: "2026-08-17"
 license: CC-BY-4.0
 url: "https://github.com/tmerrien/swe-assistant"
 repository-code: "https://github.com/tmerrien/swe-assistant"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21982920
+    description: >-
+      Concept DOI. Always resolves to the most recent version; cite
+      this one when referring to the work in general.
+  - type: doi
+    value: 10.5281/zenodo.21982921
+    description: >-
+      Versioned DOI for 0.2.1, resolving to that deposit specifically.
