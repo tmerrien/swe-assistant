@@ -1,0 +1,31 @@
+{
+  "title": "SWE Assistant: A Curated Collection of Claude AI Skills for Software Engineers",
+  "description": "<p>A curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature. Each skill is a Markdown document with YAML frontmatter (Anthropic skills format) that surfaces coaching prompts &mdash; checklists, frames, and questions &mdash; drawn from sources such as <i>The Missing Readme</i> (Riccomini &amp; Ryaboy), <i>Working Effectively with Legacy Code</i> (Feathers), <i>A Philosophy of Software Design</i> (Ousterhout), <i>Designing Data-Intensive Applications</i> (Kleppmann), and the Agile Manifesto.</p><p>The skills are designed to prompt practitioner thinking rather than replace it, supporting the climb through Broadwell's stages of competence in early- and mid-career software engineering. Intended for students, junior engineers, educators, and curriculum designers.</p>",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Merrien, Tanguy"
+    }
+  ],
+  "keywords": [
+    "software-engineering",
+    "engineering-education",
+    "junior-engineer",
+    "claude-ai",
+    "claude-skills",
+    "coaching",
+    "pedagogy",
+    "open-educational-resources",
+    "mentoring",
+    "professional-development"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/tmerrien/swe-assistant",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
