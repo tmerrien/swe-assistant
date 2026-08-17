@@ -62,6 +62,26 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 
 <!-- Newest first. Add entries here as they happen. -->
 
+### 2026-08-17 — agile-planning — under-fire (router) — **FIXED**
+
+**What I said (paraphrase):** *"our sprint keeps slipping"* — typed as a throwaway test prompt while verifying the new event capture, not as a real request for help.
+
+**What actually happened:** the router matched nothing at all. Logged as a `route` event with `suggested: []`, which is the first time an under-fire has been visible without someone noticing it by hand.
+
+**What should have happened:** `agile-planning`. The skill's own description lists *"our sprints never finish"* as a trigger, and this is the same complaint in different words.
+
+**Diagnosis — a vocabulary gap, not a regex-mechanics bug.** The clause was:
+
+```
+sprints?\s+\w*\s*(never|didn.?t|don.?t|keep)\w*\s*(finish|complete|end)\w*
+```
+
+It requires a completion verb from `(finish|complete|end)`. *Slipping*, *overrunning*, *spilling*, and *carrying over* are at least as common for the same complaint and none were covered. It also fixed the order — sprint first, verb second — so *"work keeps carrying over from the sprint"* could not match either. That is the second of the two recurring bugs listed in [`hooks/README.md`](./plugins/swe-assistant/hooks/README.md), and the clause was written from the one phrasing its author had in mind.
+
+**FIXED** — added a bidirectional clause covering `slip`, `overrun`/`overran`, `spill`, and `carry over`, in both orderings. Verified against six phrasings not used to write it, and against four negatives that must not match: *"I sprinted to the finish line"*, *"the deploy slipped past the window"*, *"we had a slip in the release date"*, *"the release overran its window"* — none fire.
+
+**Note on the one-data-point rule.** The triage rule below says not to iterate from a single entry, and this was fixed on one. The exemption is the same one the 2026-08-01 entry used: this is a phrasing the skill's own description already claims to trigger on, so it is a defect against stated behaviour rather than a judgement call about breadth. Tuning still waits for a pattern.
+
 ### 2026-08-01 — design-doc — under-fire + over-fire (router) — **PATTERN CONFIRMED**
 
 **What I said (paraphrase):** Pasted Chapter 10's design-document template section — the full section list (Introduction, Current State, Motivation, Requirements, Potential Solutions, Proposed Solution, Design and Architecture with API/schema/UI subsections, Test Plan, Rollout Plan, Unresolved Questions, Appendix) with per-section guidance.

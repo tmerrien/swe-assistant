@@ -78,7 +78,7 @@ PATTERNS = {
     "stress-test-understanding": r"\b(do\s+i\s+(really\s+)?understand|check\s+my\s+understanding|poke\s+holes|am\s+i\s+missing|sanity.?check\s+(my|this))\b",
 
     # --- planning & team process ------------------------------------------
-    "agile-planning": r"\b(story\s+points?|user\s+stor(y|ies)|sprint\s+(planning|capacity)|backlog\s+(groom|triage|refine)\w*|acceptance\s+criteria|scrum\b|kanban|scrumban|estimat\w*\s+(this|the\s+(work|story|ticket))|planning\s+poker|roadmaps?|velocity|overcommit\w*|spike\s+stor|sprints?\s+\w*\s*(never|didn.?t|don.?t|keep)\w*\s*(finish|complete|end)\w*)\b",
+    "agile-planning": r"\b(story\s+points?|user\s+stor(y|ies)|sprint\s+(planning|capacity)|backlog\s+(groom|triage|refine)\w*|acceptance\s+criteria|scrum\b|kanban|scrumban|estimat\w*\s+(this|the\s+(work|story|ticket))|planning\s+poker|roadmaps?|velocity|overcommit\w*|spike\s+stor|sprints?\s+\w*\s*(never|didn.?t|don.?t|keep)\w*\s*(finish|complete|end)\w*|sprints?\b.{0,40}?\b(slip|over(run|ran)|spill|carr(y|ied|ying)\s+over)\w*|(slip|over(run|ran)|spill|carr(y|ied|ying)\s+over)\w*.{0,40}?\bsprints?)\b",
     "team-rituals": r"\b(stand.?ups?|daily\s+scrum|retros?\b|retrospectives?|sprint\s+reviews?|demo\s+(day|meeting)|parking\s+lot|scrum\s+of\s+scrums)\b",
 
     # --- joining, growing, working with people ----------------------------
