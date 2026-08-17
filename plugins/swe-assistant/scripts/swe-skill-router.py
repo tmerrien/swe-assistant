@@ -100,9 +100,10 @@ MAX_NAMED = 5
 # working session, 0 of 17 prompts carried a topic keyword — the topic lived
 # in the conversation, not the prompt. Prompt-only matching is close to
 # useless mid-session, which is exactly when it is needed most.
-# Kept deliberately small. At 12 turns a long engineering conversation matches
-# 36 of 37 skills, which is exactly as useless as matching none. Context hits
-# are ranked newest-turn-first and capped hard (MAX_CONTEXT).
+# Kept deliberately small. At 12 turns a long engineering conversation matched
+# 36 of the 37 skills that existed when this was measured — exactly as useless
+# as matching none, and worse now that there are more. Context hits are ranked
+# newest-turn-first and capped hard (MAX_CONTEXT).
 CONTEXT_TURNS = 4
 MAX_CONTEXT = 2
 
