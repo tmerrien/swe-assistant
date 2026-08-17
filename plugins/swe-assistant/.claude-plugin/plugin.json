@@ -1,6 +1,6 @@
 {
   "name": "swe-assistant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Situation-triggered coaching skills for software engineers — code reviews, incidents, onboarding, design docs, debt proposals, and more. Each skill surfaces a frame, a checklist, or the right question rather than producing the work for the user. Informed by established engineering literature; designed to coach the thinking, not replace it.",
   "author": {
     "name": "Tanguy Merrien",

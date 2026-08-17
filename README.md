@@ -49,6 +49,7 @@ swe-assistant/
 ├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
 ├── CONTRIBUTING.md                 Contribution process and skill style conventions
 ├── CODE_OF_CONDUCT.md              Contributor Covenant 2.1
+├── CHANGELOG.md                    Release history, and the versioning rules this repository follows
 ├── MISFIRE-LOG.md                  Diagnosed misfires: skills that over-fired, under-fired, or mis-routed
 ├── notes/                          Working reading notes; raw material for future skills, not skills themselves
 ├── scripts/
