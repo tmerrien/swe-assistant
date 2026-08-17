@@ -117,6 +117,30 @@ Unattributed paraphrasing of book content is unacceptable. If you read something
 
 ## Local Development
 
+### Setting up on a new machine
+
+Everything this repository needs is tracked in it, with three exceptions that cannot be — they are machine state, not project state.
+
+1. **Git author identity.** Git deliberately refuses to let a repository set this, so it never travels with a clone. Without it the first commit fails with *"Author identity unknown."*
+
+   ```bash
+   git config user.name "Your Name" && git config user.email "you@example.com"
+   ```
+
+2. **Python 3**, for the hooks and the maintenance scripts. It must be a real interpreter on `PATH` as `py`, `python3`, or `python`. **On Windows, `python` and `python3` are frequently Microsoft Store alias stubs** that print an install advert and exit 49 — a real install is needed, and after installing it you must sign out and back in, because a relaunched app inherits the environment of the process that started it rather than the updated `PATH`.
+
+3. **The plugin install itself**, if you want to exercise the skills rather than only edit them — `/plugin marketplace add tmerrien/swe-assistant`, then install, then use the sync script below for local edits.
+
+Confirm the first two took:
+
+```bash
+python scripts/bump-version.py --show && python scripts/misfire-report.py --verify
+```
+
+The routing event log at `~/.claude/swe-assistant/` is also machine-local, and deliberately so — it is your own prompt-routing data. It does not travel between machines, so misfire evidence gathered on one machine is not visible on another.
+
+### Iterating on a skill
+
 Skills are normally installed from GitHub, which means an edit to a `SKILL.md` in your working copy has no effect on your running Claude until it is committed, pushed, and the marketplace is updated. That round-trip is fine for occasional changes and is the more faithful test — what loads is what users actually get.
 
 When iterating on a skill's content or trigger description, that round-trip gets in the way. Two supported options:
@@ -135,7 +159,9 @@ Then `/reload-plugins` inside the session picks up further edits without restart
 ./scripts/sync-to-claude.sh
 ```
 
-Then run `/reload-plugins` in Claude. The script mirrors `skills/` exactly (including deletions), warns if the repository has uncommitted or unpushed changes — so you know when the loaded skills differ from the published ones — and writes a real directory rather than a symlink, so a later `/plugin marketplace update` simply restores the published version instead of breaking in a way that is hard to diagnose.
+Then run `/reload-plugins` in Claude. The script mirrors `skills/`, `hooks/`, and `scripts/` exactly (including deletions), warns if the repository has uncommitted or unpushed changes — so you know when the loaded skills differ from the published ones — and writes a real directory rather than a symlink, so a later `/plugin marketplace update` simply restores the published version instead of breaking in a way that is hard to diagnose. It also flags a pre-plugin router left in `~/.claude/hooks`, which would now double-fire.
+
+It falls back to `cp` when `rsync` is unavailable, which is the default state of Git Bash on Windows.
 
 Re-run the script after every edit; it is not a live mount.
 
