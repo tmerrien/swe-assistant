@@ -1,0 +1,94 @@
+# Bump and tag whenever the plugin changes.
+name: Release
+
+# The plugin's version is the update gate: if it does not move, installed users
+# receive nothing. Leaving that to memory is how this repository spent 83
+# commits on a static 0.1.0 delivering no updates at all. So it is not left to
+# memory — any push that touches the plugin bumps and tags itself.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plugins/swe-assistant/**'
+
+# Needed to push the bump commit and the tag back to the repository.
+permissions:
+  contents: write
+
+concurrency:
+  # Two pushes in quick succession would otherwise race to bump the same version.
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # The bump commit itself touches plugin.json, which is inside the watched
+    # path. Pushes made with GITHUB_TOKEN do not retrigger workflows, so this
+    # cannot loop; the skip-ci marker is belt and braces.
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # tags are needed to work out what changed since the last release
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Choose the bump level
+        id: level
+        env:
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          # Default to patch. Major and minor are judgement calls — a removed or
+          # renamed skill breaks /<skill-name> and the router's PATTERNS keys,
+          # and only the author knows that — so they are opted into explicitly
+          # by putting [major] or [minor] in the commit message.
+          if echo "$MSG" | grep -qF '[major]'; then
+            echo "level=major" >> "$GITHUB_OUTPUT"
+          elif echo "$MSG" | grep -qF '[minor]'; then
+            echo "level=minor" >> "$GITHUB_OUTPUT"
+          else
+            echo "level=patch" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump the version
+        id: bump
+        run: |
+          python scripts/bump-version.py ${{ steps.level.outputs.level }}
+          echo "version=$(python scripts/bump-version.py --show)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit, tag, and push
+        env:
+          VERSION: ${{ steps.bump.outputs.version }}
+          LEVEL: ${{ steps.level.outputs.level }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plugins/swe-assistant/.claude-plugin/plugin.json \
+                  .claude-plugin/marketplace.json \
+                  CITATION.cff
+          git commit -m "Release ${VERSION} [skip ci]" -m \
+            "Automatic ${LEVEL} bump: the plugin changed, so the update gate moves.
+
+          CHANGELOG.md is not written automatically — a generated entry would be
+          a commit log, and the useful part of that file is prose. Add the entry
+          for ${VERSION} by hand when the change is worth describing."
+          git tag -a "v${VERSION}" -m "swe-assistant ${VERSION}"
+          git push origin HEAD:main
+          git push origin "v${VERSION}"
+
+      - name: Summary
+        env:
+          VERSION: ${{ steps.bump.outputs.version }}
+          LEVEL: ${{ steps.level.outputs.level }}
+        run: |
+          {
+            echo "### Released \`${VERSION}\` (${LEVEL})"
+            echo
+            echo "Installed users will be offered this update."
+            echo "Pull before your next push — main has moved."
+            echo
+            echo "A CHANGELOG.md entry for \`${VERSION}\` is still owed."
+          } >> "$GITHUB_STEP_SUMMARY"
