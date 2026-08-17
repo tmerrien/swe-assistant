@@ -9,15 +9,20 @@ guidance written about a practice should be grounded in the skill too.
 Tuned to OVER-fire. Per ~/.claude/CLAUDE.md, false positives are the signal
 the author wants — they reveal trigger descriptions that need tightening.
 
+Also records what it suggested to the event log, so the routing decision can be
+compared later against the skill that actually got invoked. See
+`hooks/README.md` and `scripts/misfire-report.py` in the repository.
+
 Exits 0 unconditionally. A router that blocks a prompt is worse than no router.
 """
 import json
 import os
 import re
 import sys
+import time
 
-# Keys must match directory names in
-# ~/Repositories/swe-assistant/plugins/swe-assistant/skills/
+# Keys must match directory names in the plugin's skills/ directory
+# (../skills/ relative to this file).
 PATTERNS = {
     "first-run-experience": r"(README\b|quick.?start|getting.?started|onboarding\s+docs?|setup\s+(guide|doc|instructions)|first.?run\s+experience|time.?to.?first|nobody\s+uses\s+our|new\s+(users?|hires?)\s+(get|keep)\s+(stuck|asking)|same\s+setup\s+question|document\s+(this|our)\s+(service|library|API|package))",
 
@@ -115,6 +120,31 @@ NOT_HUMAN = re.compile(
 )
 
 
+def log_dir() -> str:
+    """Where event records go. Outside the repo — this is the user's data."""
+    override = os.environ.get("SWE_ASSISTANT_LOG_DIR")
+    if override:
+        return os.path.expanduser(override)
+    return os.path.expanduser("~/.claude/swe-assistant")
+
+
+def log_event(record: dict) -> None:
+    """Append one JSON line to the event log. Never raises.
+
+    A logging failure must not cost the user their prompt, so every error here
+    is swallowed. The cost of silence is a gap in the log; the cost of raising
+    is a broken session.
+    """
+    try:
+        record["ts"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        d = log_dir()
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "events.jsonl"), "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def find_matches(text: str) -> list:
     try:
         return [n for n, p in PATTERNS.items() if re.search(p, text, re.I)]
@@ -183,6 +213,7 @@ def main() -> int:
 
     hits = find_matches(prompt)
     source = "This prompt matches"
+    matched_from = "prompt"
 
     # Continuation prompts ("do doc 3", "yes") carry no topic. Fall back to the
     # recent conversation, ranked newest-turn-first so the live thread wins over
@@ -197,6 +228,24 @@ def main() -> int:
                 break
         hits = seen[:MAX_CONTEXT]
         source = "The recent conversation is about"
+        matched_from = "context"
+
+    # Log every routed prompt, INCLUDING the no-match case. A prompt the router
+    # said nothing about is exactly the under-fire evidence that was previously
+    # invisible: if a skill gets invoked after one of these, the router missed it.
+    record = {
+        "event": "route",
+        "session_id": payload.get("session_id"),
+        "suggested": hits,
+        "matched_from": matched_from if hits else "none",
+        "prompt_chars": len(prompt),
+    }
+    # Prompt text is the user's own words. Off by default so an installed plugin
+    # never writes them to disk uninvited; the maintainer opts in on their own
+    # machine, where diagnosing a bad pattern needs the actual sentence.
+    if os.environ.get("SWE_ASSISTANT_LOG_PROMPTS") not in (None, "", "0"):
+        record["prompt"] = prompt
+    log_event(record)
 
     if not hits:
         return 0

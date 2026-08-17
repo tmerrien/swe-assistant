@@ -2,7 +2,22 @@
 
 A running record of skills firing when they shouldn't have, and skills that should have fired but didn't. This is the feedback data that lets trigger descriptions tighten over time — the empirical version of the verification step described in [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md#6-verification).
 
-**This file is not academic material.** It's an operational log. Terse entries, one per incident, dated. Don't optimize prose — optimize how easy it is to jot an entry the moment a misfire happens.
+**This file is not academic material.** It's an operational log. Terse entries, one per incident, dated. Don't optimize prose — optimize how easy it is to write up a misfire once you have one.
+
+## Detection is automatic; diagnosis is not
+
+Misfires used to be recorded only when someone noticed one and remembered to write it down. That is a bad capture mechanism for a rare, easy-to-miss event, and it under-recorded badly.
+
+The plugin's two hooks now record every routing decision and every skill invocation (see [`plugins/swe-assistant/hooks/README.md`](./plugins/swe-assistant/hooks/README.md)). At triage time, surface the disagreements:
+
+```bash
+./scripts/misfire-report.py            # candidates, ranked
+./scripts/misfire-report.py --verify   # is capture actually running?
+```
+
+**That tool finds candidates. It does not diagnose them.** The value of an entry below is the root cause — *"the alternation ends in `design\s+doc` and the group is followed by `\b`, so the boundary falls between `c` and `u`"* — and no amount of event capture produces that sentence. The report tells you where to look; the write-up is still yours.
+
+So the workflow is now: run the report → pick the candidates that look real → diagnose → write the entry here.
 
 ---
 
@@ -33,11 +48,13 @@ Don't worry about being right about the fix. The pattern that emerges across man
 
 Roughly monthly (or when the log grows past ~15 unresolved entries):
 
-1. Scan the log for repeated patterns — same skill under-firing, same phrasing over-firing.
-2. Open a PR that adjusts the affected `description` field(s), citing the relevant log entries.
-3. Once shipped, strike through (or move to the *Resolved* section below) the entries that motivated the change.
+1. Run `./scripts/misfire-report.py`. Start with the **under-fire** section — a skill invoked without the router naming it is the category that was previously invisible, and the one most likely to be a real bug rather than noise.
+2. Diagnose the candidates that look real, and write them up below. Ignore the rest; the over-fire column is noisy on purpose.
+3. Scan the log for repeated patterns — same skill under-firing, same phrasing over-firing.
+4. Open a PR that adjusts the affected `description` field(s) or router pattern, citing the relevant log entries.
+5. Once shipped, strike through (or move to the *Resolved* section below) the entries that motivated the change.
 
-Do not iterate on descriptions from a single entry. One data point is not a pattern; two or three consistent ones are.
+Do not iterate on descriptions from a single entry. One data point is not a pattern; two or three consistent ones are. The report makes it cheap to wait for the second and third.
 
 ---
 
