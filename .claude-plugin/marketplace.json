@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "swe-assistant",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A marketplace containing the swe-assistant plugin: a curated collection of Claude AI skills for software engineers, organized by recurring engineering situations and informed by established engineering literature.",
   "owner": {
     "name": "Tanguy Merrien",
