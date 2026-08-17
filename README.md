@@ -49,12 +49,11 @@ swe-assistant/
 ├── CITATION.cff                    Machine-readable citation (GitHub renders as "Cite this repository")
 ├── CONTRIBUTING.md                 Contribution process and skill style conventions
 ├── CODE_OF_CONDUCT.md              Contributor Covenant 2.1
-├── MISFIRE-LOG.md                  Log of skills that over-fired, under-fired, or mis-routed in real use
+├── MISFIRE-LOG.md                  Diagnosed misfires: skills that over-fired, under-fired, or mis-routed
 ├── notes/                          Working reading notes; raw material for future skills, not skills themselves
-├── hooks/                          Optional Claude Code hooks (not part of the plugin)
-│   └── swe-skill-router.py         UserPromptSubmit hook; regex floor under the runtime's semantic match
 ├── scripts/
-│   └── sync-to-claude.sh           Sync the local plugin (and the hook) into Claude's cache
+│   ├── sync-to-claude.sh           Sync the local plugin into Claude's cache
+│   └── misfire-report.py           Turn captured routing events into misfire candidates for triage
 ├── docs/                           Academic and pedagogical documentation
 │   ├── THEORETICAL-FOUNDATIONS.md  Educational and cognitive literature the methodology draws on
 │   ├── METHODOLOGY.md              The skill-construction method, intended to be applied by others
@@ -64,6 +63,12 @@ swe-assistant/
     └── swe-assistant/              The plugin itself (one of many a marketplace could host)
         ├── .claude-plugin/
         │   └── plugin.json         Plugin manifest (Anthropic plugin format)
+        ├── hooks/
+        │   ├── hooks.json          Hook registration; auto-loaded on install, no settings.json edit
+        │   └── README.md           Router design stance, pattern-maintenance gotchas, event capture
+        ├── scripts/
+        │   ├── swe-skill-router.py       UserPromptSubmit; regex floor under the semantic match
+        │   └── swe-skill-invocations.py  PostToolUse; records which skill actually ran
         └── skills/                 One subdirectory per skill, each containing SKILL.md
 ```
 
@@ -196,6 +201,12 @@ In Claude Code, run `/plugins` to list installed plugins and their skills. In Co
 Anthropic's plugin system has evolved rapidly during 2025–2026. The commands above reflect the documented install paths at the time of writing; if you find them inaccurate for your current Claude version, please open an issue on the repository so they can be updated. The manual fallback is the most version-independent path.
 
 Once installed, no further action is required from the user. Skills activate based on the descriptions in their YAML frontmatter; users describe their situation in natural language and the appropriate skill (if any) is loaded automatically. A single skill may also be invoked manually with `/<skill-name>`.
+
+**Bundled hooks (optional, no setup):**
+
+The plugin ships two Claude Code hooks in [`plugins/swe-assistant/hooks/`](./plugins/swe-assistant/hooks/), auto-loaded on install with no `settings.json` editing. One adds a regex routing floor beneath the runtime's semantic skill match; the other records which skill actually ran, so routing misses become visible instead of silent. See [the hooks README](./plugins/swe-assistant/hooks/README.md) for the design stance and what gets logged.
+
+They require Python 3 on `PATH` as `python3` or `python`. **If Python is absent the skills all still work** — you lose only the routing floor. Note that `python`/`python3` on Windows are frequently Microsoft Store alias stubs rather than a real interpreter; a real install is needed for the hooks to run. The manual-copy fallback below installs skills only, without the hooks.
 
 ## For Researchers and Educators
 
