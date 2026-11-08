@@ -2,7 +2,7 @@
 """Turn the captured routing events into misfire candidates for triage.
 
 This is a maintainer tool, not part of the plugin. It reads the event log the
-two hooks write (`~/.claude/swe-assistant/events.jsonl`) and reports where the
+two hooks write (`~/.claude/swe-assistant/events*.jsonl`, one file per machine) and reports where the
 router's suggestion and Claude's actual skill choice disagreed.
 
 It does NOT write MISFIRE-LOG.md. The log's value is the diagnosis — "the
@@ -36,9 +36,25 @@ except (AttributeError, OSError):
     pass
 
 
+def log_dir() -> str:
+    return os.path.expanduser(os.environ.get("SWE_ASSISTANT_LOG_DIR") or "~/.claude/swe-assistant")
+
+
 def log_path() -> str:
-    d = os.environ.get("SWE_ASSISTANT_LOG_DIR") or "~/.claude/swe-assistant"
-    return os.path.join(os.path.expanduser(d), "events.jsonl")
+    """For display: the directory pattern this report reads."""
+    return os.path.join(log_dir(), "events*.jsonl")
+
+
+def log_files() -> list:
+    """Every machine's event file, plus the pre-0.2.6 single events.jsonl.
+
+    The hooks write one file per machine (events-<host>.jsonl) so a synced
+    SWE_ASSISTANT_LOG_DIR can collect several machines without write conflicts.
+    A session lives on one machine, so concatenating files keeps each session's
+    events in order, which is all build_windows needs.
+    """
+    import glob
+    return sorted(glob.glob(os.path.join(log_dir(), "events*.jsonl")))
 
 
 def known_skills() -> set:
@@ -57,7 +73,14 @@ def bare(skill: str) -> str:
     return skill.split(":", 1)[1] if ":" in skill else skill
 
 
-def read_events(path, days):  # `days` may be None; unannotated to keep the 3.8 floor
+def read_events(paths, days):  # `days` may be None; unannotated to keep the 3.8 floor
+    events = []
+    for path in paths:
+        events.extend(read_event_file(path, days))
+    return events
+
+
+def read_event_file(path, days):
     if not os.path.exists(path):
         return []
     cutoff = None
@@ -109,6 +132,10 @@ def build_windows(events: list) -> list:
                     "prompt": ev.get("prompt"),
                     "invoked": [],
                 }
+            elif ev.get("event") == "invoke" and ev.get("agent_id"):
+                # A subagent's invocation, logged under the parent session.
+                # It answers the subagent's task, not the routed prompt.
+                continue
             elif ev.get("event") == "invoke" and current is not None:
                 current["invoked"].append(bare(ev.get("skill") or ""))
         if current is not None:
@@ -121,9 +148,13 @@ def verify(events: list) -> int:
     routes = [e for e in events if e.get("event") == "route"]
     invokes = [e for e in events if e.get("event") == "invoke"]
 
-    print(f"log file      : {log_path()}")
+    print(f"log files     : {log_path()}")
+    for f in log_files():
+        print(f"                {os.path.basename(f)}")
     print(f"route events  : {len(routes)}")
-    print(f"invoke events : {len(invokes)}")
+    print(f"invoke events : {len(invokes)}"
+          f"  ({sum(1 for e in invokes if e.get('agent_id'))} from subagents, excluded from windows)")
+    print(f"echo-suppressed routes : {sum(1 for e in routes if e.get('echo_suppressed'))}")
     if events:
         print(f"first / last  : {events[0].get('ts')}  ..  {events[-1].get('ts')}")
 
@@ -230,7 +261,7 @@ def main() -> int:
                     help="only consider events from the last N days")
     args = ap.parse_args()
 
-    events = read_events(log_path(), args.days)
+    events = read_events(log_files(), args.days)
     if args.verify:
         return verify(events)
     if not events:

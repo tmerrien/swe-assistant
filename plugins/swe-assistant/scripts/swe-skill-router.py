@@ -20,6 +20,7 @@ Exits 0 unconditionally. A router that blocks a prompt is worse than no router.
 import json
 import os
 import re
+import socket
 import sys
 import time
 
@@ -131,6 +132,18 @@ def log_dir() -> str:
     return os.path.expanduser("~/.claude/swe-assistant")
 
 
+def log_file() -> str:
+    """This machine's event file. Must match the other hook.
+
+    One file per machine, so SWE_ASSISTANT_LOG_DIR can point at a synced folder
+    (OneDrive, iCloud) shared by several machines without two of them appending
+    to the same file, which sync clients resolve by forking it into conflict
+    copies. misfire-report.py reads every events*.jsonl in the directory.
+    """
+    host = re.sub(r"[^A-Za-z0-9_-]", "_", socket.gethostname().split(".")[0]) or "unknown"
+    return os.path.join(log_dir(), f"events-{host}.jsonl")
+
+
 def log_event(record: dict) -> None:
     """Append one JSON line to the event log. Never raises.
 
@@ -142,7 +155,7 @@ def log_event(record: dict) -> None:
         record["ts"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         d = log_dir()
         os.makedirs(d, exist_ok=True)
-        with open(os.path.join(d, "events.jsonl"), "a", encoding="utf-8") as fh:
+        with open(log_file(), "a", encoding="utf-8") as fh:
             fh.write(json.dumps(record, ensure_ascii=False) + "\n")
     except Exception:
         pass
@@ -162,6 +175,33 @@ def find_matches(text: str) -> list:
         return [n for n, p in PATTERNS.items() if re.search(p, text, re.I)]
     except re.error:
         return []
+
+
+def surfaced_this_session(session_id) -> set:
+    """Skills this router already suggested earlier in the session. Failure -> empty.
+
+    Read back from this machine's own event log rather than a separate state
+    file: the route events already record every suggestion. Only the tail is
+    read; a session's recent routes are what matter, and the hook must stay fast.
+    """
+    if not session_id:
+        return set()
+    try:
+        with open(log_file(), "rb") as fh:
+            fh.seek(0, os.SEEK_END)
+            fh.seek(max(0, fh.tell() - 256 * 1024))
+            lines = fh.read().decode("utf-8", "replace").splitlines()
+    except OSError:
+        return set()
+    seen = set()
+    for line in lines:
+        try:
+            ev = json.loads(line)
+        except ValueError:
+            continue  # includes the partial first line after seeking
+        if ev.get("event") == "route" and ev.get("session_id") == session_id:
+            seen.update(ev.get("suggested") or [])
+    return seen
 
 
 def recent_human_text(payload: dict) -> list:
@@ -230,11 +270,23 @@ def main() -> int:
     # Continuation prompts ("do doc 3", "yes") carry no topic. Fall back to the
     # recent conversation, ranked newest-turn-first so the live thread wins over
     # something mentioned four turns ago, and capped tight.
+    #
+    # A context hit for a skill already suggested this session is an echo, not
+    # news: the earlier turn that matched was already routed, and repeating it
+    # on every following "yes" / "do both" turned one match into five
+    # (MISFIRE-LOG 2026-11-08, first-run-experience; second instance in that
+    # day's triage notes). Echoes are skipped and recorded, not suggested.
+    # Prompt hits are never suppressed: a fresh mention is fresh evidence.
+    echoed = []
     if not hits:
+        already = surfaced_this_session(payload.get("session_id"))
         seen = []
         for turn in recent_human_text(payload):  # newest first
             for name in find_matches(turn):
-                if name not in seen:
+                if name in already:
+                    if name not in echoed:
+                        echoed.append(name)
+                elif name not in seen:
                     seen.append(name)
             if len(seen) >= MAX_CONTEXT:
                 break
@@ -252,6 +304,8 @@ def main() -> int:
         "matched_from": matched_from if hits else "none",
         "prompt_chars": len(prompt),
     }
+    if echoed:
+        record["echo_suppressed"] = echoed
     # Prompt text is the user's own words. Off by default so an installed plugin
     # never writes them to disk uninvited; the maintainer opts in on their own
     # machine, where diagnosing a bad pattern needs the actual sentence.
