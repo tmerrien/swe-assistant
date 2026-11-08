@@ -876,4 +876,30 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 28 — Match the real world
+
+**What it says.** Almost everything we design as an interface has a real-world counterpart, and people already know how to interact with that counterpart. So instead of looking at other websites for inspiration, take cues from the analog version of whatever you are designing. If the interaction model and design elements parallel the real world, the interface feels familiar and people are much more likely to understand it immediately.
+
+**This is Nielsen's second heuristic,** *match between the system and the real world*. It is also principle 7's mechanism (borrow a mental model the user already holds) applied to interaction rather than iconography.
+
+**It answers principle 7's open question.** Principle 7 asked whether its two omitted failure modes, *metaphors leak then expire* and *metaphors are culturally located*, would turn up in a later principle. This is the later principle, and from the summary it doesn't cover them. **They stand as this repository's own contributions.** They already live in [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md) (the floppy disk, and a referent drawn from "your own generation, or your own culture").
+
+**"Instead of looking at other websites" collides head-on with Jakob's law.** That is also Nielsen: users spend most of their time on *other* sites, so they expect yours to work like those. Both cannot be the rule. **The resolution is to ask where *this user's* expectation actually formed.**
+
+- **Generic interactions** (navigation, search, forms, pull-to-refresh, a shopping cart): the expectation formed in other software. For most users, digital convention *is* the real world now. The floppy disk is the proof: its analog referent is gone and the convention survives on its own.
+- **Domain tasks** where the user's expertise was built offline (a paper shift sheet, a whiteboard rota, a clinician's chart, a workshop job card): the analog practice is the model they bring. Copying another app's pattern there swaps their expertise for someone else's guess.
+
+**Copy the model, not the analog's limits.** Literal analog copying imports constraints the medium doesn't have: page-turning instead of search, one view of the data instead of several, paper-form field order kept for a printer that no longer exists, no undo because ink had none. The real-world match is meant to make the interface *understandable*, not to cap what it can do. Keep the structure people recognise, and drop the limitations that existed only because of paper.
+
+**The engineering transfer: the heuristic is mostly about words.** Nielsen's version leads with *speak the users' language: words, phrases and concepts familiar to them, rather than system-oriented terms.* The engineer's most frequent violation isn't a bad metaphor. It is **the internal model leaking into the screen**: a status shown as `PENDING_SYNC`, a field labelled with its column name, an enum value used as a user-facing state, a record called by its table name. [`interface-copy`](../plugins/swe-assistant/skills/interface-copy/SKILL.md) already requires errors "in the user's terms, not the exception name"; it applies to every label, not just errors. **And the cheapest place to fix it is upstream.** When the code's domain model already uses the users' words (DDD's *ubiquitous language*, in [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md)), every screen gets the right vocabulary for free. When it doesn't, every screen has to translate, and anything left untranslated leaks.
+
+**Verdict:** `fold`, two small ones, done on logging.
+
+- [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md), *familiar versus distinctive*: familiar *to what* (digital convention for generic interactions, analog practice for domain tasks), and copy the model, not the analog's limits.
+- [`interface-copy`](../plugins/swe-assistant/skills/interface-copy/SKILL.md): a practice for *the user's words, not the system's*, extending the error-message rule to every label and linking upstream to ubiquitous language.
+
+**Open question.** For the maintainer's domain work, how do you find out *which* real world the users carry? Care workers who learned on paper and those who have only ever used apps hold different models of the same task. Is that a research question per product, or does it follow the capability-axes reading, with *where expertise was formed* as one more axis?
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
