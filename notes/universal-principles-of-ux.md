@@ -805,4 +805,27 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 25 — Diverse teams create better solutions
+
+**What it says.** Alternative perspectives are an advantage. Two pieces of evidence are offered: Lu Hong and Scott E. Page, quoted as finding that teams with differences in demographics, cultural identity, ethnicity, training and expertise find better solutions to complex problems than homogeneous teams; and McKinsey's 2015 report that companies in the top quartile for racial and ethnic diversity were 35% more likely to have financial returns above their national industry median. The author closes on bias rather than performance: what is acceptable today may be hurtful or discriminatory tomorrow, so designers should keep their biases in check and question their own assumptions.
+
+**Both citations are weaker than the principle uses them for. Checked before logging, per the correction at principle 5.**
+
+- **Hong & Page (PNAS, 2004) is a computational model, not a study of teams.** Its agents are search heuristics on an abstract problem landscape, and the diversity in it is *functional*: different heuristics. It says nothing about demographics, so the list in the book's quote is not what the paper modelled. The result is also disputed on its own terms. Thompson (*Notices of the AMS*, 2014) argued the mathematics was misapplied; Page (2015) and Singer (2019) replied. Grim et al. (*Philosophy of Science*, 2019) showed the result depends on the random landscape used: on smoother, arguably more realistic landscapes, groups of experts outperform diverse ones. The defensible reading is narrow: **groups whose members approach a problem differently can beat groups of the individually best, under some conditions.**
+- **The McKinsey figure is correlational and did not replicate.** McKinsey describes it as a correlation, not a causal link. Its financial performance was measured in the years *before* diversity was measured, so causation could run either way. Green & Hand (*Econ Journal Watch*, 2024) reran the method on the S&P 500 and found no statistically significant relationship. McKinsey's company list is not public, so the replication could not use the same sample.
+
+**The research that does address real teams says: small, conditional, and mostly about *how* people differ, not who they are.** The largest synthesis, Wallrich et al.'s 2024 registered-report meta-analysis (615 reports, 2,638 effect sizes), found the average relationships between team performance and demographic, job-related and cognitive diversity to be positive and statistically significant, but small. The effect was larger for complex, creative or innovative tasks, and the authors conclude that promises of widespread performance gains are not the strongest argument for diversity initiatives. An earlier meta-analysis, van Dijk, van Engen & van Knippenberg (2012), adds a measurement point. The common belief that demographic diversity hurts performance came largely from **subjective ratings**; on objective measures, it did not hold.
+
+**So the performance case, as the book states it, overclaims, and the bias case is the stronger one.** It needs no business-return figure. A team shares assumptions and blind spots, and **a team cannot notice what none of its members can see.** This is the same mechanism already in [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md): a metaphor drawn *"from your own domain knowledge, your own generation, or your own culture may communicate nothing"* to the user, tested by *"could someone outside your team name what this icon does?"* Principle 25 generalises that test from icons to the whole product. It also extends the capability-axes thread from 18–21. Whoever is absent from the room is where the untested axes are: screen-reader use, a second language, low bandwidth, an unfamiliar cultural reference.
+
+**Audience, as with the Inverse Conway Maneuver.** Early- and mid-career engineers rarely choose who is on their team. What they *can* choose is who sees the work before it ships: reviewers outside their own function, testers unlike the team, people closer to the users than the builders are. That is the actionable form, and it doesn't depend on settling the performance debate.
+
+**On the closing line.** "What is acceptable today may be discriminatory tomorrow" is a claim about norms changing, not about team composition. Its engineering consequence is already in [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md): someone ships every default and label, and owns it, including after norms shift. No new material.
+
+**Verdict:** `fold`, small, done on logging. [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md)'s metaphor section gains the general form, covering more than icons, plus the actionable step: put people unlike the team in the review and test loop. The performance citations are **not** carried into any skill; this note records why.
+
+**Open question.** Is there a Conway-style mirror here? Conway says a system copies its organisation's *communication structure*. Does a product also copy its team's *shared assumptions*, in the defaults, examples and edge cases nobody thought to test? If so, it would explain why the blind-spot argument holds up while the performance argument doesn't, but it needs a source rather than an analogy before it goes anywhere.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
