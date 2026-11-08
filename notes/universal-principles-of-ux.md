@@ -784,4 +784,25 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 24 — Make the choice easy
+
+**What it says.** Choice is good, but too much of it stresses us out and slows decisions. The book attributes this to Hick's law and adds a limit: it applies to choices that don't matter much, not to choices with heavy consequences. So an interface should spend people's attention on the choices that matter.
+
+**Two findings are merged here, and they have very different evidence.**
+
+- **The Hick–Hyman law** (Hick 1952, Hyman 1953) is robust but narrow. It says *reaction time* grows with the **logarithm** of the number of equally likely options. The options must be familiar ones the person already knows, as in a known menu or keypad. It is about choosing fast among known options, not about stress, and the log is the important part: going from 8 to 16 familiar options adds one step, not eight. Unfamiliar options are a different case. People have to read them one at a time, so cost grows linearly. That makes *familiarity and ordering* a stronger lever than *count*.
+- **"Too much choice stresses us out" is choice overload** (Iyengar & Lepper's 2000 jam study), and it is **contested**. Scheibehenne, Greifeneder & Todd's 2010 meta-analysis found a mean effect of roughly zero. Chernev, Böckenholt & Goodman (2015) found it does appear under specific conditions: complex option sets, hard decisions, people unsure what they prefer, and a goal of picking *the best one*. So it is a conditional effect, not a law, and it should be cited with its conditions.
+
+**The book's limit is right, though the reason is different.** Hick does not stop at heavy decisions because they are heavy. It stops because it models fast reactions, not deliberation. The design point holds for its own reason: **for consequential decisions, cutting options takes away the user's ability to decide.** There, the job is to make comparison easy, not to shorten the list. So the deciding condition is the same one [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) already uses for friction: **stakes and reversibility.** A cheap, reversible choice gets cut to a good default. A consequential, hard-to-reverse choice gets shown in full and laid out for comparison.
+
+**This repository already practised the principle on two other surfaces.** [`configuration`](../plugins/swe-assistant/skills/configuration/SKILL.md) says *"if every parameter requires a decision, the application is hostile"*. [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md) uses defaults *"to make a large API feel small"*. Principle 24 is the same move applied to the screen. This is coverage, not a fifth independent convergence: it is the same idea in three places, not three bodies of research arriving at it.
+
+**The engineering reading the principle leaves out: every choice you remove is a default you made.** Defaults are powerful; Johnson & Goldstein's 2003 organ-donation study is the standard demonstration that most people keep whatever was preselected. So *"focus on the choices that matter"* immediately raises the question **who decided what matters.** Hiding the opt-out because it "doesn't matter" is exactly the case [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md) exists for, and its asymmetry test (who benefits from the default?) is the check. That skill already covers pre-checked boxes and opt-in defaults; the link is what was missing.
+
+**Verdict:** `fold`, done on logging. [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md)'s *minimal versus rich* tension gains a paragraph on choice count: stakes decide whether to cut or compare, familiarity beats count, and every cut choice is a default owned under `design-ethics`.
+
+**Open question.** For engineers, the most common version of this problem is probably not a UI. It is **configuration surfaces and CLI flags**, which grow one reasonable option at a time and never shrink. Is "how many knobs does this tool have" a form of [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md), and does that skill need an *option accretion* driver?
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

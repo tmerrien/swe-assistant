@@ -81,6 +81,13 @@ A great many design arguments dissolve once someone checks whether the floor hol
 
 **The engineer's version of this argument is usually different from how it gets phrased.** You are rarely choosing minimalism in the abstract; you are choosing whether to **accept the design system's defaults or deviate from them**. Deviation is an innovation-token spend ([`choose-boring-technology`](../choose-boring-technology/SKILL.md)) — it costs unfamiliarity and maintenance, so it needs to earn something specific.
 
+**A special case worth separating: how many choices to show.** "Fewer options" (Pereyra, principle 24) blends two findings. One is solid but narrow: the **Hick–Hyman law**, where reaction time grows with the *logarithm* of the number of familiar options. The other is contested: **choice overload**, which meta-analyses find only under specific conditions. In practice, the same test as the friction tension below decides it:
+
+- **Cheap, reversible choice:** cut it to a good default. Nobody should deliberate over a sort order.
+- **Consequential, hard to reverse:** keep the options and make them easy to compare. Trimming the list here takes away the user's decision.
+- **Familiarity and ordering beat count.** Familiar options are cheap to add. Unfamiliar ones are read one by one, so their cost grows linearly. Put the likely choice first rather than deleting the rest.
+- **Every removed choice is a default you made,** and most people keep defaults. If the default benefits the product more than the person, it is a [`design-ethics`](../design-ethics/SKILL.md) question, not a simplification.
+
 > **Terminology warning.** Venturi's argument *for* complexity means richness and ambiguity. That is the opposite valence to complexity in [`managing-complexity`](../managing-complexity/SKILL.md), where it means cost — anything structural that makes a system hard to understand and modify. Both sources are in play in this repository. Do not let them collide.
 
 ### Speed versus deliberate friction
