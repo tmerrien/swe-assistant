@@ -1,0 +1,172 @@
+{
+  "agile-planning": [
+    "should this be a spike"
+  ],
+  "asking-for-help": [
+    "how do I ask without sounding dumb"
+  ],
+  "build-and-package": [
+    "how should our build work",
+    "my build isn't reproducible",
+    "should we version these together",
+    "how should we split our packages",
+    "JAR vs wheel vs crate",
+    "should tests run in CI"
+  ],
+  "change-discipline": [
+    "I don't agree with our coding standards"
+  ],
+  "changing-legacy-code": [
+    "how do I refactor this safely",
+    "this code has no tests, how do I touch it",
+    "how should I structure this refactor"
+  ],
+  "choose-boring-technology": [
+    "I want to introduce X to our stack",
+    "let's switch from X to Y",
+    "what's the best language for this project"
+  ],
+  "code-review": [
+    "got harsh review feedback",
+    "am I being too nitpicky",
+    "how do I push back on feedback I disagree with"
+  ],
+  "commit-and-pr-hygiene": [
+    "my commits are messy",
+    "about to open a PR"
+  ],
+  "configuration": [
+    "how should I configure this",
+    "where should these settings live"
+  ],
+  "defensive-programming": [
+    "what should I check for",
+    "make this code safer"
+  ],
+  "dependency-management": [
+    "should I add this library",
+    "should I pin this version",
+    "shading"
+  ],
+  "design-doc": [
+    "should I write one for this"
+  ],
+  "evolvable-apis": [
+    "will this break clients",
+    "should I version this API",
+    "we have no API spec"
+  ],
+  "evolvable-data": [
+    "how do I migrate this schema",
+    "should this be JSON or a real column",
+    "another team reads our tables"
+  ],
+  "growth-obstacles": [
+    "everyone else seems to know more",
+    "this is easy, I can do it in a day",
+    "I don't need to check with anyone"
+  ],
+  "idempotency": [
+    "how do I make this idempotent",
+    "is this operation idempotent",
+    "I'm worried about double-charges",
+    "deduplication"
+  ],
+  "incident-response": [
+    "the pager just went off",
+    "users are reporting",
+    "something broke after my deploy"
+  ],
+  "input-validation": [
+    "how do I sanitize this"
+  ],
+  "interface-copy": [
+    "feels off",
+    "sounds robotic"
+  ],
+  "interface-tradeoffs": [
+    "which way should we go on this"
+  ],
+  "logging": [
+    "is this safe to log",
+    "how do I structure my logs",
+    "why does enabling verbose logging make this bug disappear"
+  ],
+  "managing-complexity": [
+    "everything is coupled to everything",
+    "where should this boundary go"
+  ],
+  "metrics": [
+    "should this be a counter or a gauge",
+    "how do I measure latency",
+    "tracking p99",
+    "setting up Prometheus or OpenTelemetry",
+    "I want to know if this is slow in production"
+  ],
+  "operational-tools": [
+    "CLI or UI for this admin action",
+    "how do I make this operable",
+    "building a recovery tool"
+  ],
+  "progressive-rollout": [
+    "how should we roll this out",
+    "circuit breaker",
+    "what should we monitor during rollout",
+    "we ramped to 100% too fast"
+  ],
+  "rationing-attention": [
+    "which of these should be primary",
+    "the important thing is getting lost"
+  ],
+  "release-hygiene": [
+    "how often should we release",
+    "can I re-tag this version",
+    "where should packages live",
+    "we published a broken 1.4.2, can we overwrite it"
+  ],
+  "retry-and-backoff": [
+    "this API call sometimes fails"
+  ],
+  "software-entropy": [
+    "whoever wrote this",
+    "this codebase is a mess",
+    "whoever wrote this is an idiot",
+    "why is this so chaotic"
+  ],
+  "stress-test-understanding": [
+    "stress-test my understanding",
+    "quiz me on X",
+    "check my mental model",
+    "am I actually sure I get this",
+    "test me before I ship",
+    "I want to defend this plan first"
+  ],
+  "team-rituals": [
+    "what should I demo",
+    "nothing improves after we discuss it"
+  ],
+  "technical-debt": [
+    "how do I get the team or my manager to let us refactor X",
+    "should we clean this up before adding the new feature"
+  ],
+  "technical-design-process": [
+    "I've been asked to design X",
+    "stakeholders disagree about the problem",
+    "how do I run a design brainstorm",
+    "how do I avoid blindsiding another team"
+  ],
+  "test-determinism": [
+    "intermittent failure"
+  ],
+  "tracing": [
+    "why is this slow across services"
+  ],
+  "working-with-managers": [
+    "how do I get promoted"
+  ],
+  "writing-tests": [
+    "how should I test this",
+    "what should I test",
+    ", or "
+  ]
+}
