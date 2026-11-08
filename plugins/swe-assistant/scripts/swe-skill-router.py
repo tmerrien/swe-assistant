@@ -28,7 +28,7 @@ import time
 PATTERNS = {
     "first-run-experience": r"(README\b|quick.?start|getting.?started|onboarding\s+docs?|setup\s+(guide|doc|instructions)|first.?run\s+experience|time.?to.?first|nobody\s+uses\s+our|new\s+(users?|hires?)\s+(get|keep)\s+(stuck|asking)|same\s+setup\s+question|document\s+(this|our)\s+(service|library|API|package))",
 
-    "interface-decisions": r"\b(UI|UX|user\s+interface|user\s+experience|mock.?up|wireframe|user.?facing|design\s+the\s+(screen|page|flow|form)|onboarding\s+flow|polish(ed)?\s+later)\b",
+    "interface-decisions": r"\b(UI|UX|user\s+interface|user\s+experience|mock.?up|wireframe|user.?facing|design\s+the\s+(screen|page|flow|form)|onboarding\s+flow|polish(ed)?\s+later|mock\s+(front.?end|UI|screens?|pages?|app)|front.?end\s+mocks?)\b",
     "rationing-attention": r"(too\s+much\s+on\s+(this|the)|everything.{0,30}?\b(looks|feels|is|seems)\s+(equally\s+)?important|what\s+(should\s+i|to)\s+(emphasi[sz]|highlight)\w*|visual\s+hierarch\w*|primary\s+action|cluttered|information\s+overload|make\s+\w+\s+stand\s+out)",
     "interface-tradeoffs": r"(minimal(ism|ist)?\s+(vs|versus|or)|too\s+(plain|busy|boring)|which\s+direction\s+(should|do)|break\s+(the\s+)?(\w+\s+){0,3}pattern|deviate\s+from\s+(the\s+)?(design\s+system|pattern|convention)|design\s+system\s+default|less\s+is\s+(more|a\s+bore))",
     "interface-copy": r"(button\s+label|error\s+message|empty\s+state|microcopy|tooltip|placeholder\s+text|confirmation\s+(dialog|message|copy)|helper\s+text|UI\s+(copy|text|string)|what\s+should\s+(it|this|the\s+\w+)\s+say)",
@@ -46,7 +46,7 @@ PATTERNS = {
     "logging": r"\b(log(ging|s)?)\b.{0,40}\b(level|structur|redact|aggregat|verbose|what\s+to\s+log)|\bstructured\s+log",
 
     # --- writing & reviewing code -----------------------------------------
-    "code-review": r"\b(code\s+review|review(ing)?\s+(a|this|my|the)\s+(PR|pull\s+request|code|diff)|PR\s+feedback|rubber.?stamp|approve\s+the\s+PR)\b",
+    "code-review": r"\b(code\s+review|review(ing)?\s+(a|this|my|the)\s+(PR|pull\s+request|code|diff)|PR\s+feedback|rubber.?stamp|approve\s+the\s+PR|review\w*\s+(of\s+)?((PR|pull\s+request|MR)\s*)?#?\d{2,}|review\w*\b.{0,60}?\b(PRs?|pull\s+requests?|branch(es)?|diff)|(PRs?|pull\s+requests?|branch(es)?|diff)\b.{0,60}?\breview\w*)\b",
     "commit-and-pr-hygiene": r"\b(commit\s+message|squash|rebase|PR\s+(description|template)|branch(ing)?\s+strateg|conventional\s+commit)\b",
     "changing-legacy-code": r"\b(legacy|refactor\s+safely|scared\s+to\s+(change|touch)|no\s+tests?\s+(for|on)|inherited\s+(this\s+)?code|seams?\b)",
     "defensive-programming": r"\b(defensive|harden(ing)?|more\s+robust|null\s+(check|safety)|what\s+can\s+go\s+wrong|fail\s+safe|error\s+handling)\b",
@@ -58,13 +58,13 @@ PATTERNS = {
     # --- testing -----------------------------------------------------------
     "writing-tests": r"\b(writ(e|ing)\s+tests?|test\s+(coverage|strategy|suite|pyramid)|unit\s+test|integration\s+test|e2e\s+test|TDD)\b",
     "test-determinism": r"\b(flaky|flakiness|intermittent(ly)?\s+fail|non.?deterministic|passes\s+locally|test\s+is\s+unreliable)\b",
-    "mocking": r"\b(mock(ing|s)?\b(?!-?ups?\b)|stub(bing|s)?\b|test\s+doubles?|fixtures?|fake\s+(the|a)\s)",
+    "mocking": r"\b(mock(ing|s)?\b(?!-?ups?\b|\s+(front.?end|UI|screens?|pages?|app)\b)|stub(bing|s)?\b|test\s+doubles?|fixtures?|fake\s+(the|a)\s)",
 
     # --- build, release, deploy -------------------------------------------
     "build-and-package": r"\b(build\s+(pipeline|system|step)|packag(e|ing)\b|artifacts?|reproducible\s+build|monorepo\s+build)\b",
     "dependency-management": r"\b(dependenc(y|ies)|semver|semantic\s+version|version\s+conflict|lockfiles?|transitive|vendoring|upgrade\s+the\s+(lib|package))\b",
     "deployment-discipline": r"\b(deploy(ment|ing|s)?\b|roll\s?back|atomic\s+(deploy|release)|ship\s+to\s+prod|release\s+process)",
-    "release-hygiene": r"\b(release\s+notes|changelogs?|cut\s+a\s+release|version(ing)?\s+scheme|tag\s+a\s+release)\b",
+    "release-hygiene": r"\b(release\s+notes|changelogs?|cut\s+a\s+release|version(ing)?\s+scheme|tag\s+a\s+release|(github|gh)\s+releases?|release\s+(skills?|PRs?|branch(es)?|tags?)|versioning)\b",
     "progressive-rollout": r"\b(canar(y|ies)|feature\s+flags?|gradual\s+roll|staged\s+roll|blue.?green|dark\s+launch|percentage\s+roll)\b",
 
     # --- decisions & judgement --------------------------------------------
@@ -73,7 +73,7 @@ PATTERNS = {
     "managing-complexity": r"\b(over.?engineer\w*|premature\s+optimi[sz]\w*|YAGNI|too\s+coupled|tightly\s+coupled|change\s+amplification|add\s+an?\s+abstraction|extensible|least\s+astonishment|domain.?driven|bounded\s+context|high\s+cohesion|too\s+complex|touched\s+\w+\s+files)\b",
     "evolvable-apis": r"\b(breaking\s+change|backward\w*.?compat\w*|forward\w*.?compat\w*|version\s+(the\s+)?API|API\s+version|deprecat\w*|OpenAPI|protobuf|protocol\s+buffers?|gRPC|thrift\b|break\s+(our|the|my)\s+clients?)\b",
     "evolvable-data": r"\b(schema\s+(change|migration|evolution)|migrat(e|ing|ion)\s+(the\s+)?(database|schema|data)|backfill|add\s+a\s+column|drop\s+a\s+column|rename\s+a\s+column|schema.?less|shared\s+database|gh-?ost|pt-online|flyway|liquibase|change\s+data\s+capture|expand\s+and\s+contract)\b",
-    "choose-boring-technology": r"\b(should\s+(we|i)\s+(use|adopt|switch)|evaluat(e|ing)\s+\w+|innovation\s+tokens?|boring\s+techno|new\s+(framework|language|database|stack)|pick\s+a\s+(library|framework|database))\b",
+    "choose-boring-technology": r"\b(should\s+(we|i)\s+(use|adopt|switch)|evaluat(e|ing)\s+\w+|innovation\s+tokens?|boring\s+techno|new\s+(framework|language|database|stack)|pick\s+a\s+(library|framework|database)|(pull|bring)(ing)?\s+in\s+(an?\s+)?(whole\s+|new\s+)?(framework|ORM|library|database)|pull\s+(a\s+)?whole\s+(framework|ORM|library)|(good|best|right)\s+(tool|framework|library|ORM|database)s?\s+(for|that|to)|(we|i)\s+(could|should|would)\s+(use|adopt|go\s+with)\s+(a|an|some)\s+(new\s+)?(framework|ORM|library|database|tool)|(framework|ORM|library|database)\s+should\s+(we|i)\s+(use|pick|choose|go\s+with))\b",
     "change-discipline": r"\b(rewrite|re-?write|fork\s+the|bypass\s+the\s+(linter|standard|rule)|replace\s+\w+\s+with|migrate\s+(us|off|from))\b",
     "technical-debt": r"\b(tech(nical)?\s+debt|cruft|shortcuts?|clean\s?up\s+later|pay\s+(it|this)\s+down|quick\s+and\s+dirty)\b",
     "software-entropy": r"\b(entropy|code\s+rot|degrad(ing|ed|ation)|hard\s+to\s+maintain|getting\s+messy|broken\s+windows?)\b",
@@ -148,7 +148,16 @@ def log_event(record: dict) -> None:
         pass
 
 
+# Machine-generated blocks the desktop app prepends to a human prompt. Unlike
+# NOT_HUMAN, the prompt still carries the user's own words after the block, so
+# strip the block rather than skipping the prompt. `<artifact-view-context>`
+# is JSON plus a boilerplate paragraph containing "artifact", which matched
+# build-and-package on every prompt sent while an Artifact was open.
+STRIP_BLOCKS = re.compile(r"<artifact-view-context\b.*?</artifact-view-context>", re.S | re.I)
+
+
 def find_matches(text: str) -> list:
+    text = STRIP_BLOCKS.sub("", text)
     try:
         return [n for n, p in PATTERNS.items() if re.search(p, text, re.I)]
     except re.error:
