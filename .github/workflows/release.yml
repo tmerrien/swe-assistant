@@ -80,8 +80,10 @@ jobs:
           a commit log, and the useful part of that file is prose. Add the entry
           for ${VERSION} by hand when the change is worth describing."
           git tag -a "v${VERSION}" -m "swe-assistant ${VERSION}"
-          git push origin HEAD:main
-          git push origin "v${VERSION}"
+          # One atomic push: the bump commit and its tag land together or not at
+          # all. Two separate pushes let 0.2.5 reach main without its tag when the
+          # tag push was rejected, and re-running would then bump a second time.
+          git push --atomic origin HEAD:main "v${VERSION}"
 
       - name: Publish the GitHub Release
         env:
