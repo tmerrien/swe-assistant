@@ -62,6 +62,35 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 
 <!-- Newest first. Add entries here as they happen. -->
 
+### 2026-11-08 — first-run-experience — over-fire (router), 5 occurrences — **MECHANISM IDENTIFIED, FIX HELD**
+
+**What I said (paraphrase):** *"add the DOI badge to the README"*, during release-automation work. Then four short continuation turns — *"go with A"*, *"do both"* — carrying no topic of their own.
+
+**What actually happened:** `first-run-experience` was suggested five times across that stretch and invoked zero times. Once from the prompt (31 chars) and **four times from the context fallback** (34, 39, 9 and 7 chars), each time as the only suggestion.
+
+**What should have happened:** nothing. Adding a shields.io line to a badge row is a metadata edit. The skill is for *designing* what a newcomer first encounters, and its description says so: *"building or writing the thing someone else will encounter for the first time."*
+
+**Diagnosis — two mechanisms, and the second is new to this log.**
+
+1. **Over-broad standalone keyword.** The pattern opens `(README|quick.?start|...)`. A bare mention of README fires it regardless of whether the user is authoring one, reading one, or — here — editing one line of its badge row. Same class as the `code review` / `validate` / `mock-up` collisions in the two 2026-08-01 entries: an incidental noun with no situational requirement attached.
+
+2. **Context-fallback echo.** This is the part no previous entry covers. When a prompt matches nothing, `recent_human_text()` looks back `CONTEXT_TURNS = 4` and re-suggests whatever the recent conversation matched. So a single bad prompt-level match does not cost one false positive — it costs that one plus up to four more on the following turns, and the later ones are invisible as errors because the prompts that carried them had no topic at all.
+
+**This weakens the over-fire argument on its own terms.** `hooks/README.md` justifies the bias by saying a visible false positive costs one correction while a silent non-fire costs the help and produces no signal. That trade is sound at one-to-one. At one-to-five it is a different trade, and the four echoes are closer to silent than visible — nothing in those turns looks wrong.
+
+**Guess at fix — not applied.** Two candidates, neither on one entry:
+
+- Require a verb of authorship near the noun, so `README` alone does not fire (narrows mechanism 1, and the two 2026-08-01 entries deliberately declined to narrow broad keywords, so this contradicts standing precedent and should not be done on one entry).
+- Suppress a context-fallback suggestion once it has already been surfaced in the same session (narrows mechanism 2 without touching any keyword, and does not contradict the over-fire stance — it caps repetition rather than reach).
+
+The second is the better-targeted one and the one to revisit.
+
+**Second instance — the threshold is now met.** The same-day triage-run notes entry records *"yes go ahead with the messages"*, a bare continuation on which the context fallback surfaced `design-doc` from an earlier "ADR" mention. That is this mechanism exactly: `CONTEXT_TURNS` re-surfacing a match from a previous turn on a prompt carrying no topic of its own. Note that only the `design-doc` half of that window is clean evidence — the `build-and-package` half came from an `<artifact-view-context>` block, which is non-human text leaking into the context match and a separate issue already fixed. With two entries agreeing, suppressing an already-surfaced context suggestion is now proposable under the triage rule rather than held.
+
+**Caveat on the evidence.** `SWE_ASSISTANT_LOG_PROMPTS` was never set on this machine, so no prompt text was captured for any of the 79 events. The phrasings above are reconstructed from `prompt_chars` matched against the session transcript, not read from the log. That reconstruction is sound here and will not be available next time.
+
+---
+
 ### 2026-11-08 — triage run (2026-08-25 .. 2026-11-08) — notes
 
 `misfire-report.py`: 4925 routes, 67 invocations, 24 under-fire misses in 21 windows. Prompts were recovered from session transcripts by `session_id` + timestamp because **`SWE_ASSISTANT_LOG_PROMPTS` is not set on this machine**. Every route event carries `prompt_chars` only, so the report printed no `e.g.` lines. Set it before the next triage.
