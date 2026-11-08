@@ -828,4 +828,29 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 26 — Context matters more than screen size
+
+**What it says.** Screen size is only half the battle. What matters more is each device's context of use: when, where, why and how people reach the content. That has to be worked out before any designing starts, because there is no one-size-fits-all answer across devices. A system designed for context rather than screen size is more likely to feel appropriate and comfortable.
+
+**Mostly already held.** *Context of use* was logged at principle 1 and folded into [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3, with the attendant confirming a shift one-handed between tasks as its example. The *situational* end of the persona spectrum, as in one hand busy or bright sunlight, was logged at principle 18. Principle 26 restates both for the multi-device case. The two things it adds are below.
+
+**1. Screen size is to context what age is to capability: a proxy.** This is the same move as principles 20 and 21, now applied to devices. Responsive design keys on viewport width because width is what the browser reports. Width doesn't tell you whether someone is on a train or on a sofa, in a hurry or settled in. **And the proxy fails in the other direction, too.** "Mobile means on the go, so give them less" produced the stripped-down mobile site. That fails everyone whose phone is their *only* device, who then cannot do the full task anywhere. This is the content-parity argument from the mobile-first literature: **the device tells you about input and space, not about intent.** Design for context, but don't *infer* context from the device. Treat it the way the capability-axes reading treats age: as a hint to verify, not a fact to design from.
+
+**2. The engineering transfer: context sets backend requirements, not just layout.** The principle stays at the interface. For an engineer, the bigger consequences are underneath it:
+
+| Context | What it requires of the system |
+|---|---|
+| Patchy or no connectivity (a client's home, a basement, a rural road) | Offline tolerance, queued writes, [`retry-and-backoff`](../plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) |
+| A flaky network plus an impatient double-tap | [`idempotency`](../plugins/swe-assistant/skills/idempotency/SKILL.md): the second submit must not create a second record |
+| Interrupted mid-task | Persisted drafts and resumable flows, so the half-finished form survives being backgrounded |
+| One hand, gloves, glare | Input-method support (target size, pointer vs touch), not just layout |
+
+**None of these show up in a mockup at desk resolution, and all of them are expensive to add late.** That's the real reason the principle says to settle context *before* designing: it changes the architecture, not just the CSS.
+
+**Verdict:** `fold`, small, done on logging. The context-of-use bullet in [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3 gains both refinements: device is a proxy and not context, and context decides connectivity, interruption and input requirements, with links to `retry-and-backoff` and `idempotency`.
+
+**Open question.** The capability-axes thread now has a matching *situational* axis set: connectivity, attention, hands, light, noise. Are these the same axes seen from the environment's side? A screen reader, a noisy room, and a captioned video all point that way. If they are, the cluster's eventual output is one axis list with three causes (permanent, temporary, situational), not two separate lists.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
