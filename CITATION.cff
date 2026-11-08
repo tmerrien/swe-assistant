@@ -36,8 +36,8 @@ keywords:
   - open-educational-resources
   - mentoring
   - professional-development
-version: 0.2.4
-date-released: "2026-08-17"
+version: 0.2.5
+date-released: "2026-11-08"
 license: CC-BY-4.0
 url: "https://github.com/tmerrien/swe-assistant"
 repository-code: "https://github.com/tmerrien/swe-assistant"
