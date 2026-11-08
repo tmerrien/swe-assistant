@@ -52,6 +52,14 @@ Three files carry a version, and they mean different things:
 
 ---
 
+## [0.2.6] — 2026-11-08
+
+Three changes to the hooks, all from the November misfire triage. No skill content changed.
+
+- **Context echoes are suppressed.** On a bare continuation, the router no longer re-suggests a skill it already suggested this session. One `README` mention had been surfacing `first-run-experience` on four following turns. Skipped names are logged as `echo_suppressed`. Two log entries support it: the 2026-11-08 `first-run-experience` entry, and the `design-doc` half of the "yes go ahead with the messages" window in that day's triage notes.
+- **Subagent invocations are attributed.** Invoke events carry `agent_id`/`agent_type` when a subagent made the call, and `misfire-report.py` excludes them from routing windows. They were producing false under-fires.
+- **One log file per machine.** Events go to `events-<host>.jsonl`, so `SWE_ASSISTANT_LOG_DIR` can point at a synced folder shared by several machines. The report reads every `events*.jsonl`, including the old `events.jsonl`, so existing history carries over.
+
 ## [0.2.0] — 2026-08-17
 
 The plugin gains its own hooks, and an optional dependency on Python 3.

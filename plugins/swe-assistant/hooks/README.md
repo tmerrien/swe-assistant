@@ -9,7 +9,9 @@ Both hooks are optional in the sense that matters: the 50 skills work without th
 | `../scripts/swe-skill-router.py` | `UserPromptSubmit` | Suggests skills that plausibly apply, and records what it suggested |
 | `../scripts/swe-skill-invocations.py` | `PostToolUse` (matcher `Skill`) | Records which skill was actually invoked |
 
-Both write to `~/.claude/swe-assistant/events.jsonl`. Override the directory with `SWE_ASSISTANT_LOG_DIR`.
+Both write to `~/.claude/swe-assistant/events-<host>.jsonl`, one file per machine. Override the directory with `SWE_ASSISTANT_LOG_DIR`. To triage several machines together, point every machine at the same synced folder (OneDrive, iCloud): each still writes its own file, so the sync client never has to merge concurrent appends, and `misfire-report.py` reads every `events*.jsonl` in the directory, including the pre-0.2.6 `events.jsonl`.
+
+Invoke events made inside a subagent carry `agent_id` and `agent_type`. They share the parent's `session_id`, so the report drops them from routing windows; otherwise they read as false under-fires.
 
 ## `swe-skill-router.py`
 
@@ -26,6 +28,10 @@ The router is a **cheap regex floor** underneath that semantic match. It does no
 This is deliberate, and it is the opposite of how most routers are tuned.
 
 A skill that fires when it shouldn't costs one visible false positive, which the user can see and correct. A skill that *silently* fails to fire costs the user the help they needed, and produces **no signal at all** that anything went wrong. The asymmetry favours over-firing, so the patterns are broad and the injected text tells the model to skip a suggestion in one clause if it plainly does not fit.
+
+### Context echoes are suppressed
+
+When a prompt has no topic of its own ("yes", "do both"), the router falls back to the last few human turns. Before 0.2.6, a skill matched once was re-suggested on every continuation after it: one match became five. The fallback now skips any skill already suggested in the same session, read back from this machine's event log, and records the skipped names as `echo_suppressed` on the route event. A fresh mention in the prompt itself is never suppressed.
 
 Treat the router's output as **a floor, not a ceiling.** If a skill applies and the router did not name it, it should still be invoked.
 
