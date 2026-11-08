@@ -762,4 +762,26 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 23 — Don't just design for novices
+
+**What it says.** Don't design only for first-time visitors. People who return often need more speed and more control to do more sophisticated things. These are power users, and it is worth understanding *how* they differ: sometimes it's speed (shortcuts), sometimes volume (batch actions, macros), sometimes control (deeper customisation, a settings panel). Almost every product needs both a novice path and an expert path, and the expert path should always be the **alternative, never the primary**: tucked away and easy to ignore, yet easy to find when needed.
+
+**This is principle 22's ceiling, made concrete.** Principle 22 said that for frequent users you optimise the ceiling. Principle 23 names the three mechanisms for raising it: **speed, volume, control**. They are different needs, and confusing them builds the wrong thing. A settings panel does nothing for someone who needs to do one action 400 times.
+
+**"Tucked away *and* easy to find" sounds contradictory. The resolution is a bridge, not a hiding place.** The classic form is Nielsen's *flexibility and efficiency of use* heuristic: accelerators the novice never notices, which speed up the expert. Best practice is a novice path that **teaches** the expert path. A menu item that shows its keyboard shortcut teaches that shortcut every time someone clicks it. This is principle 22's ambient teaching again: the path to expertise runs *through* the novice interface, not beside it.
+
+**Prefer accelerators to a *mode*.** The book says "expert mode", and modes are a known hazard. Raskin's *The Humane Interface* and Tesler's long campaign against modes both rest on the same failure: someone acts as if they're in one mode while actually in the other. A mode toggle also splits the docs, the support answers, and the screenshots. Accelerators layered onto one surface avoid all of that. So the engineering reading is *one interface with optional fast paths*, not *two interfaces*.
+
+**A fourth independent convergence: expertise reversal.** [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) already cites Kalyuga's expertise-reversal effect: scaffolding that helps novices actively *hurts* experts. That is the empirical reason this principle exists. Novice support isn't neutral to an expert; it gets in their way. *(Running count: Sweller at 11, scaffolding at 19, the learning curve at 22, expertise reversal here.)*
+
+**Collides with principle 22, and the frequency condition decides it.** "Never primary" assumes a mixed population, mostly novices with some experts. Principle 22's own condition reverses that for tools **used daily by the same people**: there, nearly everyone is the expert, and burying the fast path behind a novice surface optimises for a user who barely exists. [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) already holds the right shape for that case, with a shared core, a CLI for power users and a UI for everyone else, both "the same correct behavior". So the rule is conditional: **never primary when most users are occasional; possibly primary when most users are daily.**
+
+**Partial answer to 22's open question.** 22 asked whether *retention after absence* is a missing fourth measurement. 23 supplies part of the design answer: **keep the novice path intact.** Someone returning after three months is a temporary novice, and they fall back on it. A product that converted its novice path into the expert one strands them. The measurement question stays open; the design implication doesn't.
+
+**Verdict:** `fold`, done on logging. [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md)'s learnability callout gains the speed/volume/control split, the bridge requirement, accelerators over modes, the frequency condition on "never primary", and the returning-user reason to keep the novice path.
+
+**Open question.** What is the cheapest reliable evidence that an expert path is missing? Candidate: **workarounds.** Users scripting against the UI, exporting to a spreadsheet to bulk-edit and re-importing, or installing a browser extension to add shortcuts are all doing the power-user design themselves. If that's the signal, it's observable without telemetry, and it belongs in [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) as a diagnostic.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

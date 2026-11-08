@@ -107,6 +107,13 @@ That second case is why professional software is routinely judged badly by revie
 
 **When the ceiling is what matters, the mechanism is ambient teaching, not a tutorial.** The system should teach while being used — the same scaffolding logic as [`interface-copy`](../interface-copy/SKILL.md)'s empty states, and the same requirement that it **fade**: support that cannot be dismissed is a failed scaffold, and it caps the ceiling it was meant to raise.
 
+**Raising the ceiling: three different needs, one mechanism.** Frequent users need **speed** (shortcuts), **volume** (batch actions, macros), or **control** (customisation). Identify which before building; a settings panel does nothing for someone who needs one action 400 times. Then (Pereyra, principle 23):
+
+- **The fast path is an alternative, never the primary** *when most users are occasional*. When nearly everyone is a daily user, the condition above reverses, and the fast path may deserve to be primary. [`operational-tools`](../operational-tools/SKILL.md)'s shared core with a CLI and a UI is that case done right.
+- **Make the novice path teach the expert path.** A menu item that shows its own shortcut teaches it on every click. Hidden and undiscoverable is not "tucked away", it is missing.
+- **Prefer accelerators on one surface to an "expert mode".** A mode toggle causes mode errors (someone acts in the mode they think they're in) and splits the docs and the support answers.
+- **Keep the novice path intact.** Someone returning after months away is a temporary novice and needs it. Novice scaffolding actively slows experts (the expertise-reversal effect; see [`design-doc`](../design-doc/SKILL.md)), so make it skippable rather than removing it.
+
 The adopter's side of this same curve is in [`choose-boring-technology`](../choose-boring-technology/SKILL.md) — every tool feels bad early because you are discovering its problems, and switching at that point means never reaching mastery. **This is that curve seen from the other end: if you are the one building the thing, the dip is yours to design.**
 
 ---
