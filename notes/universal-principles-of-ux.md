@@ -943,4 +943,30 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 31 — Design for passive attention
+
+**What it says.** Not every interface needs constant interaction. Think about what value a device can offer when it is idle or simply part of the surroundings, and use that carefully, so it *adds to* the environment rather than taking it over.
+
+**The established name is calm technology.** Weiser & Brown (Xerox PARC, *Designing Calm Technology*, 1995) separated the **centre** of attention, where we focus, from the **periphery**, which we're aware of without attending to it. Their argument was that good technology moves easily between the two. Amber Case's *Calm Technology* (2015) turned it into design principles, the central one being that technology should ask for the least attention it can. Principle 31's "add rather than overtake" is that principle.
+
+**The engineering transfer is direct, and it's alerting.** Attention moves between three levels, and every signal a system emits lands on one of them:
+
+| Level | Calm-technology term | Engineering form | Use when |
+|---|---|---|---|
+| Interrupt | Centre, forced | A page, a push notification, a modal | A human must act **now** |
+| Queue | Moves to the centre when the person chooses | A ticket, an email, a badge count | A human must act **soon**, on their own schedule |
+| Ambient | Periphery | A dashboard, a status colour, a log line | It's worth being *able* to know, not worth being told |
+
+**Most alerting failures put a periphery signal on the interrupt level.** The CPU-at-80% page, the nightly batch job that "succeeded" by email, the dashboard metric someone wired to the pager "just in case". That is "overtaking the environment" in operations terms. Alert fatigue is the result: principle 10/12's Von Restorff collapse already logged against [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md), now with a cause. **The fix is usually not deleting the signal but demoting it** to the level its urgency deserves. That's why "fix it or delete it" (the skill's current rule) is missing an option: *move it*.
+
+**Unix's rule of silence is the same principle from 1978.** A program with nothing surprising to say should say nothing. A successful run is ambient by default. It shows up in the log and the exit code, not as output demanding a reader.
+
+**For user-facing products, the same three levels govern notifications.** Every push notification draws on attention the user didn't offer. If it could have been a badge, it should have been. This overlaps principle 30, since notifications are the most common place engagement metrics overtake the user's interest. [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md)' asymmetry test applies unchanged.
+
+**Verdict:** `fold`, small, done on logging. [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md)'s *alerting that's actionable* bullet gains the three levels (page, ticket, dashboard) and *move it* as the third option beside fix and delete.
+
+**Open question.** Ambient displays have a design discipline of their own, glanceability: state readable in about a second from across a room, through colour and position rather than numbers. Team wall dashboards almost never meet it, and they are usually dense grids of time-series. Does [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) need a callout on *dashboards as ambient displays*, or is that product-specific enough to stay out? Leaning out, unless it comes up in practice.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
