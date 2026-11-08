@@ -91,30 +91,6 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 **Diagnosis — vocabulary gap (tool names).** The pattern has concept words (`metrics`, `SLO`, `observab…`) but no product names. *LGTM*, *Grafana*, *Prometheus*, *OpenTelemetry/OTel*, *Loki*, and *Tempo* all miss.
 **Guess at fix:** add a tool-name alternation shared by `metrics`/`tracing`/`logging`. **Waiting** (one data point).
 
-### 2026-09-25 — code-review — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"can we take a pause on this work quickly and have a look at pr 405 on webapp, steven asked for a review."* The desktop app prefixed an `<artifact-view-context>` block.
-**What actually happened:** router named `build-and-package` only. `code-review` was invoked.
-**What should have happened:** `code-review`.
-**Diagnosis — fixed word order + machine text.** (1) `review(ing)?\s+(a|this|my|the)\s+(PR|…)` needs *review* first and a determiner next. Here the PR comes first and *review* comes 40 characters later. (2) `build-and-package` came entirely from the artifact block's boilerplate ("…live state in the **artifact**…"). With the block stripped, the prompt matched nothing. The same block fed the context fallback for the 2026-09-25 *"yes go ahead with the messages"* window.
-**Fix proposed:** bidirectional *review* ↔ PR/branch/diff within 60 chars. Strip `<artifact-view-context>…</artifact-view-context>` before matching. Stripping is right here, not adding the block to `NOT_HUMAN`, because the user's words follow the block.
-
-### 2026-09-24 — code-review — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"review 376"*
-**What actually happened:** nothing matched. `code-review` was invoked.
-**What should have happened:** `code-review`.
-**Diagnosis — wrong alternation.** Every alternative needs a noun after *review* (`PR`, `code`, `diff`). A bare PR number is the shortest and most common phrasing, and nothing covers it.
-**Fix proposed:** `review\w*\s+(of\s+)?((PR|pull\s+request|MR)\s*)?#?\d{2,}`.
-
-### 2026-09-21 — interface-decisions — wrong-skill (router) — **FIX PROPOSED**
-
-**What I said:** *"I mean the mock frontend with fake data. The same way the chore/review-fronted-first-draft is set up."*
-**What actually happened:** router named `mocking`. `interface-decisions` was invoked.
-**What should have happened:** `interface-decisions`. A mock frontend is a UI prototype, not a test double.
-**Diagnosis — keyword collision, second instance.** `mock\b(?!-?ups?\b)` excluded only *mock-up*, the case from 2026-08-01. *Mock frontend*, *mock UI*, and *mock screens* use the same UI-prototype sense and still hit `mocking`. `interface-decisions` matches `mock.?up` but not `mock` + a UI noun.
-**Fix proposed:** add `mock\s+(front.?end|UI|screens?|pages?|app)|front.?end\s+mocks?` to `interface-decisions`, and extend the `mocking` lookahead to exclude those nouns. This agrees with the 2026-08-01 entry.
-
 ### 2026-09-21 — interface-tradeoffs — wrong-skill (router)
 
 **What I said:** a long design message: add a Slack-ID step to sign-up ("idk what you think with your HIG mind"), what the attendant dashboard must resolve, and cancellation flow.
@@ -122,38 +98,6 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 **What should have happened:** an interface skill, `interface-decisions` at minimum.
 **Diagnosis — vocabulary gap.** `interface-decisions` keys on meta-words (`UI`, `UX`, `wireframe`) and misses the objects users actually name: *sign-up step/process*, *the dashboard needs to…*, *HIG*. `metrics` then wins on *dashboard*, which here means a product screen.
 **Guess at fix:** add `HIG\b` and `sign.?up\s+(flow|process|step)` to `interface-decisions`. **Waiting** (one data point. The `dashboards?` collision has two, see 2026-10-28, but over-firing is the intended bias).
-
-### 2026-09-18 — code-review — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"could you pull aqsa's branch on the attendant app, let's do some review."*
-**What actually happened:** nothing matched. `code-review` was invoked.
-**What should have happened:** `code-review`.
-**Diagnosis — fixed word order.** The object (*branch*) comes 35 characters before *review*, and *review* has no determiner after it. No alternative allows object-then-verb.
-**Fix proposed:** covered by the bidirectional clause (see 2026-09-25).
-
-### 2026-09-17 — choose-boring-technology — wrong-skill (router) — **FIX PROPOSED**
-
-**What I said:** *"…our technical advisor said we should create a separate backend … stick with something similar to our tech stack … Do you know in the world of TypeScript a good tool that we could use…"*
-**What actually happened:** router named `design-doc` from context. `choose-boring-technology` was invoked.
-**What should have happened:** `choose-boring-technology`.
-**Diagnosis — fixed word order.** `should\s+(we|i)\s+(use|adopt|switch)` is question order only. *"a good tool that we could use"* puts the noun first and uses *could*. *Tech stack* is not covered either (only `new … stack`).
-**Fix proposed:** `(good|best|right)\s+(tool|framework|library|ORM|database)s?\s+(for|that|to)`, plus both noun-first and verb-first orderings. This agrees with 2026-08-26.
-
-### 2026-09-17 — release-hygiene — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"…the Release PR that needs to start introducing releases with GitHub Release, and the patch template…"*
-**What actually happened:** router named `commit-and-pr-hygiene` (correct, PR template). `release-hygiene` was also invoked.
-**What should have happened:** both.
-**Diagnosis — vocabulary gap.** The pattern is five fixed phrases (`release notes`, `changelog`, `cut a release`, `versioning scheme`, `tag a release`). *GitHub Release(s)* and *release PR* are missing. This is the third of three diagnosable `release-hygiene` misses. The skill went 4/4 under-fire: the router never once named it when it was used.
-**Fix proposed:** add `(github|gh)\s+releases?`, `release\s+(skills?|PRs?|branch(es)?|tags?)`, `versioning`.
-
-### 2026-09-04 — code-review — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"One last thing, let's do a review of pr 287"*
-**What actually happened:** router named `interface-decisions` from context. `code-review` was invoked.
-**What should have happened:** `code-review`.
-**Diagnosis — wrong alternation.** The determiner list is `(a|this|my|the)` directly after *review*. *Review **of** PR* is not in it.
-**Fix proposed:** `review\w*\s+(of\s+)?…#?\d{2,}` and the bidirectional clause.
 
 ### 2026-09-04 — agile-planning — wrong-skill (router)
 
@@ -171,14 +115,6 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 **Diagnosis — vocabulary gap + keyword collision.** Capacity is only matched as `sprint\s+capacity`. *Coming week* and *won't be able to do much* have no planning words at all. `new-team-onboarding` fired on a third party's onboarding, not the user joining a team.
 **Guess at fix:** none yet. It is hard to match without over-firing. `onboard(ing)?` also misrouted 2026-08-28, but narrowing it trades against the over-fire bias. **Waiting.**
 
-### 2026-09-01 — release-hygiene — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"Next thing I think we should set up is versioning. I want to use GitHub releases and I want strong versioning. There is a skill set up for that."*
-**What actually happened:** router named `interface-decisions` and `interface-tradeoffs` from context. `release-hygiene` was invoked.
-**What should have happened:** `release-hygiene`.
-**Diagnosis — vocabulary gap.** `version(ing)?\s+scheme` needs the word *scheme*. Bare *versioning* and *GitHub releases* miss.
-**Fix proposed:** see 2026-09-17.
-
 ### 2026-09-01 — commit-and-pr-hygiene — under-fire (router)
 
 **What I said:** *"look at the git management skill to see what would be the best way and how people should work around the development branch."*
@@ -187,14 +123,6 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 **Diagnosis — vocabulary gap.** Only `branch(ing)?\s+strateg` covers branching. *Development branch*, *git workflow/management*, and *gitflow* miss.
 **Guess at fix:** `(develop(ment)?|main|release|feature)\s+branch`, `git\s+(workflow|management|flow)`. **Waiting** (one data point).
 
-### 2026-08-31 — release-hygiene — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"…load the release skills from the swe assistant because CI/CD is also maintaining gh actions and gh release, we should start on this too."*
-**What actually happened:** router named `mocking` and `operational-tools` from context. `release-hygiene` was invoked.
-**What should have happened:** `release-hygiene`. The user asked for it almost by name.
-**Diagnosis — vocabulary gap.** Neither *release skills* nor *gh release* is in the alternation.
-**Fix proposed:** see 2026-09-17.
-
 ### 2026-08-28 — first-run-experience — wrong-skill (router)
 
 **What I said:** *"We can probably document my onboarding experience as the base process for developers."*
@@ -202,17 +130,6 @@ Do not iterate on descriptions from a single entry. One data point is not a patt
 **What should have happened:** `first-run-experience`, which covers onboarding material for the new hires you will receive.
 **Diagnosis — fixed word order.** `onboarding\s+docs?` needs noun-then-doc. *Document … onboarding* is verb-first with words in between.
 **Guess at fix:** `document\w*\s+(\w+\s+){0,3}onboarding`, `onboarding\s+(guide|material|process)`. **Waiting** (one data point).
-
-### 2026-08-26 — choose-boring-technology — under-fire (router) — **FIX PROPOSED**
-
-**What I said:** *"We need to check if we should actually pull a whole framework to support the webapp or something like an ORM just to get the seed data going … measure the various options."*
-**What actually happened:** nothing matched. `choose-boring-technology` was invoked.
-**What should have happened:** `choose-boring-technology`.
-**Diagnosis — fixed adjacency + vocabulary gap.** *"we should **actually** pull"* breaks `should\s+(we|i)\s+(use|adopt|switch)` twice: the order is reversed and there is an adverb. *Pull in a framework* and *ORM* are not covered.
-**Fix proposed:** `(pull|bring)(ing)?\s+in\s+(an?\s+)?…`, `pull\s+(a\s+)?whole\s+(framework|ORM|library)`, plus the clauses in 2026-09-17.
-
----
-
 
 ### 2026-08-17 — agile-planning — under-fire (router) — **FIXED**
 
@@ -303,4 +220,92 @@ Leaning (2) for now — per the triage rule below, one data point is not a patte
 <!-- Move entries here once the underlying description has been tightened and shipped.
      Keep the entry, add a resolution line: "Fixed by <commit-hash>: <what changed>". -->
 
-*(No entries yet.)*
+### 2026-09-25 — code-review — under-fire (router) — **FIXED**
+
+**What I said:** *"can we take a pause on this work quickly and have a look at pr 405 on webapp, steven asked for a review."* The desktop app prefixed an `<artifact-view-context>` block.
+**What actually happened:** router named `build-and-package` only. `code-review` was invoked.
+**What should have happened:** `code-review`.
+**Diagnosis — fixed word order + machine text.** (1) `review(ing)?\s+(a|this|my|the)\s+(PR|…)` needs *review* first and a determiner next. Here the PR comes first and *review* comes 40 characters later. (2) `build-and-package` came entirely from the artifact block's boilerplate ("…live state in the **artifact**…"). With the block stripped, the prompt matched nothing. The same block fed the context fallback for the 2026-09-25 *"yes go ahead with the messages"* window.
+**Fix proposed:** bidirectional *review* ↔ PR/branch/diff within 60 chars. Strip `<artifact-view-context>…</artifact-view-context>` before matching. Stripping is right here, not adding the block to `NOT_HUMAN`, because the user's words follow the block.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-24 — code-review — under-fire (router) — **FIXED**
+
+**What I said:** *"review 376"*
+**What actually happened:** nothing matched. `code-review` was invoked.
+**What should have happened:** `code-review`.
+**Diagnosis — wrong alternation.** Every alternative needs a noun after *review* (`PR`, `code`, `diff`). A bare PR number is the shortest and most common phrasing, and nothing covers it.
+**Fix proposed:** `review\w*\s+(of\s+)?((PR|pull\s+request|MR)\s*)?#?\d{2,}`.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-21 — interface-decisions — wrong-skill (router) — **FIXED**
+
+**What I said:** *"I mean the mock frontend with fake data. The same way the chore/review-fronted-first-draft is set up."*
+**What actually happened:** router named `mocking`. `interface-decisions` was invoked.
+**What should have happened:** `interface-decisions`. A mock frontend is a UI prototype, not a test double.
+**Diagnosis — keyword collision, second instance.** `mock\b(?!-?ups?\b)` excluded only *mock-up*, the case from 2026-08-01. *Mock frontend*, *mock UI*, and *mock screens* use the same UI-prototype sense and still hit `mocking`. `interface-decisions` matches `mock.?up` but not `mock` + a UI noun.
+**Fix proposed:** add `mock\s+(front.?end|UI|screens?|pages?|app)|front.?end\s+mocks?` to `interface-decisions`, and extend the `mocking` lookahead to exclude those nouns. This agrees with the 2026-08-01 entry.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-18 — code-review — under-fire (router) — **FIXED**
+
+**What I said:** *"could you pull aqsa's branch on the attendant app, let's do some review."*
+**What actually happened:** nothing matched. `code-review` was invoked.
+**What should have happened:** `code-review`.
+**Diagnosis — fixed word order.** The object (*branch*) comes 35 characters before *review*, and *review* has no determiner after it. No alternative allows object-then-verb.
+**Fix proposed:** covered by the bidirectional clause (see 2026-09-25).
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-17 — choose-boring-technology — wrong-skill (router) — **FIXED**
+
+**What I said:** *"…our technical advisor said we should create a separate backend … stick with something similar to our tech stack … Do you know in the world of TypeScript a good tool that we could use…"*
+**What actually happened:** router named `design-doc` from context. `choose-boring-technology` was invoked.
+**What should have happened:** `choose-boring-technology`.
+**Diagnosis — fixed word order.** `should\s+(we|i)\s+(use|adopt|switch)` is question order only. *"a good tool that we could use"* puts the noun first and uses *could*. *Tech stack* is not covered either (only `new … stack`).
+**Fix proposed:** `(good|best|right)\s+(tool|framework|library|ORM|database)s?\s+(for|that|to)`, plus both noun-first and verb-first orderings. This agrees with 2026-08-26.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-17 — release-hygiene — under-fire (router) — **FIXED**
+
+**What I said:** *"…the Release PR that needs to start introducing releases with GitHub Release, and the patch template…"*
+**What actually happened:** router named `commit-and-pr-hygiene` (correct, PR template). `release-hygiene` was also invoked.
+**What should have happened:** both.
+**Diagnosis — vocabulary gap.** The pattern is five fixed phrases (`release notes`, `changelog`, `cut a release`, `versioning scheme`, `tag a release`). *GitHub Release(s)* and *release PR* are missing. This is the third of three diagnosable `release-hygiene` misses. The skill went 4/4 under-fire: the router never once named it when it was used.
+**Fix proposed:** add `(github|gh)\s+releases?`, `release\s+(skills?|PRs?|branch(es)?|tags?)`, `versioning`.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-04 — code-review — under-fire (router) — **FIXED**
+
+**What I said:** *"One last thing, let's do a review of pr 287"*
+**What actually happened:** router named `interface-decisions` from context. `code-review` was invoked.
+**What should have happened:** `code-review`.
+**Diagnosis — wrong alternation.** The determiner list is `(a|this|my|the)` directly after *review*. *Review **of** PR* is not in it.
+**Fix proposed:** `review\w*\s+(of\s+)?…#?\d{2,}` and the bidirectional clause.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-09-01 — release-hygiene — under-fire (router) — **FIXED**
+
+**What I said:** *"Next thing I think we should set up is versioning. I want to use GitHub releases and I want strong versioning. There is a skill set up for that."*
+**What actually happened:** router named `interface-decisions` and `interface-tradeoffs` from context. `release-hygiene` was invoked.
+**What should have happened:** `release-hygiene`.
+**Diagnosis — vocabulary gap.** `version(ing)?\s+scheme` needs the word *scheme*. Bare *versioning* and *GitHub releases* miss.
+**Fix proposed:** see 2026-09-17.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-08-31 — release-hygiene — under-fire (router) — **FIXED**
+
+**What I said:** *"…load the release skills from the swe assistant because CI/CD is also maintaining gh actions and gh release, we should start on this too."*
+**What actually happened:** router named `mocking` and `operational-tools` from context. `release-hygiene` was invoked.
+**What should have happened:** `release-hygiene`. The user asked for it almost by name.
+**Diagnosis — vocabulary gap.** Neither *release skills* nor *gh release* is in the alternation.
+**Fix proposed:** see 2026-09-17.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
+
+### 2026-08-26 — choose-boring-technology — under-fire (router) — **FIXED**
+
+**What I said:** *"We need to check if we should actually pull a whole framework to support the webapp or something like an ORM just to get the seed data going … measure the various options."*
+**What actually happened:** nothing matched. `choose-boring-technology` was invoked.
+**What should have happened:** `choose-boring-technology`.
+**Diagnosis — fixed adjacency + vocabulary gap.** *"we should **actually** pull"* breaks `should\s+(we|i)\s+(use|adopt|switch)` twice: the order is reversed and there is an adverb. *Pull in a framework* and *ORM* are not covered.
+**Fix proposed:** `(pull|bring)(ing)?\s+in\s+(an?\s+)?…`, `pull\s+(a\s+)?whole\s+(framework|ORM|library)`, plus the clauses in 2026-09-17.
+**Resolution:** Fixed by 4c49b25 (PR #2, released in 0.2.5).
