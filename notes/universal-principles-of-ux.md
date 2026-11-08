@@ -853,4 +853,27 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 27 — Design for clumsy handling
+
+**What it says.** *(Maintainer's summary; the book's detail was not captured.)* Design for people handling the product clumsily. Doing so helps more people.
+
+**Maintainer's read: self-explanatory. Agreed, and so is the repository.** Every part of this is already held somewhere:
+
+| Part of "clumsy handling" | Where it already lives |
+|---|---|
+| Missed and mis-hit targets: one hand, gloves, a moving bus, tremor | Principle 18's **persona spectrum**: its own touch example is one arm, a broken arm, a new parent holding a baby. Target-size numbers (WCAG 2.5.8, platform minimums) stay with the project, per the boundary recorded at 18 |
+| The accidental tap on something destructive | [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) and [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md): **remove the irreversibility rather than gating it**, through soft delete, delayed execution with cancel, expand-and-contract |
+| Why a confirmation dialog doesn't save the clumsy tap | Principle 14's habituation finding (Böhme & Köpsell) and the undo-versus-confirm disagreement logged there |
+| The double-tap on a slow network | [`idempotency`](../plugins/swe-assistant/skills/idempotency/SKILL.md), linked from the context-of-use fold at 26 |
+
+**The one thing worth naming: Norman's distinction between slips and mistakes.** A *mistake* is the wrong intention, carried out correctly. A *slip* is the right intention, carried out wrongly. Clumsy handling produces slips. That is why confirmations fail against it: the person *meant* to do the thing next to the one they hit, so they confirm on autopilot. Undo works because it acts after the slip becomes visible. This is the cleanest one-line reason for the undo-over-confirm position the repository already holds. Recorded here rather than folded, because the position doesn't change; only its name does.
+
+**Unlike principle 18, the "helps more people" claim fully holds here.** At 18 the universal-benefit argument was flagged as fragile, because some accessibility work (screen-reader semantics) helps almost no one else. Motor tolerance is the opposite case. Bigger targets, more spacing, and undo help the permanent, temporary and situational ends of the spectrum alike, and everyone has a situational version: phone in one hand, coffee in the other. **So 27 is the place to make the spillover argument, and 18's caution says to make it here rather than everywhere.**
+
+**Verdict:** `context`. No skill change. Fully covered; the slip/mistake distinction is the only new vocabulary, and it names an existing position rather than changing one.
+
+**Open question.** None.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
