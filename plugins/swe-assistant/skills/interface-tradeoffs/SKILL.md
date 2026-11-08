@@ -81,6 +81,13 @@ A great many design arguments dissolve once someone checks whether the floor hol
 
 **The engineer's version of this argument is usually different from how it gets phrased.** You are rarely choosing minimalism in the abstract; you are choosing whether to **accept the design system's defaults or deviate from them**. Deviation is an innovation-token spend ([`choose-boring-technology`](../choose-boring-technology/SKILL.md)) — it costs unfamiliarity and maintenance, so it needs to earn something specific.
 
+**A special case worth separating: how many choices to show.** "Fewer options" (Pereyra, principle 24) blends two findings. One is solid but narrow: the **Hick–Hyman law**, where reaction time grows with the *logarithm* of the number of familiar options. The other is contested: **choice overload**, which meta-analyses find only under specific conditions. In practice, the same test as the friction tension below decides it:
+
+- **Cheap, reversible choice:** cut it to a good default. Nobody should deliberate over a sort order.
+- **Consequential, hard to reverse:** keep the options and make them easy to compare. Trimming the list here takes away the user's decision.
+- **Familiarity and ordering beat count.** Familiar options are cheap to add. Unfamiliar ones are read one by one, so their cost grows linearly. Put the likely choice first rather than deleting the rest.
+- **Every removed choice is a default you made,** and most people keep defaults. If the default benefits the product more than the person, it is a [`design-ethics`](../design-ethics/SKILL.md) question, not a simplification.
+
 > **Terminology warning.** Venturi's argument *for* complexity means richness and ambiguity. That is the opposite valence to complexity in [`managing-complexity`](../managing-complexity/SKILL.md), where it means cost — anything structural that makes a system hard to understand and modify. Both sources are in play in this repository. Do not let them collide.
 
 ### Speed versus deliberate friction
@@ -104,6 +111,10 @@ So there are three reasons to add friction, and they take three different tests:
 **For distinctive:** the unusual is what gets remembered. Convention is invisible, and invisible things do not get chosen.
 
 **What decides it:** **is attention contested, and are your users captive?** Consumer products competing for a click need to be noticed. Internal tools, operational software, and anything people use because they must gain little from standing out and pay the unfamiliarity cost in full.
+
+**When you do break a convention, prove it's deliberate** (Pereyra, principle 29). This is Chesterton's fence: before deviating, **state the convention, what it does for users, and what you give up.** If you can't, you are breaking it out of ignorance. And be wary of "it raised engagement" as evidence. Engagement is the product's number, not the user's, and the famous successful breaks are survivors: the failures were reverted and never written up.
+
+**Familiar *to what*?** Expectations form wherever the user learned the task (Pereyra, principle 28, against Nielsen's Jakob's law). For **generic interactions** (navigation, search, forms, a cart), that means other software: digital convention *is* their real world now. For **domain tasks** learned offline, such as a paper shift sheet, a rota board, or a job card, it means the analog practice, and copying another app's pattern replaces their expertise with a guess. Either way, **copy the model, not the analog's limits.** Page-turning instead of search, or no undo because ink had none, are constraints of paper, not part of what made it familiar.
 
 **Both sides have measurement behind them, and they genuinely point opposite ways.** Tuch et al. (*International Journal of Human-Computer Studies*, 2012) showed 119 real website screenshots at exposures as short as **17 milliseconds** and found that **prototypicality** — how much a page looks like what people expect for its category — already moves aesthetic judgment at that speed. The mechanism is **processing fluency**: things that are easier to process are experienced as more pleasant, and typicality is one of the properties that makes processing easy (Reber, Schwarz & Winkielman, 2004). Meanwhile the von Restorff effect is equally solid on the other side: what is *distinct* is what gets remembered.
 

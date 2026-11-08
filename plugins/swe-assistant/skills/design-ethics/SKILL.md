@@ -7,7 +7,7 @@ description: Use when a design decision may work against the person using it —
 
 ## Source
 
-Pereyra, *Universal Principles of UX* (Rockport) — principles 5 (*Design is not neutral*) and 14 (*Friction isn't always bad*), which together supply the claim and the mechanism.
+Pereyra, *Universal Principles of UX* (Rockport) — principles 5 (*Design is not neutral*) and 14 (*Friction isn't always bad*), which together supply the claim and the mechanism, and 30 (*Persuade, don't coerce*), which supplies the *bring the alternative* move below.
 
 **Harry Brignull's deceptive patterns** work (https://www.deceptive.design/) is the origin of the *dark patterns* framing and the standard taxonomy. This skill treats it as a reference to look things up in, not a list to memorize — see the note on tests below.
 
@@ -129,6 +129,7 @@ Then, practically:
 
 - **Put it in writing, once, without heat.** A design doc comment or a PR thread creates a dated record that the question was asked. See [`design-doc`](../design-doc/SKILL.md).
 - **Ask, don't accuse.** *"What happens to a user who doesn't notice this?"* is harder to dismiss than an assertion and often produces the reconsideration by itself.
+- **Bring the alternative.** An objection costs the other person a decision; an alternative gives them one. Show a version that meets the same business goal without the harm: for retention, a pause option or one skippable offer on the cancel step instead of a maze; for re-engagement, a digest the user schedules instead of unpredictable notifications. Many dark patterns are defaults copied from a competitor, not choices anyone made, so "there's another way" is often news.
 - **Name a reversal condition.** Agreeing in advance what result would undo the decision is a proposal rather than an objection, and it frequently gets accepted.
 - **Know your own line before you are standing on it.** Decide in the calm moment what you will not build. That decision is much harder to make well under pressure with a deadline.
 

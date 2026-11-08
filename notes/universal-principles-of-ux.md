@@ -762,4 +762,211 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 23 — Don't just design for novices
+
+**What it says.** Don't design only for first-time visitors. People who return often need more speed and more control to do more sophisticated things. These are power users, and it is worth understanding *how* they differ: sometimes it's speed (shortcuts), sometimes volume (batch actions, macros), sometimes control (deeper customisation, a settings panel). Almost every product needs both a novice path and an expert path, and the expert path should always be the **alternative, never the primary**: tucked away and easy to ignore, yet easy to find when needed.
+
+**This is principle 22's ceiling, made concrete.** Principle 22 said that for frequent users you optimise the ceiling. Principle 23 names the three mechanisms for raising it: **speed, volume, control**. They are different needs, and confusing them builds the wrong thing. A settings panel does nothing for someone who needs to do one action 400 times.
+
+**"Tucked away *and* easy to find" sounds contradictory. The resolution is a bridge, not a hiding place.** The classic form is Nielsen's *flexibility and efficiency of use* heuristic: accelerators the novice never notices, which speed up the expert. Best practice is a novice path that **teaches** the expert path. A menu item that shows its keyboard shortcut teaches that shortcut every time someone clicks it. This is principle 22's ambient teaching again: the path to expertise runs *through* the novice interface, not beside it.
+
+**Prefer accelerators to a *mode*.** The book says "expert mode", and modes are a known hazard. Raskin's *The Humane Interface* and Tesler's long campaign against modes both rest on the same failure: someone acts as if they're in one mode while actually in the other. A mode toggle also splits the docs, the support answers, and the screenshots. Accelerators layered onto one surface avoid all of that. So the engineering reading is *one interface with optional fast paths*, not *two interfaces*.
+
+**A fourth independent convergence: expertise reversal.** [`design-doc`](../plugins/swe-assistant/skills/design-doc/SKILL.md) already cites Kalyuga's expertise-reversal effect: scaffolding that helps novices actively *hurts* experts. That is the empirical reason this principle exists. Novice support isn't neutral to an expert; it gets in their way. *(Running count: Sweller at 11, scaffolding at 19, the learning curve at 22, expertise reversal here.)*
+
+**Collides with principle 22, and the frequency condition decides it.** "Never primary" assumes a mixed population, mostly novices with some experts. Principle 22's own condition reverses that for tools **used daily by the same people**: there, nearly everyone is the expert, and burying the fast path behind a novice surface optimises for a user who barely exists. [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md) already holds the right shape for that case, with a shared core, a CLI for power users and a UI for everyone else, both "the same correct behavior". So the rule is conditional: **never primary when most users are occasional; possibly primary when most users are daily.**
+
+**Partial answer to 22's open question.** 22 asked whether *retention after absence* is a missing fourth measurement. 23 supplies part of the design answer: **keep the novice path intact.** Someone returning after three months is a temporary novice, and they fall back on it. A product that converted its novice path into the expert one strands them. The measurement question stays open; the design implication doesn't.
+
+**Verdict:** `fold`, done on logging. [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md)'s learnability callout gains the speed/volume/control split, the bridge requirement, accelerators over modes, the frequency condition on "never primary", and the returning-user reason to keep the novice path.
+
+**Open question.** What is the cheapest reliable evidence that an expert path is missing? Candidate: **workarounds.** Users scripting against the UI, exporting to a spreadsheet to bulk-edit and re-importing, or installing a browser extension to add shortcuts are all doing the power-user design themselves. If that's the signal, it's observable without telemetry, and it belongs in [`first-run-experience`](../plugins/swe-assistant/skills/first-run-experience/SKILL.md) as a diagnostic.
+
+---
+
+### 24 — Make the choice easy
+
+**What it says.** Choice is good, but too much of it stresses us out and slows decisions. The book attributes this to Hick's law and adds a limit: it applies to choices that don't matter much, not to choices with heavy consequences. So an interface should spend people's attention on the choices that matter.
+
+**Two findings are merged here, and they have very different evidence.**
+
+- **The Hick–Hyman law** (Hick 1952, Hyman 1953) is robust but narrow. It says *reaction time* grows with the **logarithm** of the number of equally likely options. The options must be familiar ones the person already knows, as in a known menu or keypad. It is about choosing fast among known options, not about stress, and the log is the important part: going from 8 to 16 familiar options adds one step, not eight. Unfamiliar options are a different case. People have to read them one at a time, so cost grows linearly. That makes *familiarity and ordering* a stronger lever than *count*.
+- **"Too much choice stresses us out" is choice overload** (Iyengar & Lepper's 2000 jam study), and it is **contested**. Scheibehenne, Greifeneder & Todd's 2010 meta-analysis found a mean effect of roughly zero. Chernev, Böckenholt & Goodman (2015) found it does appear under specific conditions: complex option sets, hard decisions, people unsure what they prefer, and a goal of picking *the best one*. So it is a conditional effect, not a law, and it should be cited with its conditions.
+
+**The book's limit is right, though the reason is different.** Hick does not stop at heavy decisions because they are heavy. It stops because it models fast reactions, not deliberation. The design point holds for its own reason: **for consequential decisions, cutting options takes away the user's ability to decide.** There, the job is to make comparison easy, not to shorten the list. So the deciding condition is the same one [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) already uses for friction: **stakes and reversibility.** A cheap, reversible choice gets cut to a good default. A consequential, hard-to-reverse choice gets shown in full and laid out for comparison.
+
+**This repository already practised the principle on two other surfaces.** [`configuration`](../plugins/swe-assistant/skills/configuration/SKILL.md) says *"if every parameter requires a decision, the application is hostile"*. [`evolvable-apis`](../plugins/swe-assistant/skills/evolvable-apis/SKILL.md) uses defaults *"to make a large API feel small"*. Principle 24 is the same move applied to the screen. This is coverage, not a fifth independent convergence: it is the same idea in three places, not three bodies of research arriving at it.
+
+**The engineering reading the principle leaves out: every choice you remove is a default you made.** Defaults are powerful; Johnson & Goldstein's 2003 organ-donation study is the standard demonstration that most people keep whatever was preselected. So *"focus on the choices that matter"* immediately raises the question **who decided what matters.** Hiding the opt-out because it "doesn't matter" is exactly the case [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md) exists for, and its asymmetry test (who benefits from the default?) is the check. That skill already covers pre-checked boxes and opt-in defaults; the link is what was missing.
+
+**Verdict:** `fold`, done on logging. [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md)'s *minimal versus rich* tension gains a paragraph on choice count: stakes decide whether to cut or compare, familiarity beats count, and every cut choice is a default owned under `design-ethics`.
+
+**Open question.** For engineers, the most common version of this problem is probably not a UI. It is **configuration surfaces and CLI flags**, which grow one reasonable option at a time and never shrink. Is "how many knobs does this tool have" a form of [`software-entropy`](../plugins/swe-assistant/skills/software-entropy/SKILL.md), and does that skill need an *option accretion* driver?
+
+---
+
+### 25 — Diverse teams create better solutions
+
+**What it says.** Alternative perspectives are an advantage. Two pieces of evidence are offered: Lu Hong and Scott E. Page, quoted as finding that teams with differences in demographics, cultural identity, ethnicity, training and expertise find better solutions to complex problems than homogeneous teams; and McKinsey's 2015 report that companies in the top quartile for racial and ethnic diversity were 35% more likely to have financial returns above their national industry median. The author closes on bias rather than performance: what is acceptable today may be hurtful or discriminatory tomorrow, so designers should keep their biases in check and question their own assumptions.
+
+**Both citations are weaker than the principle uses them for. Checked before logging, per the correction at principle 5.**
+
+- **Hong & Page (PNAS, 2004) is a computational model, not a study of teams.** Its agents are search heuristics on an abstract problem landscape, and the diversity in it is *functional*: different heuristics. It says nothing about demographics, so the list in the book's quote is not what the paper modelled. The result is also disputed on its own terms. Thompson (*Notices of the AMS*, 2014) argued the mathematics was misapplied; Page (2015) and Singer (2019) replied. Grim et al. (*Philosophy of Science*, 2019) showed the result depends on the random landscape used: on smoother, arguably more realistic landscapes, groups of experts outperform diverse ones. The defensible reading is narrow: **groups whose members approach a problem differently can beat groups of the individually best, under some conditions.**
+- **The McKinsey figure is correlational and did not replicate.** McKinsey describes it as a correlation, not a causal link. Its financial performance was measured in the years *before* diversity was measured, so causation could run either way. Green & Hand (*Econ Journal Watch*, 2024) reran the method on the S&P 500 and found no statistically significant relationship. McKinsey's company list is not public, so the replication could not use the same sample.
+
+**The research that does address real teams says: small, conditional, and mostly about *how* people differ, not who they are.** The largest synthesis, Wallrich et al.'s 2024 registered-report meta-analysis (615 reports, 2,638 effect sizes), found the average relationships between team performance and demographic, job-related and cognitive diversity to be positive and statistically significant, but small. The effect was larger for complex, creative or innovative tasks, and the authors conclude that promises of widespread performance gains are not the strongest argument for diversity initiatives. An earlier meta-analysis, van Dijk, van Engen & van Knippenberg (2012), adds a measurement point. The common belief that demographic diversity hurts performance came largely from **subjective ratings**; on objective measures, it did not hold.
+
+**So the performance case, as the book states it, overclaims, and the bias case is the stronger one.** It needs no business-return figure. A team shares assumptions and blind spots, and **a team cannot notice what none of its members can see.** This is the same mechanism already in [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md): a metaphor drawn *"from your own domain knowledge, your own generation, or your own culture may communicate nothing"* to the user, tested by *"could someone outside your team name what this icon does?"* Principle 25 generalises that test from icons to the whole product. It also extends the capability-axes thread from 18–21. Whoever is absent from the room is where the untested axes are: screen-reader use, a second language, low bandwidth, an unfamiliar cultural reference.
+
+**Audience, as with the Inverse Conway Maneuver.** Early- and mid-career engineers rarely choose who is on their team. What they *can* choose is who sees the work before it ships: reviewers outside their own function, testers unlike the team, people closer to the users than the builders are. That is the actionable form, and it doesn't depend on settling the performance debate.
+
+**On the closing line.** "What is acceptable today may be discriminatory tomorrow" is a claim about norms changing, not about team composition. Its engineering consequence is already in [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md): someone ships every default and label, and owns it, including after norms shift. No new material.
+
+**Verdict:** `fold`, small, done on logging. [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md)'s metaphor section gains the general form, covering more than icons, plus the actionable step: put people unlike the team in the review and test loop. The performance citations are **not** carried into any skill; this note records why.
+
+**Open question.** Is there a Conway-style mirror here? Conway says a system copies its organisation's *communication structure*. Does a product also copy its team's *shared assumptions*, in the defaults, examples and edge cases nobody thought to test? If so, it would explain why the blind-spot argument holds up while the performance argument doesn't, but it needs a source rather than an analogy before it goes anywhere.
+
+---
+
+### 26 — Context matters more than screen size
+
+**What it says.** Screen size is only half the battle. What matters more is each device's context of use: when, where, why and how people reach the content. That has to be worked out before any designing starts, because there is no one-size-fits-all answer across devices. A system designed for context rather than screen size is more likely to feel appropriate and comfortable.
+
+**Mostly already held.** *Context of use* was logged at principle 1 and folded into [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3, with the attendant confirming a shift one-handed between tasks as its example. The *situational* end of the persona spectrum, as in one hand busy or bright sunlight, was logged at principle 18. Principle 26 restates both for the multi-device case. The two things it adds are below.
+
+**1. Screen size is to context what age is to capability: a proxy.** This is the same move as principles 20 and 21, now applied to devices. Responsive design keys on viewport width because width is what the browser reports. Width doesn't tell you whether someone is on a train or on a sofa, in a hurry or settled in. **And the proxy fails in the other direction, too.** "Mobile means on the go, so give them less" produced the stripped-down mobile site. That fails everyone whose phone is their *only* device, who then cannot do the full task anywhere. This is the content-parity argument from the mobile-first literature: **the device tells you about input and space, not about intent.** Design for context, but don't *infer* context from the device. Treat it the way the capability-axes reading treats age: as a hint to verify, not a fact to design from.
+
+**2. The engineering transfer: context sets backend requirements, not just layout.** The principle stays at the interface. For an engineer, the bigger consequences are underneath it:
+
+| Context | What it requires of the system |
+|---|---|
+| Patchy or no connectivity (a client's home, a basement, a rural road) | Offline tolerance, queued writes, [`retry-and-backoff`](../plugins/swe-assistant/skills/retry-and-backoff/SKILL.md) |
+| A flaky network plus an impatient double-tap | [`idempotency`](../plugins/swe-assistant/skills/idempotency/SKILL.md): the second submit must not create a second record |
+| Interrupted mid-task | Persisted drafts and resumable flows, so the half-finished form survives being backgrounded |
+| One hand, gloves, glare | Input-method support (target size, pointer vs touch), not just layout |
+
+**None of these show up in a mockup at desk resolution, and all of them are expensive to add late.** That's the real reason the principle says to settle context *before* designing: it changes the architecture, not just the CSS.
+
+**Verdict:** `fold`, small, done on logging. The context-of-use bullet in [`technical-design-process`](../plugins/swe-assistant/skills/technical-design-process/SKILL.md) Step 3 gains both refinements: device is a proxy and not context, and context decides connectivity, interruption and input requirements, with links to `retry-and-backoff` and `idempotency`.
+
+**Open question.** The capability-axes thread now has a matching *situational* axis set: connectivity, attention, hands, light, noise. Are these the same axes seen from the environment's side? A screen reader, a noisy room, and a captioned video all point that way. If they are, the cluster's eventual output is one axis list with three causes (permanent, temporary, situational), not two separate lists.
+
+---
+
+### 27 — Design for clumsy handling
+
+**What it says.** *(Maintainer's summary; the book's detail was not captured.)* Design for people handling the product clumsily. Doing so helps more people.
+
+**Maintainer's read: self-explanatory. Agreed, and so is the repository.** Every part of this is already held somewhere:
+
+| Part of "clumsy handling" | Where it already lives |
+|---|---|
+| Missed and mis-hit targets: one hand, gloves, a moving bus, tremor | Principle 18's **persona spectrum**: its own touch example is one arm, a broken arm, a new parent holding a baby. Target-size numbers (WCAG 2.5.8, platform minimums) stay with the project, per the boundary recorded at 18 |
+| The accidental tap on something destructive | [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) and [`operational-tools`](../plugins/swe-assistant/skills/operational-tools/SKILL.md): **remove the irreversibility rather than gating it**, through soft delete, delayed execution with cancel, expand-and-contract |
+| Why a confirmation dialog doesn't save the clumsy tap | Principle 14's habituation finding (Böhme & Köpsell) and the undo-versus-confirm disagreement logged there |
+| The double-tap on a slow network | [`idempotency`](../plugins/swe-assistant/skills/idempotency/SKILL.md), linked from the context-of-use fold at 26 |
+
+**The one thing worth naming: Norman's distinction between slips and mistakes.** A *mistake* is the wrong intention, carried out correctly. A *slip* is the right intention, carried out wrongly. Clumsy handling produces slips. That is why confirmations fail against it: the person *meant* to do the thing next to the one they hit, so they confirm on autopilot. Undo works because it acts after the slip becomes visible. This is the cleanest one-line reason for the undo-over-confirm position the repository already holds. Recorded here rather than folded, because the position doesn't change; only its name does.
+
+**Unlike principle 18, the "helps more people" claim fully holds here.** At 18 the universal-benefit argument was flagged as fragile, because some accessibility work (screen-reader semantics) helps almost no one else. Motor tolerance is the opposite case. Bigger targets, more spacing, and undo help the permanent, temporary and situational ends of the spectrum alike, and everyone has a situational version: phone in one hand, coffee in the other. **So 27 is the place to make the spillover argument, and 18's caution says to make it here rather than everywhere.**
+
+**Verdict:** `context`. No skill change. Fully covered; the slip/mistake distinction is the only new vocabulary, and it names an existing position rather than changing one.
+
+**Open question.** None.
+
+---
+
+### 28 — Match the real world
+
+**What it says.** Almost everything we design as an interface has a real-world counterpart, and people already know how to interact with that counterpart. So instead of looking at other websites for inspiration, take cues from the analog version of whatever you are designing. If the interaction model and design elements parallel the real world, the interface feels familiar and people are much more likely to understand it immediately.
+
+**This is Nielsen's second heuristic,** *match between the system and the real world*. It is also principle 7's mechanism (borrow a mental model the user already holds) applied to interaction rather than iconography.
+
+**It answers principle 7's open question.** Principle 7 asked whether its two omitted failure modes, *metaphors leak then expire* and *metaphors are culturally located*, would turn up in a later principle. This is the later principle, and from the summary it doesn't cover them. **They stand as this repository's own contributions.** They already live in [`interface-decisions`](../plugins/swe-assistant/skills/interface-decisions/SKILL.md) (the floppy disk, and a referent drawn from "your own generation, or your own culture").
+
+**"Instead of looking at other websites" collides head-on with Jakob's law.** That is also Nielsen: users spend most of their time on *other* sites, so they expect yours to work like those. Both cannot be the rule. **The resolution is to ask where *this user's* expectation actually formed.**
+
+- **Generic interactions** (navigation, search, forms, pull-to-refresh, a shopping cart): the expectation formed in other software. For most users, digital convention *is* the real world now. The floppy disk is the proof: its analog referent is gone and the convention survives on its own.
+- **Domain tasks** where the user's expertise was built offline (a paper shift sheet, a whiteboard rota, a clinician's chart, a workshop job card): the analog practice is the model they bring. Copying another app's pattern there swaps their expertise for someone else's guess.
+
+**Copy the model, not the analog's limits.** Literal analog copying imports constraints the medium doesn't have: page-turning instead of search, one view of the data instead of several, paper-form field order kept for a printer that no longer exists, no undo because ink had none. The real-world match is meant to make the interface *understandable*, not to cap what it can do. Keep the structure people recognise, and drop the limitations that existed only because of paper.
+
+**The engineering transfer: the heuristic is mostly about words.** Nielsen's version leads with *speak the users' language: words, phrases and concepts familiar to them, rather than system-oriented terms.* The engineer's most frequent violation isn't a bad metaphor. It is **the internal model leaking into the screen**: a status shown as `PENDING_SYNC`, a field labelled with its column name, an enum value used as a user-facing state, a record called by its table name. [`interface-copy`](../plugins/swe-assistant/skills/interface-copy/SKILL.md) already requires errors "in the user's terms, not the exception name"; it applies to every label, not just errors. **And the cheapest place to fix it is upstream.** When the code's domain model already uses the users' words (DDD's *ubiquitous language*, in [`managing-complexity`](../plugins/swe-assistant/skills/managing-complexity/SKILL.md)), every screen gets the right vocabulary for free. When it doesn't, every screen has to translate, and anything left untranslated leaks.
+
+**Verdict:** `fold`, two small ones, done on logging.
+
+- [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md), *familiar versus distinctive*: familiar *to what* (digital convention for generic interactions, analog practice for domain tasks), and copy the model, not the analog's limits.
+- [`interface-copy`](../plugins/swe-assistant/skills/interface-copy/SKILL.md): a practice for *the user's words, not the system's*, extending the error-message rule to every label and linking upstream to ubiquitous language.
+
+**Open question.** For the maintainer's domain work, how do you find out *which* real world the users carry? Care workers who learned on paper and those who have only ever used apps hold different models of the same task. Is that a research question per product, or does it follow the capability-axes reading, with *where expertise was formed* as one more axis?
+
+---
+
+### 29 — Know when to break with convention
+
+**What it says.** Nielsen is quoted as saying designers have a responsibility to meet people's expectations, standardise interfaces, and follow conventions at all times. The author's reply: *"No thanks."* There are many examples of broken conventions working and even raising engagement. Breaking convention can be good, but it must be **deliberate**, never accidental or done out of ignorance of the norm, and it must always consider the intended audience.
+
+**Mostly held already, and the book's conditions match the repository's.** [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) has two tensions for exactly this: *familiar versus distinctive* (decided by **is attention contested, and are your users captive?**) and *the expected solution versus the surprising one* (decided by **does it serve a need you have actually observed?**, bounded by MAYA). "Consider the intended audience" is the first test in different words. Principle 28 then 29 looks contradictory and isn't: 28 is the default and 29 is the exception, and that skill already holds both with a decider.
+
+**The Nielsen side is a stronger position than "No thanks" answers.** His published heuristic is *consistency and standards*: users shouldn't have to wonder whether different words or actions mean the same thing, so follow platform conventions. That is a default, not a ban. Read that way, the disagreement shrinks to *who carries the burden of proof*. Nielsen puts it on the deviation, and the book's own condition, *deliberate and never out of ignorance*, does the same. The two positions are closer than the chapter makes them sound.
+
+**"Higher engagement" is the weakest evidence offered, for two reasons.**
+
+- **Whose metric is it?** Engagement is the product's number. A convention broken to raise it is the case principle 21's fold in `interface-tradeoffs` already tests: *whose interest does the friction serve?* Unfamiliarity is friction. If the break helps the user, it's design; if it only moves time-on-site, it's [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md).
+- **Survivorship.** The breaks that worked become the examples. The ones that failed were quietly reverted and nobody wrote them up. "Many examples of it working" is what you'd see whether or not breaking convention usually works.
+
+**The new part is the condition, and it has a name: Chesterton's fence.** *Don't remove a fence until you know why it was put up.* "Never out of ignorance of the norm" is exactly that test, and it makes the condition checkable: **before deviating, state the convention, what it does for users, and what you are giving up.** If you can't state it, you are breaking it out of ignorance, whatever it feels like. Conventions are rarely arbitrary. Most encode a lesson someone paid for: the cart at top right, the destructive button set apart, the back button that actually goes back.
+
+**Verdict:** `fold`, small, done on logging. `interface-tradeoffs`' *familiar versus distinctive* gains the deliberate-break test (Chesterton's fence: name the convention, its job, and the cost before deviating) and the survivorship caution on engagement-based examples.
+
+**Open question.** Chesterton's fence is at least as useful for *code* as for interfaces: the odd guard clause, the sleep nobody can explain, the config value with no comment. [`changing-legacy-code`](../plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) doesn't name it. Is that a fold this principle justifies, or does it need a code-side source first? Probably the latter: [`READING-LIST.md`](../READING-LIST.md) already lists *The Legacy Code Programmer's Toolbox*, which is the natural place to source it.
+
+---
+
+### 30 — Persuade, don't coerce
+
+**What it says.** It opens with Victor Papanek (*Design for the Real World*, 1971), who ranked advertising as the phoniest profession, for persuading people to buy what they don't need, with industrial design close behind. The author extends the ranking: if advertising is first and industrial design second, UX design is third, because it mostly works for marketing and sales and often ends up building something addictive. Good UX designers are said to be emotionally intelligent, but Nozaki & Koyasu are cited for the dark side: emotionally intelligent people are also good at steering others toward their own interests. Gamification and social-media features are the examples. Clients often don't know there is another way, so it is the designer's responsibility to educate them and propose alternatives that don't exploit the user.
+
+**Mostly held: this is [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md)'s territory, and the skill already covers it.** *Persuade versus coerce* is the line its tests draw. The **informed-user test** is the persuasion test: persuasion still works once the person fully understands what is being done to them, and coercion doesn't. The **asymmetry test** asks who benefits. "We mostly work for marketing" is the skill's *the specification is not a defence*. Principle 30 supplies a third source (after 5 and 14) for the same skill, not a new claim.
+
+**The Nozaki & Koyasu citation is real but narrower than its use here.** It is a 2013 PLOS ONE study of trait emotional intelligence and how people behaved toward those who had *ostracised* them, not a study of designers or persuasion. Nozaki's own summary is that emotional intelligence is neither positive nor negative but helps people pursue their goals with others. The wider literature agrees on a small effect. A 2020 meta-analysis found self-reported ability EI positively correlated with non-prosocial emotional manipulation, at an effect size of about 0.10, and most studies find core EI *negatively* related to Dark Triad traits. **So it is a real effect, small, and not the strongest support for the point.**
+
+**The stronger version of the point doesn't need the trait research: user research is dual-use.** The empathy the job asks for produces *knowledge* about what people want, fear, and can't resist. That knowledge can serve them or be used against them, whoever holds it and whatever their EI. Interview notes revealing that a user feels guilty cancelling are the input to both a respectful cancel flow and a guilt-trip one. That is a property of the research, not of the researcher's personality, and it's why the tests in `design-ethics` apply to the *use* of an insight, not to who had it.
+
+**Two claims to carry with care.** "Addictive" is the book's word; clinically, *problematic use* is the safer term, and whether technology use is addiction in the clinical sense is still debated. "Oxytocin-based features" is pop neuroscience. The usual mechanism claim is variable reward, which is a behavioural description and doesn't need a hormone attached. Neither changes the design point; both would weaken an argument made to a sceptical stakeholder, which is exactly the audience `design-ethics` prepares you for.
+
+**The new part is the last sentence: propose the alternative.** `design-ethics`' *Raising it* section reframes from ethics to risk, asks instead of accusing, and names a reversal condition. What it lacks is the move the book ends on: **bring a version that meets the business goal without the harm.** An objection costs the other person a decision; an alternative gives them one. Retention without a maze: a pause option, or a single skippable offer on the cancel step. Re-engagement without variable-reward notifications: a digest the user schedules. The book's point that clients often *don't know there's another way* is the reason this works. Many dark patterns are defaults copied from competitors, not decisions anyone made.
+
+**Verdict:** `fold`, small, done on logging. `design-ethics` gains principle 30 as a source and a *bring the alternative* bullet in *Raising it*. The dual-use framing stays in this note; the skill's tests already act on use rather than intent.
+
+**Open question.** The alternative only lands if it is credible on the business's own metric. Is there evidence that respectful retention (pause, easy cancel) retains comparably over time? There are regulatory reasons to think dark-pattern retention is getting more expensive (the commissioners' 2024 resolution already cited in the skill), but a measured comparison would make the alternative an argument rather than a hope. Worth a search before the next `design-ethics` revision.
+
+---
+
+### 31 — Design for passive attention
+
+**What it says.** Not every interface needs constant interaction. Think about what value a device can offer when it is idle or simply part of the surroundings, and use that carefully, so it *adds to* the environment rather than taking it over.
+
+**The established name is calm technology.** Weiser & Brown (Xerox PARC, *Designing Calm Technology*, 1995) separated the **centre** of attention, where we focus, from the **periphery**, which we're aware of without attending to it. Their argument was that good technology moves easily between the two. Amber Case's *Calm Technology* (2015) turned it into design principles, the central one being that technology should ask for the least attention it can. Principle 31's "add rather than overtake" is that principle.
+
+**The engineering transfer is direct, and it's alerting.** Attention moves between three levels, and every signal a system emits lands on one of them:
+
+| Level | Calm-technology term | Engineering form | Use when |
+|---|---|---|---|
+| Interrupt | Centre, forced | A page, a push notification, a modal | A human must act **now** |
+| Queue | Moves to the centre when the person chooses | A ticket, an email, a badge count | A human must act **soon**, on their own schedule |
+| Ambient | Periphery | A dashboard, a status colour, a log line | It's worth being *able* to know, not worth being told |
+
+**Most alerting failures put a periphery signal on the interrupt level.** The CPU-at-80% page, the nightly batch job that "succeeded" by email, the dashboard metric someone wired to the pager "just in case". That is "overtaking the environment" in operations terms. Alert fatigue is the result: principle 9's Von Restorff collapse already logged against [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md), now with a cause. **The fix is usually not deleting the signal but demoting it** to the level its urgency deserves. That's why "fix it or delete it" (the skill's current rule) is missing an option: *move it*.
+
+**Unix's rule of silence is the same principle from 1978.** A program with nothing surprising to say should say nothing. A successful run is ambient by default. It shows up in the log and the exit code, not as output demanding a reader.
+
+**For user-facing products, the same three levels govern notifications.** Every push notification draws on attention the user didn't offer. If it could have been a badge, it should have been. This overlaps principle 30, since notifications are the most common place engagement metrics overtake the user's interest. [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md)' asymmetry test applies unchanged.
+
+**Verdict:** `fold`, small, done on logging. [`operator-playbook`](../plugins/swe-assistant/skills/operator-playbook/SKILL.md)'s *alerting that's actionable* bullet gains the three levels (page, ticket, dashboard) and *move it* as the third option beside fix and delete.
+
+**Open question.** Ambient displays have a design discipline of their own, glanceability: state readable in about a second from across a room, through colour and position rather than numbers. Team wall dashboards almost never meet it, and they are usually dense grids of time-series. Does [`metrics`](../plugins/swe-assistant/skills/metrics/SKILL.md) need a callout on *dashboards as ambient displays*, or is that product-specific enough to stay out? Leaning out, unless it comes up in practice.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->

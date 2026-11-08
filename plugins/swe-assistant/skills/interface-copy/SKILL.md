@@ -82,6 +82,10 @@ Edit at the sentence and paragraph level down to exactly what needs saying. Then
 
 This is the single most useful test here, and its independent arrival from essay writing and interface writing is good evidence it is load-bearing rather than a stylistic preference.
 
+### Use the user's words, not the system's
+
+The most common leak is the internal model showing through: a status displayed as `PENDING_SYNC`, a field labelled with its column name, an enum value used as a user-facing state. Every label should use the term the user would say aloud about their own task (Nielsen's *match between system and the real world*). The cheapest fix is upstream: if the code's domain model already uses the users' vocabulary (*ubiquitous language*, see [`managing-complexity`](../managing-complexity/SKILL.md)), the screens inherit it. If it doesn't, every screen has to translate, and whatever goes untranslated leaks.
+
 ### Error messages have three jobs
 
 The most commonly botched surface, and the one where users are least able to absorb a failure.

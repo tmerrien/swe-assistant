@@ -92,6 +92,8 @@ The constraint is that **a metaphor only works if the referent is actually share
 
 **The practical test:** could someone outside your team name what this icon does without a tooltip? If the answer requires a tooltip, the tooltip is doing the work and the icon is decoration. Pair icons with labels unless the symbol is genuinely conventional.
 
+**The same blind spot exists beyond icons.** Defaults, example data, wording, assumed bandwidth, assumed input method: anything the team shares can go unnoticed, because a team cannot see what none of its members can see (Pereyra, principle 25). You usually can't choose who is on your team, but you can choose **who sees the work before it ships**. Bring in reviewers from outside your function and testers unlike the team, and treat their confusion as data, not as a training problem.
+
 ## Callout — Attractive prototypes get more forgiving feedback
 
 The **aesthetic-usability effect**: people judge attractive things as more usable, somewhat independently of whether they are. This has a direct methodological consequence that matters more than the design advice:
