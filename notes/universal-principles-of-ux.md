@@ -923,4 +923,24 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 30 — Persuade, don't coerce
+
+**What it says.** It opens with Victor Papanek (*Design for the Real World*, 1971), who ranked advertising as the phoniest profession, for persuading people to buy what they don't need, with industrial design close behind. The author extends the ranking: if advertising is first and industrial design second, UX design is third, because it mostly works for marketing and sales and often ends up building something addictive. Good UX designers are said to be emotionally intelligent, but Nozaki & Koyasu are cited for the dark side: emotionally intelligent people are also good at steering others toward their own interests. Gamification and social-media features are the examples. Clients often don't know there is another way, so it is the designer's responsibility to educate them and propose alternatives that don't exploit the user.
+
+**Mostly held: this is [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md)'s territory, and the skill already covers it.** *Persuade versus coerce* is the line its tests draw. The **informed-user test** is the persuasion test: persuasion still works once the person fully understands what is being done to them, and coercion doesn't. The **asymmetry test** asks who benefits. "We mostly work for marketing" is the skill's *the specification is not a defence*. Principle 30 supplies a third source (after 5 and 14) for the same skill, not a new claim.
+
+**The Nozaki & Koyasu citation is real but narrower than its use here.** It is a 2013 PLOS ONE study of trait emotional intelligence and how people behaved toward those who had *ostracised* them, not a study of designers or persuasion. Nozaki's own summary is that emotional intelligence is neither positive nor negative but helps people pursue their goals with others. The wider literature agrees on a small effect. A 2020 meta-analysis found self-reported ability EI positively correlated with non-prosocial emotional manipulation, at an effect size of about 0.10, and most studies find core EI *negatively* related to Dark Triad traits. **So it is a real effect, small, and not the strongest support for the point.**
+
+**The stronger version of the point doesn't need the trait research: user research is dual-use.** The empathy the job asks for produces *knowledge* about what people want, fear, and can't resist. That knowledge can serve them or be used against them, whoever holds it and whatever their EI. Interview notes revealing that a user feels guilty cancelling are the input to both a respectful cancel flow and a guilt-trip one. That is a property of the research, not of the researcher's personality, and it's why the tests in `design-ethics` apply to the *use* of an insight, not to who had it.
+
+**Two claims to carry with care.** "Addictive" is the book's word; clinically, *problematic use* is the safer term, and whether technology use is addiction in the clinical sense is still debated. "Oxytocin-based features" is pop neuroscience. The usual mechanism claim is variable reward, which is a behavioural description and doesn't need a hormone attached. Neither changes the design point; both would weaken an argument made to a sceptical stakeholder, which is exactly the audience `design-ethics` prepares you for.
+
+**The new part is the last sentence: propose the alternative.** `design-ethics`' *Raising it* section reframes from ethics to risk, asks instead of accusing, and names a reversal condition. What it lacks is the move the book ends on: **bring a version that meets the business goal without the harm.** An objection costs the other person a decision; an alternative gives them one. Retention without a maze: a pause option, or a single skippable offer on the cancel step. Re-engagement without variable-reward notifications: a digest the user schedules. The book's point that clients often *don't know there's another way* is the reason this works. Many dark patterns are defaults copied from competitors, not decisions anyone made.
+
+**Verdict:** `fold`, small, done on logging. `design-ethics` gains principle 30 as a source and a *bring the alternative* bullet in *Raising it*. The dual-use framing stays in this note; the skill's tests already act on use rather than intent.
+
+**Open question.** The alternative only lands if it is credible on the business's own metric. Is there evidence that respectful retention (pause, easy cancel) retains comparably over time? There are regulatory reasons to think dark-pattern retention is getting more expensive (the commissioners' 2024 resolution already cited in the skill), but a measured comparison would make the alternative an argument rather than a hope. Worth a search before the next `design-ethics` revision.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
