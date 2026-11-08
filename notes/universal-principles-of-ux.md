@@ -902,4 +902,25 @@ Neither countermeasure helps against the other's cause. Clean boundaries do noth
 
 ---
 
+### 29 — Know when to break with convention
+
+**What it says.** Nielsen is quoted as saying designers have a responsibility to meet people's expectations, standardise interfaces, and follow conventions at all times. The author's reply: *"No thanks."* There are many examples of broken conventions working and even raising engagement. Breaking convention can be good, but it must be **deliberate**, never accidental or done out of ignorance of the norm, and it must always consider the intended audience.
+
+**Mostly held already, and the book's conditions match the repository's.** [`interface-tradeoffs`](../plugins/swe-assistant/skills/interface-tradeoffs/SKILL.md) has two tensions for exactly this: *familiar versus distinctive* (decided by **is attention contested, and are your users captive?**) and *the expected solution versus the surprising one* (decided by **does it serve a need you have actually observed?**, bounded by MAYA). "Consider the intended audience" is the first test in different words. Principle 28 then 29 looks contradictory and isn't: 28 is the default and 29 is the exception, and that skill already holds both with a decider.
+
+**The Nielsen side is a stronger position than "No thanks" answers.** His published heuristic is *consistency and standards*: users shouldn't have to wonder whether different words or actions mean the same thing, so follow platform conventions. That is a default, not a ban. Read that way, the disagreement shrinks to *who carries the burden of proof*. Nielsen puts it on the deviation, and the book's own condition, *deliberate and never out of ignorance*, does the same. The two positions are closer than the chapter makes them sound.
+
+**"Higher engagement" is the weakest evidence offered, for two reasons.**
+
+- **Whose metric is it?** Engagement is the product's number. A convention broken to raise it is the case principle 21's fold in `interface-tradeoffs` already tests: *whose interest does the friction serve?* Unfamiliarity is friction. If the break helps the user, it's design; if it only moves time-on-site, it's [`design-ethics`](../plugins/swe-assistant/skills/design-ethics/SKILL.md).
+- **Survivorship.** The breaks that worked become the examples. The ones that failed were quietly reverted and nobody wrote them up. "Many examples of it working" is what you'd see whether or not breaking convention usually works.
+
+**The new part is the condition, and it has a name: Chesterton's fence.** *Don't remove a fence until you know why it was put up.* "Never out of ignorance of the norm" is exactly that test, and it makes the condition checkable: **before deviating, state the convention, what it does for users, and what you are giving up.** If you can't state it, you are breaking it out of ignorance, whatever it feels like. Conventions are rarely arbitrary. Most encode a lesson someone paid for: the cart at top right, the destructive button set apart, the back button that actually goes back.
+
+**Verdict:** `fold`, small, done on logging. `interface-tradeoffs`' *familiar versus distinctive* gains the deliberate-break test (Chesterton's fence: name the convention, its job, and the cost before deviating) and the survivorship caution on engagement-based examples.
+
+**Open question.** Chesterton's fence is at least as useful for *code* as for interfaces: the odd guard clause, the sleep nobody can explain, the config value with no comment. [`changing-legacy-code`](../plugins/swe-assistant/skills/changing-legacy-code/SKILL.md) doesn't name it. Is that a fold this principle justifies, or does it need a code-side source first? Probably the latter: [`READING-LIST.md`](../READING-LIST.md) already lists *The Legacy Code Programmer's Toolbox*, which is the natural place to source it.
+
+---
+
 <!-- Next entry goes here. Keep the four-part shape. -->
